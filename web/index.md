@@ -1,11 +1,12 @@
 ---
-title: Startpage
+title: Flink Training
 layout: page
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+[Apache Flink](http://flink.apache.org) is an open source platform for scalable batch and stream data processing.
+
+Flink offers expressive APIs to define batch and streaming data flow programs and a robust and scalable engine to execute these jobs.
+
+### Goals & Scope of the Training
+
+This training is intended for people who want to learn to analyze data with Apache Flink. For now, the training focuses on Flink's DataSet API for batch processing. The training will be extended to cover a broader range of use cases.
