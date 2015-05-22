@@ -33,22 +33,29 @@ This format is not so well suited for immediate analysis and requires a bit of c
 
 We provide a Flink program, which reads Mbox files of Apache mailing list archives, extracts some information, and writes the mails in an easy to process format. The program can be found in the exercise project ...
 
-The training data set is generated in a separated text format. Emails are separated by "`##//##`" char sequence.
-Each mail has six fields:
+#### TODO
 
-- `Timestamp: String`
-- `Sender: String`
-- `Subject: String`
-- `MessageBody: String`
-- `MessageID: String // (may be “null”)`
-- `Replied-ToID: String // (may be “null”)`
+The training data set is generated in a separated text format. Emails are separated by "`##//##`" char sequence.
+Each mail has seven fields:
+
+~~~
+UniqueMID    : String // a unique message id
+Timestamp    : String // the mail deamon timestamp
+Sender       : String // the sender of the mail
+Subject      : String // the subject of the mail
+Body         : String // the body of the mail (contains linebrakes)
+MessageID    : String // the message id as provided 
+                           (may be “null” and not unique)
+Replied-ToID : String // the message id of the mail this mail was replied to 
+                      //   (may be “null”)
+~~~
 
 which are separated by a "`#|#`" char sequence.
 
 So the format of the file is 
 
 ~~~
-<Timestamp>#|#<Sender>#|#<Subject>#|#<MessageBody>#|#<MessageId>#|#<RepliedToId>##//##<TimeStamp>#|#<Sender>#|#...
+<UniqueID>#|#<Timestamp>#|#<Sender>#|#<Subject>#|#<MessageBody>#|#<MessageId>#|#<RepliedToId>##//##<TimeStamp>#|#<Sender>#|#...
 ~~~
 
 ### Read the Training Data Set
@@ -61,11 +68,11 @@ The training data set can be read using Flink's `CsvInputFormat`:
 ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
 // read all data
-DataSet<Tuple6<String, String, String, String, String, String>> mails =
+DataSet<Tuple7<String, String, String, String, String, String, String>> mails =
 	env.readCsvFile(<PATH-TO-DATASET>)
 		.lineDelimiter(MBoxParser.MAIL_RECORD_DELIM)
 		.fieldDelimiter(MBoxParser.MAIL_FIELD_DELIM)
-		.types(String.class, String.class, String.class, 
+		.types(String.class, String.class, String.class, String.class, 
 			   String.class, String.class, String.class);
 
 // read sender and body

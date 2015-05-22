@@ -4,20 +4,25 @@ title: Exercise 1 - Mail Stats
 permalink: /exercises/mailstats.html
 ---
 
-The task of the first exercise is to count for each unique combination of email address and month the number of emails in the archive of the Flink development mailing list. 
+The task of the "Mail Stats" exercise is to count for each unique combination of email address and month the number of emails in the archive of the Flink development mailing list. 
 
 ### Input Data
 
-This exercise uses the [mail data set](/exercises/trainingData.html) that was extracted from the Apache Flink development mailing list archive. The data set consists for email records with six fields
+This exercise uses the [mail data set](/exercises/trainingData.html) that was extracted from the Apache Flink development mailing list archive. The data set consists of email records with seven fields
 
-- `Timestamp: String`
-- `Sender: String`
-- `Subject: String`
-- `MessageBody: String`
-- `MessageID: String // (may be “null”)`
-- `Replied-ToID: String // (may be “null”)`
+~~~
+UniqueMID    : String // a unique message id
+Timestamp    : String // the mail deamon timestamp
+Sender       : String // the sender of the mail
+Subject      : String // the subject of the mail
+Body         : String // the body of the mail (contains linebrakes)
+MessageID    : String // the message id as provided 
+                           (may be “null” and not unique)
+Replied-ToID : String // the message id of the mail this mail was replied to 
+                      //   (may be “null”)
+~~~
 
-out of which the first two fields, `Timestamp` and `Sender`, are required for this exercise. The data can be accessed using Flink's tooling for delimiter-separated files (such as CSV or TSV files). The following code snippet shows how to read the first two fields of the input data set:
+out of which the second and the third fields, `Timestamp` and `Sender`, are required for this exercise. The data can be accessed using Flink's tooling for delimiter-separated files (such as CSV or TSV files). The following code snippet shows how to read the second and the third field of the input data set:
 
 ~~~java
 ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
@@ -26,6 +31,7 @@ DataSet<Tuple2<String, String>> mails =
   env.readCsvFile(<PATH-TO-DATASET>)
     .lineDelimiter(MBoxParser.MAIL_RECORD_DELIM)
     .fieldDelimiter(MBoxParser.MAIL_FIELD_DELIM)
+    .includeFields("011")
     .types(String.class, String.class); // read two String fields
 ~~~
 
@@ -39,7 +45,7 @@ The data is read as a `DataSet<Tuple2<String, String>>` and contains data which 
 
 ### Expected Output
 
-There are several ways to emit the data of the program. The easist is to print it to the std-out using the `DataSet.print()` method. The expected output for this task looks like:
+There are several ways to emit the data of the program. The easiest is to print it to the std-out using the `DataSet.print()` method. The expected output for this task looks like:
 
 ~~~
 (2014-09,fhueske@apache.org,16)
