@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Exercise 1 - Mail Stats
+title: DataSet API - Mail Statistics
 permalink: /exercises/mailstats.html
 ---
 

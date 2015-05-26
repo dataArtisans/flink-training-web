@@ -1,7 +1,7 @@
 ---
 title: FAQ
 layout: page
-permalink: /faq.html
+permalink: /devResources/exceptionFaq.html
 ---
 
 ### No sink defined

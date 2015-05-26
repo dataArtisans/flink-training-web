@@ -1,7 +1,7 @@
 ---
 title: Performance Tuning
 layout: page
-permalink: /bestPractices/tuning.html
+permalink: /devResources/tuning.html
 ---
 
 ### Reusing Objects

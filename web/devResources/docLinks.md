@@ -1,7 +1,7 @@
 ---
 title: Documentation
 layout: page
-permalink: /docLinks.html
+permalink: /devResources/docLinks.html
 ---
 
 ## [Apache Flink Documentation](http://ci.apache.org/projects/flink/flink-docs-release-0.8/)

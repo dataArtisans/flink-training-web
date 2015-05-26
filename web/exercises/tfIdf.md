@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Exercise 2 - TF-IDF
+title: DataSet API - TF-IDF
 permalink: /exercises/tfIdf.html
 ---
 
