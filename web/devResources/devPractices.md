@@ -4,6 +4,8 @@ layout: page
 permalink: /devResources/bestPractices.html
 ---
 
+
+
 There are a few tips which can significantly ease the development of Flink programs.
 
 ### Input 

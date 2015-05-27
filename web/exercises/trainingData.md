@@ -1,14 +1,10 @@
 ---
 layout: page
-title: Training DataSet
-permalink: /exercises/trainingData.html
+title: Mail Data Set
+permalink: /exercises/mailData.html
 ---
 
-All exercises of this training use a data set that is derived from the public archives of Apache Flink's developer mailing list (dev@flink.apache.org). 
-
-## Flink Developer Mailing List Archive
-
-All communication within Apache projects is happening on or is mirrored to mailing lists. Most of these lists are public and archived. The archives of each public mailing list, such as Apache Flink's developer mailing list, are online available as Mbox files for each individual month. For example, the archived mails of dev@flink.apache.org for December 2014 are available under the URL [http://mail-archives.apache.org/mod_mbox/flink-dev/201412.mbox](http://mail-archives.apache.org/mod_mbox/flink-dev/201412.mbox). 
+The Mail Data Set is derived from the public archives of Apache Flink's developer mailing list (dev@flink.apache.org). All communication within Apache projects is happening on or is mirrored to mailing lists. Most of these lists are public and archived. The archives of each public mailing list, such as Apache Flink's developer mailing list, are online available as Mbox files for each individual month. For example, the archived mails of dev@flink.apache.org for December 2014 are available under the URL [http://mail-archives.apache.org/mod_mbox/flink-dev/201412.mbox](http://mail-archives.apache.org/mod_mbox/flink-dev/201412.mbox). 
 
 ### Download the Raw Mail Archive Data
 
@@ -25,17 +21,15 @@ wget http://mail-archives.apache.org/mod_mbox/flink-dev/201408.mbox
 
 ### Mbox Data Format
 
-The [Mbox mail archive format](http://en.wikipedia.org/wiki/Mbox) is a textual file format which stores a sequence of mails. A mail is encoded in multiple lines. The first line of a mail starts with "`From `" and continues with the mailer daemon and a time stamp. The following lines are formatted as key-value pairs as for example "`Subject: Re: Podling name search initiated`" containing information such as subject, sender, and reply-to of the mail. An empty line indicates the start of the email body. After the content of the body, the next mail follows with a line that starts with "`From `".
+The [Mbox mail archive format](http://en.wikipedia.org/wiki/Mbox) is a text-based file format which stores a sequence of mails. A mail is encoded in multiple lines. The first line of a mail starts with "`From `" and continues with the mailer daemon and a time stamp. The following lines are formatted as key-value pairs as for example "`Subject: Re: Podling name search initiated`" containing information such as subject, sender, and reply-to of the mail. An empty line indicates the end of the key-value section and the start of the email body. After the last line of the mail body, the next mail follows with a line that starts again with "`From `".
 
-This format is not so well suited for immediate analysis and requires a bit of cleansing and formatting.
+This format is not very well suited for immediate analysis and requires a bit of cleansing and formatting.
 
 ### Generate the Training Data Set
 
-We provide a Flink program, which reads Mbox files of Apache mailing list archives, extracts some information, and writes the mails in an easy to process format. The program can be found in the exercise project ...
+We provide a Flink program, which reads Mbox files of Apache mailing list archives, extracts some information, and converts the mails into a format that can be easily processed. The program can be found in the training project at **TODO: Link to program and explain how to execute it.**.
 
-#### TODO
-
-The training data set is generated in a separated text format. Emails are separated by "`##//##`" char sequence.
+The Mail Data Set is generated in a text format. Emails are separated by "`##//##`" char sequence.
 Each mail has seven fields:
 
 ~~~

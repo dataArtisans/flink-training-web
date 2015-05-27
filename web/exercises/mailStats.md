@@ -4,11 +4,11 @@ title: DataSet API - Mail Statistics
 permalink: /exercises/mailstats.html
 ---
 
-The task of the "Mail Stats" exercise is to count for each unique combination of email address and month the number of emails in the archive of the Flink development mailing list. 
+The task of the "Mail Stats" exercise is to count the number of emails in the archive of the Flink development mailing list for each unique combination of email address and month. 
 
 ### Input Data
 
-This exercise uses the [mail data set](/exercises/trainingData.html) that was extracted from the Apache Flink development mailing list archive. The data set consists of email records with seven fields
+This exercise uses the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The data set contains of email records with seven fields
 
 ~~~
 UniqueMID    : String // a unique message id
@@ -22,7 +22,7 @@ Replied-ToID : String // the message id of the mail this mail was replied to
                       //   (may be “null”)
 ~~~
 
-out of which the second and the third fields, `Timestamp` and `Sender`, are required for this exercise. The data can be accessed using Flink's tooling for delimiter-separated files (such as CSV or TSV files). The following code snippet shows how to read the second and the third field of the input data set:
+out of which the second and the third fields, `Timestamp` and `Sender`, are required for this exercise. The data can be accessed using Flink's tooling for delimiter-separated files (such as CSV or TSV files). The following code snippet shows how to read the second and the third field of the Mail Data Set:
 
 ~~~java
 ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
@@ -45,7 +45,7 @@ The data is read as a `DataSet<Tuple2<String, String>>` and contains data which 
 
 ### Expected Output
 
-There are several ways to emit the data of the program. The easiest is to print it to the std-out using the `DataSet.print()` method. The expected output for this task looks like:
+The easiest way to emit data from a Flink program is to print it to the std-out using the `DataSet.print()` method. The expected output for this task looks like:
 
 ~~~
 (2014-09,fhueske@apache.org,16)
@@ -61,11 +61,11 @@ The order of the output records and their formatting does not matter.
 
 #### Program Structure
 
-This exercise is conceptually very similar to the `WordCount` program, which is the standard example to introduce MapReduce. Just like `WordCount`, this task requires two transformation, `Map` and `Reduce`. 
+This exercise is conceptually very similar to the `WordCount` program, which is the standard example to introduce MapReduce. Similar like `WordCount`, this task requires two transformation, `Map` and `Reduce`. 
 
 #### Grouping Keys
 
-In contrast to the `WordCount` program, this exercise requires to group data on two fields (`month` and `email-address`) instead on a single field. Flink's [`DataSet.groupBy()`](http://ci.apache.org/projects/flink/flink-docs-master/apis/programming_guide.html#specifying-keys) transformation, accepts multiple grouping key references and treats them as one composite grouping key.
+In contrast to the `WordCount` program, this exercise requires to group data on two fields (`month` and `email-address`) instead of a single field. Flink's [`DataSet.groupBy()`](http://ci.apache.org/projects/flink/flink-docs-master/apis/programming_guide.html#specifying-keys) transformation, accepts multiple grouping keys and treats them as one composite grouping key.
 
 #### Map Transformation
 

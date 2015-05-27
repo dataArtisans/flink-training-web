@@ -3,30 +3,42 @@ title: Apache Flink Training
 layout: page
 ---
 
-[Apache Flink](http://flink.apache.org)<sup>&reg;</sup> is an open source platform for scalable batch and stream data processing.
+[Apache Flink](http://flink.apache.org)<sup>&reg;</sup> is an open source platform for scalable batch and stream data processing. It offers expressive APIs to define batch and streaming data flow programs and a robust and scalable engine to execute these jobs. 
 
-Flink offers expressive APIs to define batch and streaming data flow programs and a robust and scalable engine to execute these jobs. 
 
-<b>... EXTEND ...</b>
+### Goals and scope of this training
 
-### Goals & Scope of the Training
+This training teaches how to implement scalable data analysis programs using Apache Flink. For now, the training focuses on Flink's DataSet API for batch processing. The training will be extended to cover a broader range of use cases in the future.
 
-This training is intended for people who want to learn to analyze data with Apache Flink. For now, the training focuses on Flink's DataSet API for batch processing. The training will be extended to cover a broader range of use cases.
+Specifically, this training teaches:
 
-Specifically, the training covers the following aspects:
+- How to setup an environment to develop Flink programs
+  - Setup all required software and tools and configure an IDE
+  - Create a Maven project for Flink programs and import it into an IDE
+  - Execute and debug a Flink program locally in an IDE
 
-- Setup a local development environment
-  - Create a Maven project with Flink dependencies
-  - Import the project into an IDE
-  - Implement, run, and debug a program locally in your IDE
-
-- Implementation exercises for Flink's batch DataSet API
-
-- Best practices and tips for Flink program development
-
-- Package, execute, and monitor a Flink program on a local Flink instance
+- How to implement Flink programs using
+	- Exercises for Flink batch programs using the DataSet API
+	- Exercises for Flink batch programs using the Table API
+  
+- How to package, execute, and monitor Flink programs on running Flink systems
 
 
 ## TODO
 
-add a footer with the trademark information about Apache, Apache Flink, Apache Hadoop
+- add a footer with the trademark information about Apache, Apache Flink, Apache Hadoop
+- add syntax high-lighting
+- link to reference implementations
+- link to mail data set preparation job
+- Scala Implementation to read Mail Data Set
+- Scala Implementations of exercises
+- Table API implementations
+- One more exercise
+- Upload slides to slideshare and embed them
+
+## Optional
+
+- Resources
+	- Best practices
+	- Tuning
+	- FAQ

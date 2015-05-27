@@ -4,9 +4,9 @@ title: DataSet API - TF-IDF
 permalink: /exercises/tfIdf.html
 ---
 
-The task of the "TF-IDF" exercise is to compute the *term-frequency/inverted-document-frequency* (TF-IDF) metric for words in mails of the Flink developer mailing list archives. 
+The task of the TF-IDF exercise is to compute the *term-frequency/inverted-document-frequency* (TF-IDF) metric for words in mails of the Flink developer mailing list archives. 
 
-TF-IDF is a metric that measures the importance of a term (word) in a document that is part of a collection of documents. Intuitively, TF-IDF describes for a term and document how representative the term is for the document. This metric is commonly used to weight the importance of search terms in search engines. 
+TF-IDF is a metric to measure the importance of a term (word) in a document that is part of a collection of documents. It is commonly used to weight the importance of search terms in search engines. 
 
 TF-IDF is defined in two parts:
 
@@ -19,11 +19,11 @@ The TF-IDF metric for a term `t` in document `d` of a collection `D` is computed
 tf-idf(t, d, D) = tf(t, d) * idf(t, D).
 ~~~
 
-By definition, a term has a high TF-IDF score and is representative for a document if it occurs very often in the document, but is rare in the overall collection of documents.
+Following this definition, a term has a high TF-IDF score (and is considered to be representative for a document) if it occurs very often in the document, but is rare in the overall collection of documents.
 
 ### Input Data
 
-This exercise uses the [mail data set](/exercises/trainingData.html) that was extracted from the Apache Flink development mailing list archive. The data set consists of email records with seven fields
+This exercise uses the [Mail Data Set](/exercises/mailData.html) that was extracted from the Apache Flink development mailing list archive. The data set consists of email records with seven fields
 
 ~~~
 UniqueMID    : String // a unique message id
@@ -37,7 +37,7 @@ Replied-ToID : String // the message id of the mail this mail was replied to
                       //   (may be “null”)
 ~~~
 
-out of which the first and the fifth fields, `UniqueMID` and `Body`, are required for this exercise. The data can be accessed using Flink's tooling for delimiter-separated files (such as CSV or TSV files). The following code snippet shows how to read the first and the fifth field of the input data set as a `DataSet<Tuple2<String, String>>`:
+out of which the first and the fifth field, `UniqueMID` and `Body`, are required for this exercise. The data can be accessed using Flink's tooling for delimiter-separated files (such as CSV or TSV files). The following code snippet shows how to read the first and the fifth field of the input data set as a `DataSet<Tuple2<String, String>>`:
 
 ~~~java
 ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
@@ -62,7 +62,7 @@ The output of the program should be a tuple with three fields `(UniqueMID, Word,
 (804:1,predicate,277.23809523809524)
 ~~~
 
-There are several ways to emit the data of the program. The easiest is to print it to the std-out using the `DataSet.print()` method. The order of the output records and their formatting does not matter. 
+The easiest way to emit data from a Flink program is to print it to the std-out using the `DataSet.print()` method. The order of the output records and their formatting does not matter. 
 
 ### Implementation Hints
 
@@ -77,7 +77,7 @@ Computing TF-IDF scores on a set of documents requires the following processing 
 
 #### Word Extraction, Filtering & Normalization
 
-The task requires to extract words from the message body. This can be easily done by tokenizing the `Body` String by whitespaces, filtering for tokens with alphabetical characters only, and converting all letters to lowercase. It is also common to filter out words that frequently occur in texts (so-called stop words) such as:
+The task requires to extract words from the message body. This can be done by tokenizing the `Body` String by whitespaces, filtering for tokens with alphabetical characters only, and converting all letters to lowercase. It is also common to filter out words that frequently occur in texts (so-called stop words) such as:
 
 ~~~
 "the", "i", "a", "an", "at", "are", "am", "for", "and", "or", "is",
@@ -87,15 +87,15 @@ The task requires to extract words from the message body. This can be easily don
 
 #### Count the number of documents
 
-The most convenient method to count the number of elements in a data set is the `DataSet.count()` method which returns a `long` value with the count. `count()` is eagerly executed and does not require an `ExecutionEnvironment.execute()` call. The `long` value can be shared with the `IDF` computing function as a constructor parameter.
+The most convenient method to count the number of elements in a data set is the `DataSet.count()` method which returns a `long` value with the number of elements in the data set. `count()` is eagerly executed and does not require an `ExecutionEnvironment.execute()` call. The `long` value can be shared with the function that computes `IDF` as a constructor parameter.
 
 #### Computing the Term-Frequency
 
-Computing the frequency of words in a document is independently done on each document. Hence it can be done with a `FlatMapFunction` that receives one document at a time, counts the occurrences of each word in the text (e.g., using a hash map), and emits one tuple with three fields `(UniqueMID, Word, TF)` for each counted word.
+Computing the frequency of words in a document can be independently done on each document using a `FlatMapFunction`. The function receives one document at a time, extracts all words, counts the occurrences of each unique word in the text (e.g., using a hash map), and emits one tuple with three fields `(UniqueMID, Word, TF)` for each counted word.
 
 #### Computing the Inverted-Document-Frequency
 
-Computing the fraction of documents that contain a certain word can be done in two steps. First compute the absolute number of documents that contain the word and second compute the IDF by normalizing the absolute count by the total number of documents (which was computed in a previous step). Computing the absolute number of documents that contain a certain word is similar to the [Mail Stats exercise](/exercises/mailstats.html) or the common WordCount example. When extracting the unique words from the document the same normalization techniques as for the TF computation should be applied. Unique words can be obtained by storing them in a hash set. The result of this step should be a tuple with two fields, `(Word, IDF)`.
+Computing the fraction of documents that contain a certain word can be done in two steps. First compute the absolute number of documents that contain the word and second compute the IDF by normalizing the absolute count by the total number of documents (which was computed in a previous step). Computing the absolute number of documents that contain a certain word is similar to the [Mail Statistics](/exercises/mailstats.html) exercise or the common WordCount example. When extracting the unique words from the document the same normalization techniques as for the TF computation should be applied. Unique words can be obtained by storing them in a hash set. The result of this step should be a tuple with two fields, `(Word, IDF)`.
 
 #### Computing the TF-IDF score
 
