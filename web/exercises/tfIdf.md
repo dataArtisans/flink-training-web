@@ -23,46 +23,44 @@ Following this definition, a term has a high TF-IDF score (and is considered to 
 
 ### Input Data
 
-This exercise uses the [Mail Data Set](/exercises/mailData.html) that was extracted from the Apache Flink development mailing list archive. The data set consists of email records with seven fields
+This exercise uses the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The task requires two fields, `MessageId` and `Body`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
 
 ~~~
-UniqueMID    : String // a unique message id
-Timestamp    : String // the mail deamon timestamp
-Sender       : String // the sender of the mail
-Subject      : String // the subject of the mail
-Body         : String // the body of the mail (contains linebrakes)
-MessageID    : String // the message id as provided 
-                           (may be “null” and not unique)
-Replied-ToID : String // the message id of the mail this mail was replied to 
-                      //   (may be “null”)
-~~~
+(<CAGr9p8A8Z7P787=c5RF5QbPKudLmPUsV3jCHKefZbwm=0UF-GA@mail.gmail.com>,
+--047d7ba975c83720ed05122e218e
+Content-Type: text/plain; charset=UTF-8
 
-out of which the first and the fifth field, `UniqueMID` and `Body`, are required for this exercise. The data can be accessed using Flink's tooling for delimiter-separated files (such as CSV or TSV files). The following code snippet shows how to read the first and the fifth field of the input data set as a `DataSet<Tuple2<String, String>>`:
+I didn't know that there was already an issue for this. I closed FLINK-1787.
+The correct issue is this one:
+https://issues.apache.org/jira/browse/FLINK-1711
 
-~~~java
-ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+--047d7ba975c83720ed05122e218e--
+)
+(<CANC1h_tGSdNdjO0YqQDPhBBtordrsMEOL8z1Rxwgy12LYB8aoQ@mail.gmail.com>,
+--089e011823584ee26304fc0927d5
+Content-Type: text/plain; charset=UTF-8
 
-DataSet<Tuple2<String, String>> mails =
-  env.readCsvFile(<PATH-TO-DATASET>)
-    .lineDelimiter(MBoxParser.MAIL_RECORD_DELIM)
-    .fieldDelimiter(MBoxParser.MAIL_FIELD_DELIM)
-    .includeFields("10001")
-    .types(String.class, String.class); // read two String fields
-~~~
+Yep, this looks like a bug, I agree.
+
+--089e011823584ee26304fc0927d5--
+)
+~~~ 
 
 ### Expected Output
 
-The output of the program should be a tuple with three fields `(UniqueMID, Word, TF-IDF-Score)` and could look like this:
+The result of the program should be a `DataSet<Tuple3<String, String, Double>>` where the first field is the `MessageId`, the second field is the `Word`, and the third field is the `TF-IDF` score.
+When printed the data set should look like this:
 
 ~~~
-(220:0,pojos,53.907407407407405)
-(826:1,zookeeper,291.1)
-(824:1,but,2.232361963190184)
-(220:0,should,2.6694176983035307)
-(804:1,predicate,277.23809523809524)
+(<CAPud8TrjpXYyqo6ur05-sjhUwRSh10XJVnCx_RuW9aUNKqjUTw@mail.gmail.com>,slide,2901.0)
+(<CAPud8TrjpXYyqo6ur05-sjhUwRSh10XJVnCx_RuW9aUNKqjUTw@mail.gmail.com>,might,7.7774)
+(<CAPud8TrjpXYyqo6ur05-sjhUwRSh10XJVnCx_RuW9aUNKqjUTw@mail.gmail.com>,case,21.1751)
+(<CANC1h_s+BoRd7YMs5JTyhouDSC4x+5whH5feyfZOhG=_N7ZUsA@mail.gmail.com>,ship,68.2588)
+(<CANC1h_s+BoRd7YMs5JTyhouDSC4x+5whH5feyfZOhG=_N7ZUsA@mail.gmail.com>,api,34.0721)
 ~~~
 
-The easiest way to emit data from a Flink program is to print it to the std-out using the `DataSet.print()` method. The order of the output records and their formatting does not matter. 
+The first line of the example output indicates that the word `slide` has an TF-IDF score of `2901.0` in the mail with the ID `<CAPud8TrjpXYyqo6ur05-sjhUwRSh10XJVnCx_RuW9aUNKqjUTw@mail.gmail.com>`.
+
 
 ### Implementation Hints
 
@@ -101,6 +99,6 @@ Computing the fraction of documents that contain a certain word can be done in t
 
 Given the computed data sets for TF and IDF, we need to bring together the TF and IDF scores for each term, i.e., join the two data sets on the `Word` field, and compute the corresponding TF-IDF score.
 
-### Sample Solution
+### Reference Solution
 
-A sample solution is available [here (LINK TO GH)]().
+A reference solution is available [here (LINK TO GH)]().

@@ -26,14 +26,12 @@ Specifically, this training teaches:
 
 ## TODO
 
-- add a footer with the trademark information about Apache, Apache Flink, Apache Hadoop
-- add syntax high-lighting
 - link to reference implementations
 - link to mail data set preparation job
+- Add a POJO somewhere
 - Scala Implementation to read Mail Data Set
 - Scala Implementations of exercises
 - Table API implementations
-- One more exercise
 - Upload slides to slideshare and embed them
 
 ## Optional

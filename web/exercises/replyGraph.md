@@ -1,17 +1,16 @@
 ---
 layout: page
-title: DataSet API - Reply Graph Extraction
+title: DataSet API - Reply Graph
 permalink: /exercises/replyGraph.html
 ---
 
-The task of the "Reply Graph Extraction" exercise is to extract reply connections between mails in the archives of Apache Flink's developer mailing list. These connections can be used to define a reply graph and to analyze the structure of the Flink community.
+The task of the "Reply Graph" exercise is to extract reply connections between mails in the archives of Apache Flink's developer mailing list. These connections can be used to define a reply graph and to analyze the structure of the Flink community.
 
 A reply connection is defined as a pair of two email addresses (`Tuple2<String, String>`) where the first email address replied to an email of the second email address. The task of this exercise is to compute all reply connections between emails in the Mail Data Set and count the number of reply connections for each unique pair of email addresses.
 
 ### Input Data
 
-This exercise uses the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. This task requires three fields `MessageID`, `Sender`, and `Reply-To`. If 
-read correctly, the input data is a `DataSet<Tuple3<String, String, String>>` and should look similar to this when printed:
+This exercise requires three fields `MessageID`, `Sender`, and `Reply-To` from the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The input data can be read as a `DataSet<Tuple3<String, String, String>>`. When printed, the data set should look similar to this:
 
 ~~~
 (<CAAdrtT0-sfxxUK-BrPC03ia7t1WR_ogA5uA6J5CSRvuON+snTg@mail.gmail.com>,Fabian Hueske <fhueske@apache.org>,<C869A196-EB43-4109-B81C-23FE9F726AC6@apache.org>)
@@ -19,11 +18,11 @@ read correctly, the input data is a `DataSet<Tuple3<String, String, String>>` an
 (<0E10813D-5ED0-421F-9880-17C958A41724@fu-berlin.de>,Ufuk Celebi <u.celebi@fu-berlin.de>,null)
 ~~~
 
-As you can see, the `Reply-To` field might have the value `"null"` indicating that this mail was not written in repsonse to another mail.
+**Note**, the `Reply-To` field might have the value `"null"` indicating that this mail was not written in repsonse to another mail.
 
 ### Expected Output
 
-The expected output for this task looks like:
+The result for the exercise should be a `DataSet<Tuple3<String, String, Integer>>`. The first field is the sender email address of the reply mail, the second field is the sender email address of the mail that was replied to, and the third field is the number of reply connections between these two email addresses. When printed, the data set should look like this:
 
 ~~~
 (sewen@apache.org,rmetzger@apache.org,72)
@@ -32,14 +31,30 @@ The expected output for this task looks like:
 (rmetzger@apache.org,fhueske@apache.org,22)
 ~~~
 
-The first field of the result is the sender email address of the reply mail, the second field is the sender email address of the mail that was replied to, and the third field is the number of reply connections between these two email addresses. Hence the first result line indicates that `sewen@apache.org` replied 72 times to an email send by `rmetzger@apache.org`.
+The first result line indicates that `sewen@apache.org` replied 72 times to an email send by `rmetzger@apache.org`.
 
 ### Implementation Hints
 
 #### Program Structure
 
+This exercise can be solved in three steps.
 
+1. Extract the email address from the sender field and remove mails from automated senders such as JIRA or Github.
+1. Compute reply connections of emails by evaluating the `MessageId` and `Reply-To` fields.
+1. Count the number of reply connections for each unique pair of email addresses.
 
-### Sample Solution
+#### Extract Email address from sender field
 
-A sample solution is available [here (LINK TO GH)]().
+Extracting the email address from the sender field can be done by looking at an individual input record. Hence it should be done using a `MapFunction` which replaces the sender field by the extracted email address. This the same operation that needs to be done for the [Mail Statistics](/exercises/mailStats.html) exercise.
+
+#### Computing reply connections
+
+A reply connection is defined by two mail records where the `Reply-To` field of the first mail record is equal to the `MessageId` field of the second mail record. This is can be done by [joining](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#join) the mail record data set by itself on the `MessageId` and the `Reply-To` fields.
+
+#### Counting the number of reply connections per pair of email addresses
+
+Counting the number of reply connections for each unique pair of email addresses is again similar to counting the number of mails in the [Mail Statistics](/exercises/mailStats.html) exercise. 
+
+### Reference Solution
+
+A reference solution is available [here (LINK TO GH)]().

@@ -12,6 +12,8 @@ The programming exercises assume a [working development environment](/setup.html
 
 The [DataSet API](http://ci.apache.org/projects/flink/flink-docs-master/apis/programming_guide.html) is a programming model for scalable batch processing. It features a Java and a Scala API which are feature equivalent and very similar. 
 
+The exercises are order by increasing difficulty.
+
 #### Mail Statistics
 
 Count the number of mails in the archive of Flink's developer mailing list per email address and month.
@@ -19,7 +21,19 @@ Count the number of mails in the archive of Flink's developer mailing list per e
 | **Instructions**				| [DataSet API: Mail Statistics](/exercises/mailStats.html)
 | **Data Set**                  | [Mail Data Set](/exercises/mailData.html) |
 | **API Features** &nbsp;&nbsp; | [Map](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#map), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) |
-| **Sample Solution** 			| ... |
+| **Reference Solution** 			| ... |
+
+<br>
+
+#### Reply Graph
+
+Extract a graph of reply connections from the mails of Apache Flink's developer mailing list archives. A reply connection is defined by two emails where one email that was sent as a reply to the other email. By extracting the email addresses of both mails of a reply connection, we can construct a graph that allows to analyze the Flink community.
+
+
+| **Instructions**				| [DataSet API: Reply Graph](/exercises/replyGraph.html)
+| **Data Set**                  | [Mail Data Set](/exercises/mailData.html) |
+| **API Features** &nbsp;&nbsp; | [Map](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#map), [Join](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#join), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) |
+| **Reference Solution** 			| ... |
 
 <br>
 
@@ -30,7 +44,7 @@ Compute TermFrequency-InvertedDocumentFrequency (TF-IDF) metrics for words in al
 | **Instructions**				| [DataSet API: TF-IDF](/exercises/tfidf.html)
 | **Data Set**                  | [Mail Data Set](/exercises/mailData.html) |
 | **API Features** &nbsp;&nbsp; | [FlatMap](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#flatmap), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#groupreduce-on-grouped-dataset), [Join](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#join), DataSet.collect() |
-| **Sample Solution** 			| ... |
+| **Reference Solution** 			| ... |
 
 <br>
 
@@ -45,7 +59,7 @@ Same as exercise [DataSetAPI: Mail Statistics](/exercises/mailStats.html), but u
 | **Instructions**				| Table API: Mail Statistics
 | **Data Set**                  | [Mail Data Set](/exercises/mailData.html) |
 | **API Features** &nbsp;&nbsp; | [Map](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#map), Table.select(), Table.groupBy(), Table.count() |
-| **Sample Solution** 			| ... |
+| **Reference Solution** 			| ... |
 
 <br>
 
@@ -56,7 +70,7 @@ Same as exercise [Exercise 2](/exercises/tfidf.html), but using the Table API to
 | **Instructions**				| Table API: TF-IDF
 | **Data Set**                  | [Mail Data Set](/exercises/mailData.html) |
 | **API Features** &nbsp;&nbsp; | [FlatMap](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#flatmap), Table.groupBy(), Table.count(), Table.join(), DataSet.collect() |
-| **Sample Solution** 			| ... |
+| **Reference Solution** 			| ... |
 
 <br>
 

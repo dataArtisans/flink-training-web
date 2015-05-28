@@ -8,34 +8,7 @@ The task of the "Mail Stats" exercise is to count the number of emails in the ar
 
 ### Input Data
 
-This exercise uses the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The data set contains of email records with seven fields
-
-~~~
-UniqueMID    : String // a unique message id
-Timestamp    : String // the mail deamon timestamp
-Sender       : String // the sender of the mail
-Subject      : String // the subject of the mail
-Body         : String // the body of the mail (contains linebrakes)
-MessageID    : String // the message id as provided 
-                           (may be “null” and not unique)
-Replied-ToID : String // the message id of the mail this mail was replied to 
-                      //   (may be “null”)
-~~~
-
-out of which the second and the third fields, `Timestamp` and `Sender`, are required for this exercise. The data can be accessed using Flink's tooling for delimiter-separated files (such as CSV or TSV files). The following code snippet shows how to read the second and the third field of the Mail Data Set:
-
-~~~java
-ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
-
-DataSet<Tuple2<String, String>> mails =
-  env.readCsvFile(<PATH-TO-DATASET>)
-    .lineDelimiter(MBoxParser.MAIL_RECORD_DELIM)
-    .fieldDelimiter(MBoxParser.MAIL_FIELD_DELIM)
-    .includeFields("011")
-    .types(String.class, String.class); // read two String fields
-~~~
-
-The data is read as a `DataSet<Tuple2<String, String>>` and contains data which looks like:
+This exercise uses the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The task requires two fields, `Timestamp` and `Sender`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
 
 ~~~
 (2014-09-26-08:49:58,Fabian Hueske <fhueske@apache.org>)
@@ -45,7 +18,7 @@ The data is read as a `DataSet<Tuple2<String, String>>` and contains data which 
 
 ### Expected Output
 
-The easiest way to emit data from a Flink program is to print it to the std-out using the `DataSet.print()` method. The expected output for this task looks like:
+The result of the task should be a `DataSet<Tuple3<String, String, Integer>>`. The first field specifies the month, the second field the email address, and the third field the number of emails sent to the mailing list by the given email address in the given month. When printed, the data set should looks like:
 
 ~~~
 (2014-09,fhueske@apache.org,16)
@@ -55,7 +28,7 @@ The easiest way to emit data from a Flink program is to print it to the std-out 
 (2014-10,aljoscha@apache.org,17)
 ~~~
 
-The order of the output records and their formatting does not matter. 
+The first line of the example result indicates that 16 mails were sent to the mailing list by `fhueske@apache.org` in September 2014.
 
 ### Implementation Hints
 
@@ -75,6 +48,6 @@ The [`Map`](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_t
 
 The [`GroupReduce`](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) transformation operates on groups of records and can also be used to count the number of element in a group.
 
-### Sample Solution
+### Reference Solution
 
-A sample solution is available [here (LINK TO GH)]().
+A reference solution is available [here (LINK TO GH)]().
