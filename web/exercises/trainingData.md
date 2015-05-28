@@ -57,9 +57,10 @@ The Mail Data Set can be read using Flink's `CsvInputFormat`:
 #### Java
 
 {% highlight java %}
+// get an ExecutionEnvironment
 ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-// read all data
+// read all fields
 DataSet<Tuple6<String, String, String, String, String, String>> mails =
   env.readCsvFile(<PATH-TO-DATASET>)
     .lineDelimiter(MBoxParser.MAIL_RECORD_DELIM) // constant for "##//##"
@@ -67,7 +68,7 @@ DataSet<Tuple6<String, String, String, String, String, String>> mails =
     .types(String.class, String.class, String.class,
            String.class, String.class, String.class);
 
-// read sender and body
+// read sender and body fields
 DataSet<Tuple2<String, String>> senderBody =
   env.readCsvFile(<PATH-TO-DATASET>)
     .lineDelimiter(MBoxParser.MAIL_RECORD_DELIM)
@@ -79,5 +80,21 @@ DataSet<Tuple2<String, String>> senderBody =
 #### Scala
 
 {% highlight scala %}
-// some Scala code
+// get an ExecutionEnvironment
+val env = ExecutionEnvironment.getExecutionEnvironment
+
+// read all fields
+val mails = env.readCsvFile[(String, String, String, String, String, String)](
+    <PATH-TO-DATASET>,
+    lineDelimiter = MBoxParser.MAIL_RECORD_DELIM,
+    fieldDelimiter = MBoxParser.MAIL_FIELD_DELIM,
+  )
+
+// read sender and body fields
+val senderBody = env.readCsvFile[(String, String)](
+    <PATH-TO-DATASET>,
+    lineDelimiter = MBoxParser.MAIL_RECORD_DELIM,
+    fieldDelimiter = MBoxParser.MAIL_FIELD_DELIM,
+    includedFields = Array(2,4)
+  )
 {% endhighlight %}
