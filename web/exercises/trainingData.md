@@ -32,7 +32,7 @@ We provide a Flink program, which reads Mbox files of Apache mailing list archiv
 The Mail Data Set is generated in a text format. Email records are separated by a "`##//##`" char sequence.
 Each mail record has six fields:
 
-{% highlight %}
+~~~
 MessageID  : String // a unique message id
 Timestamp  : String // the mail deamon timestamp
 Sender     : String // the sender of the mail
@@ -40,15 +40,15 @@ Subject    : String // the subject of the mail
 Body       : String // the body of the mail (contains linebrakes)
 Replied-To : String // the messageID of the mail this mail was replied to 
                     //   (may be “null”)
-{% endhighlight %}
+~~~
 
 which are separated by a "`#|#`" char sequence.
 
 Hence, the format of the file is 
 
-{% highlight %}
+~~~
 <MessageID>#|#<Timestamp>#|#<Sender>#|#<Subject>#|#<Body>#|#<RepliedTo>##//##<MessageId>#|#TimeStamp>#|#...
-{% endhighlight %}
+~~~
 
 ### Read the Training Data Set
 
