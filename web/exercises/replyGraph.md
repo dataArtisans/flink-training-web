@@ -45,7 +45,7 @@ This exercise can be solved in three steps.
 
 #### Extract Email address from sender field
 
-Extracting the email address from the sender field can be done by looking at an individual input record. Hence it should be done using a `MapFunction` which replaces the sender field by the extracted email address. This the same operation that needs to be done for the [Mail Statistics](/exercises/mailStats.html) exercise.
+Extracting the email address from the sender field can be done by looking at an individual input record. Hence it should be done using a `MapFunction` which replaces the sender field by the extracted email address. This the same operation that needs to be done for the [Mail Count](/exercises/mailCount.html) exercise.
 
 #### Computing reply connections
 
@@ -53,7 +53,7 @@ A reply connection is defined by two mail records where the `Reply-To` field of 
 
 #### Counting the number of reply connections per pair of email addresses
 
-Counting the number of reply connections for each unique pair of email addresses is again similar to counting the number of mails in the [Mail Statistics](/exercises/mailStats.html) exercise. 
+Counting the number of reply connections for each unique pair of email addresses is again similar to counting the number of mails in the [Mail Count](/exercises/mailCount.html) exercise. 
 
 ### Reference Solution
 

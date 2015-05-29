@@ -1,10 +1,10 @@
 ---
 layout: page
-title: DataSet API - Mail Statistics
-permalink: /exercises/mailstats.html
+title: DataSet API - Mail Count
+permalink: /exercises/mailcount.html
 ---
 
-The task of the "Mail Stats" exercise is to count the number of emails in the archive of the Flink development mailing list for each unique combination of email address and month. 
+The task of the "Mail Count" exercise is to count the number of emails in the archive of the Flink development mailing list for each unique combination of email address and month. 
 
 ### Input Data
 

@@ -8,17 +8,20 @@ This training provides programming exercises that teach how to  implement scalab
 
 The programming exercises assume a [working development environment](/setup.html) and some basic knowledge of Flink's programming primitives.
 
+<hr>
+<br>
+
 ### DataSet API Exercises
 
 The [DataSet API](http://ci.apache.org/projects/flink/flink-docs-master/apis/programming_guide.html) is a programming model for scalable batch processing. It features a Java and a Scala API which are feature equivalent and very similar. 
 
 The exercises are order by increasing difficulty.
 
-#### Mail Statistics
+#### Mail Count
 
 Count the number of mails in the archive of Flink's developer mailing list per email address and month.
 
-| **Instructions**				| [DataSet API: Mail Statistics](/exercises/mailStats.html)
+| **Instructions**				| [DataSet API: Mail Count](/exercises/mailCount.html)
 | **Data Set**                  | [Mail Data Set](/exercises/mailData.html) |
 | **API Features** &nbsp;&nbsp; | [Map](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#map), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) |
 | **Reference Solution** 			| ... |
@@ -47,41 +50,20 @@ Compute TermFrequency-InvertedDocumentFrequency (TF-IDF) metrics for words in al
 | **Reference Solution** 			| ... |
 
 <br>
+<hr>
+<br>
 
 ### Table API Exercises
 
-The Table API significantly eases the processing of structured data and evaluates SQL-like expressions. It can be mixed with the DataSet API and the DataStream API and offers methods to convert a DataSet/DataStream into a Table and vice versa.
+The [Table API](http://ci.apache.org/projects/flink/flink-docs-master/libs/table.html) significantly eases the processing of structured data and evaluates SQL-like expressions. It can be mixed with the DataSet API and the DataStream API and offers methods to convert a DataSet/DataStream into a Table and vice versa.
 
-#### Mail Statistics
+#### Member of the Month
 
-Same as exercise [DataSetAPI: Mail Statistics](/exercises/mailStats.html), but using the Table API to compute the mail statistics.
+Find for each month the email address that sent the most emails to Flink's developer mailing list. This task requires the DataSet API to bring the data into shape and the Table API to do the actual computation.
 
-| **Instructions**				| Table API: Mail Statistics
+| **Instructions**				| [Table API: Member of the Month](/exercises/memberOTM.html)
 | **Data Set**                  | [Mail Data Set](/exercises/mailData.html) |
-| **API Features** &nbsp;&nbsp; | [Map](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#map), Table.select(), Table.groupBy(), Table.count() |
+| **API Features** &nbsp;&nbsp; | [Map](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#map), Table.select(), Table.groupBy(), Table.join() |
 | **Reference Solution** 			| ... |
 
 <br>
-
-#### TF-IDF
-
-Same as exercise [Exercise 2](/exercises/tfidf.html), but using the Table API to compute the TF-IDF scores.
-
-| **Instructions**				| Table API: TF-IDF
-| **Data Set**                  | [Mail Data Set](/exercises/mailData.html) |
-| **API Features** &nbsp;&nbsp; | [FlatMap](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#flatmap), Table.groupBy(), Table.count(), Table.join(), DataSet.collect() |
-| **Reference Solution** 			| ... |
-
-<br>
-
-<!--
-
-### Bonus Exercises
-
-#### Bonus 1: DataStream API?
-
-#### Bonus 2: Iterations?
-
-#### Bonus 3: Gelly?
-
--->
