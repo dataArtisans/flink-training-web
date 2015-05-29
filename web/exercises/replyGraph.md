@@ -57,4 +57,7 @@ Counting the number of reply connections for each unique pair of email addresses
 
 ### Reference Solution
 
-A reference solution is available [here (LINK TO GH)]().
+Reference solutions are available at GitHub:
+
+- Java: [ReplyGraph.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataSetJava/replyGraph/ReplyGraph.java)
+- Scala: [ReplyGraph.scala](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataSetScala/replyGraph/ReplyGraph.scala)

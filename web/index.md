@@ -26,7 +26,5 @@ Specifically, this training teaches:
 
 ## TODO
 
-- link to reference implementations
-- link to mail data set preparation job
 - Add a POJO somewhere
 - Upload slides to slideshare and embed them

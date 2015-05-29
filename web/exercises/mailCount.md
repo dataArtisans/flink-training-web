@@ -50,4 +50,7 @@ The [`GroupReduce`](http://ci.apache.org/projects/flink/flink-docs-master/apis/d
 
 ### Reference Solution
 
-A reference solution is available [here (LINK TO GH)]().
+Reference solutions are available at GitHub:
+
+- Java: [MailCount.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataSetJava/mailCount/MailCount.java)
+- Scala: [MailCount.scala](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataSetScala/mailCount/MailCount.scala)

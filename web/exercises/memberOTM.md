@@ -60,4 +60,7 @@ Using the Table API, this can be done using a `join` and a `select` expression.
 
 ### Reference Solution
 
-A reference solution is available [here (LINK TO GH)]().
+Reference solutions are available at GitHub:
+
+- Java: [MemberOTMonth.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/tableJava/memberOTM/MemberOTMonth.java)
+- Scala: [MemberOTMonth.scala](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/scala/com/dataArtisans/flinkTraining/exercises/tableScala/memberOTM/MemberOTMonth.scala)

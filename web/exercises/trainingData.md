@@ -6,7 +6,7 @@ permalink: /exercises/mailData.html
 
 The Mail Data Set is derived from the public archives of Apache Flink's developer mailing list (dev@flink.apache.org). All communication within Apache projects is happening on or is mirrored to mailing lists. Most of these lists are public and archived. The archives of each public mailing list, such as Apache Flink's developer mailing list, are online available as Mbox files for each individual month. For example, the archived mails of dev@flink.apache.org for December 2014 are available under the URL [http://mail-archives.apache.org/mod_mbox/flink-dev/201412.mbox](http://mail-archives.apache.org/mod_mbox/flink-dev/201412.mbox). 
 
-### Download the Raw Mail Archive Data
+### Download the raw mail archive data
 
 For this training, download some Mbox files of Flink's mailing list archive and store them into a folder. On Linux or OSX you can use the following commands to do that:
 
@@ -19,15 +19,34 @@ wget http://mail-archives.apache.org/mod_mbox/flink-dev/201408.mbox
 ...
 {% endhighlight %}
 
-### Mbox Data Format
+### Mbox data format
 
 The [Mbox mail archive format](http://en.wikipedia.org/wiki/Mbox) is a text-based file format which stores a sequence of mails. A mail is encoded in multiple lines. The first line of a mail starts with "`From `" and continues with the mailer daemon and a time stamp. The following lines are formatted as key-value pairs as for example "`Subject: Re: Podling name search initiated`" containing information such as subject, sender, and reply-to of the mail. An empty line indicates the end of the key-value section and the start of the email body. After the last line of the mail body, the next mail starts with a line that begins again with "`From `".
 
 This format is not very well suited for immediate analysis and requires a bit of cleansing and formatting.
 
-### Generate the Training Data Set
+### Generate the Mail Data Set
 
-We provide a Flink program, which reads Mbox files of Apache mailing list archives, extracts some information, and converts the mails into a format that can be easily processed. The program can be found in the training project at **TODO: Link to program and explain how to execute it.**.
+We provide a Flink program, which reads Mbox files of Apache mailing list archives and converts the mails into a structured format that can be easily processed. The program is included in the Maven project of this training and can be found on [Github](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/dataSetPreparation/MBoxParser.java). The program is built by running the following commands
+
+{% highlight bash %}
+cd /path/to/flink-training
+cd flink-exercises
+mvn clean package
+{% endhighlight %}
+
+Afterwards the program's JAR file is located at `./target/flink-exercises-0.1-MBoxParser.jar`.
+The program can be executed on a local Flink instance using Flink's CLI client with the following commands
+
+{% highlight bash %}
+cd /path/to/flink-installation
+./bin/start-local.sh
+./bin/flink run /path/to/flink-exercises-0.1-MBoxParser.jar --input /path/to/mboxFiles --output /result/path
+{% endhighlight %}
+
+Detailed instructions on how to start a local Flink instance and how to run a Flink program JAR file can be found [here](http://localhost:4000/localExec.html).
+
+### Data format of the Mail Data Set
 
 The Mail Data Set is generated in a text format. Email records are separated by a "`##//##`" char sequence.
 Each mail record has six fields:
@@ -50,7 +69,7 @@ Hence, the format of the file is
 <MessageID>#|#<Timestamp>#|#<Sender>#|#<Subject>#|#<Body>#|#<RepliedTo>##//##<MessageId>#|#TimeStamp>#|#...
 ~~~
 
-### Read the Training Data Set
+### Read the Mail Data Set with Flink
 
 The Mail Data Set can be read using Flink's `CsvInputFormat`:
 
@@ -86,8 +105,8 @@ val env = ExecutionEnvironment.getExecutionEnvironment
 // read all fields
 val mails = env.readCsvFile[(String, String, String, String, String, String)](
     <PATH-TO-DATASET>,
-    lineDelimiter = MBoxParser.MAIL_RECORD_DELIM,
-    fieldDelimiter = MBoxParser.MAIL_FIELD_DELIM,
+    lineDelimiter = MBoxParser.MAIL_RECORD_DELIM, // constant for "##//##"
+    fieldDelimiter = MBoxParser.MAIL_FIELD_DELIM, // constant for "#|#"
   )
 
 // read sender and body fields
