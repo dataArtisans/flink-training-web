@@ -6,7 +6,7 @@ permalink: /devResources/docLinks.html
 
 This page lists shortcuts to the most relevant parts of the Flink documentation.
 
-- [Documentation Home](http://ci.apache.org/projects/flink/flink-docs-release-0.8/)
+- [Documentation Home](http://ci.apache.org/projects/flink/flink-docs-master/)
 
 ### APIs & Libraries
 

@@ -8,7 +8,7 @@ The task of the "Member of the Month" exercise is to find for each month the ema
 
 ### Input Data
 
-This exercise uses the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The task requires two fields, `Timestamp` and `Sender`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
+This exercise uses the [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The task requires two fields, `Timestamp` and `Sender`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
 
 ~~~
 (2014-09-26-08:49:58,Fabian Hueske <fhueske@apache.org>)
@@ -34,7 +34,7 @@ The first line of the example result indicates that in July 2014, `sewen@apache.
 
 #### Program Structure
 
-This exercise should be solve by using the DataSet API together with the Table API. Initially, the DataSet API is required to read out the data and do some preprocessing such as extracting the month from the time field and the email address from the sender field. This step is identical to a step in the [Mail Count](/exercises/mailCount.html) exercise. 
+This exercise should be solve by using the DataSet API together with the Table API. Initially, the DataSet API is required to read out the data and do some preprocessing such as extracting the month from the time field and the email address from the sender field. This step is identical to a step in the [Mail Count]({{ site.baseurl }}/exercises/mailCount.html) exercise. 
 
 After the data was brought into a structured format, the remaining analysis can be done using the Table API in three steps:
 

@@ -53,7 +53,7 @@ The generated Maven project needs to be imported into your IDE:
 
 #### Install a local Flink instance
 
-The training also shows how to package a Flink program and submit it for execution to a running Flink system. This requires a local Flink installation. Download a [Flink build](http://stratosphere-bin.s3-website-us-east-1.amazonaws.com/flink-0.9-SNAPSHOT-bin-hadoop2.tgz) and extract the archive file. The resulting folder contains a Flink setup that can be locally executed without further configuration. See the [local execution](/localExec.html) guide for details how to start and stop a local Flink system and submit job.
+The training also shows how to package a Flink program and submit it for execution to a running Flink system. This requires a local Flink installation. Download a [Flink build](http://stratosphere-bin.s3-website-us-east-1.amazonaws.com/flink-0.9-SNAPSHOT-bin-hadoop2.tgz) and extract the archive file. The resulting folder contains a Flink setup that can be locally executed without further configuration. See the [local execution]({{ site.baseurl }}/localExec.html) guide for details how to start and stop a local Flink system and submit job.
 
 ### Execute and debug a Flink program in an IDE
 

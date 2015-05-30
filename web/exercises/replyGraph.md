@@ -10,7 +10,7 @@ A reply connection is defined as a pair of two email addresses (`Tuple2<String, 
 
 ### Input Data
 
-This exercise requires three fields `MessageID`, `Sender`, and `Reply-To` from the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The input data can be read as a `DataSet<Tuple3<String, String, String>>`. When printed, the data set should look similar to this:
+This exercise requires three fields `MessageID`, `Sender`, and `Reply-To` from the [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The input data can be read as a `DataSet<Tuple3<String, String, String>>`. When printed, the data set should look similar to this:
 
 ~~~
 (<CAAdrtT0-sfxxUK-BrPC03ia7t1WR_ogA5uA6J5CSRvuON+snTg@mail.gmail.com>,Fabian Hueske <fhueske@apache.org>,<C869A196-EB43-4109-B81C-23FE9F726AC6@apache.org>)
@@ -45,7 +45,7 @@ This exercise can be solved in three steps.
 
 #### Extract Email address from sender field
 
-Extracting the email address from the sender field can be done by looking at an individual input record. Hence it should be done using a `MapFunction` which replaces the sender field by the extracted email address. This the same operation that needs to be done for the [Mail Count](/exercises/mailCount.html) exercise.
+Extracting the email address from the sender field can be done by looking at an individual input record. Hence it should be done using a `MapFunction` which replaces the sender field by the extracted email address. This the same operation that needs to be done for the [Mail Count]({{ site.baseurl }}/exercises/mailCount.html) exercise.
 
 #### Computing reply connections
 
@@ -53,7 +53,7 @@ A reply connection is defined by two mail records where the `Reply-To` field of 
 
 #### Counting the number of reply connections per pair of email addresses
 
-Counting the number of reply connections for each unique pair of email addresses is again similar to counting the number of mails in the [Mail Count](/exercises/mailCount.html) exercise. 
+Counting the number of reply connections for each unique pair of email addresses is again similar to counting the number of mails in the [Mail Count]({{ site.baseurl }}/exercises/mailCount.html) exercise. 
 
 ### Reference Solution
 

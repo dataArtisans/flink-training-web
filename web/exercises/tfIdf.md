@@ -23,7 +23,7 @@ Following this definition, a term has a high TF-IDF score (and is considered to 
 
 ### Input Data
 
-This exercise uses the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The task requires two fields, `MessageId` and `Body`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
+This exercise uses the [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The task requires two fields, `MessageId` and `Body`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
 
 ~~~
 (<CAGr9p8A8Z7P787=c5RF5QbPKudLmPUsV3jCHKefZbwm=0UF-GA@mail.gmail.com>,
@@ -93,7 +93,7 @@ Computing the frequency of words in a document can be independently done on each
 
 #### Computing the Inverted-Document-Frequency
 
-Computing the fraction of documents that contain a certain word can be done in two steps. First compute the absolute number of documents that contain the word and second compute the IDF by normalizing the absolute count by the total number of documents (which was computed in a previous step). Computing the absolute number of documents that contain a certain word is similar to the [Mail Count](/exercises/mailCount.html) exercise or the common WordCount example. When extracting the unique words from the document the same normalization techniques as for the TF computation should be applied. Unique words can be obtained by storing them in a hash set. The result of this step should be a tuple with two fields, `(Word, IDF)`.
+Computing the fraction of documents that contain a certain word can be done in two steps. First compute the absolute number of documents that contain the word and second compute the IDF by normalizing the absolute count by the total number of documents (which was computed in a previous step). Computing the absolute number of documents that contain a certain word is similar to the [Mail Count]({{ site.baseurl }}/exercises/mailCount.html) exercise or the common WordCount example. When extracting the unique words from the document the same normalization techniques as for the TF computation should be applied. Unique words can be obtained by storing them in a hash set. The result of this step should be a tuple with two fields, `(Word, IDF)`.
 
 #### Computing the TF-IDF score
 

@@ -1,14 +1,14 @@
 ---
 layout: page
 title: DataSet API - Mail Count
-permalink: /exercises/mailcount.html
+permalink: /exercises/mailCount.html
 ---
 
 The task of the "Mail Count" exercise is to count the number of emails in the archive of the Flink development mailing list for each unique combination of email address and month. 
 
 ### Input Data
 
-This exercise uses the [Mail Data Set](/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The task requires two fields, `Timestamp` and `Sender`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
+This exercise uses the [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The task requires two fields, `Timestamp` and `Sender`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
 
 ~~~
 (2014-09-26-08:49:58,Fabian Hueske <fhueske@apache.org>)
