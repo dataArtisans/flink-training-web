@@ -27,16 +27,18 @@ This format is not very well suited for immediate analysis and requires a bit of
 
 ### Generate the Mail Data Set
 
-We provide a Flink program, which reads Mbox files of Apache mailing list archives and converts the mails into a structured format that can be easily processed. The program is included in the Maven project of this training and can be found on [Github](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/dataSetPreparation/MBoxParser.java). The program is built by running the following commands
+We provide a data set extraction program, which reads Mbox files of Apache mailing list archives and converts the mails into a structured format that can be easily processed. The program is included in the Maven project of this training and can be found on [Github](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/dataSetPreparation/MBoxParser.java). 
+
+The Flink training project is downloaded and built by running the following commands
 
 {% highlight bash %}
-cd /path/to/flink-training
-cd flink-exercises
+git clone https://github.com/dataArtisans/flink-training.git
+cd flink-training/flink-exercises
 mvn clean package
 {% endhighlight %}
 
-Afterwards the program's JAR file is located at `./target/flink-exercises-0.1-MBoxParser.jar`.
-The program can be executed on a local Flink instance using Flink's CLI client with the following commands
+Afterwards the JAR file of the data set extraction program is located at `./target/flink-exercises-0.1-MBoxParser.jar`.
+The program can be executed on a [running local Flink instance](http://localhost:4000/localExec.html) using Flink's CLI client with the following commands
 
 {% highlight bash %}
 cd /path/to/flink-installation

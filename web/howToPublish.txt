@@ -1,0 +1,15 @@
+To publish the website execute the following commands.
+Make sure you are on the master branch before starting.
+
+git branch -D gh-pages
+git checkout -b gh-pages
+cd web
+jekyll b
+mv _site ../
+cd ..
+rm -rf README.md flink-exercises slides web
+mv _site/* ./
+rm -rf _site
+git add -A
+git commit -m "Preview website"
+git push origin gh-pages -f

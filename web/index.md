@@ -26,5 +26,4 @@ Specifically, this training teaches:
 
 ## TODO
 
-- Add a POJO somewhere
 - Upload slides to slideshare and embed them

@@ -61,10 +61,7 @@ Flink programs can be executed and debugged from within an IDE. This significant
 
 Assuming that you have setup your IDE and imported a Maven project that was created using the Flink quickstart Maven archetype, you can execute and debug the provided example WordCount program as follows:
 
-- IntelliJ:
-	- Open the `WordCount` class
-	- Place a break point somewhere in the `flatMap()` method of the `LineSplitter` class which is inlined inside the `WordCount` class.
-	- Right click inside the `main()` method of the `WordCount` class and select *"Debug 'WordCount.main()'"*.
+- Open the `WordCount` class in your IDE
+- Place a break point somewhere in the `flatMap()` method of the `LineSplitter` class which is inlined inside the `WordCount` class.
+- Execute or debug the `main()` method of the `WordCount` class using your IDE.
 
-- Eclipse
-	- Open the WordCount class ()
