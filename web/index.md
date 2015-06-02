@@ -22,8 +22,3 @@ Specifically, this training teaches:
 	- Exercises for Flink batch programs using the Table API
   
 - How to package, execute, and monitor Flink programs on running Flink systems
-
-
-## TODO
-
-- Upload slides to slideshare and embed them

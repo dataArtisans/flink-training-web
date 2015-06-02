@@ -11,8 +11,8 @@ The Mail Data Set is derived from the public archives of Apache Flink's develope
 For this training, download some Mbox files of Flink's mailing list archive and store them into a folder. On Linux or OSX you can use the following commands to do that:
 
 {% highlight bash %}
-mkdir flink-dev-archive
-cd flink-dev-archive
+mkdir /home/flink/flink-dev-archive
+cd /home/flink/flink-dev-archive
 wget http://mail-archives.apache.org/mod_mbox/flink-dev/201406.mbox
 wget http://mail-archives.apache.org/mod_mbox/flink-dev/201407.mbox
 wget http://mail-archives.apache.org/mod_mbox/flink-dev/201408.mbox
@@ -35,18 +35,20 @@ The Flink training project is downloaded and built by running the following comm
 git clone https://github.com/dataArtisans/flink-training.git
 cd flink-training/flink-exercises
 mvn clean package
+cp ./target/flink-exercises-0.1-MBoxParser.jar /home/flink/MBoxParser.jar
 {% endhighlight %}
 
-Afterwards the JAR file of the data set extraction program is located at `./target/flink-exercises-0.1-MBoxParser.jar`.
-The program can be executed on a [running local Flink instance](http://localhost:4000/localExec.html) using Flink's CLI client with the following commands
+Afterwards the JAR file of the data set extraction program is located in the home folder of the flink user at `/home/flink/MBoxParser.jar`.
+
+The program can be executed on a locally running Flink instance ([see instructions]({{ site.baseurl }}/setup.html)) using Flink's CLI client with the following commands
 
 {% highlight bash %}
-cd /path/to/flink-installation
+cd /path/to/your/flink-installation
 ./bin/start-local.sh
-./bin/flink run /path/to/flink-exercises-0.1-MBoxParser.jar --input /path/to/mboxFiles --output /result/path
+./bin/flink run /home/flink/MBoxParser.jar --input /home/flink/flink-dev-archive --output /home/flink/flink-mail-data
 {% endhighlight %}
 
-Detailed instructions on how to start a local Flink instance and how to run a Flink program JAR file can be found [here](http://localhost:4000/localExec.html).
+The extracted Mail Data Set will be located in the `/home/flink/flink-mail-data` folder. 
 
 ### Data format of the Mail Data Set
 
@@ -83,17 +85,17 @@ ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
 // read all fields
 DataSet<Tuple6<String, String, String, String, String, String>> mails =
-  env.readCsvFile(<PATH-TO-DATASET>)
-    .lineDelimiter(MBoxParser.MAIL_RECORD_DELIM) // constant for "##//##"
-    .fieldDelimiter(MBoxParser.MAIL_FIELD_DELIM) // constant for "#|#"
+  env.readCsvFile("/home/flink/flink-mail-data")
+    .lineDelimiter("##//##")
+    .fieldDelimiter("#|#")
     .types(String.class, String.class, String.class,
            String.class, String.class, String.class);
 
 // read sender and body fields
 DataSet<Tuple2<String, String>> senderBody =
-  env.readCsvFile(<PATH-TO-DATASET>)
-    .lineDelimiter(MBoxParser.MAIL_RECORD_DELIM)
-    .fieldDelimiter(MBoxParser.MAIL_FIELD_DELIM)
+  env.readCsvFile("/home/flink/flink-mail-data")
+    .lineDelimiter("##//##")
+    .fieldDelimiter("#|#")
     .includeFields("00101")
     .types(String.class, String.class);
 {% endhighlight %}
@@ -106,16 +108,16 @@ val env = ExecutionEnvironment.getExecutionEnvironment
 
 // read all fields
 val mails = env.readCsvFile[(String, String, String, String, String, String)](
-    <PATH-TO-DATASET>,
-    lineDelimiter = MBoxParser.MAIL_RECORD_DELIM, // constant for "##//##"
-    fieldDelimiter = MBoxParser.MAIL_FIELD_DELIM, // constant for "#|#"
+    "/home/flink/flink-mail-data",
+    lineDelimiter = "##//##",
+    fieldDelimiter = "#|#",
   )
 
 // read sender and body fields
 val senderBody = env.readCsvFile[(String, String)](
-    <PATH-TO-DATASET>,
-    lineDelimiter = MBoxParser.MAIL_RECORD_DELIM,
-    fieldDelimiter = MBoxParser.MAIL_FIELD_DELIM,
+    "/home/flink/flink-mail-data",
+    lineDelimiter = "##//##",
+    fieldDelimiter = "#|#",
     includedFields = Array(2,4)
   )
 {% endhighlight %}

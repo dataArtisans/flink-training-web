@@ -4,9 +4,9 @@ layout: page
 permalink: /localExec.html
 ---
 
-Developing Flink programs in an IDE is comfortable because programs can be easily executed and debugged. However in order to execute a program on a running Flink system, the program needs to be packaged and submitted. Flink offers a webinterface to monitor the execution of a program.
+Developing Flink programs in an IDE is comfortable because the programs can be easily executed and debugged. However in order to execute a program on a running Flink system, the program needs to be packaged and submitted. The progress of the executed program can be monitored on Flink's webinterface.
 
-Here we will show the necessary steps to package, submit, and monitor a Flink program on a local Flink instance. Executing a Flink program on a cluster or YARN setup is very similar.
+Here we will show the necessary steps to package, submit, and monitor a Flink program on a local Flink instance. 
 
 ### Packaging a program for execution
 
@@ -27,31 +27,10 @@ mvn clean package
 
 The resulting JAR file will be located in the `./target/` folder.
 
-### Starting and stopping a local Flink instance
-
-Flink provides scripts to locally start a Flink master and a Flink worker within the same JVM. This mode is not meant for production but for local testing. Such a local Flink setup can be started on Unix system as follows:
-
-~~~bash
-> cd /to/your/flink/installation
-> ./bin/start-local.sh
-~~~
-
-On Windows this can be done with: 
-
-~~~bash
-> cd C:\to\your\flink\installation
-> .\bin\start-local.bat
-~~~
-
-You can validate that a local FLink instance is running by looking at the log files in `./log/` or opening the JobManager's webinterface at [http://localhost:8081](http://localhost:8081). 
-
-A locally running Flink instance 
-
 ### Executing a Flink program using the CLI client
 
-Flink provides different clients to submit a program to a running Flink system including a [command-line client](http://ci.apache.org/projects/flink/flink-docs-master/apis/cli.html) (CLI client) and a [web-based client](http://ci.apache.org/projects/flink/flink-docs-master/apis/web_client.html).
-
-A program can be executed using the CLI client as follows:
+Flink provides different clients to submit a program to a running Flink system including a [command-line client](http://ci.apache.org/projects/flink/flink-docs-master/apis/cli.html) (CLI client) and a [web-based client](http://ci.apache.org/projects/flink/flink-docs-master/apis/web_client.html). Given that a local Flink instance is running ([see instructions]({{ site.baseurl }}/setup.html)),
+a program can be executed using the CLI client as follows:
 
 ~~~bash
 > ./bin/flink run /path/to/program/jarfile --arg1 val1 --arg2 val2
@@ -64,6 +43,8 @@ If the `Main-Class` is not specified in the `MANIFEST.MF` file, you can specify 
 ~~~
 
 Further options can be found in the documentation of the [CLI client](http://ci.apache.org/projects/flink/flink-docs-master/apis/cli.html). On Windows, the CLI client is started using the `.\bin\flink.bat` script.
+
+Executing a Flink program on a [cluster](http://ci.apache.org/projects/flink/flink-docs-master/apis/cluster_execution.html) or on a [YARN setup](http://ci.apache.org/projects/flink/flink-docs-master/setup/yarn_setup.html#quickstart-run-a-flink-job-on-yarn) is very similar.
 
 ### Monitoring the execution of a Flink program
 
