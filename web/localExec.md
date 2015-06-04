@@ -8,7 +8,7 @@ Developing Flink programs in an IDE is comfortable because the programs can be e
 
 Here we will show the necessary steps to package, submit, and monitor a Flink program on a local Flink instance. 
 
-### Packaging a program for execution
+### Package a program for execution
 
 Flink programs are packaged as regular JAR files. A program JAR file must contain all classes, resource files, and libraries that are required to execute the program. Flink's submission clients identify the entry point of the program, i.e., the class with the `main()` method, as the class that is defined as `Main-Class` in the JAR's `MANIFEST.MF` like this:
 
@@ -27,7 +27,7 @@ mvn clean package
 
 The resulting JAR file will be located in the `./target/` folder.
 
-### Executing a Flink program using the CLI client
+### Execute a Flink program using the CLI client
 
 Flink provides different clients to submit a program to a running Flink system including a [command-line client](http://ci.apache.org/projects/flink/flink-docs-master/apis/cli.html) (CLI client) and a [web-based client](http://ci.apache.org/projects/flink/flink-docs-master/apis/web_client.html). Given that a local Flink instance is running ([see instructions]({{ site.baseurl }}/setup.html)),
 a program can be executed using the CLI client as follows:
@@ -46,7 +46,7 @@ Further options can be found in the documentation of the [CLI client](http://ci.
 
 Executing a Flink program on a [cluster](http://ci.apache.org/projects/flink/flink-docs-master/apis/cluster_execution.html) or on a [YARN setup](http://ci.apache.org/projects/flink/flink-docs-master/setup/yarn_setup.html#quickstart-run-a-flink-job-on-yarn) is very similar.
 
-### Monitoring the execution of a Flink program
+### Monitor the execution of a Flink program
 
 The Flink JobManager webinterface at [http://localhost:8081](http://localhost:8081) shows the execution of Flink programs, performance metrics of the TaskManagers, and information to analyze the execution time of completed programs.
 
