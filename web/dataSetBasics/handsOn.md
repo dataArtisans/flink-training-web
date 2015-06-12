@@ -1,8 +1,26 @@
 ---
-title: Local Execution
+title: 3. DataSet API Basics - Hands-On
 layout: page
-permalink: /localExec.html
+permalink: /dataSetBasics/handsOn.html
 ---
+
+### Implement your first Flink program
+
+- get the training data set
+- use Maven quickstart Job.class as template
+- implement exercise 
+- implementation hints and reference solution is provided
+
+### Package and execute your program
+
+- local instance
+  - remote execution is very much the same
+
+### I am done
+
+- go to the next exercise
+
+# Packaging & Local Execution
 
 Developing Flink programs in an IDE is comfortable because the programs can be easily executed and debugged. However in order to execute a program on a running Flink system, the program needs to be packaged and submitted. The progress of the executed program can be monitored on Flink's webinterface.
 
@@ -49,4 +67,3 @@ Executing a Flink program on a [cluster](http://ci.apache.org/projects/flink/fli
 ### Monitor the execution of a Flink program
 
 The Flink JobManager webinterface at [http://localhost:8081](http://localhost:8081) shows the execution of Flink programs, performance metrics of the TaskManagers, and information to analyze the execution time of completed programs.
-

@@ -1,7 +1,7 @@
 ---
-title: Setup Development Environment
+title: 2. Setup Development Environment - Hands-on
 layout: page
-permalink: /setup.html
+permalink: /devSetup/handsOn.html
 ---
 
 This guide describes how to setup an environment to locally develop, debug, and execute Flink programs. Flink supports Linux, OS X, and Windows as development environments for Flink programs and local execution. 

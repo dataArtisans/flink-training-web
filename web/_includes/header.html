@@ -15,8 +15,41 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{{ site.baseurl }}/setup.html">Setup</a></li>
-        <li><a href="{{ site.baseurl }}/localExec.html">Local Execution</a></li>
+
+        <!-- Lessons -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Lessons<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <!-- System Overview --> 
+            <li><a href="{{ site.baseurl }}/overview/intro.html">1. System Overview</a></li>
+            <li><a href="{{ site.baseurl }}/overview/slides.html">Lecture</a></li>
+            <li class="divider"></li>
+            <!-- Local Setup -->
+            <li><a href="{{ site.baseurl }}/devSetup/intro.html">2. Setup Development Environment</a></li>
+            <li><a href="{{ site.baseurl }}/devSetup/handsOn.html">Hands-On</a></li>
+            <li class="divider"></li>
+            <!-- DataSet Basics -->
+            <li><a href="{{ site.baseurl }}/dataSetBasics/intro.html">3. DataSet API Basics</a></li>
+            <li><a href="{{ site.baseurl }}/dataSetBasics/slides.html">Lecture</a></li>
+            <li><a href="{{ site.baseurl }}/dataSetBasics/handsOn.html">Hands-On</a></li>
+            <li class="divider"></li>
+            <!-- DataSet Advanced -->
+            <li><a href="{{ site.baseurl }}/dataSetAdvanced/intro.html">4. DataSet API Advanced</a></li>
+            <li><a href="{{ site.baseurl }}/dataSetAdvanced/slides.html">Lecture</a></li>
+            <li><a href="{{ site.baseurl }}/dataSetAdvanced/handsOn.html">Hands-On</a></li>
+            <li class="divider"></li>
+            <!-- Table API -->
+            <li><a href="{{ site.baseurl }}/tableApi/intro.html">5. Table API</a></li>
+            <li><a href="{{ site.baseurl }}/tableApi/slides.html">Lecture</a></li>
+            <li><a href="{{ site.baseurl }}/tableApi/handsOn.html">Hands-On</a></li>
+            <li class="divider"></li>
+            <!-- Closing -->
+            <li><a href="{{ site.baseurl }}/closing/intro.html">6. Closing</a></li>
+            <li><a href="{{ site.baseurl }}/closing/slides.html">Slides</a></li>
+          </ul>
+        </li>
+
+        <!-- Exercises --> 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -31,20 +64,23 @@
             <li><a href="{{ site.baseurl }}/exercises/mailData.html">Mail Data Set</a></li>
           </ul>
         </li>
+
+        <!-- Documentation Links -->  
+        <li><a href="{{ site.baseurl }}/devResources/docLinks.html">Flink Documentation</a></li>
+
+        <!--
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ site.baseurl }}/devResources/docLinks.html">Flink Documentation</a></li>
             <li><a href="{{ site.baseurl }}/devResources/trainingSlides.html">Training Slides</a></li>
-            
-            <!--
             <li class="divider"></li>
             <li><a href="{{ site.baseurl }}/devResources/bestPractices.html">Best Practices</a></li>
             <li><a href="{{ site.baseurl }}/devResources/tuning.html">Tuning</a></li>
             <li><a href="{{ site.baseurl }}/devResources/exceptionFaq.html">Exception FAQ</a></li>
-            -->
           </ul>
         </li>
+        -->
       </ul>
       <!--
       <ul class="nav navbar-nav navbar-right">
