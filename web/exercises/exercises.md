@@ -6,7 +6,7 @@ permalink: /exercises/
 
 This training provides programming exercises that teach how to  implement scalable data analysis programs with Apache Flink's APIs and libraries. At this time, the exercises focus on Flink's DataSet API (batch) but will be extended to further APIs and libraries in the future.
 
-The programming exercises assume a [working development environment]({{ site.baseurl }}/setup.html) and some basic knowledge of Flink's programming primitives.
+The programming exercises assume a [working development environment]({{ site.baseurl }}/devSetup/intro.html) and some basic knowledge of Flink's programming primitives.
 
 <hr>
 <br>
