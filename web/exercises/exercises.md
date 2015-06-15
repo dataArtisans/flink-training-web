@@ -15,7 +15,7 @@ The programming exercises assume a [working development environment]({{ site.bas
 
 The [DataSet API](http://ci.apache.org/projects/flink/flink-docs-master/apis/programming_guide.html) is a programming model for scalable batch processing. It features a Java and a Scala API which are feature equivalent and very similar. 
 
-The exercises are order by increasing difficulty.
+The exercises are ordered by increasing difficulty.
 
 #### Mail Count
 

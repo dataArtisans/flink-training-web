@@ -10,7 +10,9 @@ A reply connection is defined as a pair of two email addresses (`Tuple2<String, 
 
 ### Input Data
 
-This exercise requires three fields `MessageID`, `Sender`, and `Reply-To` from the [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The input data can be read as a `DataSet<Tuple3<String, String, String>>`. When printed, the data set should look similar to this:
+This exercise uses the Mail Data Set which was extracted from the Apache Flink development mailing list archive. The [Mail Data Set instructions]({{ site.baseurl }}/exercises/mailData.html) show how to read the data set in a Flink program using the `CsvInputFormat`.
+
+The task requires three fields `MessageID`, `Sender`, and `Reply-To`. The input data can be read as a `DataSet<Tuple3<String, String, String>>`. When printed, the data set should look similar to this:
 
 ~~~
 (<CAAdrtT0-sfxxUK-BrPC03ia7t1WR_ogA5uA6J5CSRvuON+snTg@mail.gmail.com>,Fabian Hueske <fhueske@apache.org>,<C869A196-EB43-4109-B81C-23FE9F726AC6@apache.org>)

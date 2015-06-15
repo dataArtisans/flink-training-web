@@ -23,7 +23,9 @@ Following this definition, a term has a high TF-IDF score (and is considered to 
 
 ### Input Data
 
-This exercise uses the [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) which was extracted from the Apache Flink development mailing list archive. The task requires two fields, `MessageId` and `Body`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
+This exercise uses the Mail Data Set which was extracted from the Apache Flink development mailing list archive. The [Mail Data Set instructions]({{ site.baseurl }}/exercises/mailData.html) show how to read the data set in a Flink program using the `CsvInputFormat`.
+
+The task requires two fields, `MessageId` and `Body`. The input data can be read as a `DataSet<Tuple2<String, String>>`. When printed, the data set should look similar to this:
 
 ~~~
 (<CAGr9p8A8Z7P787=c5RF5QbPKudLmPUsV3jCHKefZbwm=0UF-GA@mail.gmail.com>,

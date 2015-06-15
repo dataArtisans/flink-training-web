@@ -4,11 +4,11 @@ layout: page
 permalink: /devSetup/handsOn.html
 ---
 
-This guide describes how to setup an environment to locally develop, debug, and execute Flink programs. Flink supports Linux, OS X, and Windows as development environments for Flink programs and local execution. 
+In this hands-on session you will setup an environment to locally develop, debug, and execute Flink programs. Furthermore, you will install a Flink instance to locally executed Flink programs on your machine.
 
 ### 1. Software requirements
 
-Make sure you have installed the following software on your system.
+Flink supports Linux, OS X, and Windows as development environments for Flink programs and local execution. The following software is required for a Flink development setup and should be installed on your system.
 
 - Java JDK 7 (or 8)
 - Scala 2.10 (Scala 2.11 not supported out-of-the-box)
