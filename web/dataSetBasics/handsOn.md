@@ -4,9 +4,9 @@ layout: page
 permalink: /dataSetBasics/handsOn.html
 ---
 
-In this hands-on session, you will implement your first Flink program using the DataSet API. You will also learn how to package a Flink program using Apache Maven, execute the packaged program on a running Flink instance, and monitor its progress.
+In this hands-on session you will implement your first Flink program using the DataSet API. You will also learn how to package a Flink program using Apache Maven, execute the packaged program on a running Flink instance, and monitor its progress.
 
-The programming exercise of this lesson is to count the number of mails in Flink’s mailing list archives per email address and month. Like all other exercises of this training, the Mail Count exercise is based on the Mail Data Set which is extracted from Apache Flink's mailing list archives and which contains about 25,000 emails.
+The programming exercise of this lesson is to count the number of emails in Flink’s mailing list archives per email address and month. Like all other exercises of this training, the Mail Count exercise is based on the Mail Data Set which consists of about 25,000 emails extracted from Apache Flink's mailing list archives.
 
 The following steps guide you through the process of downloading the Mail Data Set, implementing the Mail Count exercise, and packaging and executing your program on a running Flink instance.
 

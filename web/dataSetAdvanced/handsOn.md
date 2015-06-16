@@ -4,15 +4,19 @@ layout: page
 permalink: /dataSetAdvanced/handsOn.html
 ---
 
-### More exercises
+In this hands-on session you can continue to work on  programming exercises or experiment with Flink's DataSet API features.
 
-### Play around
+### Continue working on programming exercises
 
-- Use POJOs or case classes
-- Use a Combiner
-- Use a ReduceFunction
-- Use a RichFunction
-- Use a BroadcastSet
-- Use an Accumulator
+Choose one of the remaining DataSet API [programming exercises]({{ site.baseurl }}/exercises) and try to solve it.
 
-### Implement your own job
+### Play around with features of the DataSet API
+
+Experiment with the API and use any of following API features:
+
+- POJO or case classes data types
+- A Combiner
+- A ReduceFunction
+- A RichFunction and the RuntimeContext
+- A BroadcastSet
+- An Accumulator
