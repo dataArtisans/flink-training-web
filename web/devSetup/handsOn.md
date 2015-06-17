@@ -31,6 +31,7 @@ mvn archetype:generate                             \
     -DartifactId=flink-java-project                \
     -Dversion=0.1                                  \
     -Dpackage=org.apache.flink.quickstart          \
+    -DarchetypeCatalog=https://repository.apache.org/content/repositories/snapshots  \
     -DinteractiveMode=false
 ~~~
 
@@ -45,6 +46,7 @@ mvn archetype:generate                             \
     -DartifactId=flink-scala-project               \
     -Dversion=0.1                                  \
     -Dpackage=org.apache.flink.quickstart          \
+    -DarchetypeCatalog=https://repository.apache.org/content/repositories/snapshots  \
     -DinteractiveMode=false
 ~~~
 
