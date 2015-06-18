@@ -50,7 +50,16 @@ mvn archetype:generate                             \
     -DinteractiveMode=false
 ~~~
 
-The generate projects are located in a folder called `flink-java-project` or `flink-scala-project`.
+The generated projects are located in a folder called `flink-java-project` or `flink-scala-project`.
+
+In order to test the generated projects and to download all required dependencies run the following commands (change `flink-java-project` to `flink-scala-project` for Scala projects)
+
+~~~bash
+cd flink-java-project
+mvn clean package
+~~~
+
+Maven will now start to download all required dependencies and build the Flink quickstart project.
 
 ### 3. Import the Flink Maven project into your IDE
 
