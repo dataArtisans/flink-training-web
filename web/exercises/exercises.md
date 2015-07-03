@@ -67,3 +67,21 @@ Find for each month the email address that sent the most emails to Flink's devel
 | **Reference Solution** &nbsp;&nbsp; | Java: [MemberOTMonth.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/tableJava/memberOTM/MemberOTMonth.java), Scala: [MemberOTMonth.scala](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/scala/com/dataArtisans/flinkTraining/exercises/tableScala/memberOTM/MemberOTMonth.scala) |
 
 <br>
+<hr>
+<br>
+
+### Gelly: Flink Graph API
+
+Gelly is a Java [Graph API](https://ci.apache.org/projects/flink/flink-docs-master/libs/gelly_guide.html) for Flink. It contains a set of methods and utilities which aim to simplify the development of graph analysis applications in Flink. In Gelly, graphs can be transformed and modified using high-level functions similar to the ones provided by the batch processing API. Gelly provides methods to create, transform and modify graphs, as well as a library of graph algorithms.
+
+#### PageRank Exercise
+
+Define a graph using Gelly API and analyze its structure by running Gelly's PageRank algorithm.
+
+| **Instructions**				| [Gelly: PageRank]({{ site.baseurl }}/exercises/replyGraphGelly.html)
+| **Data Set**                  | [Reply Graph DataSet]({{ site.baseurl }}/exercises/replyGraph.html) (Input Data Set for this exercise, is the output of the Reply Graph exercise)|
+| **API Features**              | Graph.fromDataSet(), Graph.reduceOnEdges(), Graph.joinWithEdgesOnSource() |
+| **Reference Solution** &nbsp;&nbsp; | Java: [PageRankWithEdgeWeights.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/gellyJava/PageRankWithEdgeWeights.java) 
+
+<br>
+
