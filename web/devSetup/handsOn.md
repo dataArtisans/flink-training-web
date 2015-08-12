@@ -26,12 +26,11 @@ Flink provides Maven archetypes to correctly setup Maven projects for Java or Sc
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-java    \
-    -DarchetypeVersion=0.9-SNAPSHOT                \
+    -DarchetypeVersion=0.9.0                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-java-project                \
     -Dversion=0.1                                  \
     -Dpackage=org.apache.flink.quickstart          \
-    -DarchetypeCatalog=https://repository.apache.org/content/repositories/snapshots  \
     -DinteractiveMode=false
 ~~~
 
@@ -41,12 +40,11 @@ mvn archetype:generate                             \
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-scala   \
-    -DarchetypeVersion=0.9-SNAPSHOT                \
+    -DarchetypeVersion=0.9.0                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-scala-project               \
     -Dversion=0.1                                  \
     -Dpackage=org.apache.flink.quickstart          \
-    -DarchetypeCatalog=https://repository.apache.org/content/repositories/snapshots  \
     -DinteractiveMode=false
 ~~~
 
@@ -88,7 +86,7 @@ Assuming you have an IDE with a Flink quickstart project imported, you can execu
 
 In order to execute program on a running Flink instance (and not from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
 
-- Download a Flink 0.9-SNAPSHOT build of Apache Flink. The latest build can be downloaded [here](http://stratosphere-bin.s3-website-us-east-1.amazonaws.com/flink-0.9-SNAPSHOT-bin-hadoop2.tgz).
+- Download the Apache Flink 0.9.0 release from an [ASF mirror](http://www.apache.org/dyn/closer.cgi/flink/flink-0.9.0/flink-0.9.0-bin-hadoop1.tgz).
 - Extract the downloaded `.tgz` archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 
