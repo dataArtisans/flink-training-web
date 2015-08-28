@@ -1,5 +1,5 @@
 ---
-title: 5. Table API - Hands-On
+title: 7. Table API - Hands-On
 layout: page
 permalink: /tableApi/handsOn.html
 ---

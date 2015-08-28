@@ -1,5 +1,5 @@
 ---
-title: 6. Closing - Slides
+title: 8. Closing - Slides
 layout: page
 permalink: /closing/slides.html
 ---

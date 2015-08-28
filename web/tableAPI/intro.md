@@ -1,5 +1,5 @@
 ---
-title: 5. Table API
+title: 7. Table API
 layout: page
 permalink: /tableApi/intro.html
 ---

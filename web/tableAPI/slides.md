@@ -1,5 +1,5 @@
 ---
-title: 5. Table API - Lecture
+title: 7. Table API - Lecture
 layout: page
 permalink: /tableApi/slides.html
 ---

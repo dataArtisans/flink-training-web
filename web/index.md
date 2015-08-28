@@ -8,7 +8,7 @@ layout: page
 
 ### Goals and scope of this training
 
-This training teaches how to implement scalable data analysis programs using Apache Flink. For now, the training focuses on Flink's DataSet API for batch processing. The training will be extended to cover a broader range of use cases in the future.
+This training teaches how to implement scalable data analysis programs using Apache Flink. 
 
 Specifically, this training teaches:
 
@@ -19,6 +19,7 @@ Specifically, this training teaches:
 
 - How to implement Flink programs using
 	- Exercises for Flink batch programs using the DataSet API
+	- Exercises for Flink stream programs using the DataStream API
 	- Exercises for Flink batch programs using the Table API
   
 - How to package, execute, and monitor Flink programs on running Flink systems
