@@ -88,19 +88,16 @@ Identify every five minutes popular areas where many taxi rides arrived or depar
 | **API Features**              | [Map](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#basic-transformations), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#grouped-operators), [Window & MapWindow](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#window-operators) |
 | **Reference Solution** &nbsp;&nbsp; | Java: [PopularPlaces.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/popularPlaces/PopularPlaces.java) |
 
-<!--
 <br>
 
 #### Accident Delays
 
-**TODO**
+Connect a data stream of taxi rides and a stream of accident reports to identify taxi rides that might have been delayed due to accidents.
 
-| **Instructions**				| DataStream API: Accident Delays |
+| **Instructions**				| [DataStream API: Accident Delays]({{ site.baseurl }}/exercises/accidentDelays.html) |
 | **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
-| **API Features**              |  |
-| **Reference Solution** &nbsp;&nbsp; |  |
-
--->
+| **API Features**              | [Map, FlatMap](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#basic-transformations), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#grouped-operators), [Connect, CoFlatMap](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#co-operators) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [AccidentDelays.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/accidentDelays/AccidentDelays.java) |
 
 <br>
 <hr>
