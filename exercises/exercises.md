@@ -22,7 +22,7 @@ Count the number of mails in the archive of Flink's developer mailing list per e
 | **Instructions**				| [DataSet API: Mail Count]({{ site.baseurl }}/exercises/mailCount.html)
 | **Data Set**                  | [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) |
 | **API Features**              | [Map](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#map), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [MailCount.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataSetJava/mailCount/MailCount.java), Scala: [MailCount.scala](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataSetScala/mailCount/MailCount.scala) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [MailCount.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataSetJava/mailCount/MailCount.java), Scala: [MailCount.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataSetScala/mailCount/MailCount.scala) |
 
 <br>
 
@@ -34,7 +34,7 @@ Extract a graph of reply connections from the mails of Apache Flink's developer 
 | **Instructions**				| [DataSet API: Reply Graph]({{ site.baseurl }}/exercises/replyGraph.html)
 | **Data Set**                  | [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) |
 | **API Features**              | [Map](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#map), [Join](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#join), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [ReplyGraph.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataSetJava/replyGraph/ReplyGraph.java), Scala: [ReplyGraph.scala](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataSetScala/replyGraph/ReplyGraph.scala) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [ReplyGraph.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataSetJava/replyGraph/ReplyGraph.java), Scala: [ReplyGraph.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataSetScala/replyGraph/ReplyGraph.scala) |
 
 <br>
 
@@ -45,7 +45,7 @@ Compute TermFrequency-InvertedDocumentFrequency (TF-IDF) metrics for words in al
 | **Instructions**				| [DataSet API: TF-IDF]({{ site.baseurl }}/exercises/tfIdf.html)
 | **Data Set**                  | [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) |
 | **API Features**              | [FlatMap](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#flatmap), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#groupreduce-on-grouped-dataset), [Join](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#join), DataSet.collect() |
-| **Reference Solution** &nbsp;&nbsp; 	| Java: [MailTFIDF.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataSetJava/tfIdf/MailTFIDF.java), Scala: [MailTFIDF.scala](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataSetScala/tfIdf/MailTFIDF.scala) |
+| **Reference Solution** &nbsp;&nbsp; 	| Java: [MailTFIDF.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataSetJava/tfIdf/MailTFIDF.java), Scala: [MailTFIDF.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataSetScala/tfIdf/MailTFIDF.scala) |
 
 <br>
 <hr>
@@ -64,7 +64,7 @@ Filter a data stream of taxi ride records to keep only rides that start and end 
 | **Instructions**				| [DataStream API: Taxi Ride Cleansing]({{ site.baseurl }}/exercises/rideCleansing.html) |
 | **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
 | **API Features**              | [Filter](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#basic-transformations) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [RideCleansing.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/rideCleansing/RideCleansing.java) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [RideCleansing.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/rideCleansing/RideCleansing.java), Scala: [RideCleansing.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataStreamScala/rideCleansing/RideCleansing.scala) |
 
 <br>
 
@@ -75,7 +75,7 @@ Compute the average speed of completed taxi rides.
 | **Instructions**				| [DataStream API: Average Taxi Ride Speed]({{ site.baseurl }}/exercises/rideSpeed.html) |
 | **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
 | **API Features**              | [FlatMap](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#basic-transformations), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#grouped-operators) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [RideSpeed.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/rideSpeed/RideSpeed.java) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [RideSpeed.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/rideSpeed/RideSpeed.java) |
 
 <br>
 
@@ -86,7 +86,7 @@ Identify every five minutes popular areas where many taxi rides arrived or depar
 | **Instructions**				| [DataStream API: Popular Places]({{ site.baseurl }}/exercises/popularPlaces.html) |
 | **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
 | **API Features**              | [Map](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#basic-transformations), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#grouped-operators), [Window & MapWindow](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#window-operators) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [PopularPlaces.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/popularPlaces/PopularPlaces.java) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [PopularPlaces.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/popularPlaces/PopularPlaces.java) |
 
 <br>
 
@@ -97,7 +97,7 @@ Connect a data stream of taxi rides and a stream of accident reports to identify
 | **Instructions**				| [DataStream API: Accident Delays]({{ site.baseurl }}/exercises/accidentDelays.html) |
 | **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
 | **API Features**              | [Map, FlatMap](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#basic-transformations), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#grouped-operators), [Connect, CoFlatMap](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#co-operators) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [AccidentDelays.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/accidentDelays/AccidentDelays.java) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [AccidentDelays.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/accidentDelays/AccidentDelays.java) |
 
 <br>
 <hr>
@@ -114,7 +114,7 @@ Find for each month the email address that sent the most emails to Flink's devel
 | **Instructions**				| [Table API: Member of the Month]({{ site.baseurl }}/exercises/memberOTM.html)
 | **Data Set**                  | [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) |
 | **API Features**              | [Map](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#map), Table.select(), Table.groupBy(), Table.join() |
-| **Reference Solution** &nbsp;&nbsp; | Java: [MemberOTMonth.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/tableJava/memberOTM/MemberOTMonth.java), Scala: [MemberOTMonth.scala](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/scala/com/dataArtisans/flinkTraining/exercises/tableScala/memberOTM/MemberOTMonth.scala) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [MemberOTMonth.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/tableJava/memberOTM/MemberOTMonth.java), Scala: [MemberOTMonth.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/tableScala/memberOTM/MemberOTMonth.scala) |
 
 <br>
 <hr>
@@ -131,7 +131,7 @@ Define a graph using Gelly API and analyze its structure by running Gelly's Page
 | **Instructions**				| [Gelly: PageRank]({{ site.baseurl }}/exercises/replyGraphGelly.html)
 | **Data Set**                  | [Reply Graph DataSet]({{ site.baseurl }}/exercises/replyGraph.html) (Input Data Set for this exercise, is the output of the Reply Graph exercise)|
 | **API Features**              | Graph.fromDataSet(), Graph.reduceOnEdges(), Graph.joinWithEdgesOnSource() |
-| **Reference Solution** &nbsp;&nbsp; | Java: [PageRankWithEdgeWeights.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/gellyJava/PageRankWithEdgeWeights.java) 
+| **Reference Solution** &nbsp;&nbsp; | Java: [PageRankWithEdgeWeights.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/gellyJava/PageRankWithEdgeWeights.java) 
 
 <br>
 

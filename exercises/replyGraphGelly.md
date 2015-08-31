@@ -58,4 +58,4 @@ The final step of this exercise is to apply Gelly's [PageRank algorithm](https:/
 
 Reference solution is available at GitHub:
 
-- Java: [PageRankWithEdgeWeights.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/gellyJava/PageRankWithEdgeWeights.java)
+- Java: [PageRankWithEdgeWeights.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/gellyJava/PageRankWithEdgeWeights.java)
