@@ -11,11 +11,10 @@ Due to a Freedom of Information Law (FOIL) request the [New York City Taxi & Lim
 Download and extract the taxi data file by running the following commands
 
 ~~~~
-wget https://raw.githubusercontent.com/dataArtisans/flink-training/master/dataSets/nycTaxiTrips.tar.gz
-tar xvfz nycTaxiTrips.tar.gz
+wget http://dataartisans.github.io/flink-training/dataSets/nycTaxiTrips.gz
 ~~~~
 
-The taxi data file is called `nycTaxiTrips.csv`.
+Please do not decompress or rename the .gz file.
 
 #### Data format of the taxi data file
 
@@ -43,11 +42,11 @@ TripDistance : Double // actual travel distance (-1 in START records)
 
 ### 2. Generate a Taxi Ride Data Stream in a Flink program
 
-We provide a generator which emits a stream of `TaxiRide` records.
-The records are emitted proportional to their time field (trip start or end time). 
+We provide a generator which emits a stream of `TaxiRide` records. The generator reads a .gz file with taxi ride records and emits them proportional to their time field (trip start or end time). 
+
 The emission rate of the generator can be controlled with a parameter called `servingSpeedFactor`. A value of `1.0` emit records in "real-time", i.e., the later record of two events which are 10 minutes apart in the original data set will be emitted 10 minutes after the earlier record. A factor of `2.0` sends the later record 5 minutes after the earlier one.
 
-**Note:** You have to add the `flink-training` dependency to the Maven POM.xml file as described in the [Hands-On instructions]({{ site.baseurl }}/dataStreamBasics/handsOn.html) because the `TaxiRide` class and the generator (`TaxiRideGenerator`) are contained in the Flink training dependency.
+**Note:** You have to add the `flink-training` dependency to the Maven `pom.xml` file as described in the [Hands-On instructions]({{ site.baseurl }}/dataStreamBasics/handsOn.html) because the `TaxiRide` class and the generator (`TaxiRideGenerator`) are contained in the `flink-training-exercises` dependency.
 
 #### Java
 
@@ -58,7 +57,7 @@ StreamExecutionEnvironment env =
 
 // add a taxi record generator
 DataStream<TaxiRide> rides = env.addSource(
-    new TaxiRideGenerator("/path/to/your/nycTaxiTrip.csv", servingSpeedFactor)
+    new TaxiRideGenerator("/path/to/your/nycTaxiTrip.gz", servingSpeedFactor)
   );
 {% endhighlight %}
 

@@ -18,7 +18,13 @@ Flink supports Linux, OS X, and Windows as development environments for Flink pr
 
 ### 2. Generate a Flink Maven project
 
-Flink provides Maven archetypes to correctly setup Maven projects for Java or Scala Flink programs. Run one of following commands to generated a Flink Java or Scala project.
+Flink provides Maven archetypes to correctly setup Maven projects for Java or Scala Flink programs. We need to add an additional dependency to these Maven projects which contains utility classes that are required for the programming exercises of the training. 
+
+Follow the next steps to set up a Flink Maven quickstart project which can be used for the programming exercises.
+
+#### Generate a Flink Maven Quickstart project
+
+Run one of following commands to generated a Flink Java or Scala project.
 
 **Flink Java Project**
 
@@ -48,12 +54,35 @@ mvn archetype:generate                             \
     -DinteractiveMode=false
 ~~~
 
-The generated projects are located in a folder called `flink-java-project` or `flink-scala-project`.
+The generated Flink quickstart project is located in a folder called `flink-java-project` (`flink-scala-project` for Scala projects).
 
-In order to test the generated projects and to download all required dependencies run the following commands (change `flink-java-project` to `flink-scala-project` for Scala projects)
+#### Clone and build the flink-training-exercises project 
+
+The `flink-training-exercises` project contains utility classes and reference solutions for the programming exercises. Clone the `flink-training-exercises` project from Github and build it.
 
 ~~~bash
-cd flink-java-project
+git clone https://github.com/dataArtisans/flink-training-exercises.git
+cd flink-training-exercises
+mvn clean install
+~~~
+
+#### Add the flink-training-exercises dependency to your pom.xml
+
+Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or `flink-scala-project/pom.xml`) with a text editor and add the following dependency.
+
+~~~xml
+<dependency>
+  <groupId>com.dataArtisans</groupId>
+  <artifactId>flink-training-exercises</artifactId>
+  <version>0.1</version>
+</dependency>
+~~~
+
+#### Build your Flink quickstart project
+
+In order to test the generated project and to download all required dependencies run the following command in the `flink-java-project` (`flink-scala-project` for Scala projects) folder.
+
+~~~bash
 mvn clean package
 ~~~
 
@@ -102,6 +131,8 @@ On UNIX system you can start a Flink instance as follows:
 cd /to/your/flink/installation
 ./bin/start-local.sh
 ~~~
+
+Calling `./bin/start-local-streaming.sh` instead of `./bin/start-local.sh` starts Flink in a "streaming-optimized" mode.
 
 On Windows you have to run the following commands
 

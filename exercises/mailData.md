@@ -11,11 +11,10 @@ All communication within Apache projects is happening on or is mirrored to maili
 Download and extract the Mail Data Set by running the following commands
 
 ~~~~
-wget https://raw.githubusercontent.com/dataArtisans/flink-training/master/dataSets/flinkMails.tar.gz
-tar xvfz flinkMails.tar.gz
+wget http://dataartisans.github.io/flink-training/dataSets/flinkMails.gz
 ~~~~
 
-The resulting `flinkMails.del` file contains the Mail Data Set.
+Please do not decompress or rename the .gz file.
 
 #### Data format of the Mail Data Set
 
@@ -42,7 +41,7 @@ Hence, the format of the file is
 
 ### 2. Read the Mail Data Set in a Flink program
 
-The Mail Data Set can be read using Flink's `CsvInputFormat`:
+The Mail Data Set can be read using Flink's `CsvInputFormat`. It will decompress the input file on-the-fly.
 
 #### Java
 
@@ -52,7 +51,7 @@ ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
 // read all fields
 DataSet<Tuple6<String, String, String, String, String, String>> mails =
-  env.readCsvFile("/your/output/mail-data")
+  env.readCsvFile("/path/to/your/flinkMails.gz")
     .lineDelimiter("##//##")
     .fieldDelimiter("#|#")
     .types(String.class, String.class, String.class,
@@ -60,7 +59,7 @@ DataSet<Tuple6<String, String, String, String, String, String>> mails =
 
 // read sender and body fields
 DataSet<Tuple2<String, String>> senderBody =
-  env.readCsvFile("/your/output/mail-data")
+  env.readCsvFile("/path/to/your/flinkMails.gz")
     .lineDelimiter("##//##")
     .fieldDelimiter("#|#")
     .includeFields("00101")
@@ -75,14 +74,14 @@ val env = ExecutionEnvironment.getExecutionEnvironment
 
 // read all fields
 val mails = env.readCsvFile[(String, String, String, String, String, String)](
-    "/your/output/mail-data",
+    "/path/to/your/flinkMails.gz",
     lineDelimiter = "##//##",
     fieldDelimiter = "#|#",
   )
 
 // read sender and body fields
 val senderBody = env.readCsvFile[(String, String)](
-    "/your/output/mail-data",
+    "/path/to/your/flinkMails.gz",
     lineDelimiter = "##//##",
     fieldDelimiter = "#|#",
     includedFields = Array(2,4)
