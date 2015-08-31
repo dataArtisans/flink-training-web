@@ -10,6 +10,24 @@ The task of the "Average Ride Speed" exercise is to compute the average speed of
 
 The input data of this exercise should be read as `TaxiRide` records from the Kafka topic that was written by the [Taxi Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html).
 
+A Kafka data source is added to a Flink DataStream program as follows:
+
+{% highlight java %}
+// set up streaming execution environment
+StreamExecutionEnvironment env = 
+	StreamExecutionEnvironment.getExecutionEnvironment();
+
+// create a Kafka data source
+DataStream<TaxiRide> rides = env.addSource(
+	new KafkaSource<TaxiRide>(
+		"localhost:2181",      // Zookeeper host:port 
+		"cleansedRides",       // Topic to read from
+		new TaxiRideSchema())  // Deserializer (provided as util)
+	);
+{% endhighlight java %}
+
+**NOTE:** The Kafka source reads records of a Kafka a topic just once. If you restart the program, it will not start reading from the beginning of the topic but from the position it stopped reading the topic before. You can fill the topic again by running the [Ride Cleansing]({{ site.baseurl }}/exercises/rideCleansing.html) program again.
+
 ### Expected Output
 
 The result of the exercise should be a `DataStream<Tuple2<Long, Float>>` where the first field of the `Tuple2` should be the id of the ride and the second field of the tuple should be the average speed of the ride.
@@ -21,11 +39,6 @@ The result can be written to standard out, Kafka, or to a file.
 #### Program Structure
 
 The exercise program starts with a Kafka source. In order to ensure that the start and the end records of a specific ride are processed by the same parallel task instance, the stream needs to be partitioned by key. Within each stream partition, the start records must "wait" for their matching end records in order to compute the average speed of a ride. 
-
-#### Read Data Stream from Kafka
-
-
-**TODO** point to Kafka setup instructions
 
 #### Partition the Data Stream
 
