@@ -55,16 +55,18 @@ The emission rate of the generator can be controlled with a parameter called `se
 StreamExecutionEnvironment env = 
   StreamExecutionEnvironment.getExecutionEnvironment();
 
-// add a taxi record generator
+// get the taxi ride data stream
 DataStream<TaxiRide> rides = env.addSource(
-    new TaxiRideGenerator("/path/to/your/nycTaxiTrip.gz", servingSpeedFactor)
-  );
+    new TaxiRideGenerator("/path/to/your/nycTaxiTrip.gz", servingSpeedFactor));
 {% endhighlight %}
 
 #### Scala
 
 {% highlight scala %}
+// get an ExecutionEnvironment
+val env = StreamExecutionEnvironment.getExecutionEnvironment
 
-TODO
-
+// get the taxi ride data stream
+val rides = env.addSource(
+    new TaxiRideGenerator("/path/to/your/nycTaxiTrip.gz", servingSpeedFactor))
 {% endhighlight %}
