@@ -14,7 +14,7 @@ The following steps guide you through the process of setting up Apache Kafka, us
 
 Please follow these instructions to setup a local Kafka instance.
 
-[Download](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.8.2.0/kafka_2.10-0.8.2.0.tgz) Apache 0.8.2 and un-tar it.
+[Download](https://www.apache.org/dyn/closer.lua?path=/kafka/0.8.2.0/kafka_2.10-0.8.2.0.tgz) Apache Kafka 0.8.2 and un-tar it.
 
 ~~~bash
 tar -xzf kafka_2.10-0.8.2.0.tgz
