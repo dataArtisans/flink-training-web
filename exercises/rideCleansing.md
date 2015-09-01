@@ -10,7 +10,7 @@ The `GeoUtils` utility class is included in the `flink-training-exercises` Maven
 
 ### Input Data
 
-This exercise is based the Taxi Data Stream. The [Taxi Data Stream instructions]({{ site.baseurl }}/exercises/taxtData.html) show how to generate a stream of `TaxiRide` records.
+This exercise is based the Taxi Data Stream. The [Taxi Data Stream instructions]({{ site.baseurl }}/exercises/taxiData.html) show how to generate a stream of `TaxiRide` records.
 
 ### Expected Output
 
