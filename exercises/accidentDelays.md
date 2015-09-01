@@ -98,4 +98,4 @@ If both data streams are co-partitioned, you can connect them and apply a [CoFla
 
 Reference solutions are available at GitHub:
 
-- Java: [AccidentDelays.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/accidentDelays/AccidentDelays.java)
+- Java: [AccidentDelays.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/accidentDelays/AccidentDelays.java)

@@ -59,7 +59,7 @@ The first line of the example result indicates that 16 mails were sent to the ma
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body" markdown="span">
-        In contrast to the `WordCount` program, this exercise requires to group data on two fields (`month` and `email-address`) instead of a single field. Flink's [`DataSet.groupBy()`](http://ci.apache.org/projects/flink/flink-docs-master/apis/programming_guide.html#specifying-keys) transformation, accepts multiple grouping keys and treats them as one composite grouping key.
+        In contrast to the `WordCount` program, this exercise requires to group data on two fields (`month` and `email-address`) instead of a single field. Flink's [`DataSet.groupBy()`](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/programming_guide.html#specifying-keys) transformation, accepts multiple grouping keys and treats them as one composite grouping key.
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ The first line of the example result indicates that 16 mails were sent to the ma
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body" markdown="span">
-        The [`Map`](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#map) transformation is used for record-at-a-time processing and should be used to extract the relevant information from from the input data, i.e., the month from the timestamp field and the email address from the sender field.
+        The [`Map`](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#map) transformation is used for record-at-a-time processing and should be used to extract the relevant information from from the input data, i.e., the month from the timestamp field and the email address from the sender field.
       </div>
     </div>
   </div>
@@ -87,7 +87,7 @@ The first line of the example result indicates that 16 mails were sent to the ma
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body" markdown="span">
-        The [`GroupReduce`](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) transformation operates on groups of records and can also be used to count the number of element in a group.
+        The [`GroupReduce`](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) transformation operates on groups of records and can also be used to count the number of element in a group.
       </div>
     </div>
   </div>

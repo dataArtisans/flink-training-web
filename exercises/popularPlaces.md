@@ -85,4 +85,4 @@ Please be aware that the window times need to be adjusted by the speed factor of
 
 Reference solutions are available at GitHub:
 
-- Java: [PopularPlaces.java](https://github.com/dataArtisans/flink-training/blob/master/flink-exercises/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/popularPlaces/PopularPlaces.java)
+- Java: [PopularPlaces.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/popularPlaces/PopularPlaces.java)
