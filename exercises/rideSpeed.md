@@ -17,13 +17,19 @@ A Kafka data source is added to a Flink DataStream program as follows:
 StreamExecutionEnvironment env = 
 	StreamExecutionEnvironment.getExecutionEnvironment();
 
+// setup Kafka configuration
+Properties props = new Properties();
+props.setProperty("zookeeper.connect", "localhost:2181"); // Zookeeper host:port
+props.setProperty("bootstrap.servers", "localhost:9092"); // Broker host:port
+props.setProperty("group.id", "myGroup");                 // Consumer group ID
+
 // create a Kafka data source
 DataStream<TaxiRide> rides = env.addSource(
-	new KafkaSource<TaxiRide>(
-		"localhost:2181",      // Zookeeper host:port 
-		"cleansedRides",       // Topic to read from
-		new TaxiRideSchema())  // Deserializer (provided as util)
-	);
+  new FlinkKafkaConsumer082<TaxiRide>(
+    "myTopic",                                // Topic to read from
+    new TaxiRideSchema(),                     // Deserializer (provided as util)
+    props)
+  );
 {% endhighlight java %}
 
 **NOTE:** The Kafka source reads records of a Kafka a topic just once. If you restart the program, it will not start reading from the beginning of the topic but from the position it stopped reading the topic before. You can fill the topic again by running the [Ride Cleansing]({{ site.baseurl }}/exercises/rideCleansing.html) program again.
