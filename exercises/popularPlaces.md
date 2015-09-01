@@ -20,23 +20,66 @@ The result stream can be written to standard out, Kafka, or to a file.
 
 ### Implementation Hints
 
-#### Program Structure
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+Program Structure
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body" markdown="span">
 The task requires to count taxi ride records by cell id and event type (start or end record). Hence, we need to obtain a cell id for each record and group the records by cell id and record type. Subsequently, we need to count every five minutes how many records arrived in each group within the last 15 minutes. The windows are built using a time-based sliding window and the count can done using a `WindowMapFunction`. Finally, the windowed stream needs to be flattened and written to a stream sink.
-
-#### Mapping a Taxi Ride record to its Cell Id
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+Mapping a Taxi Ride record to its Cell Id
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body" markdown="span">
 Each `TaxiRide` record must be mapped to a cell id. This can be done by a `MapFunction` which calls the `GeoUtils.mapToGridCell()` method. Start records are mapped to the start location, end records are mapped to the end location.
-
-#### Grouping by Cell Id and Event Type
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Grouping by Cell Id and Event Type
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body" markdown="span">
 In order to compute separate area counts for arriving and departing taxi rides, the records needs to be grouped by area and event type. You can group a data stream a composite key by handing a list of keys to `DataStream.groupBy()`.
-
-#### Computing the Sliding Count
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+Computing the Sliding Count
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body" markdown="span">
 Use a `WindowedDataStream.window().every()` to define a sliding window that triggers every five minutes a count of the records of the last 15 minutes. The counting can be implemented as a `WindowMapFunction` which also checks whether the computed count exceeds the specified popularity threshold.
-
+<br>
 Please be aware that the window times need to be adjusted by the speed factor of the [Taxi Data Generator]({{ site.baseurl }}/exercises/taxiData.html) as well.
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Reference Solution
 

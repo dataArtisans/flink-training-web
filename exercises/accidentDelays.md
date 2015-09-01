@@ -33,23 +33,66 @@ The result stream can be written to standard out, Kafka, or to a file.
 
 ### Implementation Hints
 
-#### Program Structure
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+Program Structure
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body" markdown="span">
 The Accident Delays exercises is based on two data streams, the taxi rides stream and the accident reports stream. Both streams need to be connected. Since we want to match rides with accidents that happened on their way, we need to co-locate records of both streams based on cell grid ids. When both streams are partitioned by cell grid id, we can use a [Co-Operator](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#co-operators) to process records of both streams in the same operator. Finally, the result can be emitted to any data sink.
-
-#### Mapping Taxi Rides and Accidents to Grid Cells
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+Mapping Taxi Rides and Accidents to Grid Cells
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body" markdown="span">
 The `GeoUtils` class provides methods to map a single location (`GeoUtils.mapToGridCell`) or the path between two location (`GeoUtils.mapToGridCellsOnWay`) to grid cell ids. For accidents a `MapFunction` can be used to map an accident to its cell grid id. For taxi rides a `FlatMapFunction` must be used to map a taxi ride to each grid cell that is passed on the way from its departure to destination.
-
-#### Partitioning Taxi Rides and Accidents
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Partitioning Taxi Rides and Accidents
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body" markdown="span">
 Taxi rides and accident reports must be co-partitioned by event location, i.e., partitioned on the same attribute (grid cell id). You can use `DataStream.groupBy()` to partition data streams.
-
-#### Identifying Delayed Taxi Rides
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+Identifying Delayed Taxi Rides
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body" markdown="span">
 If both data streams are co-partitioned, you can connect them and apply a [CoFlatMapFunction](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#co-operators) to process records of both streams by calling `DataStream.connect(DataStream).flatMap(CoFlatMapFunction)`. The `CoFlatMapFunction` defines two methods, one for processing taxi ride records and one for accident records. When an accident record arrives, we need to distinguish between emergence and clearance records. For emergence records we send out an record for each ride that have been observed for this grid cell (and forget these rides) and remember the accident. For a clearance record, we forget the accident. When a taxi ride start record arrives, we send out a record if we find an accident for its cell id. If there was no accident reported, we remember the taxi ride. When a taxi ride end record arrives, we forget the taxi ride if it is remembered.
-
+<br>
 **Note:** Partitioning does not mean that a `CoFlatMapFunction` instance only received records with a unique grid cell id, but it ensures that all records with the same grid cell id are processed by the same function instance. This means, that your function needs to handle records with different grid cell ids.
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Reference Solution
 

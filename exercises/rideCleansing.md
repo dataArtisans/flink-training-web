@@ -42,17 +42,51 @@ When you start a program that writes to a Kafka sink, the configured Kafka topic
 
 ### Implementation Hints
 
-#### Program Structure
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+Program Structure
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body" markdown="span">
 This exercise program starts with a `TaxiRide` stream generator and requires a single transformation to filter all records that do not start and end within the New York City area. The filtered Stream is written to Apache Kafka.
-
-#### Obtaining a Taxi Ride Data Stream
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+Obtaining a Taxi Ride Data Stream
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body" markdown="span">
 The `DataStream<TaxiRide>` is generated using the `TaxiRideGenerator` as described in the [Taxi Data Stream instructions]({{ site.baseurl }}/exercises/taxtData.html).
-
-#### Filtering Records
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Filtering Records
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body" markdown="span">
 Flink's DataStream API features a `DataStream.filter(FilterFunction)` transformation to filter records from a data stream. The `GeoUtils.isInNYC(TaxiRide)` function can be called within a Filter function to identify records that do not start or end within the New York City area.
+      </div>
+    </div>
+  </div>
+</div>
+
 
 ### Reference Solution
 

@@ -36,21 +36,64 @@ The result can be written to standard out, Kafka, or to a file.
 
 ### Implementation Hints
 
-#### Program Structure
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+Program Structure
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body" markdown="span">
 The exercise program starts with a Kafka source. In order to ensure that the start and the end records of a specific ride are processed by the same parallel task instance, the stream needs to be partitioned by key. Within each stream partition, the start records must "wait" for their matching end records in order to compute the average speed of a ride. 
-
-#### Partition the Data Stream
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+Partition the Data Stream
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body" markdown="span">
 Data streams can be partitioned by a key using `DataStream.groupBy(key)`. The right key in this case is `tripId` because records must be matched by their `tripId`.
-
-#### Find Matching Records
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Find Matching Records
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body" markdown="span">
 A `FlatMap` function receives a single input record and returns zero or more records. We use a `FlatMap` function for matching ride records, because we emit one pair of ride records for each end record, i.e., we do not emit a record for a start record. The start records are collected and indexed by their `taskId`, for example in a regular Java `HashMap<Integer, TaxiRide>`. If an end record arrives, the corresponding start record is removed from the `HashMap` and both, the start and the end record are returned from the `FlatMapFunction`.
-
-#### Compute Average Speed
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+Compute Average Speed
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body" markdown="span">
 Given a pair of start and end records, the average ride speed can be computed in a `MapFunction` using the start and end time and the traveled distance.
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Reference Solution
 

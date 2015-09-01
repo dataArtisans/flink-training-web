@@ -34,25 +34,64 @@ aljoscha@apache.org,0.038048230343289406
 
 ### Implementation Hints
 
-#### Program Structure
-
-This exercise can be solved in three steps.
-
-1. Read Reply Graph as edge DataSet
-1. Generate Graph from edge DataSet
-1. Apply Gelly PageRank algorithm
-
-#### Read Reply Graph as edge DataSet
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+Program Structure
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body" markdown="span">
+This exercise can be solved in three steps. First, read Reply Graph as edge DataSet. Then generate Graph from edge DataSet and finally apply the Gelly PageRank algorithm.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+Read Reply Graph as edge DataSet
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body" markdown="span">
 Read each tuple `DataSet<Tuple3<String, String, Double>>` of the replyGraph exercise as an Edge. The data generated from the reply-graph exercise can be read as a data set of edges with emails being the source and target edge ids, while the number of reply connections can be stored as edge weights. 
-
-#### Generate Graph from edge DataSet
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Generate Graph from edge DataSet
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body" markdown="span">
 Use one of the methods of Gelly API to create a weighted graph, such as the `fromDataSet` method. It is recommended to create a class which takes as input arguments: path of input file, output file and number of iterations for the PageRank algorithm. **Note**, Add the `gelly dependency` in the pom file.
-
-#### Apply Gelly PageRank algorithm
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+Apply Gelly PageRank algorithm
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body" markdown="span">
 The final step of this exercise is to apply Gelly's [PageRank algorithm](https://github.com/apache/flink/blob/master/flink-staging/flink-gelly/src/main/java/org/apache/flink/graph/library/PageRankAlgorithm.java) by calling `graph.run(new PageRankAlgorithm<..>(input parameters))`. In Gelly's PageRank implementation, a vertex distributes its rank to the target vertices according to the weight of its outgoing edges e.g. if vertex A has two outgoing links (`<A,B,2>`, `<A,C,1>`), vertex B will get 2/3 of the total share of rank distributed by A, while C will get only 1/3. A suggestion would be to update edge values once a graph has been obtained, by taking into consideration the sum of all the outgoing edges from a given vertex,(`<A,B,2/3>`,`<A,C,1/3>`). 
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Reference Solution
 

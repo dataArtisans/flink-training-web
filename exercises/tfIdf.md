@@ -66,40 +66,94 @@ The first line of the example output indicates that the word `slide` has an TF-I
 
 ### Implementation Hints
 
-#### Program Structure
-
-Computing TF-IDF scores on a set of documents requires the following processing steps:
-
-1. Count the number of documents (required to compute IDF)
-1. Compute the term-frequency (TF)
-1. Compute the inverted-document-frequency (IDF)
-1. Compute the TF-IDF from TF and IDF
-
-#### Word Extraction, Filtering & Normalization
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+Program Structure
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body" markdown="span">
+Computing TF-IDF scores on a set of documents requires the following processing steps. First, count the number of documents (required to compute IDF). Second, compute the term-frequency (TF) and the the inverted-document-frequency (IDF). Finally, compute the TF-IDF from TF and IDF.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+Word Extraction, Filtering &amp; Normalization
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body" markdown="span">
 The task requires to extract words from the message body. This can be done by tokenizing the `Body` String by whitespaces, filtering for tokens with alphabetical characters only, and converting all letters to lowercase. It is also common to filter out words that frequently occur in texts (so-called stop words) such as:
 
-~~~
-"the", "i", "a", "an", "at", "are", "am", "for", "and", "or", "is",
-"there", "it", "this", "that", "on", "was", "by", "of", "to", "in",
-"to", "not", "be", "with", "you", "have", "as", "can"
-~~~
-
-#### Count the number of documents
-
+*"the", "i", "a", "an", "at", "are", "am", "for", "and", "or", "is", "there", "it", "this", "that", "on", "was", "by", "of", "to", "in", "to", "not", "be", "with", "you", "have", "as", "can"*
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Count the number of documents
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body" markdown="span">
 The most convenient method to count the number of elements in a data set is the `DataSet.count()` method which returns a `long` value with the number of elements in the data set. `count()` is eagerly executed and does not require an `ExecutionEnvironment.execute()` call. The `long` value can be shared with the function that computes `IDF` as a constructor parameter.
-
-#### Computing the Term-Frequency
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+Computing the Term-Frequency
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body" markdown="span">
 Computing the frequency of words in a document can be independently done on each document using a `FlatMapFunction`. The function receives one document at a time, extracts all words, counts the occurrences of each unique word in the text (e.g., using a hash map), and emits one tuple with three fields `(UniqueMID, Word, TF)` for each counted word.
-
-#### Computing the Inverted-Document-Frequency
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+Computing the Inverted-Document-Frequency
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body" markdown="span">
 Computing the fraction of documents that contain a certain word can be done in two steps. First compute the absolute number of documents that contain the word and second compute the IDF by normalizing the absolute count by the total number of documents (which was computed in a previous step). Computing the absolute number of documents that contain a certain word is similar to the [Mail Count]({{ site.baseurl }}/exercises/mailCount.html) exercise or the common WordCount example. When extracting the unique words from the document the same normalization techniques as for the TF computation should be applied. Unique words can be obtained by storing them in a hash set. The result of this step should be a tuple with two fields, `(Word, IDF)`.
-
-#### Computing the TF-IDF score
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingSix">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+Computing the TF-IDF score
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="panel-body" markdown="span">
 Given the computed data sets for TF and IDF, we need to bring together the TF and IDF scores for each term, i.e., join the two data sets on the `Word` field, and compute the corresponding TF-IDF score.
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Reference Solution
 

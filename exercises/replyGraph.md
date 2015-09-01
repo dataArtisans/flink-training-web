@@ -37,25 +37,64 @@ The first result line indicates that `sewen@apache.org` replied 72 times to an e
 
 ### Implementation Hints
 
-#### Program Structure
-
-This exercise can be solved in three steps.
-
-1. Extract the email address from the sender field and remove mails from automated senders such as JIRA or Github.
-1. Compute reply connections of emails by evaluating the `MessageId` and `Reply-To` fields.
-1. Count the number of reply connections for each unique pair of email addresses.
-
-#### Extract Email address from sender field
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+Program Structure
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body" markdown="span">
+This exercise can be solved in three steps. First, extract the email address from the sender field and remove mails from automated senders such as JIRA or Github. Second, compute reply connections of emails by evaluating the `MessageId` and `Reply-To` fields. And finally, count the number of reply connections for each unique pair of email addresses.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+Extract Email address from sender field
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body" markdown="span">
 Extracting the email address from the sender field can be done by looking at an individual input record. Hence it should be done using a `MapFunction` which replaces the sender field by the extracted email address. This the same operation that needs to be done for the [Mail Count]({{ site.baseurl }}/exercises/mailCount.html) exercise.
-
-#### Computing reply connections
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Computing reply connections
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body" markdown="span">
 A reply connection is defined by two mail records where the `Reply-To` field of the first mail record is equal to the `MessageId` field of the second mail record. This is can be done by [joining](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#join) the mail record data set by itself on the `MessageId` and the `Reply-To` fields.
-
-#### Counting the number of reply connections per pair of email addresses
-
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+Counting the number of reply connections per pair of email addresses
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body" markdown="span">
 Counting the number of reply connections for each unique pair of email addresses is again similar to counting the number of mails in the [Mail Count]({{ site.baseurl }}/exercises/mailCount.html) exercise. 
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Reference Solution
 

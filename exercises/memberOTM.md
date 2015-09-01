@@ -34,31 +34,80 @@ The first line of the example result indicates that in July 2014, `sewen@apache.
 
 ### Implementation Hints
 
-#### Program Structure
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Program Structure
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body" markdown="span">
 This exercise should be solve by using the DataSet API together with the Table API. Initially, the DataSet API is required to read out the data and do some preprocessing such as extracting the month from the time field and the email address from the sender field. This step is identical to a step in the [Mail Count]({{ site.baseurl }}/exercises/mailCount.html) exercise. 
-
-After the data was brought into a structured format, the remaining analysis can be done using the Table API in three steps:
-
-1. Computing the number of mails per month and email address
-1. Computing the maximum number of mails from a single address per month
-1. Find the email address that sent the most emails of a month
-
-#### Map Transformation
-
-The [`Map`](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#map) transformation is used for record-at-a-time processing and should be used to extract the relevant information from from the input data, i.e., the month from the timestamp field and the email address from the sender field.
-
-#### Number of mails per month and email address
-
-Using the Table API, this can be computed using a `groupBy` and a `select` expression with `count` aggregation.
-
-#### Maximum number of mails by an email address per month
-
-Using the Table API, this can be computed using a `groupBy` and a `select` expression with `max` aggregation.
-
-#### Find email address with most emails in a month
-
-Using the Table API, this can be done using a `join` and a `select` expression.
+<br>
+After the data was brought into a structured format, the remaining analysis can be done using the Table API in three steps. First, compute the number of mails per month and email address, second compute the maximum number of mails from a single address per month, and finally find the email address that sent the most emails of a month.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Map Transformation
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body" markdown="span">
+        The [`Map`](http://ci.apache.org/projects/flink/flink-docs-master/apis/dataset_transformations.html#map) transformation is used for record-at-a-time processing and should be used to extract the relevant information from from the input data, i.e., the month from the timestamp field and the email address from the sender field.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Number of mails per month and email address
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body" markdown="span">
+        Using the Table API, this can be computed using a `groupBy` and a `select` expression with `count` aggregation.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Maximum number of mails by an email address per month
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body" markdown="span">
+        Using the Table API, this can be computed using a `groupBy` and a `select` expression with `max` aggregation.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Find email address with most emails in a month
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body" markdown="span">
+        Using the Table API, this can be done using a `join` and a `select` expression.
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Reference Solution
 
