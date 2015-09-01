@@ -11,7 +11,7 @@ Due to a Freedom of Information Law (FOIL) request the [New York City Taxi & Lim
 Download and extract the taxi data file by running the following commands
 
 ~~~~
-wget http://dataartisans.github.io/flink-training/dataSets/nycTaxiTrips.gz
+wget http://dataartisans.github.io/flink-training/dataSets/nycTaxiRides.gz
 ~~~~
 
 Please do not decompress or rename the .gz file.
