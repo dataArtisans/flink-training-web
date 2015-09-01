@@ -10,7 +10,7 @@ The following steps guide you through the process of setting up Apache Kafka, us
 
 ### 1. Start a local Apache Kafka instance
 
-[Apache Kafka](http://kafka.apache.org) is a central component in many systems that process data streams. Kafka is a distributed and durable publish-subscribe system for data streams. A stream is called *topic* and can be populated from multiple sources and read from multiple consumers. Topics are persisted to harddisk and can be replayed.
+[Apache Kafka](http://kafka.apache.org) is a central component in many infrastructures that process data streams. Kafka is a distributed and durable publish-subscribe system for data streams. A stream is called *topic* and can be populated from multiple sources and read from multiple consumers. Topics are persisted to harddisk and can be replayed.
 
 Please follow these instructions to setup a local Kafka instance.
 
@@ -41,9 +41,9 @@ The exercises of this lesson are based on a data stream of taxi ride events. The
 
 ### 3. Implement the Ride Cleansing exercise
 
-In the [hands-on session of Lesson 2]({{ site.baseurl }}/devSetup/handsOn.html) you generated a Flink Maven quickstart project and imported it into your IDE. The quickstart project contains a class called `Job`. This class can be used as a template for all programming exercises. 
+The [hands-on session of Lesson 2]({{ site.baseurl }}/devSetup/handsOn.html) showed how to generate a Flink Maven quickstart project and imported it into your IDE. The quickstart project contains a class called `Job`. This class can be used as a template for all programming exercises. 
 
-Please follow the instructions of the [Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html) which includes a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
+The instructions of the [Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html) include a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
 
 ### 4. Package your program for execution
 
