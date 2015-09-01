@@ -106,3 +106,4 @@ Given a pair of start and end records, the average ride speed can be computed in
 Reference solutions are available at GitHub:
 
 - Java: [RideSpeed.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/rideSpeed/RideSpeed.java)
+- Scala: [RideSpeed.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataStreamScala/rideSpeed/RideSpeed.scala)

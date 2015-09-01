@@ -75,7 +75,7 @@ Compute the average speed of completed taxi rides.
 | **Instructions**				| [DataStream API: Average Taxi Ride Speed]({{ site.baseurl }}/exercises/rideSpeed.html) |
 | **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
 | **API Features**              | [FlatMap](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#basic-transformations), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#grouped-operators) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [RideSpeed.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/rideSpeed/RideSpeed.java) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [RideSpeed.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/rideSpeed/RideSpeed.java), Scala: [RideSpeed.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataStreamScala/rideSpeed/RideSpeed.scala) |
 
 <br>
 
@@ -86,7 +86,7 @@ Identify every five minutes popular areas where many taxi rides arrived or depar
 | **Instructions**				| [DataStream API: Popular Places]({{ site.baseurl }}/exercises/popularPlaces.html) |
 | **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
 | **API Features**              | [Map](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#basic-transformations), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#grouped-operators), [Window & MapWindow](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#window-operators) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [PopularPlaces.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/popularPlaces/PopularPlaces.java) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [PopularPlaces.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/popularPlaces/PopularPlaces.java), Scala: [PopularPlaces.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataStreamScala/popularPlaces/PopularPlaces.scala) |
 
 <br>
 
@@ -97,7 +97,7 @@ Connect a data stream of taxi rides and a stream of accident reports to identify
 | **Instructions**				| [DataStream API: Accident Delays]({{ site.baseurl }}/exercises/accidentDelays.html) |
 | **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
 | **API Features**              | [Map, FlatMap](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#basic-transformations), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#grouped-operators), [Connect, CoFlatMap](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#co-operators) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [AccidentDelays.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/accidentDelays/AccidentDelays.java) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [AccidentDelays.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/accidentDelays/AccidentDelays.java), Scala: [AccidentDelays.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataStreamScala/accidentDelays/AccidentDelays.scala) |
 
 <br>
 <hr>

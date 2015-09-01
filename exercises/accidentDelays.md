@@ -99,3 +99,4 @@ If both data streams are co-partitioned, you can connect them and apply a [CoFla
 Reference solutions are available at GitHub:
 
 - Java: [AccidentDelays.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/accidentDelays/AccidentDelays.java)
+- Scala: [AccidentDelays.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataStreamScala/accidentDelays/AccidentDelays.scala)
