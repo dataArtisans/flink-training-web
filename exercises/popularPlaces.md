@@ -4,9 +4,9 @@ title: DataStream API - Popular Places
 permalink: /exercises/popularPlaces.html
 ---
 
-The task of the "Popular Places" exercise is to identify popular places and events from the taxi ride data set. This shall be done by counting every five minutes the number of taxi rides that started and ended within the same area within the last 15 minutes. Arrival and departure locations should be separately counted. Only locations with more arrivals or departures than a provided threshold `popThreshold` should be forwarded to the stream.
+The task of the "Popular Places" exercise is to identify popular places and events from the taxi ride data stream. This is done by counting every five minutes the number of taxi rides that started and ended in the same area within the last 15 minutes. Arrival and departure locations should be separately counted. Only locations with more arrivals or departures than a provided popularity threshold should be forwarded to the stream.
 
-The `GeoUtils` class provides a static method `GeoUtils.mapToGridCell(float lon, float lat)` which maps a location (longitude, latitude) to a cell id that refers to an area of approximately 100x100 meters size. The `GeoUtils` class also provides reverse methods to compute the longitude and latitude of a cell id. 
+The `GeoUtils` class provides a static method `GeoUtils.mapToGridCell(float lon, float lat)` which maps a location (longitude, latitude) to a cell id that refers to an area of approximately 100x100 meters size. The `GeoUtils` class also provides reverse methods to compute the longitude and latitude of the center of a grid cell. 
 
 ### Input Data
 
@@ -31,7 +31,7 @@ Program Structure
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body" markdown="span">
-The task requires to count taxi ride records by cell id and event type (start or end record). Hence, we need to obtain a cell id for each record and group the records by cell id and record type. Subsequently, we need to count every five minutes how many records arrived in each group within the last 15 minutes. The windows are built using a time-based sliding window and the count can done using a `WindowMapFunction`. Finally, the windowed stream needs to be flattened and written to a stream sink.
+This task requires to count taxi ride records by cell id and event type (start or end record). Hence, we need to obtain a cell id for each record and group the records by cell id and record type. Subsequently, we need to count every five minutes how many records arrived in each group within the last 15 minutes. The windows are built using a time-based sliding window and the count can done using a `WindowMapFunction`. Finally, the windowed stream needs to be flattened and written to a stream sink.
       </div>
     </div>
   </div>
@@ -39,13 +39,13 @@ The task requires to count taxi ride records by cell id and event type (start or
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-Mapping a Taxi Ride record to its Cell Id
+Mapping a Taxi Ride record to its Grid Cell Id
         </a>
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body" markdown="span">
-Each `TaxiRide` record must be mapped to a cell id. This can be done by a `MapFunction` which calls the `GeoUtils.mapToGridCell()` method. Start records are mapped to the start location, end records are mapped to the end location.
+Each `TaxiRide` record must be mapped to a cell id. This can be done by a `MapFunction` which calls the `GeoUtils.mapToGridCell()` method. Start records are mapped to their departure location, end records are mapped to their destination location.
       </div>
     </div>
   </div>
@@ -59,7 +59,7 @@ Grouping by Cell Id and Event Type
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body" markdown="span">
-In order to compute separate area counts for arriving and departing taxi rides, the records needs to be grouped by area and event type. You can group a data stream a composite key by handing a list of keys to `DataStream.groupBy()`.
+In order to compute separate area counts for arriving and departing taxi rides, the records needs to be grouped by grid cell id and event type. You can group a data stream a composite key by handing a list of keys to `DataStream.groupBy()`.
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ Computing the Sliding Count
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body" markdown="span">
-Use a `WindowedDataStream.window().every()` to define a sliding window that triggers every five minutes a count of the records of the last 15 minutes. The counting can be implemented as a `WindowMapFunction` which also checks whether the computed count exceeds the specified popularity threshold.
+Use `WindowedDataStream.window().every()` to define a sliding window that triggers every five minutes a count of the records of the last 15 minutes. The counting can be implemented as a `WindowMapFunction` which also checks whether the computed count exceeds the specified popularity threshold.
 <br>
 Please be aware that the window times need to be adjusted by the speed factor of the [Taxi Data Generator]({{ site.baseurl }}/exercises/taxiData.html) as well.
       </div>

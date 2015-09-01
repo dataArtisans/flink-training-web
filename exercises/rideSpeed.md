@@ -4,11 +4,11 @@ title: DataStream API - Average Taxi Ride Speed
 permalink: /exercises/rideSpeed.html
 ---
 
-The task of the "Average Ride Speed" exercise is to compute the average speed of taxi rides by collecting and combining their start and end records. The average speed is computed from the trip start time, which is contained in the start record, and the trip end time and traveled distance, which are available in the end record.
+The task of the "Average Ride Speed" exercise is to compute the average speed of taxi rides by matching and combining their start and end records. The average speed is computed from the trip start time, which is contained in the start record, and the trip end time and traveled distance, which are available in the end record.
 
 ### Input Data
 
-The input data of this exercise should be read as `TaxiRide` records from the Kafka topic that was written by the [Taxi Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html).
+The input data of this exercise is a `DataStream<TaxiRide>` that should be read from the Kafka topic which was produced by the [Taxi Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html).
 
 A Kafka data source is added to a Flink DataStream program as follows:
 
@@ -32,7 +32,7 @@ DataStream<TaxiRide> rides = env.addSource(
   );
 {% endhighlight java %}
 
-**NOTE:** The Kafka source reads records of a Kafka a topic just once. If you restart the program, it will not start reading from the beginning of the topic but from the position it stopped reading the topic before. You can fill the topic again by running the [Ride Cleansing]({{ site.baseurl }}/exercises/rideCleansing.html) program again.
+**NOTE:** The `FlinkKafkaConsumer` reads records of a Kafka a topic just once. If you restart the program, it will not start reading from the beginning of the topic but from the position it stopped reading before. You can run the [Ride Cleansing]({{ site.baseurl }}/exercises/rideCleansing.html) program again to serve more records from the topic.
 
 ### Expected Output
 
@@ -67,7 +67,7 @@ Partition the Data Stream
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body" markdown="span">
-Data streams can be partitioned by a key using `DataStream.groupBy(key)`. The right key in this case is `tripId` because records must be matched by their `tripId`.
+Data streams can be partitioned by a key using `DataStream.groupBy(key)`. In this case the correct key is `tripId` because records must be matched by their `tripId`.
       </div>
     </div>
   </div>
@@ -81,7 +81,7 @@ Find Matching Records
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body" markdown="span">
-A `FlatMap` function receives a single input record and returns zero or more records. We use a `FlatMap` function for matching ride records, because we emit one pair of ride records for each end record, i.e., we do not emit a record for a start record. The start records are collected and indexed by their `taskId`, for example in a regular Java `HashMap<Integer, TaxiRide>`. If an end record arrives, the corresponding start record is removed from the `HashMap` and both, the start and the end record are returned from the `FlatMapFunction`.
+A `FlatMap` function receives a single input record and returns zero or more records. We use a `FlatMap` function to match ride start and end records, because we emit one pair of ride records for each end record, i.e., we do not emit a record for a start record. The start records are collected and indexed by their `taskId`, for example in a regular Java `HashMap<Integer, TaxiRide>`. If an end record arrives, the corresponding start record is removed from the `HashMap` and both, the start and the end record are returned from the `FlatMapFunction`.
       </div>
     </div>
   </div>
