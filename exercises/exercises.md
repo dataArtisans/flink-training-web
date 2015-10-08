@@ -100,6 +100,17 @@ Connect a data stream of taxi rides and a stream of accident reports to identify
 | **Reference Solution** &nbsp;&nbsp; | Java: [AccidentDelays.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/accidentDelays/AccidentDelays.java), Scala: [AccidentDelays.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataStreamScala/accidentDelays/AccidentDelays.scala) |
 
 <br>
+
+#### To/From Kafka
+
+Implement two programs. The first writes a data stream to Apache Kafka and the second one reads the stream back from Kafka. The first program is basically identical to the *Taxi Ride Cleansing* exercise and the second program is identical to the *Average Taxi Ride Speed* exercise.
+
+| **Instructions**				| [DataStream API: To/From Kafka]({{ site.baseurl }}/exercises/toFromKafka.html) |
+| **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
+| **API Features**              | [KafkaSink](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#apache-kafka), [KafkaConsumer](https://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/streaming_guide.html#apache-kafka) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [RideCleansingToKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/kafkaInOut/RideCleansingToKafka.java), [RideSpeedFromKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataStreamJava/kafkaInOut/RideSpeedFromKafka.java), Scala: [RideCleansingToKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataStreamScala/kafkaInOut/RideCleansingToKafka.scala), [RideSpeedFromKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataStreamScala/kafkaInOut/RideSpeedFromKafka.scala) |
+
+<br>
 <hr>
 <br>
 

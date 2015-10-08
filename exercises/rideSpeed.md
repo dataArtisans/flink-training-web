@@ -8,37 +8,13 @@ The task of the "Average Ride Speed" exercise is to compute the average speed of
 
 ### Input Data
 
-The input data of this exercise is a `DataStream<TaxiRide>` that should be read from the Kafka topic which was produced by the [Taxi Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html).
-
-A Kafka data source is added to a Flink DataStream program as follows:
-
-{% highlight java %}
-// set up streaming execution environment
-StreamExecutionEnvironment env = 
-	StreamExecutionEnvironment.getExecutionEnvironment();
-
-// setup Kafka configuration
-Properties props = new Properties();
-props.setProperty("zookeeper.connect", "localhost:2181"); // Zookeeper host:port
-props.setProperty("bootstrap.servers", "localhost:9092"); // Broker host:port
-props.setProperty("group.id", "myGroup");                 // Consumer group ID
-
-// create a Kafka data source
-DataStream<TaxiRide> rides = env.addSource(
-  new FlinkKafkaConsumer082<TaxiRide>(
-    "myTopic",                                // Topic to read from
-    new TaxiRideSchema(),                     // Deserializer (provided as util)
-    props)
-  );
-{% endhighlight java %}
-
-**NOTE:** The `FlinkKafkaConsumer` reads records of a Kafka a topic just once. If you restart the program, it will not start reading from the beginning of the topic but from the position it stopped reading before. You can run the [Ride Cleansing]({{ site.baseurl }}/exercises/rideCleansing.html) program again to serve more records from the topic.
+This exercise is based on a stream of taxi ride events. The [Taxi Data Stream instructions]({{ site.baseurl }}/exercises/taxiData.html) show how to setup the `TaxiRideGenerator` which generates a stream of `TaxiRide` records. The stream of taxi ride events should be filtered for events that started and ended in New York City.
 
 ### Expected Output
 
 The result of the exercise should be a `DataStream<Tuple2<Long, Float>>` where the first field of the `Tuple2` should be the id of the ride and the second field of the tuple should be the average speed of the ride.
 
-The result can be written to standard out, Kafka, or to a file.
+The result can be written to standard out or to a file.
 
 ### Implementation Hints
 
@@ -53,7 +29,21 @@ Program Structure
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body" markdown="span">
-The exercise program starts with a Kafka source. In order to ensure that the start and the end records of a specific ride are processed by the same parallel task instance, the stream needs to be partitioned by key. Within each stream partition, the start records must "wait" for their matching end records in order to compute the average speed of a ride. 
+The program starts with a `TaxiRide` stream generator and requires a filter transformation to remove all records that do not start or end within the New York City area. In order to match the start and stop event records of a taxi ride, we must ensure that both records are processed by the same parallel task instance. This is achieved by partitioning the stream by key. Within each stream partition, the start records must "wait" for their matching end records in order to compute the average speed of a ride. 
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+Remove Rides outside New York City
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body" markdown="span">
+Taxi Rides that did not start or end in New York City can be removed using a `FilterFunction` that uses the static `isInNYC(float lon, float lat)` utility function of the `GeoUtils` class. In fact, the same FilterFunction as in the previous [Taxi Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html) can be used.
       </div>
     </div>
   </div>
