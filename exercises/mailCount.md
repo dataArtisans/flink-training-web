@@ -59,7 +59,7 @@ The first line of the example result indicates that 16 mails were sent to the ma
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body" markdown="span">
-        In contrast to the `WordCount` program, this exercise requires to group data on two fields (`month` and `email-address`) instead of a single field. Flink's [`DataSet.groupBy()`](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/programming_guide.html#specifying-keys) transformation, accepts multiple grouping keys and treats them as one composite grouping key.
+        In contrast to the `WordCount` program, this exercise requires to group data on two fields (`month` and `email-address`) instead of a single field. Flink's [`DataSet.groupBy()`](http://ci.apache.org/projects/flink/flink-docs-release-0.10/apis/programming_guide.html#specifying-keys) transformation, accepts multiple grouping keys and treats them as one composite grouping key.
       </div>
     </div>
   </div>
@@ -87,7 +87,7 @@ The first line of the example result indicates that 16 mails were sent to the ma
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body" markdown="span">
-        The [`GroupReduce`](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) transformation operates on groups of records and can also be used to count the number of element in a group.
+        The [`GroupReduce`](http://ci.apache.org/projects/flink/flink-docs-release-0.10/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) transformation operates on groups of records and can also be used to count the number of element in a group.
       </div>
     </div>
   </div>
@@ -97,5 +97,5 @@ The first line of the example result indicates that 16 mails were sent to the ma
 
 Reference solutions are available at GitHub:
 
-- Java: [MailCount.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/dataSetJava/mailCount/MailCount.java)
-- Scala: [MailCount.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/dataSetScala/mailCount/MailCount.scala)
+- Java: [MailCount.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/dataset_java/mail_count/MailCount.java)
+- Scala: [MailCount.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/dataset_scala/mail_count/MailCount.scala)

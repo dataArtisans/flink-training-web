@@ -9,7 +9,8 @@ In this lesson you will learn about Flink's data type system, further DataStream
 - learn about Flink's supported data types and their performance trade-offs
 - get introduced into windowing and window transformations and functions
 - learn how to connect and operate on multiple data streams
-- learn how to define checkpointed and recoverable operator state
+- get to know methods to partition data streamss
+- learn how to read data from and write data to [Apache Kafka](http://kafka.apache.org)
 - solve further programming exercises or experiment with Flink's DataStream API
 
 [-> Continue to lecture]({{site.baseurl}}/dataStreamAdvanced/slides.html)

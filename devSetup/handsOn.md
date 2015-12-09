@@ -4,17 +4,16 @@ layout: page
 permalink: /devSetup/handsOn.html
 ---
 
-In this hands-on session you will setup an environment to locally develop, debug, and execute Flink programs. Furthermore, you will install a Flink instance to locally executed Flink programs on your machine.
+In this hands-on session you will setup an environment to locally develop, debug, and execute Flink programs. Furthermore, you will install a Flink instance to locally execute Flink programs on your machine.
 
 ### 1. Software requirements
 
 Flink supports Linux, OS X, and Windows as development environments for Flink programs and local execution. The following software is required for a Flink development setup and should be installed on your system.
 
 - Java JDK 7 (or 8)
-- Scala 2.10 (Scala 2.11 not supported out-of-the-box)
 - Apache Maven 3.x
 - Git
-- an IDE for Java (and/or Scala) development (follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-0.9/internals/ide_setup.html) to set up IntelliJ IDEA or Eclipse)
+- an IDE for Java (and/or Scala) development (follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-0.10/internals/ide_setup.html) to set up IntelliJ IDEA or Eclipse)
 
 ### 2. Generate a Flink Maven project
 
@@ -32,7 +31,7 @@ Run one of following commands to generated a Flink Java or Scala project.
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-java    \
-    -DarchetypeVersion=0.9.1                       \
+    -DarchetypeVersion=0.10.1                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-java-project                \
     -Dversion=0.1                                  \
@@ -46,7 +45,7 @@ mvn archetype:generate                             \
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-scala   \
-    -DarchetypeVersion=0.9.1                       \
+    -DarchetypeVersion=0.10.1                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-scala-project               \
     -Dversion=0.1                                  \
@@ -72,9 +71,9 @@ Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or
 
 ~~~xml
 <dependency>
-  <groupId>com.dataArtisans</groupId>
+  <groupId>com.dataartisans</groupId>
   <artifactId>flink-training-exercises</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
 </dependency>
 ~~~
 
@@ -115,13 +114,13 @@ Assuming you have an IDE with a Flink quickstart project imported, you can execu
 
 In order to execute program on a running Flink instance (and not from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
 
-- Download the Apache Flink 0.9.1 release from an [ASF mirror](http://www.apache.org/dyn/closer.lua/flink/flink-0.9.1/flink-0.9.1-bin-hadoop1.tgz).
+- Download the Apache Flink 0.10.1 release from an [ASF mirror](http://www.apache.org/dyn/closer.lua/flink/flink-0.10.1/flink-0.10.1-bin-hadoop1.tgz).
 - Extract the downloaded `.tgz` archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 
 ### 6. Start a local Flink instance
 
-Given that you have a local Flink installation, you can start a Flink instance that runs a master and a worker process on your local machine in a single JVM. This execution mode is useful for local testing. 
+If you have a local Flink installation, you can start a Flink instance that runs a master and a worker process on your local machine in a single JVM. This execution mode is useful for local testing. 
 
 #### Start local Flink instance
 

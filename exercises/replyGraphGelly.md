@@ -87,7 +87,7 @@ Apply Gelly PageRank algorithm
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body" markdown="span">
-The final step of this exercise is to apply Gelly's [PageRank algorithm](https://github.com/apache/flink/blob/master/flink-staging/flink-gelly/src/main/java/org/apache/flink/graph/library/PageRankAlgorithm.java) by calling `graph.run(new PageRankAlgorithm<..>(input parameters))`. In Gelly's PageRank implementation, a vertex distributes its rank to the target vertices according to the weight of its outgoing edges e.g. if vertex A has two outgoing links (`<A,B,2>`, `<A,C,1>`), vertex B will get 2/3 of the total share of rank distributed by A, while C will get only 1/3. A suggestion would be to update edge values once a graph has been obtained, by taking into consideration the sum of all the outgoing edges from a given vertex,(`<A,B,2/3>`,`<A,C,1/3>`). 
+The final step of this exercise is to apply Gelly's [PageRank algorithm](https://github.com/apache/flink/blob/release-0.10.0/flink-libraries/flink-gelly/src/main/java/org/apache/flink/graph/library/PageRank.java) by calling `graph.run(new PageRankAlgorithm<..>(input parameters))`. In Gelly's PageRank implementation, a vertex distributes its rank to the target vertices according to the weight of its outgoing edges e.g. if vertex A has two outgoing links (`<A,B,2>`, `<A,C,1>`), vertex B will get 2/3 of the total share of rank distributed by A, while C will get only 1/3. A suggestion would be to update edge values once a graph has been obtained, by taking into consideration the sum of all the outgoing edges from a given vertex,(`<A,B,2/3>`,`<A,C,1/3>`). 
       </div>
     </div>
   </div>
@@ -97,4 +97,5 @@ The final step of this exercise is to apply Gelly's [PageRank algorithm](https:/
 
 Reference solution is available at GitHub:
 
-- Java: [PageRankWithEdgeWeights.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/gellyJava/PageRankWithEdgeWeights.java)
+- Java: [PageRankWithEdgeWeights.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/gelly_java/PageRankWithEdgeWeights.java)
+- Scala: [PageRankWithEdgeWeights.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/gelly_scala/PageRankWithEdgeWeights.scala)

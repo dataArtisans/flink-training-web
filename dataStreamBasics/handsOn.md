@@ -11,7 +11,7 @@ The following steps guide you through the process of using the provided data str
 
 ### 1. Get the data for the Taxi Data Stream
 
-The exercises of this lesson are based on a data stream of taxi ride events. The stream is produced by a generator which reads an input file. Please follow these [instructions]({{ site.baseurl }}/exercises/taxiData.html) to download the input file for the Taxi Data Stream generator and to learn how to use it.
+The exercises of this lesson are based on a data stream of taxi ride events. The stream is produced by a source function which reads an input file. Please follow these [instructions]({{ site.baseurl }}/exercises/taxiData.html) to download the input file for the Taxi Data Stream source and to learn how to use it.
 
 ### 2. Implement the Ride Cleansing exercise
 
@@ -34,7 +34,7 @@ The resulting JAR file will be located in the project's `./target/` folder.
 
 ### 4. Execute your packaged Flink program
 
-Flink provides different clients to submit a program to a running Flink system including a [command-line client](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/cli.html) (CLI client) and a [web-based client](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/web_client.html). 
+Flink provides different clients to submit a program to a running Flink system including a [command-line client](http://ci.apache.org/projects/flink/flink-docs-release-0.10/apis/cli.html) (CLI client) and a [web-based client](http://ci.apache.org/projects/flink/flink-docs-release-0.10/apis/web_client.html). 
 
 Given a program packaged as JAR file, Flink's submission clients identify the entry point of the program, i.e., the class with the `main()` method, as the class that is defined as `Main-Class` in the JAR's `MANIFEST.MF` like this:
 
@@ -51,7 +51,7 @@ cd /path/to/flink/installation
 ./bin/flink run -c your.MainClass /path/to/program/jarfile -arg1 -arg2 ...
 ~~~
 
-Further options can be found in the documentation of the [CLI client](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/cli.html). On Windows, the CLI client is started using the `.\bin\flink.bat` script.
+Further options can be found in the documentation of the [CLI client](http://ci.apache.org/projects/flink/flink-docs-release-0.10/apis/cli.html). On Windows, the CLI client is started using the `.\bin\flink.bat` script.
 
 ### 5. Monitor the execution of a Flink program
 

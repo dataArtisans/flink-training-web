@@ -61,7 +61,7 @@ After the data was brought into a structured format, the remaining analysis can 
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body" markdown="span">
-        The [`Map`](http://ci.apache.org/projects/flink/flink-docs-release-0.9/apis/dataset_transformations.html#map) transformation is used for record-at-a-time processing and should be used to extract the relevant information from from the input data, i.e., the month from the timestamp field and the email address from the sender field.
+        The [`Map`](http://ci.apache.org/projects/flink/flink-docs-release-0.10/apis/dataset_transformations.html#map) transformation is used for record-at-a-time processing and should be used to extract the relevant information from from the input data, i.e., the month from the timestamp field and the email address from the sender field.
       </div>
     </div>
   </div>
@@ -113,5 +113,5 @@ After the data was brought into a structured format, the remaining analysis can 
 
 Reference solutions are available at GitHub:
 
-- Java: [MemberOTMonth.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataArtisans/flinkTraining/exercises/tableJava/memberOTM/MemberOTMonth.java)
-- Scala: [MemberOTMonth.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataArtisans/flinkTraining/exercises/tableScala/memberOTM/MemberOTMonth.scala)
+- Java: [MemberOTMonth.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/table_java/memberotm/MemberOTMonth.java)
+- Scala: [MemberOTMonth.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/table_scala/memberotm/MemberOTMonth.scala)

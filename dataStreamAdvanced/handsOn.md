@@ -12,7 +12,6 @@ In this hands-on session you can continue to work on programming exercises or ex
 Choose one of the remaining DataStream API exercises and try to solve it
 
 - The [Popular Places exercise]({{ site.baseurl }}/exercises/popularPlaces.html) shows how to use window functions.
-- The [Accident Delays exercise ]({{ site.baseurl }}/exercises/accidentDelays.html) shows how to connect two data streams.
 - The [To/From Kafka exercise]({{ site.baseurl }}/exercises/toFromKafka.html) shows how Flink programs can write to and read from [Apache Kafka](http://kafka.apache.org). Please follow the Apache Kafka setup guide below, before you start working on this exercise.
 
 Alternatively, you can play around with features of the DataStream API such as:
@@ -20,7 +19,7 @@ Alternatively, you can play around with features of the DataStream API such as:
 - POJO or case classes data types
 - Window operators
 - Co-operators
-- Checkpointed operator state
+- Kafka sources and sinks
 
 ### Setup a local Apache Kafka instance
 
@@ -28,11 +27,11 @@ Alternatively, you can play around with features of the DataStream API such as:
 
 Please follow these instructions to setup a local Kafka instance.
 
-[Download](https://www.apache.org/dyn/closer.lua?path=/kafka/0.8.2.0/kafka_2.10-0.8.2.0.tgz) Apache Kafka 0.8.2 and un-tar it.
+[Download](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.8.2.2/kafka_2.10-0.8.2.2.tgz) Apache Kafka 0.8.2 for Scala 2.10 and un-tar it.
 
 ~~~bash
-tar -xzf kafka_2.10-0.8.2.0.tgz
-cd kafka_2.10-0.8.2.0
+tar -xzf kafka_2.10-0.8.2.2.tgz
+cd kafka_2.10-0.8.2.2
 ~~~
 
 Start an Apache Zookeeper instance (Kafka coordinates itself with ZooKeeper) on `localhost:2181`.
