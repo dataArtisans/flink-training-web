@@ -57,7 +57,7 @@ env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
 // get the taxi ride data stream
 DataStream<TaxiRide> rides = env.addSource(
-  new TaxiRideSource("/path/to/nycTaxiTrip.gz", maxDelay, servingSpeed));
+  new TaxiRideSource("/path/to/nycTaxiRides.gz", maxDelay, servingSpeed));
 {% endhighlight %}
 
 #### Scala
@@ -70,5 +70,5 @@ env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
 
 // get the taxi ride data stream
 val rides = env.addSource(
-  new TaxiRideSource("/path/to/nycTaxiTrip.gz", maxDelay, servingSpeed))
+  new TaxiRideSource("/path/to/nycTaxiRides.gz", maxDelay, servingSpeed))
 {% endhighlight %}
