@@ -27,8 +27,8 @@ The task requires three fields `MessageID`, `Sender`, and `Reply-To`. The input 
 The result for the exercise should be a `DataSet<Tuple3<String, String, Integer>>`. The first field is the sender email address of the reply mail, the second field is the sender email address of the mail that was replied to, and the third field is the number of reply connections between these two email addresses. When printed, the data set should look like this:
 
 ~~~
-(sewen@apache.org,rmetzger@apache.org,72)
-(aljoscha@apache.org,sewen@apache.org,40)
+(sewen@apache.org,rmetzger@apache.org,75)
+(aljoscha@apache.org,sewen@apache.org,45)
 (fhueske@apache.org,rmetzger@apache.org,22)
 (rmetzger@apache.org,fhueske@apache.org,22)
 ~~~
