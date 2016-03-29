@@ -8,7 +8,7 @@ layout: page
 
 ### Goals and scope of this training
 
-This training teaches how to implement scalable data analysis programs with Apache Flink 0.10.1. 
+This training teaches how to implement scalable data analysis programs with Apache Flink 1.0.0. 
 
 Specifically, this training teaches:
 

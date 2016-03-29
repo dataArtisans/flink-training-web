@@ -31,7 +31,7 @@ Run one of following commands to generated a Flink Java or Scala project.
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-java    \
-    -DarchetypeVersion=0.10.1                       \
+    -DarchetypeVersion=1.0.0                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-java-project                \
     -Dversion=0.1                                  \
@@ -45,7 +45,7 @@ mvn archetype:generate                             \
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-scala   \
-    -DarchetypeVersion=0.10.1                       \
+    -DarchetypeVersion=1.0.0                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-scala-project               \
     -Dversion=0.1                                  \
@@ -114,7 +114,7 @@ Assuming you have an IDE with a Flink quickstart project imported, you can execu
 
 In order to execute program on a running Flink instance (and not from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
 
-- Download the Apache Flink 0.10.1 release from an [ASF mirror](http://www.apache.org/dyn/closer.lua/flink/flink-0.10.1/flink-0.10.1-bin-hadoop1.tgz).
+- Download the Apache Flink 1.0.0 release from the [download page](http://flink.apache.org/downloads.html)
 - Extract the downloaded `.tgz` archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 
