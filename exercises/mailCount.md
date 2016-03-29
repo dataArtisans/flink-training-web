@@ -87,7 +87,7 @@ The first line of the example result indicates that 16 mails were sent to the ma
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body" markdown="span">
-        The [`GroupReduce`](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) transformation operates on groups of records and can also be used to count the number of element in a group.
+        The [`GroupReduce`](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#groupreduce-on-grouped-dataset) transformation operates on groups of records and can also be used to count the number of element in a group.
       </div>
     </div>
   </div>

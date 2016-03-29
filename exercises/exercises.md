@@ -21,7 +21,7 @@ Count the number of mails in the archive of Flink's developer mailing list per e
 
 | **Instructions**				| [DataSet API: Mail Count]({{ site.baseurl }}/exercises/mailCount.html)
 | **Data Set**                  | [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) |
-| **API Features**              | [Map](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#map), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) |
+| **API Features**              | [Map](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#map), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#groupreduce-on-grouped-dataset) |
 | **Reference Solution** &nbsp;&nbsp; | Java: [MailCount.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/dataset_java/mail_count/MailCount.java), Scala: [MailCount.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/dataset_scala/mail_count/MailCount.scala) |
 
 <br>
@@ -33,7 +33,7 @@ Extract a graph of reply connections from the mails of Apache Flink's developer 
 
 | **Instructions**				| [DataSet API: Reply Graph]({{ site.baseurl }}/exercises/replyGraph.html)
 | **Data Set**                  | [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) |
-| **API Features**              | [Map](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#map), [Join](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#join), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#groupreduce-on-grouped-dataset) |
+| **API Features**              | [Map](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#map), [Join](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#join), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#groupreduce-on-grouped-dataset) |
 | **Reference Solution** &nbsp;&nbsp; | Java: [ReplyGraph.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/dataset_java/reply_graph/ReplyGraph.java), Scala: [ReplyGraph.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/dataset_scala/reply_graph/ReplyGraph.scala) |
 
 <br>
@@ -44,7 +44,7 @@ Compute TermFrequency-InvertedDocumentFrequency (TF-IDF) metrics for words in al
 
 | **Instructions**				| [DataSet API: TF-IDF]({{ site.baseurl }}/exercises/tfIdf.html)
 | **Data Set**                  | [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) |
-| **API Features**              | [FlatMap](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#flatmap), [GroupBy](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#groupreduce-on-grouped-dataset), [Join](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#join), DataSet.count() |
+| **API Features**              | [FlatMap](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#flatmap), [GroupBy](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#transformations-on-grouped-dataset), [GroupReduce](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#groupreduce-on-grouped-dataset), [Join](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#join), DataSet.count() |
 | **Reference Solution** &nbsp;&nbsp; 	| Java: [MailTFIDF.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/dataset_java/tf_idf/MailTFIDF.java), Scala: [MailTFIDF.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/dataset_scala/tf_idf/MailTFIDF.scala) |
 
 <br>
@@ -114,7 +114,7 @@ Find for each month the email address that sent the most emails to Flink's devel
 
 | **Instructions**				| [Table API: Member of the Month]({{ site.baseurl }}/exercises/memberOTM.html)
 | **Data Set**                  | [Mail Data Set]({{ site.baseurl }}/exercises/mailData.html) |
-| **API Features**              | [Map](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#map), [Table.select()](https://ci.apache.org/projects/flink/flink-docs-release-1.0/libs/table.html), [Table.groupBy()](https://ci.apache.org/projects/flink/flink-docs-release-1.0/libs/table.html), [Table.join()](https://ci.apache.org/projects/flink/flink-docs-release-1.0/libs/table.html) |
+| **API Features**              | [Map](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/batch/dataset_transformations.html#map), [Table.select()](https://ci.apache.org/projects/flink/flink-docs-release-1.0/libs/table.html), [Table.groupBy()](https://ci.apache.org/projects/flink/flink-docs-release-1.0/libs/table.html), [Table.join()](https://ci.apache.org/projects/flink/flink-docs-release-1.0/libs/table.html) |
 | **Reference Solution** &nbsp;&nbsp; | Java: [MemberOTMonth.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/table_java/memberotm/MemberOTMonth.java), Scala: [MemberOTMonth.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/table_scala/memberotm/MemberOTMonth.scala) |
 
 <br>
