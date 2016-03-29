@@ -58,14 +58,14 @@ props.setProperty("group.id", "myGroup");                 // Consumer group ID
 
 // create a Kafka data source
 DataStream<TaxiRide> rides = env.addSource(
-  new FlinkKafkaConsumer082<TaxiRide>(
+  new FlinkKafkaConsumer09<TaxiRide>(
     "cleansedRides",                          // Topic to read from
     new TaxiRideSchema(),                     // Deserializer (provided as util)
     props)
   );
 {% endhighlight java %}
 
-**NOTE:** The `FlinkKafkaConsumer082` reads records from a Kafka a topic just once for each consumer group id. If you restart the program, it will not start reading from the beginning of the topic but from the position it stopped reading before unless you specify a new group id. You can run the [Ride Cleansing]({{ site.baseurl }}/exercises/rideCleansing.html) program again to ingest more records into the topic. If you concurrently run both programs, the first program will push records into Kafka and the second will consume these records.
+**NOTE:** The `FlinkKafkaConsumer09` reads records from a Kafka a topic just once for each consumer group id. If you restart the program, it will not start reading from the beginning of the topic but from the position it stopped reading before unless you specify a new group id. You can run the [Ride Cleansing]({{ site.baseurl }}/exercises/rideCleansing.html) program again to ingest more records into the topic. If you concurrently run both programs, the first program will push records into Kafka and the second will consume these records.
 
 ### Expected Output
 
