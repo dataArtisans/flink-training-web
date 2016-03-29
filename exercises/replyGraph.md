@@ -76,7 +76,7 @@ Computing reply connections
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body" markdown="span">
-A reply connection is defined by two mail records where the `Reply-To` field of the first mail record is equal to the `MessageId` field of the second mail record. This is can be done by [joining](http://ci.apache.org/projects/flink/flink-docs-release-0.10/apis/dataset_transformations.html#join) the mail record data set by itself on the `MessageId` and the `Reply-To` fields.
+A reply connection is defined by two mail records where the `Reply-To` field of the first mail record is equal to the `MessageId` field of the second mail record. This is can be done by [joining](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/dataset_transformations.html#join) the mail record data set by itself on the `MessageId` and the `Reply-To` fields.
       </div>
     </div>
   </div>
