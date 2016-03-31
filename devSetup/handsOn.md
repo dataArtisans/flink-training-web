@@ -131,8 +131,6 @@ cd /to/your/flink/installation
 ./bin/start-local.sh
 ~~~
 
-Calling `./bin/start-local-streaming.sh` instead of `./bin/start-local.sh` starts Flink in a "streaming-optimized" mode.
-
 On Windows you have to run the following commands
 
 ~~~bash

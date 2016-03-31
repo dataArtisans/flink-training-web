@@ -20,7 +20,7 @@ A `KafkaSink` is added to a Flink DataStream program as follows:
 
 {% highlight java %}
 DataStream<TaxiRide> filteredRides = ...
-filteredRides.addSink(new FlinkKafkaProducer<TaxiRide>(
+filteredRides.addSink(new FlinkKafkaProducer09<TaxiRide>(
         "localhost:9092",      // Kafka broker host:port
         "cleansedRides",       // Topic to write to
         new TaxiRideSchema())  // Serializer (provided as util)

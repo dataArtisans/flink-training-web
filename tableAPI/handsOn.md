@@ -17,7 +17,7 @@ In order to use the Table API, you need to add one more dependency to the `pom.x
 {% highlight xml %}
  <dependency>
     <groupId>org.apache.flink</groupId>
-    <artifactId>flink-table</artifactId>
+    <artifactId>flink-table_{{ site.scala_version }}</artifactId>
     <version>1.0.0</version>
 </dependency>
 {% endhighlight %}
