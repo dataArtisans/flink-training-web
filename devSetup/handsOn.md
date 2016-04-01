@@ -73,7 +73,7 @@ Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or
 <dependency>
   <groupId>com.dataartisans</groupId>
   <artifactId>flink-training-exercises</artifactId>
-  <version>0.2</version>
+  <version>0.3</version>
 </dependency>
 ~~~
 
