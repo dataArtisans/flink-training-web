@@ -1,6 +1,6 @@
-# Flink Training
+# Apache Flink™ Training
 
-This repository contains material for an [Apache Flink](http://flink.apache.org) training by [data Artisans](http://www.data-artisans.com).
+This repository contains material for an [Apache Flink™](http://flink.apache.org) training by [data Artisans](http://www.data-artisans.com).
 
 The training is only available at [http://dataartisans.github.io/flink-training](http://dataartisans.github.io/flink-training).
 
