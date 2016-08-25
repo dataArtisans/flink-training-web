@@ -11,7 +11,7 @@ All communication within Apache projects is happening on or is mirrored to maili
 Download and extract the Mail Data Set by running the following commands
 
 ~~~~
-wget http://dataartisans.github.io/flink-training/dataSets/flinkMails.gz
+wget http://dataartisans.github.io/flink-training/trainingData/flinkMails.gz
 ~~~~
 
 Please do not decompress or rename the .gz file.

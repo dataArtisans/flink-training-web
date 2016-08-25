@@ -31,7 +31,7 @@ travelDistance : Float // actual travel distance (-1 for start events)
 Download the taxi data file by running the following command
 
 ~~~~
-wget http://dataartisans.github.io/flink-training/dataSets/nycTaxiRides.gz
+wget http://dataartisans.github.io/flink-training/trainingData/nycTaxiRides.gz
 ~~~~
 
 Please do not decompress or rename the `.gz` file.
