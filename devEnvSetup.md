@@ -102,17 +102,17 @@ The generated Maven project needs to be imported into your IDE:
 
 ### 4. Execute and debug a Flink program in an IDE
 
-Flink programs can be executed and debugged from within an IDE. This significantly eases the development process and gives a programming experience similar to working on a regular Java application. Starting a Flink program in your IDE is as easy as starting its `main()` method. Under the hood, the `ExecutionEnvironment` will start a local Flink instance within the execution process. Hence it is also possible to put brakepoints everywhere in your code and debug it.
+Flink programs can be executed and debugged from within an IDE. This significantly eases the development process and gives a programming experience similar to working on a regular Java application. Starting a Flink program in your IDE is as easy as starting its `main()` method. Under the hood, the `ExecutionEnvironment` will start a local Flink instance within the execution process. Hence it is also possible to put breakpoints everywhere in your code and debug it.
 
 Assuming you have an IDE with a Flink quickstart project imported, you can execute and debug the example `WordCount` program which is included in the quickstart project as follows:
 
 - Open the `org.apache.flink.quickstart.WordCount` class in your IDE
-- Place a break point somewhere in the `flatMap()` method of the `LineSplitter` class which is inlined defined in the `WordCount` class.
+- Place a breakpoint somewhere in the `flatMap()` method of the `LineSplitter` class which is defined in the `WordCount` class.
 - Execute or debug the `main()` method of the `WordCount` class using your IDE.
 
 ### 5. Install Flink for local execution
 
-In order to execute program on a running Flink instance (and not from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
+In order to execute programs on a running Flink instance (rather than from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
 
 - Download the Apache Flink 1.1.1 release from the [download page](http://flink.apache.org/downloads.html)
 - Extract the downloaded `.tgz` archive
