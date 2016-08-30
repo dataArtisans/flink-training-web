@@ -4,7 +4,7 @@ layout: page
 permalink: /exercises/
 ---
 
-This training provides programming exercises that teach how to  implement scalable data analysis programs with Apache Flink's APIs and libraries. The programming exercises assume a [working development environment]({{ site.baseurl }}/devSetup/intro.html) and some basic knowledge of Flink's programming primitives.
+This training provides programming exercises that teach how to  implement scalable data analysis programs with Apache Flink's APIs and libraries. The programming exercises assume a [working development environment]({{ site.baseurl }}/devEnvSetup.html) and some basic knowledge of Flink's programming primitives.
 
 <hr>
 <br>
@@ -68,17 +68,6 @@ Filter a data stream of taxi ride records to keep only rides that start and end 
 
 <br>
 
-#### Average Taxi Ride Speed
-
-Compute the average speed of completed taxi rides.
-
-| **Instructions**				| [DataStream API: Average Taxi Ride Speed]({{ site.baseurl }}/exercises/rideSpeed.html) |
-| **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
-| **API Features**              | [FlatMap](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/streaming_guide.html#transformations), [KeyBy](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/streaming_guide.html#transformations) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [RideSpeed.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/ride_speed/RideSpeed.java), Scala: [RideSpeed.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/ride_speed/RideSpeed.scala) |
-
-<br>
-
 #### Popular Places
 
 Identify every five minutes popular areas where many taxi rides arrived or departed in the last 15 minutes.
@@ -91,14 +80,36 @@ Identify every five minutes popular areas where many taxi rides arrived or depar
 
 <br>
 
-#### To/From Kafka
+#### Write to / Read from Kafka
 
-Implement two programs. The first writes a data stream to Apache Kafka and the second one reads the stream back from Kafka. The first program is basically identical to the *Taxi Ride Cleansing* exercise and the second program is identical to the *Average Taxi Ride Speed* exercise.
+Modifies the [TaxiRide Cleaning program]({{ site.baseurl }}/exercises/rideCleansing.html) to write its result data into a Kafka topic and modifies the [Popular Places program]({{ site.baseurl }}/exercises/popularPlaces.html) to read its input data from the Kafka topic.
 
-| **Instructions**				| [DataStream API: To/From Kafka]({{ site.baseurl }}/exercises/toFromKafka.html) |
+| **Instructions**				| [DataStream API: To Kafka]({{ site.baseurl }}/exercises/toFromKafka.html) |
 | **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
-| **API Features**              | [KafkaProducer](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/streaming_guide.html#apache-kafka), [KafkaConsumer](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/streaming_guide.html#apache-kafka) |
-| **Reference Solution** &nbsp;&nbsp; | Java: [RideCleansingToKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/kafka_inout/RideCleansingToKafka.java), [RideSpeedFromKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/kafka_inout/RideSpeedFromKafka.java), Scala: [RideCleansingToKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/kafka_inout/RideCleansingToKafka.scala), [RideSpeedFromKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/kafka_inout/RideSpeedFromKafka.scala) |
+| **API Features**              | [KafkaProducer](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/streaming_guide.html#apache-kafka) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [RideCleansingToKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/kafka_inout/RideCleansingToKafka.java), Scala: [RideCleansingToKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/kafka_inout/RideCleansingToKafka.scala) |
+
+<br>
+
+#### Write to Elasticsearch
+
+Modifies the [Popular Places program]({{ site.baseurl }}/exercises/popularPlaces.html) to write its result into an Elasticsearch index.
+
+| **Instructions**				| [DataStream API: From Kafka to Elasticsearch]({{ site.baseurl }}/exercises/toElastic.html) |
+| **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
+| **API Features**              | [KafkaConsumer](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/streaming_guide.html#apache-kafka) |
+| **Reference Solution** &nbsp;&nbsp; | Java: , Scala: |
+
+<br>
+
+#### Average Taxi Ride Speed
+
+Compute the average speed of completed taxi rides.
+
+| **Instructions**				| [DataStream API: Average Taxi Ride Speed]({{ site.baseurl }}/exercises/rideSpeed.html) |
+| **Data Set**                  | [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html) |
+| **API Features**              | [FlatMap](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/streaming_guide.html#transformations), [KeyBy](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/streaming_guide.html#transformations) |
+| **Reference Solution** &nbsp;&nbsp; | Java: [RideSpeed.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/ride_speed/RideSpeed.java), Scala: [RideSpeed.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/ride_speed/RideSpeed.scala) |
 
 <br>
 <hr>

@@ -8,6 +8,7 @@ In this hands-on session you will implement your first Flink program using the D
 
 The following steps guide you through the process of using the provided data stream generator, implementing your first Flink streaming program, and packaging and executing your program on a running Flink instance.
 
+We assume you have setup your development environment according to our [setup guide]( {{site.baseurl }}/devEnvSetup.html).
 
 ### 1. Get the data for the Taxi Data Stream
 
@@ -15,7 +16,7 @@ The exercises of this lesson are based on a data stream of taxi ride events. The
 
 ### 2. Implement the Ride Cleansing exercise
 
-The [hands-on session of Lesson 2]({{ site.baseurl }}/devSetup/handsOn.html) showed how to generate a Flink Maven quickstart project and imported it into your IDE. The quickstart project contains a class called `Job`. This class can be used as a template for all programming exercises. 
+The [setup guide]({{ site.baseurl }}/devEnvSetup.html) shows how to generate a Flink Maven quickstart project and imported it into your IDE. The quickstart project contains a class called `StreamingJob`. This class is a template for DataStream programs and can be used for all programming exercises. 
 
 The instructions of the [Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html) include a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
 
@@ -44,7 +45,7 @@ Main-Class: my.program.MainClass
 
 If no `Main-Class` is defined in the `MANIFEST.MF` file or if a JAR file bundles more than one program, Flink's submission clients also provide an option to specify the class that should be used as a program entry point.
 
-To execute your packaged Flink program using the CLI client make sure you have a locally running Flink instance ([see instructions]({{ site.baseurl }}/devSetup/handsOn.html)) and run the following commands:
+To execute your packaged Flink program using the CLI client make sure you have a locally running Flink instance ([see instructions]({{ site.baseurl }}/devEnvSetup.html)) and run the following commands:
 
 ~~~bash
 cd /path/to/flink/installation
@@ -56,7 +57,3 @@ Further options can be found in the documentation of the [CLI client](http://ci.
 ### 5. Monitor the execution of a Flink program
 
 The Flink JobManager webinterface at [http://localhost:8081](http://localhost:8081) shows the execution of Flink programs, performance metrics of the TaskManagers, and information to analyze the execution time of completed programs.
-
-### 6. I am done. What now?
-
-Try to implement the [next programming exercise]({{ site.baseurl }}/exercises) or play around with the DataStream API.

@@ -14,7 +14,7 @@ This exercise is based on a stream of taxi ride events. The [Taxi Data Stream in
 
 The result of the exercise should be a `DataStream<Tuple2<Long, Float>>` where the first field of the `Tuple2` should be the id of the ride and the second field of the tuple should be the average speed of the ride.
 
-The result can be written to standard out or to a file.
+The resulting stream should be printed to standard out.
 
 ### Implementation Hints
 

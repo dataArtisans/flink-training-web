@@ -16,7 +16,7 @@ Please follow these [instructions]({{ site.baseurl }}/exercises/mailData.html) t
 
 ### 2. Implement the Mail Count exercise
 
-In the [hands-on session of Lesson 2]({{ site.baseurl }}/devSetup/handsOn.html) you generated a Flink Maven quickstart project and imported it into your IDE. The quickstart project contains a class called `Job`. This class can be used as a template for all programming exercises. 
+In the [setup guide]({{ site.baseurl }}/devEnvSetup.html) you generated a Flink Maven quickstart project and imported it into your IDE. The quickstart project contains a class called `BatchJob`. This class can be used as a template for all programming exercises. 
 
 Please follow the instructions of the [Mail Count exercise]({{ site.baseurl }}/exercises/mailCount.html) which includes a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
 
@@ -45,7 +45,7 @@ Main-Class: my.program.MainClass
 
 If no `Main-Class` is defined in the `MANIFEST.MF` file or if a JAR file bundles more than one program, Flink's submission clients also provide an option to specify the class that should be used as a program entry point.
 
-To execute your packaged Flink program using the CLI client make sure you have a locally running Flink instance ([see instructions]({{ site.baseurl }}/devSetup/handsOn.html)) and run the following commands:
+To execute your packaged Flink program using the CLI client make sure you have a locally running Flink instance ([see instructions]({{ site.baseurl }}/devEnvSetup.html)) and run the following commands:
 
 ~~~bash
 cd /path/to/flink/installation

@@ -16,7 +16,7 @@ This exercise is based a stream of taxi ride events. The [Taxi Data Stream instr
 
 The result of the exercise should be a `DataStream<TaxiRide>` that only contains events of taxi rides which start and end in the New York City area as defined by `GeoUtils.isInNYC()`. 
 
-The result can be written to standard out or to a file.
+The resulting stream should be printed to standard out.
 
 ### Implementation Hints
 

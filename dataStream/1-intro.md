@@ -4,13 +4,17 @@ layout: page
 permalink: /dataStream/1-intro.html
 ---
 
-This lesson gives an introduction into Flink's DataStream API and includes a programming exercise for a first streaming Flink program. In this lesson you will
+This lesson gives an introduction into Flink's DataStream API. <br>
+You will become familiar with
 
-- learn the basic concepts of the DataStream API 
-- become familiar with Map and KeyBy transformations and functions
-- learn how to define checkpointed and recoverable operator state
-- write your first Flink stream program using the DataStream API
-- compile and package your program using Maven
-- execute your program on a (locally) running Flink instance
+- the basic concepts and building blocks of the DataStream API,
+- record-at-a-time operators and functions, and
+- Flink's type system.
+
+Later you will
+
+- write your first Flink stream program using the DataStream API,
+- compile and package your program using Maven, and
+- execute your program on a (locally) running Flink instance.
 
 [-> Continue to lecture]({{site.baseurl}}/dataStream/1-slides.html)

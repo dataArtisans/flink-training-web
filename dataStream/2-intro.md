@@ -1,17 +1,13 @@
 ---
-title: DataStream API Connectors
+title: DataStream API Time &amp; Windows
 layout: page
 permalink: /dataStream/2-intro.html
 ---
 
-This lesson discusses how to ingest and emit data streams from and to external (storage) systems. 
-
 ### **Add description**
 
-* How to use connectors
-  * Kafka
-  * Elasticsearch
-  * Cassandra ?
+* Time and Windows
+	* Why is this important?
 
 
 [-> Continue to lecture]({{site.baseurl}}/dataStream/2-slides.html)

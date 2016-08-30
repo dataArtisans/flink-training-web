@@ -1,13 +1,13 @@
 ---
-title: DataStream API Time &amp; Windows
+title: DataStream API Stateful Operators
 layout: page
 permalink: /dataStream/4-intro.html
 ---
 
 ### **Add description**
 
-* Time and Windows
-	* Why is this important?
-
+* Operator state
+* Checkpointing mechanism
+  * Recovery in failure case
 
 [-> Continue to lecture]({{site.baseurl}}/dataStream/4-slides.html)

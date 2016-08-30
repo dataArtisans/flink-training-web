@@ -77,6 +77,12 @@ Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or
 </dependency>
 ~~~
 
+**Note:** In addition you need to remove the following line from your `pom.xml` file:
+
+~~~xml
+<exclude>joda-time:joda-time</exclude>
+~~~
+
 #### Build your Flink quickstart project
 
 In order to test the generated project and to download all required dependencies run the following command in the `flink-java-project` (`flink-scala-project` for Scala projects) folder.
