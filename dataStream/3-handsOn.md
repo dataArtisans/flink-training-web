@@ -94,12 +94,11 @@ Elasticsearch is now set up and you can start writing data to the `nyc-idx` inde
 
 The following **[exercise instructions]( {{ site.baseurl }}/exercises/toElastic.html)** give guidance to modify your [Popular Places program]( {{ site.baseurl }}/exercises/popularPlaces.html) to write the resulting stream to our `nyc-idx` Elasticsearch index.
 
-#### TODO: Visualize popular places on Kibana
+#### Visualize popular places on Kibana
 
-This is a bonus task
+*[Kibana](https://www.elastic.co/products/kibana) is a web dashboard to visualize and explore data stored in Elasticsearch. In the following we show how to setup Kibana in a few steps and visualize popular places in New York on a map.
 
-*[Kibana](https://www.elastic.co/products/kibana) is a ...*
-
+Just follow these instructions step-by-step:
 
 * Download Kibana 4.5.4 for your setup [here](https://www.elastic.co/downloads/past-releases/kibana-4-5-4)
 
@@ -113,5 +112,30 @@ This is a bonus task
 
 * Open [http://localhost:5601](http://localhost:5601) in your browser to access Kibana
 
+* The start page will ask you to configure an index pattern. Enter `nyc-idx` in the "Index name or pattern" text field and click the "Create" button without changing the "Time-field name".
 
+<center>
+<img src="{{ site.baseurl }}/images/kibana-1.png" width="85%">
+</center>
+
+* Click on the "Discover" button at the top. Kibana will tell you "No results found". This is because it only looks for data of the last 15 minutes while our TaxiRide records have a timestamp from January 2013. Click on the time picker in the upper right corner to select an absolute time range from `2013-01-01` to `2013-01-06` and click on the "Go" button.
+
+<center>
+<img src="{{ site.baseurl }}/images/kibana-2.png" width="85%">
+</center>
+
+* Click on the "Visualize" button at the top. Select "Tile map" and click on "From a new search". Kibana will show a map of the world. Next we will configure the visualization:
+  * Click on "Value" and select "Sum" over the field `cnt` (this is the count we computed).
+  * Select buckets type "Geo Coordinates" with "GeoHash" "Aggregation" on the `location` field (this is the coordinate of our count).
+
+<center>
+<img src="{{ site.baseurl }}/images/kibana-3.png" width="45%">
+</center>
+
+  * Click the green button with the triangle icon (play) and zoom the map on New York city.
+  * You can try out Kibana's different visualizations by clicking on the "Options" button ans selecting a different "Map type".
+
+<center>
+<img src="{{ site.baseurl }}/images/kibana-4.png" width="85%">
+</center>
 
