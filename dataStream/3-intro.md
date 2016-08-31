@@ -13,7 +13,7 @@ Flink features connectors for several exernal storage systems to ingest and emit
 For the programming exercise you will
 
 * setup local Apache Kafka and Elasticseach instances,
-* write data to Kafka and Elasticsearch, and
-* read data from Kafka
+* connect two streaming programs through Kafka, and
+* write data to Elasticsearch and visualize it with Kibana
 
-[-> Continue to lecture]({{site.baseurl}}/dataStream/3-slides.html)
+[-> Continue to slides]({{site.baseurl}}/dataStream/3-slides.html)

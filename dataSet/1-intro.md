@@ -12,4 +12,4 @@ This lesson gives an introduction into Flink's DataSet API and includes a progra
 - compile and package your program using Maven
 - execute your program on a (locally) running Flink instance
 
-[-> Continue to lecture]({{site.baseurl}}/dataSet/1-slides.html)
+[-> Continue to slides]({{site.baseurl}}/dataSet/1-slides.html)

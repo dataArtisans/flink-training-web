@@ -4,13 +4,12 @@ layout: page
 permalink: /dataStream/2-handsOn.html
 ---
 
-### **Add description**
+In this hands-on session you will implement a Flink program that uses an event-time window. 
+The exercise is based on the [Taxi Data Stream]({{site.baseurl }}/exercises/taxiData.html)
 
-* Explain time handling
-  * Time characteristic
-  * setting of timestamp and watermark
+We assume you have setup your development environment according to our [setup guide]( {{site.baseurl }}/devEnvSetup.html) and solved the exercise of the [DataStream Basics hands-on session]({{site.baseurl }}/dataStream/1-handsOn.html).
 
-* Link to popular places exercise
-  * consume from Kafka
-  * write to elasticsearch
-  * visualize the result in Kibana
+### Solve the Popular Places exercise
+
+The **[Popular Places exercise]({{ site.baseurl }}/exercises/popularPlaces.html)** shows how to use a window function. The instructions include a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
+

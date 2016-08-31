@@ -1,5 +1,5 @@
 ---
-title: DataStream API Time &amp; Windows - Lecture
+title: DataStream API Time &amp; Windows - Slides
 layout: page
 permalink: /dataStream/2-slides.html
 ---

@@ -17,4 +17,4 @@ Later you will
 - compile and package your program using Maven, and
 - execute your program on a (locally) running Flink instance.
 
-[-> Continue to lecture]({{site.baseurl}}/dataStream/1-slides.html)
+[-> Continue to slides]({{site.baseurl}}/dataStream/1-slides.html)

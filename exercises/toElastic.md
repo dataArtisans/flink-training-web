@@ -22,7 +22,7 @@ Flink features connectors to several external systems. In order to keep the depe
 
 ### Writing to Elasticsearch
 
-The result of the Popular Places program is a `DataStream<Tuple4<Float, Float, Long, Integer>>`. The program needs to be modified to write this `DataStream` into the `nyc-idx` Elasticsearch index instead of printing it to standard out.
+The result of the Popular Places program is a `DataStream<Tuple5<Float, Float, Long, Boolean, Integer>>`. The program needs to be modified to write this `DataStream` into the `nyc-idx` Elasticsearch index instead of printing it to standard out.
 
 Flink's Elasticsearch Connector provides the `ElasticsearchSink` class to write a `DataStream` to an Elasticsearch index. It can be used as follow:
 
@@ -41,13 +41,13 @@ popularSpots.addSink(
 
 // ---- 
 
-public static class PopularPlaceInserter 
-    implements ElasticsearchSinkFunction<Tuple4<Float, Float, Long, Integer>> {
+public static class PopularPlaceInserter
+    implements ElasticsearchSinkFunction<Tuple5<Float, Float, Long, Boolean, Integer>> {
 
-  // construct index request 
+  // construct index request
   @Override
   public void process(
-      Tuple4<Float, Float, Long, Integer> record, 
+      Tuple5<Float, Float, Long, Boolean, Integer> record,
       RuntimeContext ctx,
       RequestIndexer indexer) {
 
@@ -55,7 +55,8 @@ public static class PopularPlaceInserter
     Map<String, String> json = new HashMap<>();
     json.put("time", record.f2.toString());         // timestamp
     json.put("location", record.f1+","+record.f0);  // lat,lon pair
-    json.put("cnt", record.f3.toString());          // count
+    json.put("isStart", record.f3.toString());      // isStart
+    json.put("cnt", record.f4.toString());          // count
 
     IndexRequest rqst = Requests.indexRequest()
         .index("nyc-idx")           // index name

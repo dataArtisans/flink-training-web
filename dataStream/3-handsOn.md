@@ -4,9 +4,9 @@ layout: page
 permalink: /dataStream/3-handsOn.html
 ---
 
-In this hands-on session, you will learn how to use Flink's connectors to write and read streams from and to external storage systems. The session consists of two tasks. First, you will setup a local Kafka instance, write data to a Kafka topic, and read it back. Later, we will show how to setup a local Elasticsearch instance, and write it to an Elasticsearch index to visualize it with Kibana.
+In this hands-on session, you will learn how to use Flink's connectors to write and read streams from and to external storage systems. The session features of two tasks from which you can choose. The first task is to setup a local Kafka instance and to connect two streaming programs through a Kafka topic (one program writes to the topic and the other one reads from it). The second task is to setup a local Elasticsearch instance, write the output of a streaming program into an Elasticsearch index and finally to visualize this data with Kibana.
 
-### Writing a stream to Kafka and reading it back
+### Connecting streaming programs through Kafka
 
 [Apache Kafka](http://kafka.apache.org) is a central component in many data stream infrastructures. Kafka is a distributed publish-subscribe system for data streams based on the concept of durable logs. A stream is called *topic* and can be populated by multiple producers and read by multiple consumers. Topics are persisted to harddisks and can be replayed.
 
@@ -35,7 +35,7 @@ cd kafka_2.10-0.9.0.1
 ./bin/kafka-server-start.sh config/server.properties &
 ~~~
 
-**Note:** Kafka persists topics (i.e., data streams) to `/tmp/kafka_logs` by default. Topics can be removed by shutting Kafka down and deleting this directory. You can stop Kafka and ZooKeeper by calling the `./bin/kafka-server-stop.sh` and `./bin/zookeeper-server-stop.sh` scripts (in that order!).
+**Note:** Kafka persists topics (i.e., data streams) to `/tmp/kafka_logs` by default. Topics can be removed (or cleared) by shutting Kafka down and deleting this directory. You can stop Kafka and ZooKeeper by calling the `./bin/kafka-server-stop.sh` and `./bin/zookeeper-server-stop.sh` scripts (in that order!).
 
 #### Write cleansed TaxiRides to a Kafka topic and read them back
 
@@ -46,9 +46,9 @@ Next, we modify your solutions for the previous two exercises and connect them t
 
 The following **[exercise instructions]({{ site.baseurl }}/exercises/toFromKafka.html)** contain instructions and hints to adapt your programs.
 
-### Writing to Elasticsearch (and visualizing data with Kibana)
+### Writing to Elasticsearch and visualizing data with Kibana
 
-The second exercise of this lesson is to modify the [Popular Places program]( {{ site.baseurl }}/exercises/popularPlaces.html) (either the original program or the version that reads from Kafka) such that it writes the result to an Elasticsearch index. [Elasticsearch](https://www.elastic.co/products/elasticsearch) is a popular distributed search engine available under Apache License. The following instructions show how to set up a local Elasticsearch instance.
+The second exercise of this lesson is to modify the [Popular Places program]( {{ site.baseurl }}/exercises/popularPlaces.html) such that it writes the result to an Elasticsearch index. [Elasticsearch](https://www.elastic.co/products/elasticsearch) is a popular distributed search engine available under Apache License. The following instructions show how to set up a local Elasticsearch instance.
 
 #### Setup Elasticsearch
 
@@ -82,6 +82,7 @@ curl -XPUT "http://localhost:9200/nyc-idx/_mapping/popular-locations" -d'
    "properties" : {
       "cnt": {"type": "integer"},
       "location": {"type": "geo_point"},
+      "isStart": {"type": "boolean"},
       "time": {"type": "date"}
     }
  } 
@@ -90,7 +91,13 @@ curl -XPUT "http://localhost:9200/nyc-idx/_mapping/popular-locations" -d'
 
 Elasticsearch is now set up and you can start writing data to the `nyc-idx` index.
 
-#### Read TaxiRides from Kafka and write popular places to Elasticsearch
+You can delete the `nyc-idx` by running:
+
+~~~bash
+curl -XDELETE "http://localhost:9200/nyc-idx"
+~~~
+
+#### Write popular places to Elasticsearch
 
 The following **[exercise instructions]( {{ site.baseurl }}/exercises/toElastic.html)** give guidance to modify your [Popular Places program]( {{ site.baseurl }}/exercises/popularPlaces.html) to write the resulting stream to our `nyc-idx` Elasticsearch index.
 

@@ -1,5 +1,5 @@
 ---
-title: DataStream API Connectors - Lecture
+title: DataStream API Connectors - Slides
 layout: page
 permalink: /dataStream/3-slides.html
 ---

@@ -1,5 +1,5 @@
 ---
-title: DataSet API Advanced - Lecture
+title: DataSet API Advanced - Slides
 layout: page
 permalink: /dataSet/2-slides.html
 ---

@@ -1,5 +1,5 @@
 ---
-title: DataStream API Basics - Lecture
+title: DataStream API Basics - Slides
 layout: page
 permalink: /dataStream/1-slides.html
 ---

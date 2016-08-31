@@ -10,4 +10,4 @@ permalink: /dataStream/4-intro.html
 * Checkpointing mechanism
   * Recovery in failure case
 
-[-> Continue to lecture]({{site.baseurl}}/dataStream/4-slides.html)
+[-> Continue to slides]({{site.baseurl}}/dataStream/4-slides.html)
