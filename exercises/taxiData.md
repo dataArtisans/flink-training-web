@@ -13,18 +13,19 @@ Each ride is represented by two events, a trip start and an trip end event.
 Each event consist of nine fields.
 
 ~~~
-rideId         : Long // a unique id for each ride
-time           : String // the start or end time of a ride
+rideId         : Long    // a unique id for each ride
 isStart        : Boolean // flag indicating the event type
-startLon       : Float // the longitude of the ride start location
-startLat       : Float // the latitude of the ride start location
-endLon         : Float // the longitude of the ride end location
-endLat         : Float // the latitude of the ride end location
-passengerCnt   : Short // number of passengers on the ride
-travelDistance : Float // actual travel distance (-1 for start events)
+startTime      : String  // the start time of a ride
+endTime        : String  // the end time of a ride, 
+                         //   "1970-01-01 00:00:00" for start events
+startLon       : Float   // the longitude of the ride start location
+startLat       : Float   // the latitude of the ride start location
+endLon         : Float   // the longitude of the ride end location
+endLat         : Float   // the latitude of the ride end location
+passengerCnt   : Short   // number of passengers on the ride
 ~~~
 
-**Note:** The data set contains erroneous records, such as records with missing coordinate information (longitude and latitude are `0.0`) and records where the actual travel distance is shorter than the Euclidean distance between start and end location.
+**Note:** The data set contains records with invalid or missing coordinate information (longitude and latitude are `0.0`).
 
 ### 2. Download the taxi data file
 
