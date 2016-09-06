@@ -16,13 +16,13 @@ Flink features connectors to several external systems. In order to keep the depe
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-connector-elasticsearch2_2.10</artifactId>
-  <version>1.1.1</version>
+  <version>1.1.2</version>
 </dependency>
 ~~~
 
 ### Writing to Elasticsearch
 
-The result of the Popular Places program is a `DataStream<Tuple5<Float, Float, Long, Boolean, Integer>>`. The program needs to be modified to write this `DataStream` into the `nyc-idx` Elasticsearch index instead of printing it to standard out.
+The result of the Popular Places program is a `DataStream<Tuple5<Float, Float, Long, Boolean, Integer>>`. The program needs to be modified to write this `DataStream` into the `nyc-places` Elasticsearch index instead of printing it to standard out.
 
 Flink's Elasticsearch Connector provides the `ElasticsearchSink` class to write a `DataStream` to an Elasticsearch index. It can be used as follow:
 
@@ -59,8 +59,8 @@ public static class PopularPlaceInserter
     json.put("cnt", record.f4.toString());          // count
 
     IndexRequest rqst = Requests.indexRequest()
-        .index("nyc-idx")           // index name
-        .type("popular-locations")  // mapping name
+        .index("nyc-places")           // index name
+        .type("popular-locations")     // mapping name
         .source(json);
 
     indexer.add(rqst);
@@ -70,10 +70,10 @@ public static class PopularPlaceInserter
 {% endhighlight java %}
 
 Please make sure that Elasticsearch is up and running before you start your program. 
-Once the program is running, you can check how many events were added to the `nyc-idx` by running the following command:
+Once the program is running, you can check how many events were added to the `nyc-places` by running the following command:
 
 ~~~bash
-curl localhost:9200/nyc-idx/_stats/docs
+curl localhost:9200/nyc-places/_stats/docs
 ~~~
 
 Your program is inserting data into Elasticsearch if the document count is larger than 0: 

@@ -31,7 +31,7 @@ Run one of following commands to generated a Flink Java or Scala project.
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-java    \
-    -DarchetypeVersion=1.1.1                       \
+    -DarchetypeVersion=1.1.2                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-java-project                \
     -Dversion=0.1                                  \
@@ -45,7 +45,7 @@ mvn archetype:generate                             \
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-scala   \
-    -DarchetypeVersion=1.1.1                       \
+    -DarchetypeVersion=1.1.2                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-scala-project               \
     -Dversion=0.1                                  \
@@ -73,14 +73,8 @@ Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or
 <dependency>
   <groupId>com.dataartisans</groupId>
   <artifactId>flink-training-exercises</artifactId>
-  <version>0.4</version>
+  <version>0.5</version>
 </dependency>
-~~~
-
-**Note:** In addition you need to remove the following line from your `pom.xml` file:
-
-~~~xml
-<exclude>joda-time:joda-time</exclude>
 ~~~
 
 #### Build your Flink quickstart project
@@ -120,7 +114,7 @@ Assuming you have an IDE with a Flink quickstart project imported, you can execu
 
 In order to execute programs on a running Flink instance (rather than from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
 
-- Download the Apache Flink 1.1.1 release from the [download page](http://flink.apache.org/downloads.html)
+- Download the Apache Flink 1.1.2 release from the [download page](http://flink.apache.org/downloads.html)
 - Extract the downloaded `.tgz` archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 

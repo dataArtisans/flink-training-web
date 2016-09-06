@@ -4,6 +4,15 @@ layout: page
 permalink: /tableApi/intro.html
 ---
 
+# TODO: The Table API section must be updated.
+
+* DataSet Table conversion changed in Flink 1.1
+* Much richer support for SQL functions
+* SQL
+* Better DataStream support
+* TableSource & TableSinks
+* ...
+
 This lesson will introduce Flink's Table API for processing structured data using SQL-like expressions. In this lesson you will
 
 - learn how to convert a DataSet or DataStream to a Table and back

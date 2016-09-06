@@ -12,9 +12,7 @@ Since the prediction model is valuable operator state, it should not get lost in
 
 ### Input Data
 
-This exercise is based on a stream of taxi ride events. The [Taxi Data Stream instructions]({{ site.baseurl }}/exercises/taxiData.html) show how to setup the `TaxiRideSource` which generates a stream of `TaxiRide` events. The stream of taxi ride events should be filtered for events that start and end in New York City.
-
-If you have implemented the exercise that [writes to and reads from Kafka]({{site.baseurl}}/exercises/toFromKafka.html), you can also implement to read data from the Kafka topic of cleansed taxi rides.
+This exercise is based on a stream of taxi ride events. Since the `TaxiRideSource` that we used so far is not able to checkpoint its internal state, we are using the `CheckpointedTaxiRideSource` for this exercise. `CheckpointedTaxiRideSource` is used similar to `TaxiRideSource` except that it does not accept a `maxServingDelay` parameter.
 
 ### Expected Output
 

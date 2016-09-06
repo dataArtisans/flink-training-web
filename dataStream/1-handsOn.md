@@ -35,17 +35,7 @@ The resulting JAR file will be located in the project's `./target/` folder.
 
 ### 4. Execute your packaged Flink program
 
-Flink provides different clients to submit a program to a running Flink system including a [command-line client](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/cli.html) (CLI client) and a [web-based client] available on the JobManager web interface.
-
-Given a program packaged as JAR file, Flink's submission clients identify the entry point of the program, i.e., the class with the `main()` method, as the class that is defined as `Main-Class` in the JAR's `MANIFEST.MF` like this:
-
-~~~
-Main-Class: my.program.MainClass
-~~~
-
-If no `Main-Class` is defined in the `MANIFEST.MF` file or if a JAR file bundles more than one program, Flink's submission clients also provide an option to specify the class that should be used as a program entry point.
-
-To execute your packaged Flink program using the CLI client make sure you have a locally running Flink instance ([see instructions]({{ site.baseurl }}/devEnvSetup.html)) and run the following commands:
+Flink provides different clients to submit a program to a running Flink system including a [command-line client](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/cli.html) (CLI client). To execute your packaged Flink program using the CLI client make sure you have a locally running Flink instance ([see instructions]({{ site.baseurl }}/devEnvSetup.html)) and run the following commands:
 
 ~~~bash
 cd /path/to/flink/installation

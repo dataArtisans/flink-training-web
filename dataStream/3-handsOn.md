@@ -67,16 +67,16 @@ cd elasticsearch-2.3.5
 ./bin/elasticsearch &
 ~~~
 
-* Create an index called `nyc-idx`:
+* Create an index called `nyc-places`:
 
 ~~~bash
-curl -XPUT "http://localhost:9200/nyc-idx"
+curl -XPUT "http://localhost:9200/nyc-places"
 ~~~
 
 * Create an index mapping called `popular-locations`:
 
 ~~~bash
-curl -XPUT "http://localhost:9200/nyc-idx/_mapping/popular-locations" -d'
+curl -XPUT "http://localhost:9200/nyc-places/_mapping/popular-locations" -d'
 {
  "popular-locations" : {
    "properties" : {
@@ -89,17 +89,17 @@ curl -XPUT "http://localhost:9200/nyc-idx/_mapping/popular-locations" -d'
 }'
 ~~~
 
-Elasticsearch is now set up and you can start writing data to the `nyc-idx` index.
+Elasticsearch is now set up and you can start writing data to the `nyc-places` index.
 
-You can delete the `nyc-idx` by running:
+You can delete the `nyc-places` by running:
 
 ~~~bash
-curl -XDELETE "http://localhost:9200/nyc-idx"
+curl -XDELETE "http://localhost:9200/nyc-places"
 ~~~
 
 #### Write popular places to Elasticsearch
 
-The following **[exercise instructions]( {{ site.baseurl }}/exercises/toElastic.html)** give guidance to modify your [Popular Places program]( {{ site.baseurl }}/exercises/popularPlaces.html) to write the resulting stream to our `nyc-idx` Elasticsearch index.
+The following **[exercise instructions]( {{ site.baseurl }}/exercises/toElastic.html)** give guidance to modify your [Popular Places program]( {{ site.baseurl }}/exercises/popularPlaces.html) to write the resulting stream to our `nyc-places` Elasticsearch index.
 
 #### Visualize popular places on Kibana
 
@@ -119,7 +119,7 @@ Just follow these instructions step-by-step:
 
 * Open [http://localhost:5601](http://localhost:5601) in your browser to access Kibana
 
-* The start page will ask you to configure an index pattern. Enter `nyc-idx` in the "Index name or pattern" text field and click the "Create" button without changing the "Time-field name".
+* The start page will ask you to configure an index pattern. Enter `nyc-places` in the "Index name or pattern" text field and click the "Create" button without changing the "Time-field name".
 
 <center>
 <img src="{{ site.baseurl }}/images/kibana-1.png" width="85%">
