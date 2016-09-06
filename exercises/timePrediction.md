@@ -4,19 +4,41 @@ title: DataStream API - Travel Time Prediction
 permalink: /exercises/timePrediction.html
 ---
 
-The task of the "Travel Time Prediction" exercise is to predict the travel time of a taxi ride whenever a ride start event occurs. This is done by using the end events, which carry the information how much time the ride took, to incrementally train a regression model. 
+The task of the "Travel Time Prediction" exercise is to predict the travel time of taxi rides when they start, i.e., the program should emit a prediction for each taxi ride start event that is processed. The predictions are computed from a regression model that is incrementally updated for each taxi ride end events, which carry the information how much time a ride took. In the following, we describe the task in more detail and introduce the provided utility classes.
 
-The idea of the exercise is to train a model for each destination grid cell based on the direction from which the taxi arrives and the air-line distance from departure to destination location. The `GeoUtils` class provides two methods to compute these values: `GeoUtils.getEuclideanDistance()` and `GeoUtils.getDirectionAngle()`. The actual travel time can be compute from the start and end time of an end record. We provide a simple prediction model `TravelTimePredictionModel` for the prediction task. `TravelTimePredictionModel.predictTravelTime()` returns a time prediction for a given distance and direction and -1.0 if no prediction is possible yet. `TravelTimePredictionModel.refineModel()` improves the model for a given direction, distance, and actual travel time.  
+The idea of the prediction exercise is to train a model for each destination grid cell based on the direction and air-line distance of the departure to the destination location. The `GeoUtils` class provides two methods to compute these values: `GeoUtils.getEuclideanDistance()` and `GeoUtils.getDirectionAngle()`. The actual travel time can be compute from the start and end time of a taxi ride end event. We provide a simple prediction model `TravelTimePredictionModel` for the prediction task. `TravelTimePredictionModel.predictTravelTime()` returns a time prediction for a given distance and direction and `-1` if no prediction is possible yet. `TravelTimePredictionModel.refineModel()` improves the model for a given direction, distance, and actual travel time.  
 
 Since the prediction model is valuable operator state, it should not get lost in case of a failure. Therefore, you should register the model as operator state such that Flink can take care of checkpointing the model and restoring it in case of a failure.
 
+### Environment configuration
+
+Stateful and fault-tolerant streaming applications require a few stettings on the `StreamExecutionEnvironment`.
+
+* Configure Flink to perform a consistent checkpoint of a program's operator state every 1000ms.
+
+~~~java
+StreamExecutionEnvironment env = ...
+env.enableCheckpointing(1000);
+~~~~
+
+* Configure Flink to retry to start the job 6 times with 10 second delay. If the job cannot be restarted within 6 attempts , it fails.
+
+~~~java
+StreamExecutionEnvironment env = ...
+env.setRestartStrategy(
+  RestartStrategies.fixedDelayRestart(
+    6,                            // 6 retries
+    Time.of(10, TimeUnit.SECONDS) // 10 secs delay
+  ));
+~~~~
+
 ### Input Data
 
-This exercise is based on a stream of taxi ride events. Since the `TaxiRideSource` that we used so far is not able to checkpoint its internal state, we are using the `CheckpointedTaxiRideSource` for this exercise. `CheckpointedTaxiRideSource` is used similar to `TaxiRideSource` except that it does not accept a `maxServingDelay` parameter.
+This exercise is based on a stream of taxi ride events. Since the `TaxiRideSource` that we used so far is not able to checkpoint its internal state. Instead we are using the `CheckpointedTaxiRideSource` for this exercise. `CheckpointedTaxiRideSource` is used similar to `TaxiRideSource` except that it does not accept a `maxServingDelay` parameter.
 
 ### Expected Output
 
-The result of the exercise should be a `DataStream<Tuple2<TaxiRide, Integer>>` where the first field is a `TaxiRide` start event and the second field is the predicted travel time in minutes. In case, no prediction is possible, the second field should contain `-1`.
+The result of the exercise should be a `DataStream<Tuple2<Long, Integer>>` where the first `Long` field is the `rideId` of a taxi ride and the second `Integer` field is the predicted travel time in minutes. If no prediction is possible the prediction should be `-1`.
 
 The resulting stream should be printed to standard out.
 
