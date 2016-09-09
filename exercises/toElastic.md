@@ -83,10 +83,8 @@ Your program is inserting data into Elasticsearch if the document count is large
 
 Reference solutions are available at GitHub:
 
-# TODO FIX LINKS
-
 - Java: 
-  - [PopularPlacesToES.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/kafka_inout/PopularPlacesToES.java)
+  - [PopularPlacesToES.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/connectors/PopularPlacesToES.java)
 - Scala: 
-  - [PopularPlacesToES.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/kafka_inout/PopularPlacesToES.scala)
+  - [PopularPlacesToES.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/connectors/PopularPlacesToES.scala)
   

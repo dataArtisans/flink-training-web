@@ -20,6 +20,5 @@ Specifically, this training teaches:
 - How to implement Flink programs using its APIs
 	- Solve exercises for stream programs using the DataStream API
 	- Solve exercises for batch programs using the DataSet API
-	- Solve exercises for stream and batch programs using the Table API
   
 - How to package, execute, and monitor Flink programs on running Flink systems

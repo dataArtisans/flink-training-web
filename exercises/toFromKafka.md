@@ -74,7 +74,7 @@ FlinkKafkaConsumer09<TaxiRide> consumer =
   new FlinkKafkaConsumer09<>(
     "cleansedRides",
     new TaxiRideSchema(),
-    kafkaProps);
+    props);
 
 // create Kafka consumer data source
 DataStream<TaxiRide> rides = env.addSource(consumer);
@@ -111,8 +111,8 @@ The `KafkaConsumer09` class has a method `assignTimestampsAndWatermarks()` to pr
 Reference solutions are available at GitHub:
 
 - Java: 
-  - [RideCleansingToKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/kafka_inout/RideCleansingToKafka.java)
-  - [PopularPlacesFromKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/kafka_inout/PopularPlacesFromKafka.java)
+  - [RideCleansingToKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/connectors/RideCleansingToKafka.java)
+  - [PopularPlacesFromKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/connectors/PopularPlacesFromKafka.java)
 - Scala: 
-  - [RideCleansingToKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/kafka_inout/RideCleansingToKafka.scala)
-  - [PopularPlacesFromKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/kafka_inout/PopularPlacesFromKafka.scala)
+  - [RideCleansingToKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/connectors/RideCleansingToKafka.scala)
+  - [PopularPlacesFromKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/connectors/PopularPlacesFromKafka.scala)

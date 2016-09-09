@@ -39,7 +39,7 @@ Please do not decompress or rename the `.gz` file.
 
 ### 3. Generate a Taxi Ride Data Stream in a Flink program
 
-We provide a Flink source function that reads a `.gz` file with taxi ride records and emits a stream of `TaxiRide` events. The source operates in [event-time](https://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/streaming_guide.html#working-with-time).
+We provide a Flink source function that reads a `.gz` file with taxi ride records and emits a stream of `TaxiRide` events. The source operates in [event-time](https://ci.apache.org/projects/flink/flink-docs-release-1.1/apis/streaming/event_time.html).
 
 In order to generate the stream as realistically as possible, events are emitted proportional to their timestamp. Two events that occurred ten minutes after each other in reality are also served ten minutes after each other. A speed-up factor can be specified to "fast-forward" the stream, i.e., given a speed-up factor of 60, events that happened within one minute are served in one second. Moreover, one can specify a maximum serving delay which causes each event to be randomly delayed within the specified bound. This yields an out-of-order stream as is common in many real-world applications. 
 

@@ -35,14 +35,14 @@ The resulting JAR file will be located in the project's `./target/` folder.
 
 ### 4. Execute your packaged Flink program
 
-Flink provides different clients to submit a program to a running Flink system including a [command-line client](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/cli.html) (CLI client). To execute your packaged Flink program using the CLI client make sure you have a locally running Flink instance ([see instructions]({{ site.baseurl }}/devEnvSetup.html)) and run the following commands:
+Flink provides different clients to submit a program to a running Flink system including a [command-line client](http://ci.apache.org/projects/flink/flink-docs-release-1.1/apis/cli.html) (CLI client). To execute your packaged Flink program using the CLI client make sure you have a locally running Flink instance ([see instructions]({{ site.baseurl }}/devEnvSetup.html)) and run the following commands:
 
 ~~~bash
 cd /path/to/flink/installation
 ./bin/flink run -c your.MainClass /path/to/program/jarfile -arg1 -arg2 ...
 ~~~
 
-Further options can be found in the documentation of the [CLI client](http://ci.apache.org/projects/flink/flink-docs-release-1.0/apis/cli.html). On Windows, the CLI client is started using the `.\bin\flink.bat` script.
+Further options can be found in the documentation of the [CLI client](http://ci.apache.org/projects/flink/flink-docs-release-1.1/apis/cli.html). On Windows, the CLI client is started using the `.\bin\flink.bat` script.
 
 ### 5. Monitor the execution of a Flink program
 

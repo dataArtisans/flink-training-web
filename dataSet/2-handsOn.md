@@ -8,7 +8,7 @@ In this hands-on session you can continue to work on  programming exercises or e
 
 ### Continue working on programming exercises
 
-Choose one of the remaining DataSet API [programming exercises]({{ site.baseurl }}/exercises) and try to solve it.
+Choose one of the remaining DataSet API programming exercises and try to solve it.
 
 ### Play around with features of the DataSet API
 

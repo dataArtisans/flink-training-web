@@ -11,5 +11,5 @@ We assume you have setup your development environment according to our [setup gu
 
 ### Solve the Popular Places exercise
 
-The **[Popular Places exercise]({{ site.baseurl }}/exercises/popularPlaces.html)** shows how to use a window function. The instructions include a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
+The [Popular Places exercise]({{ site.baseurl }}/exercises/popularPlaces.html) shows how to use a window function. The instructions include a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
 

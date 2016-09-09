@@ -88,5 +88,5 @@ Use `DataStream.timeWindow(Time.minutes(15), Time.minutes(5))` to define a slidi
 Reference solutions are available at GitHub:
 
 - Java: [PopularPlaces.java](https://github.com/dataArtisans/flink-training-
-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/popular_places/PopularPlaces.java)
-- Scala: [PopularPlaces.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/popular_places/PopularPlaces.scala)
+exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/windows/PopularPlaces.java)
+- Scala: [PopularPlaces.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/windows/PopularPlaces.scala)

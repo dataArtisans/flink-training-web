@@ -44,7 +44,7 @@ Next, we modify your solutions for the previous two exercises and connect them t
 1. The [TaxiRide Cleansing program]({{ site.baseurl }}/exercises/rideCleansing.html) shall write its result stream into a Kafka topic.
 2. The [Popular Places program]( {{ site.baseurl }}/exercises/popularPlaces.html) shall read its input data (cleansed TaxiRides) from the Kafka topic.
 
-The following **[exercise instructions]({{ site.baseurl }}/exercises/toFromKafka.html)** contain instructions and hints to adapt your programs.
+The following [exercise instructions]({{ site.baseurl }}/exercises/toFromKafka.html) contain instructions and hints to adapt your programs.
 
 ### Writing to Elasticsearch and visualizing data with Kibana
 
@@ -52,7 +52,7 @@ The second exercise of this lesson is to modify the [Popular Places program]( {{
 
 #### Setup Elasticsearch
 
-* Download Elasticsearch 2.3.5 [here](https://www.elastic.co/downloads/past-releases/elasticsearch-2-3-5)
+* Download Elasticsearch 2.3.5 [here](https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.5/elasticsearch-2.3.5.tar.gz)
 
 * Extract the archive file:
 
@@ -99,11 +99,11 @@ curl -XDELETE "http://localhost:9200/nyc-places"
 
 #### Write popular places to Elasticsearch
 
-The following **[exercise instructions]( {{ site.baseurl }}/exercises/toElastic.html)** give guidance to modify your [Popular Places program]( {{ site.baseurl }}/exercises/popularPlaces.html) to write the resulting stream to our `nyc-places` Elasticsearch index.
+The following [exercise instructions]( {{ site.baseurl }}/exercises/toElastic.html) give guidance to modify your [Popular Places program]( {{ site.baseurl }}/exercises/popularPlaces.html) to write the resulting stream to our `nyc-places` Elasticsearch index.
 
 #### Visualize popular places on Kibana
 
-*[Kibana](https://www.elastic.co/products/kibana) is a web dashboard to visualize and explore data stored in Elasticsearch. In the following we show how to setup Kibana in a few steps and visualize popular places in New York on a map.
+[Kibana](https://www.elastic.co/products/kibana) is a web dashboard to visualize and explore data stored in Elasticsearch. In the following we show how to setup Kibana in a few steps and visualize popular places in New York on a map.
 
 Just follow these instructions step-by-step:
 
@@ -114,7 +114,7 @@ Just follow these instructions step-by-step:
 * Start Kibana by running the start script
 
 ~~~bash
-./bin/kibana
+./bin/kibana &
 ~~~
 
 * Open [http://localhost:5601](http://localhost:5601) in your browser to access Kibana
@@ -125,7 +125,7 @@ Just follow these instructions step-by-step:
 <img src="{{ site.baseurl }}/images/kibana-1.png" width="85%">
 </center>
 
-* Click on the "Discover" button at the top. Kibana will tell you "No results found". This is because it only looks for data of the last 15 minutes while our TaxiRide records have a timestamp from January 2013. Click on the time picker in the upper right corner to select an absolute time range from `2013-01-01` to `2013-01-06` and click on the "Go" button.
+* Click on the "Discover" button at the top. Kibana will tell you "No results found". This is because it only looks for data of the last 15 minutes while our TaxiRide records have a timestamp from January 2013. Click on the time picker in the upper right corner to select "Last 5 years" from the "Quick" options and click on the "Go" button.
 
 <center>
 <img src="{{ site.baseurl }}/images/kibana-2.png" width="85%">

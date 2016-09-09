@@ -10,16 +10,19 @@ The following instructions guide you through the process of setting up an enviro
 
 Flink supports Linux, OS X, and Windows as development environments for Flink programs and local execution. The following software is required for a Flink development setup and should be installed on your system.
 
-- Java JDK 7 (or higher)
+- Java JDK 7 (or higher), a JRE is not sufficient!
 - Apache Maven 3.x
 - Git
-- an IDE for Java (and/or Scala) development (follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-1.1/internals/ide_setup.html) to set up IntelliJ IDEA or Eclipse)
+- an IDE for Java (and/or Scala) development. 
+  Follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-1.1/internals/ide_setup.html) to set up IntelliJ IDEA (preferred) or Eclipse.
+
+In previous trainings we had the best experiences with UNIX-based setups. If your main operating system is Windows, we recommend to setup a virtual machine running Linux. Most commands provided in the training instructions are for UNIX systems.
 
 ### 2. Generate a Flink Maven project
 
 Flink provides Maven archetypes to correctly setup Maven projects for Java or Scala Flink programs. We need to add an additional dependency to these Maven projects which contains utility classes that are required for the programming exercises of the training. 
 
-Follow the next steps to set up a Flink Maven quickstart project which can be used for the programming exercises.
+Follow the next steps to set up a Flink Maven Quickstart project which can be used for the programming exercises.
 
 #### Generate a Flink Maven Quickstart project
 
@@ -52,6 +55,8 @@ mvn archetype:generate                             \
     -Dpackage=org.apache.flink.quickstart          \
     -DinteractiveMode=false
 ~~~
+
+**Note**: Windows users need to remove the backslashes from the Maven commands.
 
 The generated Flink quickstart project is located in a folder called `flink-java-project` (`flink-scala-project` for Scala projects).
 
@@ -95,7 +100,7 @@ The generated Maven project needs to be imported into your IDE:
   1. Select *"File"* -> *"Import Project"*
   1. Select root folder of your project
   1. Select *"Import project from external model"*, select *"Maven"* 
-  1. Leave default options and finish the import
+  1. Continue, make sure the SDK dialog has a valid path to a JDK, leave the other default options, and finish the import
 - Eclipse: 
   1. Select *"File"* -> *"Import"* -> *"Maven"* -> *"Existing Maven Project"*
   1. Follow the import instructions
@@ -114,7 +119,7 @@ Assuming you have an IDE with a Flink quickstart project imported, you can execu
 
 In order to execute programs on a running Flink instance (rather than from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
 
-- Download the Apache Flink 1.1.2 release from the [download page](http://flink.apache.org/downloads.html)
+- Download the Apache Flink 1.1.2 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work.
 - Extract the downloaded `.tgz` archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 
