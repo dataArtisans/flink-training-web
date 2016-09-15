@@ -100,7 +100,7 @@ Timestamp and Watermark Assignment
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body" markdown="span">
-The `KafkaConsumer09` class has a method `assignTimestampsAndWatermarks()` to provide a custom timestamp and watermark assigner. Flink provides the abstract `BoundedOutOfOrdernessTimestampExtractor` class to implement timestamp extractors with bounded out-of-orderness (watermarks follow timestamps after a fixed time interval). You should extend this class to implement a custom timestamp and watermark assigner. The out-of-orderness of the `TaxiRide` events that were provided by the `TaxiRideSource` and that were written to the Kafka topic depends on the `maxEventDelay` parameter of the `TaxiRideSource` of the TaxiRide Cleansing program. The extracted timestamp should be the `TaxiRide.time` field converted to an epoch `long`. 
+The `KafkaConsumer09` class has a method `assignTimestampsAndWatermarks()` to provide a custom timestamp and watermark assigner. Flink provides the abstract `BoundedOutOfOrdernessTimestampExtractor` class to implement timestamp extractors with bounded out-of-orderness (watermarks follow timestamps after a fixed time interval). You should extend this class to implement a custom timestamp and watermark assigner. The out-of-orderness of the `TaxiRide` events that were provided by the `TaxiRideSource` and that were written to the Kafka topic depends on the `maxEventDelay` parameter of the `TaxiRideSource` of the TaxiRide Cleansing program. The extracted timestamp should be the `TaxiRide.startTime` field or the `TaxiRide.endTime` field converted to a `long`. 
       </div>
     </div>
   </div>
