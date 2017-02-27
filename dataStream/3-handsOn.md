@@ -14,13 +14,13 @@ In this hands-on session, you will learn how to use Flink's connectors to write 
 
 The following instructions show how to setup a local Kafka instance in a few steps.
 
-* Download Apache Kafka 0.9.0.1 for Scala 2.10 [here](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.1/kafka_2.10-0.9.0.1.tgz).
+* Download Apache Kafka 0.10.2.0 for Scala 2.10 [here](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.2.0/kafka_2.10-0.10.2.0.tgz).
 
 * Extract the archive file and enter the extracted folder:
 
 ~~~bash
-tar xvfz kafka_2.10-0.9.0.1.tgz 
-cd kafka_2.10-0.9.0.1
+tar xvfz kafka_2.10-0.10.2.0.tgz 
+cd kafka_2.10-0.10.2.0
 ~~~
 
 * Start an Apache Zookeeper instance (Kafka uses ZooKeeper for distributed coordination) on `localhost:2181`:
@@ -52,18 +52,18 @@ The second exercise of this lesson is to modify the [Popular Places program]( {{
 
 #### Setup Elasticsearch
 
-* Download Elasticsearch 2.3.5 [here](https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.5/elasticsearch-2.3.5.tar.gz)
+* Download Elasticsearch 2.4.3 [here](https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.3/elasticsearch-2.4.3.tar.gz)
 
 * Extract the archive file:
 
 ~~~bash
-tar xvfz elasticsearch-2.3.5.tar.gz
+tar xvfz elasticsearch-2.4.3.tar.gz
 ~~~
 
 * Enter the extracted directory and start Elasticsearch:
 
 ~~~bash
-cd elasticsearch-2.3.5
+cd elasticsearch-2.4.3
 ./bin/elasticsearch &
 ~~~
 
@@ -107,7 +107,7 @@ The following [exercise instructions]( {{ site.baseurl }}/exercises/toElastic.ht
 
 Just follow these instructions step-by-step:
 
-* Download Kibana 4.5.4 for your setup [here](https://www.elastic.co/downloads/past-releases/kibana-4-5-4)
+* Download Kibana 4.6.4 for your setup [here](https://www.elastic.co/downloads/past-releases/kibana-4-6-4)
 
 * Extract the archive file and enter the extracted folder
 

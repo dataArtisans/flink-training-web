@@ -16,7 +16,7 @@ Flink supports Linux, OS X, and Windows as development environments for Flink pr
 - an IDE for Java (and/or Scala) development. 
   Follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-1.1/internals/ide_setup.html) to set up IntelliJ IDEA (preferred) or Eclipse.
 
-In previous trainings we had the best experiences with UNIX-based setups. If your main operating system is Windows, we recommend to setup a virtual machine running Linux. Most commands provided in the training instructions are for UNIX systems.
+In previous trainings we had the best experiences with UNIX-based setups. If your main operating system is Windows, we recommend you setup a virtual machine running Linux. Most commands provided in the training instructions are for UNIX systems.
 
 ### 2. Generate a Flink Maven project
 
@@ -34,7 +34,7 @@ Run one of following commands to generated a Flink Java or Scala project.
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-java    \
-    -DarchetypeVersion=1.1.3                       \
+    -DarchetypeVersion=1.2.0                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-java-project                \
     -Dversion=0.1                                  \
@@ -48,7 +48,7 @@ mvn archetype:generate                             \
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-scala   \
-    -DarchetypeVersion=1.1.3                       \
+    -DarchetypeVersion=1.2.0                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-scala-project               \
     -Dversion=0.1                                  \
@@ -78,7 +78,7 @@ Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or
 <dependency>
   <groupId>com.data-artisans</groupId>
   <artifactId>flink-training-exercises</artifactId>
-  <version>0.6</version>
+  <version>0.7</version>
 </dependency>
 ~~~
 
@@ -119,7 +119,7 @@ Assuming you have an IDE with a Flink quickstart project imported, you can execu
 
 In order to execute programs on a running Flink instance (rather than from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
 
-- Download the Apache Flink 1.1.3 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work.
+- Download the Apache Flink 1.2.0 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work.
 - Extract the downloaded `.tgz` archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 
