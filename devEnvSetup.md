@@ -14,9 +14,18 @@ Flink supports Linux, OS X, and Windows as development environments for Flink pr
 - Apache Maven 3.x
 - Git
 - an IDE for Java (and/or Scala) development. 
-  Follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-1.1/internals/ide_setup.html) to set up IntelliJ IDEA (preferred) or Eclipse.
+  Follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-1.2/internals/ide_setup.html) to set up IntelliJ IDEA (preferred) or Eclipse.
 
-In previous trainings we had the best experiences with UNIX-based setups. If your main operating system is Windows, we recommend you setup a virtual machine running Linux. Most commands provided in the training instructions are for UNIX systems.
+<div class="alert alert-info">
+<p><strong>Note for Windows users:</strong>
+In previous trainings we've had the best experiences with UNIX-based setups, and most commands provided in the training instructions are for UNIX systems.
+If your main operating system is Windows and you would like everything to work flawlessly, we recommend you setup a virtual machine running Linux.</p>
+
+<p>On the other hand, you can use Windows to do Flink development, and if you do you can expect to only encounter minor issues.
+See <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.2/setup/flink_on_windows.html">running Flink on Windows</a> for more information.
+We also use Kafka and Elasticsearch for parts of the training. These can also be installed and run under Windows, but you may
+need to make some adjustments to the instructions we provide.</p>
+</div>
 
 ### 2. Generate a Flink Maven project
 
