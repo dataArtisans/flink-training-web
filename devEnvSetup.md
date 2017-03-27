@@ -24,7 +24,7 @@ If your main operating system is Windows and you would like everything to work f
 </p>
 
 <p>
-On the other hand, you can use Windows to do Flink development, and you can expect to only encounter minor issues.
+On the other hand, we've also had success doing training with Windows.
 But we do recommend you setup Cygwin so that you can take advantage of the bash scripts that come with Flink.
 </p>
 
@@ -94,7 +94,7 @@ Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or
 <dependency>
   <groupId>com.data-artisans</groupId>
   <artifactId>flink-training-exercises</artifactId>
-  <version>0.7</version>
+  <version>0.8</version>
 </dependency>
 ~~~
 
