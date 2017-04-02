@@ -25,11 +25,12 @@ If your main operating system is Windows and you would like everything to work f
 
 <p>
 On the other hand, we've also had success doing training with Windows.
-But we do recommend you setup Cygwin so that you can take advantage of the bash scripts that come with Flink.
+Note, however, that some of the installation steps require administrator privileges.
+And we recommend you setup Cygwin so that you can take advantage of the bash scripts that come with Flink.
 </p>
 
 <p>
-We also use Kafka and Elasticsearch for parts of the training. These can be installed and run using Windows, but you may
+We also use Kafka (and sometimes Elasticsearch) for parts of the training. These can be installed and run using Windows, but you may
 need to make some adjustments to the instructions we provide.
 </p>
 </div>
