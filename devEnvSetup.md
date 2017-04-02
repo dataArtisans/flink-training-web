@@ -14,7 +14,7 @@ Flink supports Linux, OS X, and Windows as development environments for Flink pr
 - Apache Maven 3.x
 - Git
 - an IDE for Java (and/or Scala) development. 
-  Follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-1.2/internals/ide_setup.html) to set up IntelliJ IDEA (preferred) or Eclipse.
+  Follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-1.2/internals/ide_setup.html) to set up IntelliJ IDEA.
 
 <div class="alert alert-info">
 <p>
