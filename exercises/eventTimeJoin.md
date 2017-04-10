@@ -6,7 +6,7 @@ permalink: /exercises/eventTimeJoin.html
 
 The objective of this exercise is to join a stream of customer info elements to a stream of financial trades.
 
-The Customer records contain:
+The `Customer` records contain:
 
 ~~~
 timestamp      : long    // timestamp (milliseconds since the epoch)
@@ -14,15 +14,15 @@ customerId     : long    // a unique id for each event
 customerInfo   : String  // payload to join to trades
 ~~~
 
-The Trade records contain:
+The `Trade` records contain:
 
 ~~~
 timestamp      : long    // timestamp (milliseconds since the epoch)
 customerId     : long    // a unique id for each event
-tradeInfo      : String
+tradeInfo      : String  // payload
 ~~~
 
-The result of the join is an EnrichedTade:
+The result of the join is an `EnrichedTade`:
 
 ~~~
 trade          : Trade
