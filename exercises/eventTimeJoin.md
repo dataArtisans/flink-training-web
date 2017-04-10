@@ -22,7 +22,7 @@ customerId     : long    // a unique id for each event
 tradeInfo      : String  // payload
 ~~~
 
-The result of the join is an `EnrichedTade`:
+The result of the join is an `EnrichedTrade`:
 
 ~~~
 trade          : Trade
