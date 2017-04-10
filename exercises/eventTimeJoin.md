@@ -22,6 +22,19 @@ customerId     : long    // a unique id for each event
 tradeInfo      : String
 ~~~
 
+The result of the join is an EnrichedTade:
+
+~~~
+trade          : Trade
+customerInfo   : String
+~~~
+
+You will find these basic types here:
+
+- [Customer.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/datatypes/Customer.java)
+- [Trade.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/datatypes/Trade.java)
+- [EnrichedTrade.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/datatypes/EnrichedTrade.java)
+
 Here's what's involved in doing a "low-latency, event time join":
 
 1. When receiving a trade it should be immediately joined with the customer data, however
@@ -41,9 +54,9 @@ better information.
 3. It's also important to eventually expire state. Again it's appropriate to use an event
 time timer for this.
 
-These two figures show how the dataset is organized. First we show when the customer and trade stream elements
-arrive. For example, the first customer record has a event time timestamp of 0, and arrives at
-processing time 0; the first trade arrives after one second of processing time, and has an event time timestmap
+These two figures show how the dataset is organized. First we show when the `Customer` and `Trade` stream elements
+arrive. For example, the first `Customer` record has a event time timestamp of 0, and arrives at
+processing time 0; the first `Trade` arrives after one second of processing time, and has an event time timestmap
 of 1000:
 
 <img src="../images/join-processing-time.png" alt="Streams organized by processing time" class="offset" width="100%" />
@@ -127,7 +140,7 @@ object LowLatencyEventTimeJoin {
 }
 {% endhighlight %}
 
-You task is to complete the implementation of the EventTimeJoinFunction. All you need to do is
+You task is to complete the implementation of the `EventTimeJoinFunction`. All you need to do is
 replace each occurance of ??? with something appropriate.
 
 #### Java
