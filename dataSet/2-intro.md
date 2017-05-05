@@ -11,4 +11,8 @@ In this lesson you will learn about Flink's data type system, further transforma
 - learn about further API concepts like Broadcast Sets and Accumulators
 - solve further programming exercises or experiment with Flink's DataSet API
 
-[-> Continue to slides]({{site.baseurl}}/dataSet/2-slides.html)
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/NfU6jSGUZunvIM" width="680" height="571" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+[Download slides as PDF]({{site.baseurl}}/slides/flink_batch_advanced.pdf)
+
+[-> Continue to hands-on session]({{site.baseurl}}/dataSet/2-handsOn.html)

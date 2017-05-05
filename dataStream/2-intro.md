@@ -14,4 +14,8 @@ In this lesson you will learn
 * which types of windows Flink supports, and
 * how to implement a DataStream program with a window aggregation.
 
-[-> Continue to slides]({{site.baseurl}}/dataStream/2-slides.html)
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/q2jQdI0BWEzklE" width="680" height="571" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+[Download slides as PDF]({{site.baseurl}}/slides/flink_stream_windows.pdf)
+
+[-> Continue to hands-on session]({{site.baseurl}}/dataStream/2-handsOn.html)

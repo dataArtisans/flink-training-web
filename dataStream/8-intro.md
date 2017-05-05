@@ -1,0 +1,7 @@
+---
+title: DataStream API Metrics & Monitoring
+layout: page
+permalink: /dataStream/8-intro.html
+---
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/A5xpXrLwZkJbgG" width="680" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>

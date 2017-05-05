@@ -12,4 +12,8 @@ This lesson gives an introduction into Flink's DataSet API and includes a progra
 - compile and package your program using Maven
 - execute your program on a (locally) running Flink instance
 
-[-> Continue to slides]({{site.baseurl}}/dataSet/1-slides.html)
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/BJVkTf8Y7AYeya" width="680" height="571" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+[Download slides as PDF]({{site.baseurl}}/slides/flink_batch_basics.pdf)
+
+[-> Continue to hands-on session]({{site.baseurl}}/dataSet/1-handsOn.html)
