@@ -4,7 +4,7 @@ layout: page
 permalink: /dataStream/2-intro.html
 ---
 
-Time is an important aspect of stream processing, for instance it is usually required for windows that enable aggregations over infinite streams. Flink supports different ways to interpret time and a features very expressive window semantics.
+Time is an important aspect of stream processing, for instance it is usually required for windows that enable aggregations over infinite streams. Flink supports different ways to interpret time and features very expressive window semantics.
 
 In this lesson you will learn
 

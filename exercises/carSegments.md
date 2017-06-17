@@ -4,7 +4,7 @@ title: Advanced DataStream API - Connected Car Segments
 permalink: /exercises/carSegments.html
 ---
 
-The objective of the Connected Car Segments exercise is to divide the [connected car data stream](/exercises/connectedCar.html)
+The objective of the Connected Car Segments exercise is to divide the [connected car data stream](connectedCar.html)
 into segmented windows, where segments are periods of continuous driving, punctuated by the car coming to a complete stop (the speed is 0.0).
 
 Your window function should look something like this, but we'll leave it to you to fill in the details:

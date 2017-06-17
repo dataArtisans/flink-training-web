@@ -16,7 +16,7 @@ The exercises of this lesson are based on a data stream of taxi ride events. The
 
 ### 2. Implement the Ride Cleansing exercise
 
-The [setup guide]({{ site.baseurl }}/devEnvSetup.html) shows how to generate a Flink Maven quickstart project and imported it into your IDE. The quickstart project contains a class called `StreamingJob`. This class is a template for DataStream programs and can be used for all programming exercises. 
+The [setup guide]({{ site.baseurl }}/devEnvSetup.html) shows how to generate a Flink Maven quickstart project and import it into your IDE. The quickstart project contains a class called `StreamingJob`. This class is a template for DataStream programs and can be used for all programming exercises. 
 
 The instructions of the [Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html) include a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
 

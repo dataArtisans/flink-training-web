@@ -8,11 +8,11 @@ In this hands-on session, we will implement a fault-tolerant DataStream program 
 
 ### Implement a stateful program to predict travel time
 
-The [Travel Time Prediction exercise]( {{site.baseurl}}/exercises/timePrediction.html) will guide you to implement a program that consists of a stateful operator. The instructions include a detailed task description, implementation hints, and links to reference solutions.
+The [Travel Time Prediction exercise]( {{site.baseurl}}/exercises/timePrediction.html) will guide you to implement a program with a stateful operator. The instructions include a detailed task description, implementation hints, and links to reference solutions.
 
 ### Failure recovery in action!
 
-The following steps are optional but an insightful exercise. We will demonstrate the recovery of a Flink streaming application that experiences a worker failure. 
+The following steps are optional, but well worthwhile. We will demonstrate the recovery of a Flink streaming application that experiences a worker failure.
 
 #### 1. Start a local Flink cluster
 
@@ -30,7 +30,7 @@ tail -F flink-bob-taskmanager-0-localhost.out
 
 Since we have not started the job yet, the out file does not receive any data. 
 
-The [basics hands-on session]({{site.baseurl}}/dataStream/1-handsOn.html) explains how to execute a packaged program on a running Flink instance using the CLI client. After you started the job, you will how it writes its output to the file. In the beginning, you should see a lot of invalid predictions (`-1`). However after some time, the continuously refined regression models produce more more and more valid predictions.
+The [basics hands-on session]({{site.baseurl}}/dataStream/1-handsOn.html) explains how to execute a packaged program on a running Flink instance using the CLI client. After you have started the job, you will see how it writes its output to the file. In the beginning, you should see a lot of invalid predictions (`-1`). However, after some time, the continuously refined regression models produce more and more valid predictions.
 
 You can also see the running job in the [Flink web dashboard](http://localhost:8081). 
 
@@ -44,13 +44,13 @@ Our application is running on a single worker process (TaskManager) and producin
 
 in your Flink directory.
 
-You will immediately notice that the out file is no longer receiving data. If you go to the web dashboard, you will also see that the connected TaskManager disappeared and the job's status switched to restarting. The job is now going through the configured restart policy. In a production setup, either a standby TaskManager would pick-up the work or a resource manager like YARN or Mesos would start a new TaskManager to continue processing. In our local setup, we are responsible to bring up a new TaskManager process.
+You will immediately notice that the output file is no longer receiving data. If you go to the web dashboard, you will also see that the connected TaskManager disappeared and the job's status switched to restarting. The job is now going through the configured restart policy. In a production setup, either a standby TaskManager would pick-up the work or a resource manager like YARN or Mesos would start a new TaskManager to continue processing. In our local setup, we are responsible to bring up a new TaskManager process.
 
 Before we start a new TaskManager, let us discuss what to expect when a new TaskManager continues to process the program. 
 
 1. Our regression models, i.e., the operator state, should not be lost. So we do not want to see lots of invalid predictions after the job continues.
 
-2. The data source should continue from the last checkpoint before the TaskManager was killed. Hence, we want to see that the ride ids start from the beginning.
+2. The data source should continue from the last checkpoint before the TaskManager was killed. Hence, we want to see that the ride ids do not start from the beginning.
 
 Now let's bring up a new worker process and continue processing by calling
 

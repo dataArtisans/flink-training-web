@@ -19,7 +19,7 @@ longitude      : float   // GPS longitude
 latitude       : float   // GPS latitude
 consumption    : float   // fuel consumption (liters per hour)
 speed          : float   // speed (kilometers per hour)
-throttle       : float   // throttle posistion (%)
+throttle       : float   // throttle position (%)
 engineload     : float   // engine load (%)
 ~~~
 

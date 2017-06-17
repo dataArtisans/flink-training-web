@@ -5,7 +5,7 @@ permalink: /exercises/carSort.html
 ---
 
 The objective of this exercise is to sort the out-of-order version of
-the [connected car data stream](/exercises/connectedCar.html) by
+the [connected car data stream](connectedCar.html) by
 timestamp, keyed by the carId.
 
 The first few lines of output should look like this:

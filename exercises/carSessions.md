@@ -4,7 +4,7 @@ title: Advanced DataStream API - Connected Car Sessions
 permalink: /exercises/carSessions.html
 ---
 
-The objective of the Connected Car Sessions exercise is to divide the [connected car data stream](/exercises/connectedCar.html)
+The objective of the Connected Car Sessions exercise is to divide the [connected car data stream](connectedCar.html)
 into session windows, where a gap of more than 15 seconds should start a new session.
 
 Your window function should look something like this, but we'll leave it to you to fill in the details:
