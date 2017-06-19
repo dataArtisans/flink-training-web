@@ -20,5 +20,11 @@ For the programming exercise you will
 
 [Download slides as PDF]({{site.baseurl}}/slides/flink_stream_connectors.pdf)
 
-
 [-> Continue to hands-on session]({{site.baseurl}}/dataStream/3-handsOn.html)
+
+### References
+
+- [Kafka + Flink: A Practical, How-To Guide](https://data-artisans.com/blog/kafka-flink-a-practical-how-to)
+- [Building real-time dashboard applications with Apache Flink, Elasticsearch, and Kibana](https://www.elastic.co/blog/building-real-time-dashboard-applications-with-apache-flink-elasticsearch-and-kibana)
+
+- [Streaming Connectors (docs)]({{ site.docs }}/dev/connectors/index.html)

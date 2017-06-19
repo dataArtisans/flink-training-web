@@ -19,3 +19,12 @@ In this lesson you will learn
 [Download slides as PDF]({{site.baseurl}}/slides/flink_stream_windows.pdf)
 
 [-> Continue to hands-on session]({{site.baseurl}}/dataStream/2-handsOn.html)
+
+### References
+
+- [Introducing Stream Windows in Apache Flink](http://flink.apache.org/news/2015/12/04/Introducing-windows.html)
+- [How Apache Flink™ Enables New Streaming Applications](https://data-artisans.com/blog/how-apache-flink-enables-new-streaming-applications-part-1)
+
+- [Event Time (docs)]({{ site.docs }}/dev/event_time.html)
+- [Generating Timestamps / Watermarks (docs)]({{ site.docs }}/dev/event_timestamps_watermarks.html)
+- [Windows (docs)]({{ site.docs }}/dev/windows.html)

@@ -14,7 +14,7 @@ Flink supports Linux, OS X, and Windows as development environments for Flink pr
 - Apache Maven 3.x
 - Git
 - an IDE for Java (and/or Scala) development. 
-  Follow these [instructions](http://ci.apache.org/projects/flink/flink-docs-release-1.2/internals/ide_setup.html) to set up IntelliJ IDEA.
+  Follow these [instructions]({{ site.docs }}/internals/ide_setup.html) to set up IntelliJ IDEA.
 
 <div class="alert alert-info">
 <p>
@@ -136,7 +136,7 @@ Assuming you have an IDE with a Flink quickstart project imported, you can execu
 
 In order to execute programs on a running Flink instance (rather than from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
 
-- Download the Apache Flink 1.2.0 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work.
+- Download the Apache Flink 1.3.0 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work.
 - Extract the downloaded `.tgz` archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 

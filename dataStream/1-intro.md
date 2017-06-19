@@ -22,3 +22,7 @@ Later you will
 [Download slides as PDF]({{site.baseurl}}/slides/flink_stream_basics.pdf)
 
 [-> Continue to hands-on session]({{site.baseurl}}/dataStream/1-handsOn.html)
+
+### References
+
+- [DataStream API (docs)]({{ site.docs }}/dev/datastream_api.html)

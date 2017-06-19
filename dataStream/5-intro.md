@@ -9,3 +9,7 @@ permalink: /dataStream/5-intro.html
 [-> Continue to first exercise]({{site.baseurl}}/exercises/carSessions.html)
 
 [-> Continue to second exercise]({{site.baseurl}}/exercises/carSort.html)
+
+### References
+
+- [Process Function]({{ site.docs }}/dev/stream/process_function.html)
