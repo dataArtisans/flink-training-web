@@ -51,7 +51,7 @@ Run one of following commands to generated a Flink Java or Scala project.
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-java    \
-    -DarchetypeVersion=1.2.0                       \
+    -DarchetypeVersion=1.3.0                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-java-project                \
     -Dversion=0.1                                  \
@@ -65,7 +65,7 @@ mvn archetype:generate                             \
 mvn archetype:generate                             \
     -DarchetypeGroupId=org.apache.flink            \
     -DarchetypeArtifactId=flink-quickstart-scala   \
-    -DarchetypeVersion=1.2.0                       \
+    -DarchetypeVersion=1.3.0                       \
     -DgroupId=org.apache.flink.quickstart          \
     -DartifactId=flink-scala-project               \
     -Dversion=0.1                                  \
