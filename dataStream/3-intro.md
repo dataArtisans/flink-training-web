@@ -28,3 +28,6 @@ For the programming exercise you will
 - [Building real-time dashboard applications with Apache Flink, Elasticsearch, and Kibana](https://www.elastic.co/blog/building-real-time-dashboard-applications-with-apache-flink-elasticsearch-and-kibana)
 
 - [Streaming Connectors (docs)]({{ site.docs }}/dev/connectors/index.html)
+- [Linking with modules not contained in the binary distribution (docs)]({{ site.docs }}/dev/linking.html)
+- [Apache Kafka Connector (docs)]({{ site.docs }}/dev/connectors/kafka.html)
+- [Using Kafka timestamps and Flink event time in Kafka 0.10]({{ site.docs }}/dev/connectors/kafka.html#using-kafka-timestamps-and-flink-event-time-in-kafka-010)
