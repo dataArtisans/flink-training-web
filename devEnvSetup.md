@@ -89,7 +89,7 @@ mvn clean install
 
 #### Add the flink-training-exercises dependency to your pom.xml
 
-Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or `flink-scala-project/pom.xml`) with a text editor and add the following dependency.
+Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or `flink-scala-project/pom.xml`) with a text editor and add the following dependency *after the other flink dependencies*:
 
 ~~~xml
 <dependency>
