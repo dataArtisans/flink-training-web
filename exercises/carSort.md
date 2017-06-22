@@ -40,7 +40,7 @@ Can I do this with a WindowFunction?
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body" markdown="span">
-You could, but it's going to be easier with a RichProcessFunction.
+You could, but it's going to be easier with a ProcessFunction.
       </div>
     </div>
   </div>
