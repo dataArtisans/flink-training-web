@@ -1,159 +1,107 @@
-<nav class="navbar navbar-default">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{{ site.baseurl }}/index.html">Apache Flink<sup>&reg;</sup> Training</a>
-      
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-
-
-        <!-- Getting Started -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Getting Started<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ site.baseurl }}/devEnvSetup.html">Training Setup</a></li>
-            <li><a href="{{ site.baseurl }}/system-overview.html">System Overview</a></li>
-	  </ul>
-	</li>
-
-        <!-- DataStream -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DataStream API<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <!-- API Basics -->
-            <li><a href="{{ site.baseurl }}/dataStream/1-intro.html">1. API Basics</a></li>
-            <li><a href="{{ site.baseurl }}/dataStream/1-handsOn.html">Hands-On</a></li>
-            <li class="divider"></li>
-            <!-- Time & Windows -->
-            <li><a href="{{ site.baseurl }}/dataStream/2-intro.html">2. Time &amp; Windows</a></li>
-            <li><a href="{{ site.baseurl }}/dataStream/2-handsOn.html">Hands-On</a></li>
-            <li class="divider"></li>
-            <!-- Connectors -->
-            <li><a href="{{ site.baseurl }}/dataStream/3-intro.html">3. Connectors</a></li>
-            <li><a href="{{ site.baseurl }}/dataStream/3-handsOn.html">Hands-On</a></li>
-            <li class="divider"></li>
-            <!-- Stateful Operators -->
-            <li><a href="{{ site.baseurl }}/dataStream/4-intro.html">4. Stateful Operators</a></li>
-            <li><a href="{{ site.baseurl }}/dataStream/4-handsOn.html">Hands-On</a></li>
-            <li class="divider"></li>
-            <!-- Low-level -->
-            <li><a href="{{ site.baseurl }}/dataStream/5-intro.html">5. Low-level API</a></li>
-            <li class="divider"></li>
-            <!-- Advanced Windowing -->
-            <li><a href="{{ site.baseurl }}/dataStream/6-intro.html">6. Advanced Windowing</a></li>
-            <li class="divider"></li>
-            <!-- Deployment -->
-            <li><a href="{{ site.baseurl }}/dataStream/7-intro.html">7. Deployment</a></li>
-            <li class="divider"></li>
-            <!-- Metrics & Monitoring -->
-            <li><a href="{{ site.baseurl }}/dataStream/8-intro.html">8. Metrics &amp; Monitoring</a></li>
-            <li class="divider"></li>
-            <!-- Stream Enrichment -->
-            <li><a href="{{ site.baseurl }}/dataStream/9-intro.html">9. Stream Enrichment</a></li>
-          </ul>
+<nav class="da-nav">
+    <a href="https://data-artisans.com" class="da-nav__logo" target="_blank">
+        <img src="https://data-artisans.com/wp-content/uploads/2017/02/dataartisans_logo_green-white.png" alt="Data Artisans" />
+    </a>
+    <ul class="da-nav__navigation">
+        <li><a href="{{ site.baseurl }}/">Training Home</a></li>
+        <li class="da-nav__separator-container">
+            <span class="da-nav__separator">&nbsp;</span>
         </li>
-
-        <!-- DataSet -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DataSet API<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <!-- DataSet Basics -->
-            <li><a href="{{ site.baseurl }}/dataSet/1-intro.html">1. API Basics</a></li>
-            <li><a href="{{ site.baseurl }}/dataSet/1-handsOn.html">Hands-On</a></li>
-            <li class="divider"></li>
-            <!-- DataSet Advanced -->
-            <li><a href="{{ site.baseurl }}/dataSet/2-intro.html">2. API Advanced</a></li>
-            <li><a href="{{ site.baseurl }}/dataSet/2-handsOn.html">Hands-On</a></li>
-          </ul>
+        <li>
+            <a href="#" class="da-nav__toggle">Get Started</a>
+            <ul>
+                <li><a href="{{ site.baseurl }}/devEnvSetup.html">Training Setup</a></li>
+                <li><a href="{{ site.baseurl }}/system-overview.html">System Overview</a></li>
+            </ul>
         </li>
-
-        <!-- DSLs & Libraries -->
-        <!--
-
-        TABLE API chapter needs revision! See intro page.
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Table API<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            
-            <li><a href="{{ site.baseurl }}/tableApi/intro.html">Table API</a></li>
-            <li><a href="{{ site.baseurl }}/tableApi/slides.html">Slides</a></li>
-            <li><a href="{{ site.baseurl }}/tableApi/handsOn.html">Hands-On</a></li>
-          </ul>
+        <li class="da-nav__separator-container">
+            <span class="da-nav__separator">&nbsp;</span>
         </li>
-        -->
-
-        <!-- Exercises --> 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ site.baseurl }}/exercises/rideCleansing.html">DataStream API: Taxi Ride Cleansing</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/popularPlaces.html">DataStream API: Popular Places</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/toFromKafka.html">DataStream API: To/From Kafka</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/toElastic.html">DataStream API: To Elasticsearch</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/timePrediction.html">DataStream API: Travel Time Prediction</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ site.baseurl }}/exercises/carSessions.html">Advanced Streaming: Connected Car Sessions</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/carSort.html">Advanced Streaming: Sorting Car Events</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/carSegments.html">Advanced Streaming: Connected Car Segments</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/eventTimeJoin.html">Advanced Streaming: Event Time Join</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ site.baseurl }}/exercises/mailCount.html">DataSet API: Mail Count</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/replyGraph.html">DataSet API: Reply Graph Extraction</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/tfIdf.html">DataSet API: TF-IDF</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ site.baseurl }}/exercises/memberOTM.html">Table API: Member of the Month</a></li>
-			<li class="divider"></li>
-            <li><a href="{{ site.baseurl }}/exercises/replyGraphGelly.html">Gelly API: Page Rank</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ site.baseurl }}/exercises/mailData.html">Mail Data Set</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/taxiData.html">Taxi Data Stream</a></li>
-            <li><a href="{{ site.baseurl }}/exercises/connectedCar.html">Connected Car Data Stream</a></li>
-          </ul>
+        <li>
+            <a href="#" class="da-nav__toggle">Streaming API</a>
+            <ul>
+                <!-- API Basics -->
+                <li><a href="{{ site.baseurl }}/dataStream/1-intro.html">1. API Basics</a></li>
+                <li><a href="{{ site.baseurl }}/dataStream/1-handsOn.html">Hands-On</a></li>
+                <hr />
+                <!-- Time & Windows -->
+                <li><a href="{{ site.baseurl }}/dataStream/2-intro.html">2. Time &amp; Windows</a></li>
+                <li><a href="{{ site.baseurl }}/dataStream/2-handsOn.html">Hands-On</a></li>
+                <hr />
+                <!-- Connectors -->
+                <li><a href="{{ site.baseurl }}/dataStream/3-intro.html">3. Connectors</a></li>
+                <li><a href="{{ site.baseurl }}/dataStream/3-handsOn.html">Hands-On</a></li>
+                <hr />
+                <!-- Stateful Operators -->
+                <li><a href="{{ site.baseurl }}/dataStream/4-intro.html">4. Stateful Operators</a></li>
+                <li><a href="{{ site.baseurl }}/dataStream/4-handsOn.html">Hands-On</a></li>
+                <hr />
+                <!-- Low-level -->
+                <li><a href="{{ site.baseurl }}/dataStream/5-intro.html">5. Low-level API</a></li>
+                <hr />
+                <!-- Advanced Windowing -->
+                <li><a href="{{ site.baseurl }}/dataStream/6-intro.html">6. Advanced Windowing</a></li>
+                <hr />
+                <!-- Deployment -->
+                <li><a href="{{ site.baseurl }}/dataStream/7-intro.html">7. Deployment</a></li>
+                <hr />
+                <!-- Metrics & Monitoring -->
+                <li><a href="{{ site.baseurl }}/dataStream/8-intro.html">8. Metrics &amp; Monitoring</a></li>
+                <hr />
+                <!-- Stream Enrichment -->
+                <li><a href="{{ site.baseurl }}/dataStream/9-intro.html">9. Stream Enrichment</a></li>
+            </ul>
         </li>
-
-        <!-- Documentation Links -->  
-        <li><a href="{{ site.baseurl }}/devResources/docLinks.html">Flink Documentation</a></li>
-
-        <!--
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ site.baseurl }}/devResources/docLinks.html">Flink Documentation</a></li>
-            <li><a href="{{ site.baseurl }}/devResources/trainingSlides.html">Training Slides</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ site.baseurl }}/devResources/bestPractices.html">Best Practices</a></li>
-            <li><a href="{{ site.baseurl }}/devResources/tuning.html">Tuning</a></li>
-            <li><a href="{{ site.baseurl }}/devResources/exceptionFaq.html">Exception FAQ</a></li>
-          </ul>
+        <li class="da-nav__separator-container">
+            <span class="da-nav__separator">&nbsp;</span>
         </li>
-        -->
-      </ul>
-      <!--
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
+        <li>
+            <a href="#" class="da-nav__toggle">Streaming Exercises</a>
+            <ul>
+                <li><a href="{{ site.baseurl }}/exercises/taxiData.html"><i>Taxi Data</i></a></li>
+		<hr />
+                <li><a href="{{ site.baseurl }}/exercises/rideCleansing.html">Taxi Ride Cleansing</a></li>
+                <li><a href="{{ site.baseurl }}/exercises/popularPlaces.html">Popular Places</a></li>
+                <li><a href="{{ site.baseurl }}/exercises/toFromKafka.html">To/From Kafka</a></li>
+                <li><a href="{{ site.baseurl }}/exercises/toElastic.html">To Elasticsearch</a></li>
+                <li><a href="{{ site.baseurl }}/exercises/timePrediction.html">Travel Time Prediction</a></li>
+                <hr />
+                <li><a href="{{ site.baseurl }}/exercises/connectedCar.html"><i>Connected Car Data</i></a></li>
+		<hr />
+                <li><a href="{{ site.baseurl }}/exercises/carSessions.html">Connected Car Sessions</a></li>
+                <li><a href="{{ site.baseurl }}/exercises/carSort.html">Sorting Car Events</a></li>
+                <li><a href="{{ site.baseurl }}/exercises/carSegments.html">Connected Car Segments</a></li>
+		<hr />
+                <li><a href="{{ site.baseurl }}/exercises/eventTimeJoin.html">Event Time Join</a></li>
+            </ul>
         </li>
-      </ul>
-    -->
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+        <li class="da-nav__separator-container">
+            <span class="da-nav__separator">&nbsp;</span>
+        </li>
+        <li>
+            <a href="#" class="da-nav__toggle">Batch</a>
+            <ul>
+                <li><a href="{{ site.baseurl }}/dataSet/1-intro.html">1. API Basics</a></li>
+                <li><a href="{{ site.baseurl }}/dataSet/1-handsOn.html">Hands-On</a></li>
+                <hr />
+                <li><a href="{{ site.baseurl }}/dataSet/2-intro.html">2. API Advanced</a></li>
+                <li><a href="{{ site.baseurl }}/dataSet/2-handsOn.html">Hands-On</a></li>
+		<hr />
+                <li><a href="{{ site.baseurl }}/exercises/mailData.html"><i>Mail Data Set</i></a></li>
+		<hr />
+                <li><a href="{{ site.baseurl }}/exercises/mailCount.html">DataSet API: Mail Count</a></li>
+                <li><a href="{{ site.baseurl }}/exercises/replyGraph.html">DataSet API: Reply Graph Extraction</a></li>
+                <li><a href="{{ site.baseurl }}/exercises/tfIdf.html">DataSet API: TF-IDF</a></li>
+                <hr />
+                <li><a href="{{ site.baseurl }}/exercises/memberOTM.html">Table API: Member of the Month</a></li>
+                <hr />
+                <li><a href="{{ site.baseurl }}/exercises/replyGraphGelly.html">Gelly API: Page Rank</a></li>
+            </ul>
+        </li>
+        <li class="da-nav__separator-container">
+            <span class="da-nav__separator">&nbsp;</span>
+        </li>
+        <li><a href="{{ site.baseurl }}/devResources/docLinks.html">Flink Docs</a></li>
+    </ul>
+    <span class="da-nav__mobile-toggle"></span>
 </nav>

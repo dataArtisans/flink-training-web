@@ -1,5 +1,5 @@
 ---
-title: Apache Flink&reg; Training
+title: Apache Flink Training
 layout: page
 ---
 
