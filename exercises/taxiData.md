@@ -32,7 +32,7 @@ passengerCnt   : Short   // number of passengers on the ride
 Download the taxi data file by running the following command
 
 ~~~~
-wget http://dataartisans.github.io/flink-training/trainingData/nycTaxiRides.gz
+wget http://training.data-artisans.com/trainingData/nycTaxiRides.gz
 ~~~~
 
 Please do not decompress or rename the `.gz` file.

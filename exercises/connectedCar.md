@@ -28,8 +28,8 @@ engineload     : float   // engine load (%)
 Download the data by running the following commands:
 
 ~~~~
-wget http://dataartisans.github.io/flink-training/trainingData/carInOrder.csv
-wget http://dataartisans.github.io/flink-training/trainingData/carOutOfOrder.csv
+wget http://training.data-artisans.com/trainingData/carInOrder.csv
+wget http://training.data-artisans.com/trainingData/carOutOfOrder.csv
 ~~~~
 
 These two files contain the same event records, but in one file the data is sorted by timestamp,
