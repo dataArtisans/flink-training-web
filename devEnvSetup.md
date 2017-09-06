@@ -6,11 +6,15 @@ permalink: /devEnvSetup.html
 
 The following instructions guide you through the process of setting up an environment to locally develop, debug, and execute Flink programs. Furthermore, you will install a Flink instance to locally execute Flink programs on your machine.
 
-<div class="alert alert-info">
-<p>
-If you have done these steps with an earlier version of the training exercises repository, it should be enough to: (1) pull the latest version of the flink-training-exercises from github; (2) use "mvn clean install" to rebuild the flink-training-exercises JAR file; and (3) update the dependency in your project to version 0.11.0. If none of this makes sense to you, proceed as shown below.
-</p>
-</div>
+### 0. Upgrading
+
+The current exercises depend on version 0.11.0 of the [flink-training-exercises](https://github.com/dataArtisans/flink-training-exercises) JAR file. If you have done these setup steps with an earlier version, it should be enough to:
+
+1. pull the latest version of [flink-training-exercises](https://github.com/dataArtisans/flink-training-exercises) from github
+1. use `mvn clean install` to rebuild the flink-training-exercises JAR file, and
+1. update the dependency in your maven project to version 0.11.0
+
+Otherwise, proceed as shown below:
 
 ### 1. Software requirements
 
