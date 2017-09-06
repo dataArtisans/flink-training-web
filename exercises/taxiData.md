@@ -8,15 +8,15 @@ The [New York City Taxi & Limousine Commission](http://www.nyc.gov/html/tlc/html
 
 ### 1. Schema of Taxi Ride Events
 
-Our taxi data set contains information about individual taxi rides in New York City. 
-Each ride is represented by two events, a trip start and an trip end event. 
+Our taxi data set contains information about individual taxi rides in New York City.
+Each ride is represented by two events, a trip start and an trip end event.
 Each event consist of nine fields.
 
 ~~~
 rideId         : Long    // a unique id for each ride
-isStart        : Boolean // flag indicating the event type
+isStart        : Boolean // TRUE for ride start events, FALSE for ride end events
 startTime      : String  // the start time of a ride
-endTime        : String  // the end time of a ride, 
+endTime        : String  // the end time of a ride,
                          //   "1970-01-01 00:00:00" for start events
 startLon       : Float   // the longitude of the ride start location
 startLat       : Float   // the latitude of the ride start location
@@ -41,7 +41,9 @@ Please do not decompress or rename the `.gz` file.
 
 We provide a Flink source function that reads a `.gz` file with taxi ride records and emits a stream of `TaxiRide` events. The source operates in [event-time]({{ site.docs }}/dev/event_time.html).
 
-In order to generate the stream as realistically as possible, events are emitted proportional to their timestamp. Two events that occurred ten minutes after each other in reality are also served ten minutes after each other. A speed-up factor can be specified to "fast-forward" the stream, i.e., given a speed-up factor of 60, events that happened within one minute are served in one second. Moreover, one can specify a maximum serving delay which causes each event to be randomly delayed within the specified bound. This yields an out-of-order stream as is common in many real-world applications. 
+In order to generate the stream as realistically as possible, events are emitted proportional to their timestamp. Two events that occurred ten minutes after each other in reality are also served ten minutes after each other. A speed-up factor can be specified to "fast-forward" the stream, i.e., given a speed-up factor of 60, events that happened within one minute are served in one second. Moreover, one can specify a maximum serving delay which causes each event to be randomly delayed within the specified bound. This yields an out-of-order stream as is common in many real-world applications.
+
+For these exercises, a speed-up factor of 600 (i.e., 10 minutes of event time for every second of processing), and a maximum delay of 60 (seconds) will work well.
 
 All exercises should be implemented using event-time characteristics. Event-time decouples the program semantics from serving speed and guarantees consistent results even in case of historic data or data which is delivered out-of-order.
 
@@ -51,7 +53,7 @@ All exercises should be implemented using event-time characteristics. Event-time
 
 {% highlight java %}
 // get an ExecutionEnvironment
-StreamExecutionEnvironment env = 
+StreamExecutionEnvironment env =
   StreamExecutionEnvironment.getExecutionEnvironment();
 // configure event-time processing
 env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);

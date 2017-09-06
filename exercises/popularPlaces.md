@@ -6,7 +6,7 @@ permalink: /exercises/popularPlaces.html
 
 The task of the "Popular Places" exercise is to identify popular places from the taxi ride data stream. This is done by counting every five minutes the number of taxi rides that started and ended in the same area within the last 15 minutes. Arrival and departure locations should be separately counted. Only locations with more arrivals or departures than a provided popularity threshold should be forwarded to the result stream.
 
-The `GeoUtils` class provides a static method `GeoUtils.mapToGridCell(float lon, float lat)` which maps a location (longitude, latitude) to a cell id that refers to an area of approximately 100x100 meters size. The `GeoUtils` class also provides reverse methods to compute the longitude and latitude of the center of a grid cell. 
+The `GeoUtils` class provides a static method `GeoUtils.mapToGridCell(float lon, float lat)` which maps a location (longitude, latitude) to a cell id that refers to an area of approximately 100x100 meters size. The `GeoUtils` class also provides reverse methods to compute the longitude and latitude of the center of a grid cell.
 
 Please note that the program should operate in event time.
 
@@ -82,6 +82,10 @@ Use `DataStream.timeWindow(Time.minutes(15), Time.minutes(5))` to define a slidi
     </div>
   </div>
 </div>
+
+### Documentation
+
+- [Windows]({{ site.docs }}/dev/windows.html)
 
 ### Reference Solution
 

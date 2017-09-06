@@ -4,7 +4,7 @@ layout: page
 permalink: /dataStream/4-handsOn.html
 ---
 
-In this hands-on session, we will implement a fault-tolerant DataStream program that includes a stateful operator. In addition, the session includes a step-by-step guide to demonstrate how a stateful program successfully recovers from a simulated worker failure. 
+In this hands-on session, we will implement a fault-tolerant DataStream program that includes a stateful operator. In addition, the session includes a step-by-step guide to demonstrate how a stateful program successfully recovers from a simulated worker failure.
 
 ### Implement a stateful program to predict travel time
 
@@ -20,19 +20,19 @@ In order to demonstrate a worker failure, we have to execute the program on a lo
 
 #### 2. Compile and start program
 
-The [basics hands-on session]({{site.baseurl}}/dataStream/1-handsOn.html) explains how to build and package a Flink program with Maven. 
+The [basics hands-on session]({{site.baseurl}}/dataStream/1-handsOn.html) explains how to build and package a Flink program with Maven.
 
 Your Travel Time Prediction program writes its results to the standard out of the TaskManager process which is redirected into a file. The file is located in the `./log` directory and follows the naming pattern `flink-<user>-taskmanager-<number>-<host>.out`. Run the following command to continuously display the tail of the file.
 
 ~~~bash
-tail -F flink-bob-taskmanager-0-localhost.out 
+tail -F flink-bob-taskmanager-0-localhost.out
 ~~~~
 
-Since we have not started the job yet, the out file does not receive any data. 
+Since we have not started the job yet, the out file does not receive any data.
 
 The [basics hands-on session]({{site.baseurl}}/dataStream/1-handsOn.html) explains how to execute a packaged program on a running Flink instance using the CLI client. After you have started the job, you will see how it writes its output to the file. In the beginning, you should see a lot of invalid predictions (`-1`). However, after some time, the continuously refined regression models produce more and more valid predictions.
 
-You can also see the running job in the [Flink web dashboard](http://localhost:8081). 
+You can also see the running job in the [Flink web dashboard](http://localhost:8081).
 
 #### 3. Stop a TaskManager (and start a new one)
 
@@ -46,7 +46,7 @@ in your Flink directory.
 
 You will immediately notice that the output file is no longer receiving data. If you go to the web dashboard, you will also see that the connected TaskManager disappeared and the job's status switched to restarting. The job is now going through the configured restart policy. In a production setup, either a standby TaskManager would pick-up the work or a resource manager like YARN or Mesos would start a new TaskManager to continue processing. In our local setup, we are responsible to bring up a new TaskManager process.
 
-Before we start a new TaskManager, let us discuss what to expect when a new TaskManager continues to process the program. 
+Before we start a new TaskManager, let us discuss what to expect when a new TaskManager continues to process the program.
 
 1. Our regression models, i.e., the operator state, should not be lost. So we do not want to see lots of invalid predictions after the job continues.
 
@@ -66,7 +66,7 @@ The [Flink web dashboard](http://localhost:8081) will also show that a new TaskM
 
 We have seen how a program that checkpoints its operator state recovers from a worker failure. In case you want to find out what happens if the program does not checkpoint its state you can simply remove the `env.enableCheckpointing()` line from your program and continue from "2. Compile and start program".
 
-When the program resumes processing after the new TaskManager process has been started, you will notice that 
+When the program resumes processing after the new TaskManager process has been started, you will notice that
 
-* The operator state was lost (all predictions start again with -1 and will improve over time). 
+* The operator state was lost (all predictions start again with -1 and will improve over time).
 * The data source started processing from the beginning (ride ids are reset).

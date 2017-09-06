@@ -9,7 +9,7 @@ The task of this exercise is connect the [TaxiRide Cleansing program]({{ site.ba
 1. The TaxiRide cleansing program shall write its result stream to a Kafka topic and
 2. the Popular Places program shall read its input stream from that that Kafka topic.
 
-The [hands-on instructions]({{ site.baseurl }}/dataStream/3-handsOn.html) for the Connectors lesson give instructions for how to setup and start Kafka. The following instructions help with the necessary modifications:
+The [Kafka installation instructions]({{ site.baseurl }}/kafka.html) explain how to setup and start Kafka. The following instructions help with the necessary modifications:
 
 ### Adding the Kafka Connector dependency
 
@@ -19,7 +19,7 @@ Flink features connectors to several external systems. In order to keep the depe
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-connector-kafka-0.10_2.10</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.2</version>
 </dependency>
 ~~~
 
@@ -55,7 +55,7 @@ After the Kafka topic was filled with cleansed TaxiRides, the next step is to ad
 
 {% highlight java %}
 // set up streaming execution environment
-StreamExecutionEnvironment env = 
+StreamExecutionEnvironment env =
   StreamExecutionEnvironment.getExecutionEnvironment();
 // configure event-time characteristics
 env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
@@ -70,7 +70,7 @@ props.setProperty("group.id", "myGroup");                 // Consumer group ID
 props.setProperty("auto.offset.reset", "earliest");       // Always read topic from start
 
 // create a Kafka consumer
-FlinkKafkaConsumer010<TaxiRide> consumer = 
+FlinkKafkaConsumer010<TaxiRide> consumer =
   new FlinkKafkaConsumer010<>(
     "cleansedRides",
     new TaxiRideSchema(),
@@ -100,7 +100,7 @@ Timestamp and Watermark Assignment
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body" markdown="span">
-The `KafkaConsumer010` class has a method `assignTimestampsAndWatermarks()` to provide a custom timestamp and watermark assigner. Flink provides the abstract `BoundedOutOfOrdernessTimestampExtractor` class to implement timestamp extractors with bounded out-of-orderness (watermarks follow timestamps after a fixed time interval). You should extend this class to implement a custom timestamp and watermark assigner. The out-of-orderness of the `TaxiRide` events that were provided by the `TaxiRideSource` and that were written to the Kafka topic depends on the `maxEventDelay` parameter of the `TaxiRideSource` of the TaxiRide Cleansing program. The extracted timestamp should be the `TaxiRide.startTime` field or the `TaxiRide.endTime` field converted to a `long`. 
+The `KafkaConsumer010` class has a method `assignTimestampsAndWatermarks()` to provide a custom timestamp and watermark assigner. Flink provides the abstract `BoundedOutOfOrdernessTimestampExtractor` class to implement timestamp extractors with bounded out-of-orderness (watermarks follow timestamps after a fixed time interval). You should extend this class to implement a custom timestamp and watermark assigner. The out-of-orderness of the `TaxiRide` events that were provided by the `TaxiRideSource` and that were written to the Kafka topic depends on the `maxEventDelay` parameter of the `TaxiRideSource` of the TaxiRide Cleansing program. The extracted timestamp should be the `TaxiRide.startTime` field or the `TaxiRide.endTime` field converted to a `long`.
       </div>
     </div>
   </div>
@@ -110,9 +110,9 @@ The `KafkaConsumer010` class has a method `assignTimestampsAndWatermarks()` to p
 
 Reference solutions are available at GitHub:
 
-- Java: 
+- Java:
   - [RideCleansingToKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/connectors/RideCleansingToKafka.java)
   - [PopularPlacesFromKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/connectors/PopularPlacesFromKafka.java)
-- Scala: 
+- Scala:
   - [RideCleansingToKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/connectors/RideCleansingToKafka.scala)
   - [PopularPlacesFromKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/connectors/PopularPlacesFromKafka.scala)

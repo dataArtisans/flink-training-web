@@ -14,7 +14,7 @@ This exercise is based a stream of taxi ride events. The [Taxi Data Stream instr
 
 ### Expected Output
 
-The result of the exercise should be a `DataStream<TaxiRide>` that only contains events of taxi rides which start and end in the New York City area as defined by `GeoUtils.isInNYC()`. 
+The result of the exercise should be a `DataStream<TaxiRide>` that only contains events of taxi rides which start and end in the New York City area as defined by `GeoUtils.isInNYC()`.
 
 The resulting stream should be printed to standard out.
 
@@ -65,6 +65,10 @@ Flink's DataStream API features a `DataStream.filter(FilterFunction)` transforma
   </div>
 </div>
 
+### Documentation
+
+- [DataStream API]({{ site.docs }}/dev/datastream_api.html)
+- [Flink JavaDocs]({{ site.docs }}/api/java/)
 
 ### Reference Solution
 
