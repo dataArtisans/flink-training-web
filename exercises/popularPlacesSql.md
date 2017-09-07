@@ -4,19 +4,56 @@ title: Table API / SQL - Popular Places
 permalink: /exercises/popularPlacesSql.html
 ---
 
-The task of the "Popular Places" exercise is to identify popular places from the [taxi rides table]({{ site.baseurl }}/exercises/taxiRidesTable.html) using Flink's Table API or SQL. This is done by counting every five minutes the number of taxi rides that started and ended in the same area within the last 15 minutes. Arrival and departure locations should be separately counted. Only locations with more arrivals or departures than a provided popularity threshold should be forwarded to the result stream.
+The task of the "Popular Places" exercise is to identify popular places from a [table of taxi rides records]({{ site.baseurl }}/exercises/taxiRidesTable.html) just like the previous [Popular Places exercise]({{ site.baseurl }}/exercises/popularPlaces.html). This is done by counting every five minutes the number of taxi rides that started and ended in the same area within the last 15 minutes. Arrival and departure locations should be separately counted. Only locations with more arrivals or departures than a provided popularity threshold should be forwarded to the result.
 
-The `GeoUtils` class provides as set of user-defined function (UDFs):
+You can implement a solution for the exercise with Flink's Table API or SQL interface. For that you need to add the following dependencies to the `pom.xml` of your Maven project:
+
+~~~xml
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <!-- replace by "flink-table_2.11" for Scala 2.11 -->
+  <artifactId>flink-table_2.10</artifactId>
+  <version>1.3.2</version>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <!-- replace by "flink-streaming-scala_2.11" for Scala 2.11 -->
+  <artifactId>flink-streaming-scala_2.10</artifactId>
+  <version>1.3.2</version>
+</dependency>
+~~~
+
+Please note that the query should operate in event time.
+
+### Input Data
+
+The input data of this exercise is a `Table` of taxi ride events. The table is provided by the [Taxi Rides Table Source]({{ site.baseurl }}/exercises/taxiRidesTable.html). The table rows should be filtered for valid departure and arrival coordinates.
+
+### Resources
+
+The `GeoUtils` class provides as set of user-defined function (UDFs) for the Table API and SQL:
 
 - `GeoUtils.IsInNYC` checks if a location (longitude, latitude) is in New York City.
 - `GeoUtils.ToCellId` maps a location (longitude, latitude) to a cell id that refers to an area of approximately 100x100 meters size
 - `GeoUtils.ToCoords` converts a grid cell id back into a longitude/latitude pair. 
 
-The exercise can be solved with a Table API or SQL query. Please note that the query should operate in event time.
+UDFs need to be registered at a `TableEnvironment` before they can be used.
 
-### Input Data
+{% highlight java %}
+StreamTableEnvironment tEnv = TableEnvironment.getTableEnvironment(env);
 
-The input data of this exercise is a `Table` of taxi ride events. The table is provided by the [Taxi Rides Table Source]({{ site.baseurl }}/exercises/taxiRidesTable.html). The table rows should be filtered for valid departure and arrival coordinates using the `IsInNYC` user-defined function.
+// register UDF (works identically in Scala)
+tEnv.registerFunction("isInNyc", new GeoUtils.IsInNYC); 
+
+// use UDF in SQL
+Table t = tEnv.sql("SELECT isInNyc(startLon, startLat) FROM TaxiRides");
+
+// use UDF in Table API
+Table t2 = tEnv.scan("TaxiRides")
+  .select("isInNyc(startLon, startLat)");
+
+{% endhighlight %}
 
 ### Expected Output
 
