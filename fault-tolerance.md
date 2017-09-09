@@ -64,7 +64,7 @@ Now let's bring up a new worker process and resume processing by calling
 ./bin/taskmanager.sh start
 ~~~
 
-After a short time you will notice that the job continues to write output to the log file. Looking at the data, we should see that the data source continued from the last checkpoint before the failure, rather than starting over.
+After a short time you will notice that the job continues to write output (but to a new output file). Looking at the data, we should see that the data source continued from the last checkpoint before the failure, rather than starting over.
 
 The [Flink web dashboard](http://localhost:8081) will also show that a new TaskManager connected and that the status of our job switched to running.
 

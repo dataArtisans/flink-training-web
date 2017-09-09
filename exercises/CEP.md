@@ -8,6 +8,24 @@ The goal of the "Long Ride Alerts" exercise is to indicate whenever a taxi ride 
 
 This can be done fairly straightforwardly with a `ProcessFunction` (see the [Long Ride Alerts exercise]({{ site.baseurl }}/exercises/rideCleansing.html)), but this requires you to explicitly manage state and timers. In this exercise we'll do this more simply using Flink's CEP library.
 
+Using the CEP library requires adding these dependencies to the `pom.xml` of your Maven project:
+
+~~~xml
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <!-- replace by "flink-cep_2.11" for Scala 2.11 -->
+  <artifactId>flink-cep_2.10</artifactId>
+  <version>1.3.2</version>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <!-- replace by "flink-cep-scala_2.11" for Scala 2.11 -->
+  <artifactId>flink-cep-scala_2.10</artifactId>
+  <version>1.3.2</version>
+</dependency>
+~~~
+
 ### Input Data
 
 The input data of this exercise is a `DataStream` of taxi ride events. You will want to use a `CheckpointedTaxiRideSource`:
@@ -87,5 +105,5 @@ Hint Two
 
 Reference solutions are available at GitHub:
 
-- Java API: [LongRides.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/process/LongRides.java)
-- Scala API: [PopularPlacesTableApi.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/process/LongRides.scala)
+- Java API: [CEP LongRides.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/cep/LongRides.java)
+- Scala API: [CEP LongRides.scala](https://github.com/dataArtisans/flink-training-exercises/tree/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/cep/LongRides.scala)
