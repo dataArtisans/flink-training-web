@@ -37,6 +37,8 @@ env.setStateBackend(new FsStateBackend("file:///tmp/checkpoints"));
 
 [Testing Fault Tolerance]({{ site.baseurl }}/fault-tolerance.html) describes the overall approach you can take to verify if your application is actually fault tolerant. In general, this depends on your being able to tell the difference between having your application start over from the beginning, as opposed to having it resume correctly from an intermediate point.
 
+If it feels like it is taking too long to get results, you can increase the speedup factor on the source, and/or decrease the timeout from 2 hours so that you see more activity. 
+
 ### Reference Solution
 
 Reference solutions are available on GitHub:
