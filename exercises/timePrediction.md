@@ -14,23 +14,28 @@ Since the prediction model is valuable operator state, it should not get lost in
 
 Stateful and fault-tolerant streaming applications require a few settings on the `StreamExecutionEnvironment`.
 
-* Configure Flink to perform a consistent checkpoint of a program's operator state every 1000ms.
+Configure Flink to perform a consistent checkpoint of a program's operator state every 1000ms.
 
 ~~~java
 StreamExecutionEnvironment env = ...
 env.enableCheckpointing(1000);
 ~~~~
 
-* Configure Flink to try to restart the job 60 times with a 10 second delay. If the job cannot be restarted within 60 attempts, it fails.
+Configure Flink to try to restart the job 60 times with a 10 second delay. If the job cannot be restarted within 60 attempts, it fails.
 
 ~~~java
-StreamExecutionEnvironment env = ...
 env.setRestartStrategy(
   RestartStrategies.fixedDelayRestart(
     60,                            // 60 retries
     Time.of(10, TimeUnit.SECONDS)  // 10 secs delay
   ));
 ~~~~
+
+Note that by default, Flink's checkpoints are persisted on the JobManager's heap. This is usually fine for development and testing, so long as your application doesn't have large amounts of state. But this exercise is likely to keep too much state for that to suffice, and you should configure Flink to use the filesystem state backend instead:
+
+~~~java
+env.setStateBackend(new FsStateBackend("file:///tmp/checkpoints"));
+~~~
 
 ### Input Data
 
