@@ -41,7 +41,7 @@ The [How to do the Exercises page]({{ site.baseurl }}/howto-exercises.html) expl
 ~~~bash
 flink run -c \  
     com.dataartisans.flinktraining.exercises.datastream_scala.process.LongRides \
-    ~/flink-training-exercises/target/flink-training-exercises-0.11.0.jar \
+    ~/flink-training-exercises/target/flink-training-exercises-0.12.0.jar \
     --input ~/nycTaxiRides.gz
 ~~~
 
