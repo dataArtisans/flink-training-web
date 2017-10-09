@@ -141,7 +141,7 @@ object LowLatencyEventTimeJoin {
 {% endhighlight %}
 
 You task is to complete the implementation of the `EventTimeJoinFunction`. All you need to do is
-replace each occurance of ??? with something appropriate.
+replace each occurrence of ??? with something appropriate.
 
 #### Java
 
