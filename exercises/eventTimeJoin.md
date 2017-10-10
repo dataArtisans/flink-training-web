@@ -71,7 +71,7 @@ which each of the trades as they arrive, and in what cases an updated join shoul
 We've provided most of the code for you. Here's the application, which you can find at:
 
 - Java: [LowLatencyEventTimeJoin.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/process/LowLatencyEventTimeJoin.java)
-- Scala: [LowLatencyEventTimeJoin.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/lowlatencyjoin/LowLatencyEventTimeJoin.scala)
+- Scala: [LowLatencyEventTimeJoin.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/process/LowLatencyEventTimeJoin.scala)
 
 #### Java
 
@@ -149,17 +149,16 @@ replace each occurrence of ??? with something appropriate.
 import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.Customer;
 import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.EnrichedTrade;
 import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.Trade;
-import com.dataartisans.flinktraining.exercises.datastream_scala.lowlatencyjoin.EventTimeJoinHelper;
 import org.apache.flink.streaming.api.TimerService;
 import org.apache.flink.util.Collector;
-import scala.collection.Iterator;
 
 public class EventTimeJoinFunction extends EventTimeJoinHelper {
   @Override
   public void processElement1(Trade trade,
-  	                      Context context,
-			      Collector<EnrichedTrade> collector) {
-    System.out.println("Received " + trade.toString());
+                              Context context,
+                              Collector<EnrichedTrade> collector)
+                              throws Exception {
+    System.out.println("Java Received " + trade.toString());
     TimerService timerService = context.timerService();
     EnrichedTrade joinedData = join(trade);
     collector.collect(joinedData);
@@ -175,43 +174,33 @@ public class EventTimeJoinFunction extends EventTimeJoinHelper {
   @Override
   public void processElement2(Customer customer,
                               Context context,
-			      Collector<EnrichedTrade> collector) {
-    System.out.println("Received " + customer.toString());
+                              Collector<EnrichedTrade> collector)
+                              throws Exception {
+    System.out.println("Java Received " + customer.toString());
     enqueueCustomer(customer);
   }
 
   @Override
   public void onTimer(long l,
                       OnTimerContext context,
-		      Collector<EnrichedTrade> collector) {
+                      Collector<EnrichedTrade> collector)
+                      throws Exception {
     // look for trades that can now be completed
+    // do the join, and remove from the tradebuffer
     Long watermark = context.timerService().currentWatermark();
     while (timestampOfFirstTrade() ??? watermark) {
-      // do the join and remove from the tradebuffer
       dequeueAndPerhapsEmit(collector);
     }
 
-    // Cleanup all the customer data that is eligible
     cleanupEligibleCustomerData(watermark);
   }
 
-  private EnrichedTrade join(Trade trade) {
+  private EnrichedTrade join(Trade trade) throws Exception {
     return new EnrichedTrade(trade, getCustomerInfo(trade));
   }
 
-  private String getCustomerInfo(Trade trade) {
-    Iterator<Customer> it = customerIterator();
-    while (it.hasNext()) {
-      Customer customer = it.next();
-
-      if (customer.timestamp ??? trade.timestamp) {
-        return customer.customerInfo;
-      }
-    }
-    return "No customer info available";
-  }
-
-  private void dequeueAndPerhapsEmit(Collector<EnrichedTrade> collector) {
+  private void dequeueAndPerhapsEmit(Collector<EnrichedTrade> collector)
+      throws Exception {
     EnrichedTrade enrichedTrade = dequeueEnrichedTrade();
 
     EnrichedTrade joinedData = join(enrichedTrade.trade);
@@ -226,17 +215,15 @@ public class EventTimeJoinFunction extends EventTimeJoinHelper {
 #### Scala
 
 {% highlight scala %}
-import org.apache.flink.api.scala._
 import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.{Customer, EnrichedTrade, Trade}
-import org.apache.flink.streaming.api.functions.co.CoProcessFunction.{Context, OnTimerContext}
+import org.apache.flink.streaming.api.functions.co.CoProcessFunction
 import org.apache.flink.util.Collector
 
 class EventTimeJoinFunction extends EventTimeJoinHelper {
-
   override def processElement1(trade: Trade,
-                               context: Context,
-			       collector: Collector[EnrichedTrade]): Unit = {
-    println(s"Received: $trade")
+      context: CoProcessFunction[Trade, Customer, EnrichedTrade]#Context,
+      collector: Collector[EnrichedTrade]): Unit = {
+    println(s"Scala Received: $trade")
 
     val timerService = context.timerService()
     val joinedData = join(trade)
@@ -250,43 +237,30 @@ class EventTimeJoinFunction extends EventTimeJoinHelper {
   }
 
   override def processElement2(customer: Customer,
-                               context: Context,
-			       collector: Collector[EnrichedTrade]): Unit = {
-    println(s"Received $customer")
+      context: CoProcessFunction[Trade, Customer, EnrichedTrade]#Context,
+      collector: Collector[EnrichedTrade]): Unit = {
+    println(s"Scala Received $customer")
     enqueueCustomer(customer)
   }
 
-  override def onTimer(l: Long,
-                       context: OnTimerContext,
-		       collector: Collector[EnrichedTrade]): Unit = {
+  override def onTimer(timestamp: Long,
+      context: CoProcessFunction[Trade, Customer, EnrichedTrade]#OnTimerContext,
+      collector: Collector[EnrichedTrade]): Unit = {
     // look for trades that can now be completed
+    // do the join, and remove from the tradebuffer
     val watermark: Long = context.timerService().currentWatermark()
     while (timestampOfFirstTrade() ??? watermark) {
-      // do the join and remove from the tradebuffer
       dequeueAndPerhapsEmit(collector)
     }
 
-    // Cleanup all the customer data that is eligible
     cleanupEligibleCustomerData(watermark)
   }
 
   private def join(trade: Trade): EnrichedTrade = {
-    // get the customer info that was in effect at the time of this trade
-    // doing this rather than jumping straight to the latest known info makes
-    // this 100% deterministic.  If that's not a strict requirement we can simplify
-    // this by joining against the latest available data right now.
     new EnrichedTrade(trade, getCustomerInfo(trade))
   }
 
-  private def getCustomerInfo(trade: Trade): String = {
-    customerBufferState.value()
-      .filter(_.timestamp ??? trade.timestamp)
-      .headOption
-      .map(_.customerInfo)
-      .getOrElse("No customer info available")
-  }
-
-  protected def dequeueAndPerhapsEmit(collector: Collector[EnrichedTrade]): Unit = {
+  private def dequeueAndPerhapsEmit(collector: Collector[EnrichedTrade]): Unit = {
     val enrichedTrade = dequeueEnrichedTrade()
 
     val joinedData = join(enrichedTrade.trade)
@@ -298,7 +272,10 @@ class EventTimeJoinFunction extends EventTimeJoinHelper {
 }
 {% endhighlight %}
 
-You may find it helpful and/or interesting to also look at the implementation of [EventTimeJoinHelper.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/lowlatencyjoin/EventTimeJoinHelper.scala).
+You will probably want to also look at the implementation(s) of
+
+[EventTimeJoinHelper.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_scala/process/EventTimeJoinHelper.java)  
+[EventTimeJoinHelper.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/process/EventTimeJoinHelper.scala)
 
 Your results should look like this:
 
@@ -327,4 +304,3 @@ Received Customer(2100) Customer data @ 2100
 3> EnrichedTrade(1800) Customer data @ 1600
 3> EnrichedTrade(1700) Customer data @ 1600
 ~~~
-
