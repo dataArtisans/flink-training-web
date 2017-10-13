@@ -50,3 +50,5 @@ Further options can be found in the documentation of the [CLI client]({{ site.do
 ### 5. Monitor the execution of a Flink program
 
 The Flink JobManager web interface at [http://localhost:8081](http://localhost:8081) shows the execution of Flink programs, performance metrics of the TaskManagers, and information to analyze the execution time of completed programs.
+
+Now continue to [the first exercise]({{site.baseurl}}/exercises/rideCleansing.html).

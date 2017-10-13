@@ -4,13 +4,15 @@ title: DataStream API - Taxi Ride Cleansing
 permalink: /exercises/rideCleansing.html
 ---
 
+If you haven't already done so, you'll need to first [setup your Flink development environment]({{site.baseurl}}/devEnvSetup.html). See [How to do the exercises]({{site.baseurl}}/howto-exercises.html) for an overall introduction to these exercises.
+
 The task of the "Taxi Ride Cleansing" exercise is to cleanse a stream of TaxiRide events by removing events that do not start or end in New York City.
 
 The `GeoUtils` utility class provides a static method `isInNYC(float lon, float lat)` to check if a location is within the NYC area.
 
 ### Input Data
 
-This exercise is based a stream of taxi ride events. The [Taxi Data Stream instructions]({{ site.baseurl }}/exercises/taxiData.html) show how to setup the `TaxiRideSource` which generates a stream of `TaxiRide` events.
+This series of exercises is based a stream of taxi ride events. The [Taxi Data Stream instructions]({{ site.baseurl }}/exercises/taxiData.html) show how to setup the `TaxiRideSource` which generates a stream of `TaxiRide` events.
 
 ### Expected Output
 

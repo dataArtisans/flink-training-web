@@ -8,7 +8,7 @@ layout: page
 
 ### Goals and scope of this training
 
-This training teaches how to implement scalable data analysis programs with Apache Flink 1.3.2
+This training teaches how to implement scalable data analysis programs with Apache Flink 1.3.2.
 
 Specifically, this training teaches:
 
@@ -18,7 +18,14 @@ Specifically, this training teaches:
   - Execute and debug a Flink program locally in an IDE
 
 - How to implement Flink programs using its APIs
-	- Solve exercises for stream programs using the DataStream API
-	- Solve exercises for batch programs using the DataSet API
+  - Solve exercises for stream programs using the DataStream API, Table API, and FlinkCEP
+  - Solve exercises for batch programs using the DataSet API
 
 - How to package, execute, and monitor Flink programs on running Flink systems
+
+### Starting points
+
+- [Setting up your Flink development environment]({{site.baseurl}}/devEnvSetup.html)
+- [An Introduction to Flink]({{site.baseurl}}/system-overview.html)
+- [DataStream API Basics]({{site.baseurl}}/dataStream/basics.html)
+- [The first hands-on exercise]({{site.baseurl}}/exercises/rideCleansing.html)

@@ -10,5 +10,6 @@ permalink: /system-overview.html
 
 ### References
 
+- [Flink's Dataflow Programming Model]({{ site.docs }}/concepts/programming-model.html)
 - [The Dataflow Model: A Practical Approach to Balancing Correctness, Latency, and Cost in Massive-Scale, Unbounded, Out-of-Order Data Processing](https://research.google.com/pubs/pub43864.html)
 - [The Essential Guide to Streaming-first Processing with Apache Flink](https://mapr.com/blog/essential-guide-streaming-first-processing-apache-flink/)
