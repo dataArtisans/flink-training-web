@@ -274,7 +274,7 @@ class EventTimeJoinFunction extends EventTimeJoinHelper {
 
 You will probably want to also look at the implementation(s) of
 
-[EventTimeJoinHelper.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_scala/process/EventTimeJoinHelper.java)  
+[EventTimeJoinHelper.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/process/EventTimeJoinHelper.java)
 [EventTimeJoinHelper.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/process/EventTimeJoinHelper.scala)
 
 Your results should look like this:
