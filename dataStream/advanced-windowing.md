@@ -10,4 +10,4 @@ permalink: /dataStream/advanced-windowing.html
 
 ### References
 
-- [Windows (docs)]({{ site.docs }}/dev/windows.html)
+- [Windows (docs)]({{ site.docs }}/dev/stream/operators/windows.html)

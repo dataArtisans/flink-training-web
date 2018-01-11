@@ -15,8 +15,8 @@ Flink features connectors to several external systems. In order to keep the depe
 ~~~xml
 <dependency>
   <groupId>org.apache.flink</groupId>
-  <artifactId>flink-connector-elasticsearch2_2.10</artifactId>
-  <version>1.3.2</version>
+  <artifactId>flink-connector-elasticsearch2_2.11</artifactId>
+  <version>1.4.0</version>
 </dependency>
 ~~~
 

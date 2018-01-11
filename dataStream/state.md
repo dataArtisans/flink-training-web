@@ -17,4 +17,4 @@ In this lesson you will learn:
 
 ### References
 
-- [Working with State (docs)]({{ site.docs }}/dev/stream/state.html)
+- [Working with State (docs)]({{ site.docs }}/dev/stream/state/index.html)

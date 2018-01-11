@@ -17,7 +17,7 @@ In this lesson you will learn:
 ### References
 
 - [Data Streaming Fault Tolerance (docs)]({{ site.docs }}/internals/stream_checkpointing.html)
-- [Checkpointing (docs)]({{ site.docs }}/dev/stream/checkpointing.html)
-- [Savepoints (docs)]({{ site.docs }}/setup/savepoints.html)
-- [State Backends (docs)]({{ site.docs }}/ops/state_backends.html)
-- [CLI (docs)]({{ site.docs }}/setup/cli.html)
+- [Checkpointing (docs)]({{ site.docs }}/dev/stream/state/checkpointing.html)
+- [Savepoints (docs)]({{ site.docs }}/ops/state/savepoints.html)
+- [State Backends (docs)]({{ site.docs }}/ops/state/state_backends.html)
+- [CLI (docs)]({{ site.docs }}/ops/cli.html)

@@ -85,7 +85,7 @@ Use `DataStream.timeWindow(Time.minutes(15), Time.minutes(5))` to define a slidi
 
 ### Documentation
 
-- [Windows]({{ site.docs }}/dev/windows.html)
+- [Windows]({{ site.docs }}/dev/stream/operators/windows.html)
 
 ### Reference Solution
 

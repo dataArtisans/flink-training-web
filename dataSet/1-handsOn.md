@@ -12,17 +12,17 @@ The following steps guide you through the process of downloading the Mail Data S
 
 ### 1. Get the Mail Data Set
 
-Please follow these [instructions]({{ site.baseurl }}/exercises/mailData.html) to download and extract the Mail Data Set. 
+Please follow these [instructions]({{ site.baseurl }}/exercises/mailData.html) to download and extract the Mail Data Set.
 
 ### 2. Implement the Mail Count exercise
 
-In the [setup guide]({{ site.baseurl }}/devEnvSetup.html) you generated a Flink Maven quickstart project and imported it into your IDE. The quickstart project contains a class called `BatchJob`. This class can be used as a template for all programming exercises. 
+In the [setup guide]({{ site.baseurl }}/devEnvSetup.html) you generated a Flink Maven quickstart project and imported it into your IDE. The quickstart project contains a class called `BatchJob`. This class can be used as a template for all programming exercises.
 
 Please follow the instructions of the [Mail Count exercise]({{ site.baseurl }}/exercises/mailCount.html) which includes a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
 
 ### 3. Package your program for execution
 
-Flink programs are packaged as regular JAR files. A program JAR file must contain all classes, resource files, and libraries that are required to execute the program. 
+Flink programs are packaged as regular JAR files. A program JAR file must contain all classes, resource files, and libraries that are required to execute the program.
 
 The easiest way to package a Flink program into a JAR is to develop Flink programs using a Flink Maven quickstart project. Such projects have correctly configured POM files can be compiled and packages into a fat JAR file that includes all dependencies by running the following commands
 
@@ -35,7 +35,7 @@ The resulting JAR file will be located in the project's `./target/` folder.
 
 ### 4. Execute your packaged Flink program
 
-Flink provides different clients to submit a program to a running Flink system including a [command-line client]({{ site.docs }}/setup/cli.html) (CLI client) and a [web-based client] available on the JobManager web interface.
+Flink provides different clients to submit a program to a running Flink system including a [command-line client]({{ site.docs }}/ops/cli.html) (CLI client) and a [web-based client] available on the JobManager web interface.
 
 Given a program packaged as JAR file, Flink's submission clients identify the entry point of the program, i.e., the class with the `main()` method, as the class that is defined as `Main-Class` in the JAR's `MANIFEST.MF` like this:
 
@@ -52,7 +52,7 @@ cd /path/to/flink/installation
 ./bin/flink run -c your.MainClass /path/to/program/jarfile -arg1 -arg2 ...
 ~~~
 
-Further options can be found in the documentation of the [CLI client]({{ site.docs }}/setup/cli.html). On Windows, the CLI client is started using the `.\bin\flink.bat` script.
+Further options can be found in the documentation of the [CLI client]({{ site.docs }}/ops/cli.html). On Windows, the CLI client is started using the `.\bin\flink.bat` script.
 
 ### 5. Monitor the execution of a Flink program
 

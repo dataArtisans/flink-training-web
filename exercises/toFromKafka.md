@@ -13,13 +13,13 @@ The [Kafka installation instructions]({{ site.baseurl }}/kafka.html) explain how
 
 ### Adding the Kafka Connector dependency
 
-Flink features connectors to several external systems. In order to keep the dependencies on the core slim, these connectors are organized in separate modules and have to be included as needed. The connector for Kafka 0.10 can be used by adding the following dependency to your `pom.xml` file.
+Flink features connectors to several external systems. In order to keep the dependencies on the core slim, these connectors are organized in separate modules and have to be included as needed. The connector for Kafka 0.11 can be used by adding the following dependency to your `pom.xml` file.
 
 ~~~xml
 <dependency>
   <groupId>org.apache.flink</groupId>
-  <artifactId>flink-connector-kafka-0.10_2.10</artifactId>
-  <version>1.3.2</version>
+  <artifactId>flink-connector-kafka-0.11_2.11</artifactId>
+  <version>1.4.0</version>
 </dependency>
 ~~~
 
@@ -27,11 +27,11 @@ Flink features connectors to several external systems. In order to keep the depe
 
 The result of the TaxiRide Cleansing program is a `DataStream<TaxiRide>`. The program needs to be modified to write this `DataStream` into an Kafka topic instead of printing it to standard out.
 
-Flink's Kafka Connector provides the `FlinkKafkaProducer010` class to write a `DataStream` to a Kafka 0.10 topic. It can be used as follows:
+Flink's Kafka Connector provides the `FlinkKafkaProducer011` class to write a `DataStream` to a Kafka 0.11 topic. It can be used as follows:
 
 {% highlight java %}
 DataStream<TaxiRide> filteredRides = ...
-filteredRides.addSink(new FlinkKafkaProducer010<TaxiRide>(
+filteredRides.addSink(new FlinkKafkaProducer011<TaxiRide>(
         "localhost:9092",      // Kafka broker host:port
         "cleansedRides",       // Topic to write to
         new TaxiRideSchema())  // Serializer (provided as util)
@@ -47,7 +47,7 @@ When you start a program that writes to a Kafka sink, the resulting records are 
   --from-beginning
 ~~~
 
-**Note:** Kafka topics are designed as durable logs. Restarting a program that writes to a Kafka topic means that all records are appended, i.e., the topic is not overwritten! Check the [hands-on instructions]({{ site.baseurl }}/dataStream/3-handsOn.html) to learn how a topic can be removed.
+**Note:** Kafka topics are designed as durable logs. Restarting a program that writes to a Kafka topic means that all records are appended, i.e., the topic is not overwritten! Check the [Kafka instructions]({{ site.baseurl }}/kafka.html) to learn how a topic can be removed.
 
 ### Reading from Kafka
 
@@ -70,8 +70,8 @@ props.setProperty("group.id", "myGroup");                 // Consumer group ID
 props.setProperty("auto.offset.reset", "earliest");       // Always read topic from start
 
 // create a Kafka consumer
-FlinkKafkaConsumer010<TaxiRide> consumer =
-  new FlinkKafkaConsumer010<>(
+FlinkKafkaConsumer011<TaxiRide> consumer =
+  new FlinkKafkaConsumer011<>(
     "cleansedRides",
     new TaxiRideSchema(),
     props);
@@ -100,7 +100,7 @@ Timestamp and Watermark Assignment
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body" markdown="span">
-The `KafkaConsumer010` class has a method `assignTimestampsAndWatermarks()` to provide a custom timestamp and watermark assigner. Flink provides the abstract `BoundedOutOfOrdernessTimestampExtractor` class to implement timestamp extractors with bounded out-of-orderness (watermarks follow timestamps after a fixed time interval). You should extend this class to implement a custom timestamp and watermark assigner. The out-of-orderness of the `TaxiRide` events that were provided by the `TaxiRideSource` and that were written to the Kafka topic depends on the `maxEventDelay` parameter of the `TaxiRideSource` of the TaxiRide Cleansing program. The extracted timestamp should be the `TaxiRide.startTime` field or the `TaxiRide.endTime` field converted to a `long`.
+The `KafkaConsumer011` class has a method `assignTimestampsAndWatermarks()` to provide a custom timestamp and watermark assigner. Flink provides the abstract `BoundedOutOfOrdernessTimestampExtractor` class to implement timestamp extractors with bounded out-of-orderness (watermarks follow timestamps after a fixed time interval). You should extend this class to implement a custom timestamp and watermark assigner. The out-of-orderness of the `TaxiRide` events that were provided by the `TaxiRideSource` and that were written to the Kafka topic depends on the `maxEventDelay` parameter of the `TaxiRideSource` of the TaxiRide Cleansing program. The extracted timestamp should be the `TaxiRide.startTime` field or the `TaxiRide.endTime` field converted to a `long`.
       </div>
     </div>
   </div>

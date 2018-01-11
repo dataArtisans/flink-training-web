@@ -65,8 +65,8 @@ You will want to use event time timers that fire two hours after the incoming ev
 
 ### Documentation
 
-- [ProcessFunction]({{ site.docs }}/dev/stream/process_function.html)
-- [Working with State]({{ site.docs }}/dev/stream/state.html)
+- [ProcessFunction]({{ site.docs }}/dev/stream/operators/process_function.html)
+- [Working with State]({{ site.docs }}/dev/stream/state/index.html)
 
 ### Reference Solution
 

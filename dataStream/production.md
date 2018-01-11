@@ -11,7 +11,7 @@ permalink: /dataStream/production.html
 - [Distributed Runtime Environment (concepts)]({{ site.docs }}/concepts/runtime.html)
 - [Production Readiness Checklist]({{ site.docs }}/ops/production_ready.html)
 
-- [Debugging and Tuning Checkpoints and Large State]({{ site.docs }}/monitoring/large_state_tuning.html)
-- [Configuration (docs)]({{ site.docs }}/setup/config.html)
-- [SSL Setup (docs)]({{ site.docs }}/setup/security-ssl.html)
+- [Debugging and Tuning Checkpoints and Large State]({{ site.docs }}/ops/state/large_state_tuning.html)
+- [Configuration (docs)]({{ site.docs }}/ops/config.html)
+- [SSL Setup (docs)]({{ site.docs }}/ops/security-ssl.html)
 - [Kerberos Authentication Setup and Configuration (docs)]({{ site.docs }}/ops/security-kerberos.html)

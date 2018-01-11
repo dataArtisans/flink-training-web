@@ -14,13 +14,13 @@ Some of these hands-on exercises expect that you first setup a local Kafka insta
 
 The following instructions show how to setup a local Kafka instance in a few steps.
 
-* Download Apache Kafka 0.10.2.0 for Scala 2.10 [here](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.2.0/kafka_2.10-0.10.2.0.tgz).
+* Download Apache Kafka 0.11.0.2 for Scala 2.11 [here](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.11.0.2/kafka_2.11-0.11.0.2.tgz).
 
 * Extract the archive file and enter the extracted folder:
 
 ~~~bash
-tar xvfz kafka_2.10-0.10.2.0.tgz
-cd kafka_2.10-0.10.2.0
+tar xvfz kafka_2.11-0.11.0.2.tgz
+cd kafka_2.11-0.11.0.2
 ~~~
 
 * Start an Apache Zookeeper instance (Kafka uses ZooKeeper for distributed coordination) on `localhost:2181`:
@@ -35,4 +35,6 @@ cd kafka_2.10-0.10.2.0
 ./bin/kafka-server-start.sh config/server.properties &
 ~~~
 
-**Note:** Kafka persists topics (i.e., data streams) to `/tmp/kafka_logs` by default. Topics can be removed (or cleared) by shutting Kafka down and deleting this directory. You can stop Kafka and ZooKeeper by calling the `./bin/kafka-server-stop.sh` and `./bin/zookeeper-server-stop.sh` scripts (in that order!).
+### Deleting Kafka topics
+
+Note that Kafka persists topics (i.e., data streams) to `/tmp/kafka_logs` by default. Should you need to, topics can be removed (or cleared) by shutting Kafka down and deleting this directory. You can stop Kafka and ZooKeeper by calling the `./bin/kafka-server-stop.sh` and `./bin/zookeeper-server-stop.sh` scripts (in that order!).

@@ -21,4 +21,4 @@ In this lesson you will learn
 - [Introducing Stream Windows in Apache Flink](http://flink.apache.org/news/2015/12/04/Introducing-windows.html)
 - [How Apache Flink™ Enables New Streaming Applications](https://data-artisans.com/blog/how-apache-flink-enables-new-streaming-applications-part-1)
 
-- [Windows (docs)]({{ site.docs }}/dev/windows.html)
+- [Windows (docs)]({{ site.docs }}/dev/stream/operators/windows.html)

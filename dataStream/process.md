@@ -12,4 +12,4 @@ ProcessFunction combines event processing with timers and state, making it a pow
 
 ### References
 
-- [ProcessFunction (docs)]({{ site.docs }}/dev/stream/process_function.html)
+- [ProcessFunction (docs)]({{ site.docs }}/dev/stream/operators/process_function.html)

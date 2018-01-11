@@ -11,16 +11,14 @@ You can implement a solution for the exercise with Flink's Table API or SQL inte
 ~~~xml
 <dependency>
   <groupId>org.apache.flink</groupId>
-  <!-- replace by "flink-table_2.11" for Scala 2.11 -->
-  <artifactId>flink-table_2.10</artifactId>
-  <version>1.3.2</version>
+  <artifactId>flink-table_2.11</artifactId>
+  <version>1.4.0</version>
 </dependency>
 
 <dependency>
   <groupId>org.apache.flink</groupId>
-  <!-- replace by "flink-streaming-scala_2.11" for Scala 2.11 -->
-  <artifactId>flink-streaming-scala_2.10</artifactId>
-  <version>1.3.2</version>
+  <artifactId>flink-streaming-scala_2.11</artifactId>
+  <version>1.4.0</version>
 </dependency>
 ~~~
 
@@ -36,7 +34,7 @@ The `GeoUtils` class provides as set of user-defined function (UDFs) for the Tab
 
 - `GeoUtils.IsInNYC` checks if a location (longitude, latitude) is in New York City.
 - `GeoUtils.ToCellId` maps a location (longitude, latitude) to a cell id that refers to an area of approximately 100x100 meters size
-- `GeoUtils.ToCoords` converts a grid cell id back into a longitude/latitude pair. 
+- `GeoUtils.ToCoords` converts a grid cell id back into a longitude/latitude pair.
 
 UDFs need to be registered at a `TableEnvironment` before they can be used.
 
@@ -44,10 +42,10 @@ UDFs need to be registered at a `TableEnvironment` before they can be used.
 StreamTableEnvironment tEnv = TableEnvironment.getTableEnvironment(env);
 
 // register UDF (works identically in Scala)
-tEnv.registerFunction("isInNyc", new GeoUtils.IsInNYC); 
+tEnv.registerFunction("isInNyc", new GeoUtils.IsInNYC);
 
 // use UDF in SQL
-Table t = tEnv.sql("SELECT isInNyc(startLon, startLat) FROM TaxiRides");
+Table t = tEnv.sqlQuery("SELECT isInNyc(startLon, startLat) FROM TaxiRides");
 
 // use UDF in Table API
 Table t2 = tEnv.scan("TaxiRides")

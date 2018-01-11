@@ -8,4 +8,4 @@ permalink: /dataStream/asyncio.html
 
 ### References
 
-- [Asynchronous I/O for External Data Access (docs)]({{ site.docs }}/dev/stream/asyncio.html)
+- [Asynchronous I/O for External Data Access (docs)]({{ site.docs }}/dev/stream/operators/asyncio.html)
