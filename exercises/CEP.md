@@ -14,13 +14,13 @@ Using the CEP library requires adding these dependencies to the `pom.xml` of you
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-cep_2.11</artifactId>
-  <version>1.4.0</version>
+  <version>1.4.2</version>
 </dependency>
 
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-cep-scala_2.11</artifactId>
-  <version>1.4.0</version>
+  <version>1.4.2</version>
 </dependency>
 ~~~
 
@@ -48,12 +48,12 @@ The expected results are something like this:
 Here are the rideIds and start times of the first few rides that go on for more than two hours, but you might want to print other info as well:
 
 ~~~
-934753,2013-01-01 01:03:00
-950600,2013-01-01 01:14:00
-952469,2013-01-01 01:53:00
-946984,2013-01-01 02:21:00
-958062,2013-01-01 02:26:00
-1029600,2013-01-01 10:51:00
+> 2758,2013-01-01 00:10:13
+> 7575,2013-01-01 00:20:23
+> 22131,2013-01-01 00:47:03
+> 25473,2013-01-01 00:53:10
+> 29907,2013-01-01 01:01:15
+> 30796,2013-01-01 01:03:00
 ...
 ~~~
 

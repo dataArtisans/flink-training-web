@@ -12,13 +12,13 @@ You can implement a solution for the exercise with Flink's Table API or SQL inte
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-table_2.11</artifactId>
-  <version>1.4.0</version>
+  <version>1.4.2</version>
 </dependency>
 
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-streaming-scala_2.11</artifactId>
-  <version>1.4.0</version>
+  <version>1.4.2</version>
 </dependency>
 ~~~
 
