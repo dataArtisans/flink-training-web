@@ -1,10 +1,10 @@
 ---
 layout: page
-title: DataStream API - Ride Enrichment (CoProcessFunction)
+title: DataStream API - Expiring State (Enrichment with a CoProcessFunction)
 permalink: /exercises/rideEnrichment-processfunction.html
 ---
 
-The goal of this _Ride Enrichment_ exercise is to join together the `TaxiRide` and `TaxiFare` records for each ride in a more robust way than we did in an [earlier exercise]({{ site.baseurl }}/exercises/rideEnrichment-flatmap.html).
+The goal of this exercise is to join together the `TaxiRide` and `TaxiFare` records for each ride in a more robust way than we did in an [earlier exercise]({{ site.baseurl }}/exercises/rideEnrichment-flatmap.html).
 
 The problem with using a `RichCoFlatMap` for this application is that in a real-world system we have to expect that some records will be lost or corrupted. This means that over time we will accumulate an ever-growing collection of unmatched `TaxiRide` and `TaxiFare` records waiting to be matched with event data that will never arrive. Eventually our enrichment job will run out of memory.
 

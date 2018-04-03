@@ -1,10 +1,10 @@
 ---
 layout: page
-title: DataStream API - Ride Enrichment (RichCoFlatMap)
+title: DataStream API - Stateful Enrichment (RichCoFlatMap)
 permalink: /exercises/rideEnrichment-flatmap.html
 ---
 
-The goal of this _Ride Enrichment_ exercise is to join together the `TaxiRide` and `TaxiFare` records for each ride.
+The goal of this exercise is to join together the `TaxiRide` and `TaxiFare` records for each ride.
 
 ### Input Data
 
