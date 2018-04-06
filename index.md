@@ -18,14 +18,13 @@ Specifically, this training teaches:
   - Execute and debug a Flink program locally in an IDE
 
 - How to implement Flink programs using its APIs
-  - Solve exercises for stream programs using the DataStream API, Table API, and FlinkCEP
-  - Solve exercises for batch programs using the DataSet API
+  - Solve exercises for stream programs using the DataStream API
+  - Solve exercises for stream programs using the Table/SQL and CEP libraries
 
 - How to package, execute, and monitor Flink programs on running Flink systems
 
 ### Starting points
 
 - [Setting up your Flink development environment]({{site.baseurl}}/devEnvSetup.html)
-- [An Introduction to Flink]({{site.baseurl}}/system-overview.html)
-- [DataStream API Basics]({{site.baseurl}}/dataStream/basics.html)
+- [How to do these exercises]({{site.baseurl}}/howto-exercises.html)
 - [The first hands-on exercise]({{site.baseurl}}/exercises/rideCleansing.html)
