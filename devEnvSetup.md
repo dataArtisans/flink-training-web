@@ -8,13 +8,12 @@ The following instructions guide you through the process of setting up an enviro
 
 ### 1. Software requirements
 
-Flink supports Linux, OS X, and Windows as development environments for Flink programs and local execution. The following software is required for a Flink development setup and should be installed on your system.
+Flink supports Linux, OS X, and Windows as development environments for Flink programs and local execution. The following software is required for a Flink development setup and should be installed on your system:
 
-- Java JDK 8, a JRE is not sufficient!
+- Java JDK 8 (a JRE is not sufficient!)
 - Apache Maven 3.x
 - Git
-- an IDE for Java (and/or Scala) development.
-  Follow these [instructions]({{ site.docs }}/internals/ide_setup.html) to set up IntelliJ IDEA.
+- an IDE for Java (and/or Scala) development. We recommend IntelliJ, but Eclipse will work so long as you stick to Java. For Scala you will need to use IntelliJ (and its Scala plugin).
 
 <div class="alert alert-info">
 <p>
@@ -27,11 +26,6 @@ If your main operating system is Windows and you would like everything to work f
 On the other hand, we've also had success doing training with Windows.
 Note, however, that some of the installation steps require administrator privileges.
 And we recommend you setup Cygwin so that you can take advantage of the bash scripts that come with Flink.
-</p>
-
-<p>
-Sometimes we also use Kafka (and Elasticsearch) for parts of the training. These can be installed and run on Windows, but you may
-need to make some adjustments to the instructions we provide.
 </p>
 </div>
 
@@ -75,7 +69,7 @@ mvn archetype:generate                             \
 
 **Note**: Windows users need to remove the backslashes from the Maven commands.
 
-The generated Flink quickstart project is located in a folder called `flink-java-project` (`flink-scala-project` for Scala projects).
+The generated Flink quickstart project is located in a folder called `flink-java-project` (or `flink-scala-project` for Scala projects).
 
 #### Clone and build the flink-training-exercises project
 
@@ -101,7 +95,7 @@ Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or
 
 #### Build your Flink quickstart project
 
-In order to test the generated project and to download all required dependencies run the following command in the `flink-java-project` (`flink-scala-project` for Scala projects) folder.
+In order to test the generated project and to download all required dependencies run the following command in the `flink-java-project` folder (or the `flink-scala-project` folder for Scala projects).
 
 ~~~bash
 mvn clean package
@@ -114,30 +108,43 @@ Maven will now start to download all required dependencies and build the Flink q
 The generated Maven project needs to be imported into your IDE:
 
 - IntelliJ:
-  1. Select *"File"* -> *"Import Project"*
-  1. Select the root folder of your project (*flink-java-project* or *flink-scala-project*)
-  1. Select *"Import project from external model"*, select *"Maven"*
-  1. Continue, making sure the SDK dialog has a valid path to a JDK and **leaving all other options to their default values**, and finish the import
+  1. Select *"File"* -> *"New"* -> *"Project from Existing Sources..."*
+  1. Select the `pom.xml` file in your project (*flink-java-project* or *flink-scala-project*)
+  1. Accept the defaults in the first *Import Project from Maven* dialog
+  1. Tick the checkbox to select the `add-dependencies-for-IDEA` profile
+  1. Continue, making sure when you get to the SDK dialog that it has a valid path to a JDK and **leaving all other options to their default values**, finish the maven project import
 - Eclipse:
   1. Select *"File"* -> *"Import"* -> *"Maven"* -> *"Existing Maven Project"*
   1. Follow the import instructions
 
-### 4. Execute and debug a Flink program in an IDE
+### 4. Running and debugging Flink programs in your IDE
 
-Flink programs can be executed and debugged from within an IDE. This significantly eases the development process and gives a programming experience similar to working on a regular Java application. Starting a Flink program in your IDE is as easy as starting its `main()` method. Under the hood, the `ExecutionEnvironment` will start a local Flink instance within the execution process. Hence it is also possible to put breakpoints everywhere in your code and debug it.
+Flink programs can be executed and debugged from within an IDE. This significantly eases the development process and provides an experience similar to working on any other Java application.
 
-Assuming you have an IDE with a Flink quickstart project imported, you can execute and debug the example `WordCount` program which is included in the quickstart project as follows:
+Starting a Flink program in your IDE is as easy as running its `main()` method. Under the hood, the execution environment will start a local Flink instance within the same process. Hence it is also possible to put breakpoints in your code and debug it.
 
-- Open the `org.apache.flink.quickstart.WordCount` class in your IDE
-- Place a breakpoint somewhere in the `flatMap()` method of the `LineSplitter` class which is defined in the `WordCount` class.
-- Execute or debug the `main()` method of the `WordCount` class using your IDE.
+Assuming you have an IDE with a Flink quickstart project imported, you can run (or debug) a simple streaming job as follows:
+
+- Open the `org.apache.flink.quickstart.StreamingJob` class in your IDE
+- Add a line of code so the streaming job has something (trivial) to do:
+
+<pre><code class="lang-java">final StreamExecutionEnvironment env =
+  StreamExecutionEnvironment.getExecutionEnvironment();
+
+// add this line
+env.fromElements(1, 2, 3).print();
+
+env.execute("...");
+</code></pre>
+
+- Run (or debug) the `main()` method of the `StreamingJob` class using your IDE.
 
 ### 5. Install Flink for local execution
 
-In order to execute programs on a running Flink instance (rather than from within your IDE) you need to install Flink on your machine. To do so, follow these steps:
+In order to execute programs on a running Flink instance (rather than from within your IDE), you need to install Flink on your machine. To do so, follow these steps:
 
 - Download the Apache Flink 1.4.2 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work, including the "without bundled hadoop" version.
-- Extract the downloaded `.tgz` archive
+- Extract the downloaded archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 
 ### 6. Start a local Flink instance
