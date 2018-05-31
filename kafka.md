@@ -4,7 +4,7 @@ layout: page
 permalink: /kafka.html
 ---
 
-Some of these hands-on exercises expect that you first setup a local Kafka instance; see the exercises on [Writing to and Reading from Kafka]({{ site.baseurl }}/kafka.html).
+Some of these hands-on exercises expect that you first setup a local Kafka instance; see the exercises on [Writing to and Reading from Kafka]({{ site.baseurl }}/exercises/toFromKafka.html).
 
 ### Connecting streaming programs through Kafka
 

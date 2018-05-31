@@ -93,6 +93,30 @@ Open the `pom.xml` file in your Maven project (`./flink-java-project/pom.xml` or
 </dependency>
 ~~~
 
+#### Only for Eclipse, add this plugin to your pom.xml
+
+If you are using Eclipse, add the `exec-maven-plugin` plugin to the &lt;build&gt; &lt;plugins&gt; section of pom.xml:
+
+~~~xml
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>exec-maven-plugin</artifactId>
+  <version>1.6.0</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>java</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <mainClass>org.apache.flink.flink_quickstart_java.StreamingJob</mainClass>
+    <arguments>
+    </arguments>
+  </configuration>
+</plugin>
+~~~
+
 #### Build your Flink quickstart project
 
 In order to test the generated project and to download all required dependencies run the following command in the `flink-java-project` folder (or the `flink-scala-project` folder for Scala projects).
@@ -105,7 +129,7 @@ Maven will now start to download all required dependencies and build the Flink q
 
 ### 3. Import the Flink Maven project into your IDE
 
-The generated Maven project needs to be imported into your IDE:
+The generated Maven project needs to be imported into your IDE.
 
 - IntelliJ:
   1. Select *"File"* -> *"New"* -> *"Project from Existing Sources..."*
@@ -115,7 +139,8 @@ The generated Maven project needs to be imported into your IDE:
   1. Continue, making sure when you get to the SDK dialog that it has a valid path to a JDK and **leaving all other options to their default values**, finish the maven project import
 - Eclipse:
   1. Select *"File"* -> *"Import"* -> *"Maven"* -> *"Existing Maven Project"*
-  1. Follow the import instructions
+  1. Tick the **Add project(s) to working set** option
+  1. Right click on the project in the Explorer, and under *"Maven" / "Select Maven Profiles..."* select the `add-dependencies-for-IDEA` profile, and **Force Update**
 
 ### 4. Running and debugging Flink programs in your IDE
 
