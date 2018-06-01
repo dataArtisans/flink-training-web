@@ -8,7 +8,7 @@ The goal of this exercise is to join together the `TaxiRide` and `TaxiFare` reco
 
 The problem with using a `RichCoFlatMap` for this application is that in a real-world system we have to expect that some records will be lost or corrupted. This means that over time we will accumulate an ever-growing collection of unmatched `TaxiRide` and `TaxiFare` records waiting to be matched with event data that will never arrive. Eventually our enrichment job will run out of memory.
 
-You can solve this by using the timers available in a `CoProcessFunction` to eventually clear any unmatched state that is being kept.
+You can solve this by using the timers available in a `CoProcessFunction` to eventually expire and clear any unmatched state that is being kept.
 
 ### Input Data
 
@@ -27,31 +27,26 @@ We are recommending you use these checkpointed sources in case you want to run y
 
 You should arrange for some predictable fraction of the input records to be missing, so you can verify that you are correctly handling clearing the corresponding state.
 
-The reference solution uses this `FilterFunction` on the TaxiRides. It drops all START events, and every 1000th END event.
+The reference solution uses this `FilterFunction` on the TaxiRides. It drops all END events, and every 1000th START event.
 
 #### Java
 {% highlight java %}
 DataStream<TaxiRide> rides = env
     .addSource(new CheckpointedTaxiRideSource(ridesFile, servingSpeedFactor))
-    .filter(new FilterFunction<TaxiRide>() {
-      @Override
-      public boolean filter(TaxiRide ride) throws Exception {
-        return !ride.isStart && (ride.rideId % 1000 != 0);
-      }
-    })
+    .filter((TaxiRide ride) -> (ride.isStart && (ride.rideId % 1000 != 0)))
 {% endhighlight %}
 
 #### Scala
 {% highlight scala %}
 val rides = env
   .addSource(new CheckpointedTaxiRideSource(ridesFile, servingSpeedFactor))
-  .filter { ride => !ride.isStart && (ride.rideId % 1000 != 0) }
+  .filter { ride => ride.isStart && (ride.rideId % 1000 != 0) }
 {% endhighlight %}
 
 
 ### Expected Output
 
-The result of this exercise is a data stream of `Tuple2<TaxiRide, TaxiFare>` records, one for each distinct `rideId`. You should ignore the START events, and only join the event for the END of each ride with its corresponding fare data.
+The result of this exercise is a data stream of `Tuple2<TaxiRide, TaxiFare>` records, one for each distinct `rideId`. You should ignore the END events, and only join the event for the START of each ride with its corresponding fare data.
 
 In order to clearly see what is happening, create side outputs where you collect each unmatched `TaxiRide` and `TaxiFare` that is discarded in the `OnTimer` method of the `CoProcessFunction`.
 

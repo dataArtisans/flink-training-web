@@ -14,7 +14,7 @@ For this exercise you will work with two data streams, one with `TaxiRide` event
 
 ### Expected Output
 
-The result of this exercise is a data stream of `Tuple2<TaxiRide, TaxiFare>` records, one for each distinct `rideId`. You should ignore the START events, and only join the event for the END of each ride with its corresponding fare data.
+The result of this exercise is a data stream of `Tuple2<TaxiRide, TaxiFare>` records, one for each distinct `rideId`. You should ignore the END events, and only join the event for the START of each ride with its corresponding fare data.
 
 The resulting stream should be printed to standard out.
 
@@ -31,7 +31,7 @@ Program Structure
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body" markdown="span">
-You can use a `RichCoFlatMap` to implement this join operation. Note that you have no control over the order of arrival of the ride END and fare records for each rideId, so you'll need to be prepared to store either piece of information until the matching info arrives, at which point you can emit a `Tuple2<TaxiRide, TaxiFare>` joining the two records together.
+You can use a `RichCoFlatMap` to implement this join operation. Note that you have no control over the order of arrival of the ride and fare records for each rideId, so you'll need to be prepared to store either piece of information until the matching info arrives, at which point you can emit a `Tuple2<TaxiRide, TaxiFare>` joining the two records together.
       </div>
     </div>
   </div>
