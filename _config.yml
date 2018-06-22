@@ -4,7 +4,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Training material for Apache Flink™, including environment setup
   implementation of programs using the Flink APIs, and packaging,
   execution and monitoring of Flink programs.
-url: "http://training.data-artisans.com" # the base hostname & protocol for your site
+url: "http://alpinegizmo.github.io" # the base hostname & protocol for your site
 docs: https://ci.apache.org/projects/flink/flink-docs-release-1.5
 
 tests: https://github.com/dataArtisans/flink-training-exercises/tree/testing/src/test/java/com/dataartisans/flinktraining/exercises/datastream_java
