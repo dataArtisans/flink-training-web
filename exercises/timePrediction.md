@@ -99,5 +99,5 @@ Time predictions and model refinement are done in a `RichFlatMapFunction` that h
 
 Reference solutions are available at GitHub:
 
-- Java: [TravelTimePrediction.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/state/TravelTimePrediction.java)
-- Scala: [TravelTimePrediction.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/state/TravelTimePrediction.scala)
+- Java: [TravelTimePrediction.java]({{site.javaexamples}}//datastream_java/state/TravelTimePrediction.java)
+- Scala: [TravelTimePrediction.scala]({{site.scalaexamples}}/datastream_scala/state/TravelTimePrediction.scala)

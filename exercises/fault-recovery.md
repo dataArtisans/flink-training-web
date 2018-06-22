@@ -48,9 +48,9 @@ env.setStateBackend(new FsStateBackend("file:///tmp/checkpoints"));
 
 If it feels like it is taking too long to get results, you can increase the speedup factor on the source, and/or decrease the timeout from 2 hours so that you see more activity.
 
-### Reference Solution
+### Reference Solutions
 
 Reference solutions are available on GitHub:
 
-- Java API: [LongRides.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/process/CheckpointedLongRides.java)
-- Scala API: [LongRides.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/process/CheckpointedLongRides.scala)
+- Java API: [CheckpointedLongRidesSolution.java]({{site.javasolutions}}/process/CheckpointedLongRidesSolution.java)
+- Scala API: [CheckpointedLongRidesSolution.scala]({{site.scalasolutions}}/process/CheckpointedLongRidesSolution.scala)

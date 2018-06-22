@@ -162,6 +162,6 @@ Just follow these instructions step-by-step:
 Reference solutions are available at GitHub:
 
 - Java:
-  - [PopularPlacesToES.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/connectors/PopularPlacesToES.java)
+  - [PopularPlacesToES.java]({{site.javaexamples}}//datastream_java/connectors/PopularPlacesToES.java)
 - Scala:
-  - [PopularPlacesToES.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/connectors/PopularPlacesToES.scala)
+  - [PopularPlacesToES.scala]({{site.scalaexamples}}//datastream_scala/connectors/PopularPlacesToES.scala)

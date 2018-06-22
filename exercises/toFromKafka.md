@@ -111,8 +111,8 @@ The `KafkaConsumer011` class has a method `assignTimestampsAndWatermarks()` to p
 Reference solutions are available at GitHub:
 
 - Java:
-  - [RideCleansingToKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/connectors/RideCleansingToKafka.java)
-  - [PopularPlacesFromKafka.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/connectors/PopularPlacesFromKafka.java)
+  - [RideCleansingToKafka.java]({{site.javaexamples}}/datastream_java/connectors/RideCleansingToKafka.java)
+  - [PopularPlacesFromKafka.java]({{site.javaexamples}}/datastream_java/connectors/PopularPlacesFromKafka.java)
 - Scala:
-  - [RideCleansingToKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/connectors/RideCleansingToKafka.scala)
-  - [PopularPlacesFromKafka.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/connectors/PopularPlacesFromKafka.scala)
+  - [RideCleansingToKafka.scala]({{site.scalaexamples}}/datastream_scala/connectors/RideCleansingToKafka.scala)
+  - [PopularPlacesFromKafka.scala]({{site.scalaexamples}}/datastream_scala/connectors/PopularPlacesFromKafka.scala)

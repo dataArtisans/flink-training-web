@@ -65,4 +65,4 @@ The alternative you need is to implement a `AssignerWithPunctuatedWatermarks<Con
 
 A reference solution is available at GitHub:
 
-- Java: [DrivingSessions.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/windows/DrivingSessions.java)
+- Java: [DrivingSessions.java]({{site.javaexamples}}/datastream_java/windows/DrivingSessions.java)

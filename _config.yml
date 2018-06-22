@@ -7,6 +7,19 @@ description: > # this means to ignore newlines until "baseurl:"
 url: "http://training.data-artisans.com" # the base hostname & protocol for your site
 docs: https://ci.apache.org/projects/flink/flink-docs-release-1.5
 
+tests: https://github.com/dataArtisans/flink-training-exercises/tree/testing/src/test/java/com/dataartisans/flinktraining/exercises/datastream_java
+javasolutions: https://github.com/dataArtisans/flink-training-exercises/tree/testing/src/main/java/com/dataartisans/flinktraining/solutions/datastream_java
+scalasolutions: https://github.com/dataArtisans/flink-training-exercises/tree/testing/src/main/scala/com/dataartisans/flinktraining/solutions/datastream_scala
+javaexercises: https://github.com/dataArtisans/flink-training-exercises/tree/testing/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java
+scalaexercises: https://github.com/dataArtisans/flink-training-exercises/tree/testing/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala
+javaexamples: https://github.com/dataArtisans/flink-training-exercises/tree/testing/src/main/java/com/dataartisans/flinktraining/examples
+scalaexamples: https://github.com/dataArtisans/flink-training-exercises/tree/testing/src/main/scala/com/dataartisans/flinktraining/examples
+
+xjavasolutions: https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/solutions/datastream_java
+xscalasolutions: https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/solutions/datastream_scala
+xjavaexercises: https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java
+xscalaexercises: https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala
+
 scala_version: "2.11"
 
 # Build settings

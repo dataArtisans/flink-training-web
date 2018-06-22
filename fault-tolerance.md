@@ -9,22 +9,30 @@ Here we describe, step-by-step, how to test that a stateful program successfully
 
 ### 1. Implement a stateful program
 
-The [Long Ride Alerts exercise]({{ site.baseurl }}/exercises/longRides.html) and [Travel Time Prediction exercise]( {{site.baseurl}}/exercises/timePrediction.html) will help you implement a program with a stateful operator.
+Any of the exercises involving managed state will serve the purpose. [Expiring State]({{ site.baseurl }}/exercises/richEnrichment-processfunction.html) and [Long Ride Alerts]({{ site.baseurl }}/exercises/longRides.html) are good choices if you want help implementing a program with a stateful operator.
 
-### 2. Start a local Flink cluster
+### 2. Use sources that checkpoint their state
 
-In order to demonstrate a worker failure, we have to execute the program on a local Flink cluster, not from the IDE. The [setup instructions]({{site.baseurl}}/devEnvSetup.html) show how to setup Flink locally. Instead of starting a local Flink instance via `./bin/start-local.sh` we need to start a local cluster.
+The `TaxiRideSource` and `TaxiFareSource` classes do not checkpoint their state, so don't use them when experimenting with fault tolerance.
 
- In contrast to a local instance, a local cluster starts two separate processes for master (JobManager) and worker (TaskManager). You can this with these shell commands:
+### 3. Enable checkpointing
+
+[Fault Recovery in Action]({{ site.baseurl }}) shows how to do this in detail.
+
+### 4. Start a local Flink cluster
+
+In order to demonstrate a worker failure, we have to execute the program on a local Flink cluster, not from the IDE. The [setup instructions]({{site.baseurl}}/devEnvSetup.html)explain one way to start a local cluster.
+
+Another approach is to simply start a jobmanager and one or more taskmanagers as you like, as follows:
 
 ~~~bash
 ./bin/jobmanager.sh start cluster
 ./bin/taskmanager.sh start
 ~~~
 
- You can check that the local Flink cluster is running via the web dashboard at [http://localhost:8081](http://localhost:8081). You should see one available TaskManager with one task slot.
+You can check that the local Flink cluster is running via the web dashboard at [http://localhost:8081](http://localhost:8081). You should see one available TaskManager with one task slot (or more, if you started more).
 
-### 3. Compile and start program
+### 5. Compile and start your application
 
 The [How to do the Exercises page]({{ site.baseurl }}/howto-exercises.html) explains how to build and package a Flink program with Maven.
 
@@ -36,20 +44,19 @@ tail -F flink-bob-taskmanager-0-localhost.out
 
 Since we have not started the job yet, the out file does not receive any data.
 
-The [How to do the Exercises page]({{ site.baseurl }}/howto-exercises.html) explains how to execute a packaged program on a running Flink instance using the CLI client. Here's an example of running one of these exercises, but you'll need to make adjustments depending on where the jar and data files are:
+You can use the Flink CLI to run applications that have been packaged into a jar file. Here's an example of running one of these exercises, but you'll probably need to make some adjustments to the paths and version number:
 
 ~~~bash
 flink run -c \  
-    com.dataartisans.flinktraining.exercises.datastream_scala.process.LongRides \
-    ~/flink-training-exercises/target/flink-training-exercises-0.13.0.jar \
-    --input ~/nycTaxiRides.gz
+    com.dataartisans.flinktraining.solutions.datastream_java.process.CheckpointedLongRidesSolution \
+    ~/flink-training-exercises/target/flink-training-exercises-2.0.0.jar
 ~~~
 
 After you have started the job, you will see what output it is writing. By looking at its output, you should be able to distinguish whether the application was started from the very beginning of its input stream, or restarted from some later point in time (via a checkpoint or savepoint).
 
 You can also see the running job in the [Flink web dashboard](http://localhost:8081).
 
-#### 3. Stop a TaskManager (and start a new one)
+#### 6. Stop a taskManager (and start a new one)
 
 Your application is now running in a single worker process (TaskManager) and producing output. Let us see what happens if we kill the worker process by calling
 
@@ -63,7 +70,7 @@ You will notice that the output file is no longer receiving data. If you go to t
 
 Before we start a new TaskManager, let us discuss what to expect when a new TaskManager continues to process the program.
 
-1. The operator state should not be lost, whether that's the record of ongoing taxi rides from the [Late Ride Alerts exercise]({{ site.baseurl }}/exercises/longRides.html) or the regression models from the [Travel Time Prediction exercise]({{site.baseurl}}/exercises/timePrediction.html).
+1. The operator state should not be lost, whether that's the record of ongoing taxi rides from the [Long Ride Alerts exercise]({{ site.baseurl }}/exercises/longRides.html) or the regression models from the [Travel Time Prediction exercise]({{site.baseurl}}/exercises/timePrediction.html).
 
 2. The data source should continue from the last checkpoint before the TaskManager was killed. Hence, we want to see that the ride ids do not start from the beginning.
 
@@ -77,11 +84,11 @@ After a short time you will notice that the job continues to write output. (Note
 
 The [Flink web dashboard](http://localhost:8081) will also show that a new TaskManager connected and that the status of our job switched to running.
 
-#### 4. Disabling Checkpointing
+#### 7. Disabling checkpointing
 
-We have seen how a program that checkpoints its operator state recovers from a worker failure. In case you want to find out what happens if the program does not checkpoint its state you can simply remove the `env.enableCheckpointing()` line from your program and continue from "3. Compile and start program". (With the filesystem state backend it's also possible to simply delete the checkpoint directory.)
+We have seen how a program that checkpoints its operator state recovers from a worker failure. In case you want to find out what happens if the program does not checkpoint its state you can simply remove the `env.enableCheckpointing()` line from your program and recompile. (With the filesystem state backend it's also possible to simply delete the checkpoint directory.)
 
 When the program resumes processing after the new TaskManager process has been started, you will notice that
 
-* The data source started processing from the beginning (ride ids are reset).
-* The operator state was lost.
+* The data source started processing from the beginning.
+* Operator state has been lost.

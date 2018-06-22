@@ -30,6 +30,17 @@ Here are the rideIds and start times of the first few rides that go on for more 
 ...
 ~~~
 
+### Getting Started
+
+#### Tests
+
+[com.dataartisans.flinktraining.exercises.datastream_java.process.LongRidesTest]({{ site.tests }}/process/LongRidesTest.java)
+
+#### Exercise Classes
+
+- Java: [com.dataartisans.flinktraining.exercises.datastream_java.process.LongRidesExercise]({{ site.javaexercises }}/process/LongRidesExercise.java)
+- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.process.LongRidesExercise]({{ site.scalaexercises }}/process/LongRidesExercise.scala)
+
 ### Implementation Hints
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -68,9 +79,9 @@ You will want to use event time timers that fire two hours after the incoming ev
 - [ProcessFunction]({{ site.docs }}/dev/stream/operators/process_function.html)
 - [Working with State]({{ site.docs }}/dev/stream/state/index.html)
 
-### Reference Solution
+### Reference Solutions
 
 Reference solutions are available at GitHub:
 
-- Java API: [LongRides.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/process/LongRides.java)
-- Scala API: [LongRides.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/process/LongRides.scala)
+- Java API: [LongRidesSolution.java]({{site.javasolutions}}/process/LongRidesSolution.java)
+- Scala API: [LongRidesSolution.scala]({{site.scalasolutions}}/process/LongRidesSolution.scala)

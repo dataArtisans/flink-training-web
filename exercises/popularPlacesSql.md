@@ -104,9 +104,7 @@ Depending on the event type (departure or arrival), we need to compute the cell 
 
 Reference solutions are available at GitHub:
 
-- Java Table API: [PopularPlacesTableApi.java](https://github.com/dataArtisans/flink-training-
-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/table_java/stream/popularPlaces/PopularPlacesTableApi.java)
-- Java SQL: [PopularPlacesSql.java](https://github.com/dataArtisans/flink-training-
-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/table_java/stream/popularPlaces/PopularPlacesSql.java)
-- Scala Table API: [PopularPlacesTableApi.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/table_scala/stream/popularPlaces/PopularPlacesTableApi.scala)
-- Scala SQL: [PopularPlacesSql.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/table_scala/stream/popularPlaces/PopularPlacesSql.scala)
+- Java Table API: [PopularPlacesTableApi.java]({{site.javaexamples}}/table_java/stream/popularPlaces/PopularPlacesTableApi.java)
+- Java SQL: [PopularPlacesSql.java]({{site.javaexamples}}/table_java/stream/popularPlaces/PopularPlacesSql.java)
+- Scala Table API: [PopularPlacesTableApi.scala]({{site.scalaexamples}}/table_scala/stream/popularPlaces/PopularPlacesTableApi.scala)
+- Scala SQL: [PopularPlacesSql.scala]({{site.scalaexamples}}/table_scala/stream/popularPlaces/PopularPlacesSql.scala)

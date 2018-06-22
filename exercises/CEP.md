@@ -103,5 +103,5 @@ Hint Two
 
 Reference solutions are available at GitHub:
 
-- Java API: [CEP LongRides.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/cep/LongRides.java)
-- Scala API: [CEP LongRides.scala](https://github.com/dataArtisans/flink-training-exercises/tree/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/cep/LongRides.scala)
+- Java API: [LongRidesSolution.java]({{site.javasolutions}}/cep/LongRidesSolution.java)
+- Scala API: [LongRidesSolution.scala]({{site.scalasolutions}}/cep/LongRidesSolution.scala)

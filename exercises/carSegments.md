@@ -114,4 +114,4 @@ described by that Segment object can (and should) be removed from the window.
 
 A reference solution is available at GitHub:
 
-- Java: [DrivingSegments.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/windows/DrivingSegments.java)
+- Java: [DrivingSegments.java]({{site.javaexamples}}/datastream_java/windows/DrivingSegments.java)

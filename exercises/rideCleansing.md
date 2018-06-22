@@ -16,9 +16,27 @@ This series of exercises is based a stream of taxi ride events. The [Taxi Data S
 
 ### Expected Output
 
-The result of the exercise should be a `DataStream<TaxiRide>` that only contains events of taxi rides which start and end in the New York City area as defined by `GeoUtils.isInNYC()`.
+The result of the exercise should be a `DataStream<TaxiRide>` that only contains events of taxi rides which both start and end in the New York City area as defined by `GeoUtils.isInNYC()`.
 
 The resulting stream should be printed to standard out.
+
+### Getting Started
+
+<div class="alert alert-info">
+<p>
+Rather than following the links in this section, you'll do better to find these classes in the flink-training-exercises project in your IDE.
+</p>
+</div>
+
+#### Tests
+
+[com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingTest]({{ site.tests }}/basics/RideCleansingTest.java)
+
+#### Exercise Classes
+
+- Java: [com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingExercise]({{ site.javaexercises }}/basics/RideCleansingExercise.java)
+- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.basics.RideCleansingExercise]({{ site.scalaexercises }}/basics/RideCleansingExercise.scala)
+
 
 ### Implementation Hints
 
@@ -72,9 +90,9 @@ Flink's DataStream API features a `DataStream.filter(FilterFunction)` transforma
 - [DataStream API]({{ site.docs }}/dev/datastream_api.html)
 - [Flink JavaDocs]({{ site.docs }}/api/java/)
 
-### Reference Solution
+### Reference Solutions
 
 Reference solutions are available at GitHub:
 
-- Java: [RideCleansing.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/basics/RideCleansing.java)
-- Scala: [RideCleansing.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/basics/RideCleansing.scala)
+- Java: [RideCleansingSolution.java]({{ site.javasolutions }}/basics/RideCleansingSolution.java)
+- Scala: [RideCleansingSolution.scala]({{ site.scalasolutions }}/basics/RideCleansingSolution.scala)

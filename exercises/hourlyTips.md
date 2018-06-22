@@ -20,6 +20,17 @@ The result of this exercise is a data stream of `Tuple3<Long, Long, Float>` reco
 
 The resulting stream should be printed to standard out.
 
+### Getting Started
+
+#### Tests
+
+[com.dataartisans.flinktraining.exercises.datastream_java.windows.HourlyTipsTest]({{ site.tests }}/windows/HourlyTipsTest.java)
+
+#### Exercise Classes
+
+- Java: [com.dataartisans.flinktraining.exercises.datastream_java.windows.HourlyTipsExercise]({{ site.javaexercises }}/windows/HourlyTipsExercise.java)
+- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.windows.HourlyTipsExercise]({{ site.scalaexercises }}/windows/HourlyTipsExercise.scala)
+
 ### Implementation Hints
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -44,10 +55,9 @@ Note that it is possible to cascade one set of time windows after another, so lo
 - [Windows]({{ site.docs }}/dev/stream/operators/windows.html)
 - [See the section on aggregations on windows]({{ site.docs }}/dev/stream/operators/#datastream-transformations)
 
-### Reference Solution
+### Reference Solutions
 
 Reference solutions are available at GitHub:
 
-- Java: [HourlyTips.java](https://github.com/dataArtisans/flink-training-
-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/windows/HourlyTips.java)
-- Scala: [HourlyTips.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/windows/HourlyTips.scala)
+- Java: [HourlyTips.java]({{site.javasolutions}}/windows/HourlyTipsSolution.java)
+- Scala: [HourlyTips.scala]({{site.scalasolutions}}/windows/HourlyTipsSolution.scala)

@@ -22,6 +22,17 @@ The result of this exercise is a data stream of `Tuple5<Float, Float, Long, Bool
 
 The resulting stream should be printed to standard out.
 
+### Getting Started
+
+#### Tests
+
+[com.dataartisans.flinktraining.exercises.datastream_java.windows.PopularPlacesTest]({{ site.tests }}/windows/PopularPlacesTest.java)
+
+#### Exercise Classes
+
+- Java: [com.dataartisans.flinktraining.exercises.datastream_java.windows.PopularPlacesExercise]({{ site.javaexercises }}/windows/PopularPlacesExercise.java)
+- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.windows.PopularPlacesExercise]({{ site.scalaexercises }}/windows/PopularPlacesExercise.scala)
+
 ### Implementation Hints
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -87,10 +98,9 @@ Use `DataStream.timeWindow(Time.minutes(15), Time.minutes(5))` to define a slidi
 
 - [Windows]({{ site.docs }}/dev/stream/operators/windows.html)
 
-### Reference Solution
+### Reference Solutions
 
 Reference solutions are available at GitHub:
 
-- Java: [PopularPlaces.java](https://github.com/dataArtisans/flink-training-
-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/windows/PopularPlaces.java)
-- Scala: [PopularPlaces.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/windows/PopularPlaces.scala)
+- Java: [PopularPlacesSolution.java]({{site.javasolutions}}/windows/PopularPlacesSolution.java)
+- Scala: [PopularPlacesSolution.scala]({{site.scalasolutions}}/windows/PopularPlacesSolution.scala)

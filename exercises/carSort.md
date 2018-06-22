@@ -66,4 +66,4 @@ Hold each element until the time is right, and then send it downstream.
 
 A reference solution is available at GitHub:
 
-- Java: [CarEventSort.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/process/CarEventSort.java)
+- Java: [CarEventSort.java]({{site.javaexamples}}/datastream_java/process/CarEventSort.java)

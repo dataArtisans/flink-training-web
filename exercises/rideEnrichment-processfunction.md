@@ -27,7 +27,7 @@ We are recommending you use these checkpointed sources in case you want to run y
 
 You should arrange for some predictable fraction of the input records to be missing, so you can verify that you are correctly handling clearing the corresponding state.
 
-The reference solution uses this `FilterFunction` on the TaxiRides. It drops all END events, and every 1000th START event.
+The exercise code does this in a `FilterFunction` on the TaxiRides. It drops all END events, and every 1000th START event.
 
 #### Java
 {% highlight java %}
@@ -50,7 +50,7 @@ The result of this exercise is a data stream of `Tuple2<TaxiRide, TaxiFare>` rec
 
 In order to clearly see what is happening, create side outputs where you collect each unmatched `TaxiRide` and `TaxiFare` that is discarded in the `OnTimer` method of the `CoProcessFunction`.
 
-Once the join is basically working, don't bother printing the joined records. Instead, print to standard out everything going to the side outputs, and verify that the results make sense. If you use the filter proposed above, then you should see something like this. These are `TaxiFare` records that were stored in state for a time, but eventually discarded because the matching `TaxiRide` events had never arrived.
+Once the join is basically working, don't bother printing the joined records. Instead, print to standard out everything going to the side outputs, and verify that the results make sense. If you use the filter proposed above, then you should see something like this. These are `TaxiFare` records that were stored in state for a time, but eventually discarded because the matching `TaxiRide` events hadn't arrived.
 
 ~~~
 1> 1000,2013000992,2013000989,2013-01-01 00:05:38,CSH,0.0,4.8,18.3
@@ -60,7 +60,19 @@ Once the join is basically working, don't bother printing the joined records. In
 4> 5000,2013004578,2013004575,2013-01-01 00:15:03,CSH,0.0,0.0,11.0
 ~~~
 
-### Documentation
+### Getting Started
+
+#### Tests
+
+[com.dataartisans.flinktraining.exercises.datastream_java.process.ExpiringStateTest]({{ site.tests }}/process/ExpiringStateTest.java)
+
+#### Exercise Classes
+
+- Java: [com.dataartisans.flinktraining.exercises.datastream_java.process.ExpiringStateExercise]({{ site.javaexercises }}/process/ExpiringStateExercise.java)
+- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.process.ExpiringStateExercise]({{ site.scalaexercises }}/process/ExpiringStateExercise.scala)
+
+
+#### Documentation
 
 - [ProcessFunction]({{ site.docs }}/dev/stream/operators/process_function.html)
 - [Side Outputs]({{ site.docs }}/dev/stream/side_output.html)
@@ -69,6 +81,5 @@ Once the join is basically working, don't bother printing the joined records. In
 
 Reference solutions are available at GitHub:
 
-- Java: [JoinRidesWithFares.java](https://github.com/dataArtisans/flink-training-
-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/process/JoinRidesWithFares.java)
-- Scala: [JoinRidesWithFares.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/process/JoinRidesWithFares.scala)
+- Java: [ExpiringStateSolution.java]({{site.javasolutions}}/process/ExpiringStateSolution.java)
+- Scala: [ExpiringStateSolution.scala]({{site.scalasolutions}}/process/ExpiringStateSolution.scala)

@@ -51,7 +51,7 @@ wget http://training.data-artisans.com/trainingData/nycTaxiRides.gz
 wget http://training.data-artisans.com/trainingData/nycTaxiFares.gz
 ~~~~
 
-It's not strictly necessary to use wget, but however you get the data, do not decompress or rename the `.gz` files.
+It's not strictly necessary to use wget, but however you get the data, **do not decompress or rename the `.gz` files**.
 
 ### 3. Generate a Taxi Ride Data Stream in a Flink program
 

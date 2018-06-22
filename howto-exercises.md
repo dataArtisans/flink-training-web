@@ -12,43 +12,40 @@ We assume you have setup your development environment according to our [setup gu
 
 ### 1. Get the data
 
-The initial set of exercises are all based on a data stream of taxi ride events. This stream is produced by a source function which reads an input file. Please follow these [instructions]({{ site.baseurl }}/exercises/taxiData.html) to download the input file for the Taxi Data Stream source and to learn how to use it.
+The initial set of exercises are all based on data streams of events about taxi rides and taxi fares. These streams are produced by source functions which reads data from input files. Please follow these [instructions]({{ site.baseurl }}/exercises/taxiData.html) to download the input files for the Taxi Data Stream sources and to learn how to use them.
 
-There are also some advanced exercises that use a [connected car event stream]({{ site.baseurl }}/exercises/taxiData.html).
+### 2. Edit `ExerciseBase`
 
-### 2. Implement the exercise
+After downloading the datasets, open the `com.dataartisans.flinktraining.exercises.datastream_java.utils.ExerciseBase` class in your IDE, and edit these two lines to point to the two taxi ride data files you have downloaded:
 
-The [setup guide]({{ site.baseurl }}/devEnvSetup.html) shows how to generate a Flink Maven quickstart project and import it into your IDE. The quickstart project contains a class called `StreamingJob`. This class is a template for DataStream programs and can be used for all programming exercises.
+    public final static String pathToRideData =   
+        "/Users/david/stuff/flink-training/trainingData/nycTaxiRides.gz";
+    public final static String pathToFareData =
+        "/Users/david/stuff/flink-training/trainingData/nycTaxiFares.gz";
 
-The instructions for each exercise include a detailed task description, implementation hints, and links to reference solutions in Java and Scala.
+### 3. Run and debug Flink programs in your IDE
 
-### 3. Package your program for execution
+Flink programs can be executed and debugged from within an IDE. This significantly eases the development process and provides an experience similar to working on any other Java (or Scala) application.
 
-For most of the exercises it is perfectly fine to simply run your application in the IDE. But if you want or need to package it as a JAR file, that's easily done.
+Starting a Flink program in your IDE is as easy as running its `main()` method. Under the hood, the execution environment will start a local Flink instance within the same process. Hence it is also possible to put breakpoints in your code and debug it.
 
-A program JAR file must contain all classes, resource files, and libraries that are required to execute the program.
-The easiest way to package a Flink program into a JAR is to develop Flink programs using a Flink Maven quickstart project. These projects have correctly configured POM files. A Flink Maven Quickstart project is compiled and packaged into a fat JAR file that includes all dependencies by running the following commands
+Assuming you have an IDE with the flink-training-exercises project imported, you can run (or debug) a simple streaming job as follows:
 
-~~~
-cd /path/to/your/quickstart/project
-mvn clean package
-~~~
+- Open the `com.dataartisans.flinktraining.examples.datastream_java.basics.RideCount` class in your IDE
+- Run (or debug) the `main()` method of the `RideCountExample` class using your IDE.
 
-The resulting JAR file will be located in the project's `./target/` folder.
+### 4. Implement the exercises
 
-### 4. Execute your packaged Flink program
+The first exercise involves the `com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingExercise` class for Java, or `com.dataartisans.flinktraining.exercises.datastream_scala.basics.RideCleansingExercise` for Scala, and corresponding JUnit tests.
 
-Flink provides different clients to submit a program to a running Flink system including a [command-line client]({{ site.docs }}/ops/cli.html) (CLI client). To execute your packaged Flink program using the CLI client make sure you have a locally running Flink instance ([see instructions]({{ site.baseurl }}/devEnvSetup.html)) and run the following commands:
+Like the other exercises, at some point this class throws an exception
 
-~~~bash
-cd /path/to/flink/installation
-./bin/flink run -c your.MainClass /path/to/program/jarfile -arg1 -arg2 ...
-~~~
+    throw new MissingSolutionException();
 
-Further options can be found in the documentation of the [CLI client]({{ site.docs }}/ops/cli.html). On Windows, the CLI client is started using the `.\bin\flink.bat` script.
+Remove this line and implement the missing part(s) of the exercise. You might want to first try something clearly broken, such as
 
-### 5. Monitor the execution of a Flink program
+    return false;
 
-The Flink JobManager web interface at [http://localhost:8081](http://localhost:8081) shows the execution of Flink programs, performance metrics of the TaskManagers, and information to analyze the execution time of completed programs.
+in order to verify that the test will fail when you make a mistake, and then work on implementing a proper solution.
 
 Now continue to [the first exercise]({{site.baseurl}}/exercises/rideCleansing.html).
