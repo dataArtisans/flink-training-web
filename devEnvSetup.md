@@ -1,5 +1,5 @@
 ---
-title: Setup Development Environment
+title: Development Environment Setup
 layout: page
 permalink: /devEnvSetup.html
 ---
