@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Advanced DataStream API - Connected Car Segments
+title: Advanced Windowing - Connected Car Segments
 permalink: /exercises/carSegments.html
 ---
 

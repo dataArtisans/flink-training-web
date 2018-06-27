@@ -1,6 +1,6 @@
 ---
 layout: page
-title: DataStream API - Hourly Tips
+title: Streaming with Windows - Hourly Tips
 permalink: /exercises/hourlyTips.html
 ---
 
@@ -59,5 +59,5 @@ Note that it is possible to cascade one set of time windows after another, so lo
 
 Reference solutions are available at GitHub:
 
-- Java: [HourlyTips.java]({{site.javasolutions}}/windows/HourlyTipsSolution.java)
-- Scala: [HourlyTips.scala]({{site.scalasolutions}}/windows/HourlyTipsSolution.scala)
+- Java: [HourlyTipsSolution.java]({{site.javasolutions}}/windows/HourlyTipsSolution.java)
+- Scala: [HourlyTipsSolution.scala]({{site.scalasolutions}}/windows/HourlyTipsSolution.scala)

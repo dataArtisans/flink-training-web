@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Advanced DataStream API<br>Low-latency Event Time Join
+title: Low-latency Event Time Join
 permalink: /exercises/eventTimeJoin.html
 ---
 

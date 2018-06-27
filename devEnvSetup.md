@@ -25,7 +25,7 @@ If your main operating system is Windows and you would like everything to work f
 </p>
 
 <p>
-On the other hand, we've also had success with doing the training directly on Windows.
+On the other hand, we've also had success when doing the training directly on Windows.
 Note, however, that some of the installation steps require administrator privileges.
 And we recommend you setup Cygwin so that you can take advantage of the bash scripts that come with Flink.
 </p>
