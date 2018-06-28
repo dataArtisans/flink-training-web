@@ -21,9 +21,9 @@ The `TaxiRideSource` and `TaxiFareSource` classes do not checkpoint their state,
 
 ### 4. Start a local Flink cluster
 
-In order to demonstrate a worker failure, we have to execute the program on a local Flink cluster, not from the IDE. The [setup instructions]({{site.baseurl}}/devEnvSetup.html)explain one way to start a local cluster.
+In order to demonstrate a worker failure, we have to execute the program on a local Flink cluster, not from the IDE.  [Setting up a Local Flink Cluster]({{site.baseurl}}/devEnvSetup.html) explains one way to start a local cluster.
 
-Another approach is to simply start a jobmanager and one or more taskmanagers as you like, as follows:
+Another approach, after downloading and installing the Flink binaries, is to start a jobmanager and one or more taskmanagers, as follows:
 
 ~~~bash
 ./bin/jobmanager.sh start cluster
@@ -56,7 +56,7 @@ After you have started the job, you will see what output it is writing. By looki
 
 You can also see the running job in the [Flink web dashboard](http://localhost:8081).
 
-#### 6. Stop a taskManager (and start a new one)
+### 6. Stop a taskManager (and start a new one)
 
 Your application is now running in a single worker process (TaskManager) and producing output. Let us see what happens if we kill the worker process by calling
 
@@ -84,7 +84,7 @@ After a short time you will notice that the job continues to write output. (Note
 
 The [Flink web dashboard](http://localhost:8081) will also show that a new TaskManager connected and that the status of our job switched to running.
 
-#### 7. Disabling checkpointing
+### 7. Disable checkpointing
 
 We have seen how a program that checkpoints its operator state recovers from a worker failure. In case you want to find out what happens if the program does not checkpoint its state you can simply remove the `env.enableCheckpointing()` line from your program and recompile. (With the filesystem state backend it's also possible to simply delete the checkpoint directory.)
 

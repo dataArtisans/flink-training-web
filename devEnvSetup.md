@@ -4,7 +4,7 @@ layout: page
 permalink: /devEnvSetup.html
 ---
 
-The following instructions guide you through the process of setting up a development environment for the purpose of developing, debugging, and executing solutions to the training exercises and examples on this site. You will also install a simple Flink cluster to locally execute Flink programs on your machine.
+The following instructions guide you through the process of setting up a development environment for the purpose of developing, debugging, and executing solutions to the training exercises and examples on this site.
 
 ### 1. Software requirements
 
@@ -57,42 +57,4 @@ The  project needs to be imported into your IDE.
   1. Tick the **Add project(s) to working set** option
   1. Right click on the project in the Explorer, and under *"Maven" / "Select Maven Profiles..."* select the `add-dependencies-for-IDEA` profile, and **Force Update**
 
-### 4. Install Flink for local execution
-
-In order to execute programs on a running Flink instance (rather than from within your IDE), you need to install Flink on your machine. To do so, follow these steps:
-
-- Download the Apache Flink 1.5.0 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work, including the "without bundled hadoop" version.
-- Extract the downloaded archive
-- The resulting folder contains a Flink setup that can be locally executed without any further configuration.
-
-### 5. Start a local Flink instance
-
-If you have a local Flink installation, you can easily bring up a small cluster for local testing.
-
-On UNIX system you can start a Flink instance as follows:
-
-~~~bash
-cd /to/your/flink/installation
-./bin/start-cluster.sh
-~~~
-
-On Windows you have to run the following commands
-
-~~~bash
-cd C:\to\your\flink\installation
-.\bin\start-cluster.bat
-~~~
-
-#### Validate that Flink is running
-
-You can validate that a local Flink instance is running by looking at the log files in `./log/` or opening the JobManager's webinterface at [http://localhost:8081](http://localhost:8081).
-
-#### Stop local Flink instance
-
-On UNIX you call
-
-~~~bash
-./bin/stop-cluster.sh
-~~~
-
-On Windows you quit the running process with `Ctrl-C`.
+If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/localCluster.html).
