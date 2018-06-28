@@ -55,7 +55,7 @@ totalFare      : Float     // total fare collected
 
 ### 3. Generate a Taxi Ride Data Stream in a Flink program
 
-We provide a Flink source function that reads a `.gz` file with taxi ride records and emits a stream of `TaxiRide` events. The source operates in [event-time]({{ site.docs }}/dev/event_time.html).
+We provide a Flink source function (`TaxiRideSource`) that reads a `.gz` file with taxi ride records and emits a stream of `TaxiRide` events. The source operates in [event-time]({{ site.docs }}/dev/event_time.html). There's an analogous source function (`TaxiFareSource`) for `TaxiFare` events.
 
 In order to generate the stream as realistically as possible, events are emitted proportional to their timestamp. Two events that occurred ten minutes after each other in reality are also served ten minutes after each other. A speed-up factor can be specified to "fast-forward" the stream, i.e., given a speed-up factor of 60, events that happened within one minute are served in one second. Moreover, one can specify a maximum serving delay which causes each event to be randomly delayed within the specified bound. This yields an out-of-order stream as is common in many real-world applications.
 
@@ -63,7 +63,17 @@ For these exercises, a speed-up factor of 600 or more (i.e., 10 minutes of event
 
 All exercises should be implemented using event-time characteristics. Event-time decouples the program semantics from serving speed and guarantees consistent results even in case of historic data or data which is delivered out-of-order.
 
-**Note:** You have to add the `flink-training-exercises` dependency to your Maven `pom.xml` file as described in the [setup instructions]({{ site.baseurl }}/devEnvSetup.html) because the `TaxiRide` class and the generator (`TaxiRideSource`) are contained in the `flink-training-exercises` dependency.
+#### Checkpointing
+
+Some of the exercises will expect you to use `CheckpointedTaxiRideSource` and/or `CheckpointedTaxiFareSource` instead. Unlike `TaxiRideSource` and `TaxiFareSource`, these variants are able to checkpoint their state.
+
+#### Table Sources
+
+Note also that there are `TaxiRideTableSource` and `TaxiFareTableSource` table sources available for use with the Table and SQL APIs.
+
+### How to use these sources
+
+**Note: Many of the exercises already provide code for working with these taxi ride data streams.**
 
 #### Java
 
@@ -109,5 +119,3 @@ DataStream<TaxiFare> fares = env.addSource(
 val fares = env.addSource(
   new TaxiFareSource("/path/to/nycTaxiFares.gz", maxDelay, servingSpeed))
 {% endhighlight %}
-
-Note that some of the exercises expect you to use `CheckpointedTaxiRideSource` and/or `CheckpointedTaxiFareSource` instead. Unlike `TaxiRideSource` and `TaxiFareSource`, these variants are able to checkpoint their state.
