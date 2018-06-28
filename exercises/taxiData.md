@@ -4,9 +4,20 @@ title: Taxi Data Streams
 permalink: /exercises/taxiData.html
 ---
 
-The [New York City Taxi & Limousine Commission](http://www.nyc.gov/html/tlc/html/home/home.shtml) provides a public [data set](https://uofi.app.box.com/NYCtaxidata) about taxi rides in New York City from 2009 to 2015. We use a subset of this data to generate streams of taxi ride events.
+The [New York City Taxi & Limousine Commission](http://www.nyc.gov/html/tlc/html/home/home.shtml) provides a public [data set](https://uofi.app.box.com/NYCtaxidata) about taxi rides in New York City from 2009 to 2015. We use a modified subset of this data to generate streams of taxi ride events.
 
-### 1. Schema of Taxi Ride Events
+### 1. Download the taxi data files
+
+Download the taxi data files by running the following commands
+
+~~~~
+wget http://training.data-artisans.com/trainingData/nycTaxiRides.gz
+wget http://training.data-artisans.com/trainingData/nycTaxiFares.gz
+~~~~
+
+It's not strictly necessary to use wget, but however you get the data, **do not decompress or rename the `.gz` files**.
+
+### 2. Schema of Taxi Ride Events
 
 Our taxi data set contains information about individual taxi rides in New York City.
 Each ride is represented by two events, a trip start and an trip end event.
@@ -41,17 +52,6 @@ tip            : Float     // tip for this ride
 tolls          : Float     // tolls for this ride
 totalFare      : Float     // total fare collected
 ~~~
-
-### 2. Download the taxi data files
-
-Download the taxi data files by running the following commands
-
-~~~~
-wget http://training.data-artisans.com/trainingData/nycTaxiRides.gz
-wget http://training.data-artisans.com/trainingData/nycTaxiFares.gz
-~~~~
-
-It's not strictly necessary to use wget, but however you get the data, **do not decompress or rename the `.gz` files**.
 
 ### 3. Generate a Taxi Ride Data Stream in a Flink program
 
