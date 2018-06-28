@@ -36,7 +36,21 @@ cd C:\to\your\flink\installation
 
 You can validate that a local Flink instance is running by looking at the log files in `./log/` or opening the JobManager's webinterface at [http://localhost:8081](http://localhost:8081).
 
-### 4. Stop the local Flink instance
+### 4. Run an application
+
+The [How to do the Exercises page]({{ site.baseurl }}/howto-exercises.html) explains how to build and package a Flink program with Maven. You can use the Flink CLI to run applications that have been packaged into a jar file. Here's an example of running one of the examples, but you'll probably need to make some adjustments to the paths and version number:
+
+~~~bash
+flink run -c \  
+    com.dataartisans.flinktraining.examples.datastream_java.basics.RideCount \
+    ~/flink-training-exercises/target/flink-training-exercises-2.1.1.jar
+~~~
+
+Because this jar file contains many applications, we've had to specify which class to run, using the -c flag.
+
+Note that the taskmanager(s) will write their output to files in the `./log/` directory.
+
+### 5. Stop the local Flink instance
 
 On UNIX you call
 

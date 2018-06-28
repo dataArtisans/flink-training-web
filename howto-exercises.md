@@ -8,7 +8,7 @@ In the hands-on sessions you will implement Flink programs using various Flink A
 
 The following steps guide you through the process of using the provided data streams, implementing your first Flink streaming program, and packaging and executing your program on a running Flink instance.
 
-We assume you have setup your development environment according to our [setup guide]( {{site.baseurl }}/devEnvSetup.html).
+We assume you have setup your development environment according to our [setup guide]( {{site.baseurl }}/devEnvSetup.html), and have a local clone of the [flink-training-exercises](https://github.com/dataArtisans/flink-training-exercises.git) repo from github.
 
 ### 1. Get the data
 
@@ -34,18 +34,8 @@ Assuming you have an IDE with the flink-training-exercises project imported, you
 - Open the `com.dataartisans.flinktraining.examples.datastream_java.basics.RideCount` class in your IDE
 - Run (or debug) the `main()` method of the `RideCountExample` class using your IDE.
 
-### 4. Implement the exercises
+### 4. Exercises, Tests, and Solutions
 
-The first exercise involves the `com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingExercise` class for Java, or `com.dataartisans.flinktraining.exercises.datastream_scala.basics.RideCleansingExercise` for Scala, and corresponding JUnit tests.
+Many of these exercises include an Exercise class with most of the necessary boilerplate code for getting started, as well as a JUnit Test class with tests that will fail until you implement a proper solution, and a Solution class with a complete solution.
 
-Like the other exercises, at some point this class throws an exception
-
-    throw new MissingSolutionException();
-
-Remove this line and implement the missing part(s) of the exercise. You might want to first try something clearly broken, such as
-
-    return false;
-
-in order to verify that the test will fail when you make a mistake, and then work on implementing a proper solution.
-
-Now continue to [the first exercise]({{site.baseurl}}/exercises/rideCleansing.html).
+Now you are ready to continue to [the first exercise]({{site.baseurl}}/exercises/rideCleansing.html).

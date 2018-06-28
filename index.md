@@ -26,5 +26,5 @@ Specifically, this training teaches:
 ### Starting points
 
 - [Setting up your Flink development environment]({{site.baseurl}}/devEnvSetup.html)
-- [How to do these exercises]({{site.baseurl}}/howto-exercises.html)
+- [How to do the Exercises]({{site.baseurl}}/howto-exercises.html)
 - [The first hands-on exercise]({{site.baseurl}}/exercises/rideCleansing.html)

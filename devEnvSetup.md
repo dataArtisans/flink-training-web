@@ -57,4 +57,6 @@ The  project needs to be imported into your IDE.
   1. Tick the **Add project(s) to working set** option
   1. Right click on the project in the Explorer, and under *"Maven" / "Select Maven Profiles..."* select the `add-dependencies-for-IDEA` profile, and **Force Update**
 
+To get started with the training, now read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
+
 If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/localCluster.html).

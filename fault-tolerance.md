@@ -49,7 +49,7 @@ You can use the Flink CLI to run applications that have been packaged into a jar
 ~~~bash
 flink run -c \  
     com.dataartisans.flinktraining.solutions.datastream_java.process.CheckpointedLongRidesSolution \
-    ~/flink-training-exercises/target/flink-training-exercises-2.0.0.jar
+    ~/flink-training-exercises/target/flink-training-exercises-2.1.1.jar
 ~~~
 
 After you have started the job, you will see what output it is writing. By looking at its output, you should be able to distinguish whether the application was started from the very beginning of its input stream, or restarted from some later point in time (via a checkpoint or savepoint).
