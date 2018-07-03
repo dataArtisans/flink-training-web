@@ -43,7 +43,7 @@ The [How to do the Exercises page]({{ site.baseurl }}/howto-exercises.html) expl
 ~~~bash
 flink run -c \  
     com.dataartisans.flinktraining.examples.datastream_java.basics.RideCount \
-    ~/flink-training-exercises/target/flink-training-exercises-2.1.1.jar
+    ~/flink-training-exercises/target/flink-training-exercises-2.1.2.jar
 ~~~
 
 Because this jar file contains many applications, we've had to specify which class to run, using the -c flag.
