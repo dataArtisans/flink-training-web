@@ -41,21 +41,25 @@ cd flink-training-exercises
 mvn clean package
 ~~~
 
-If all of the tests pass, you are in good shape.
+If you haven't done this before, at this point you'll end up downloading all of the dependencies for this Flink training exercises project. This usually takes a few minutes, depending on the speed of your internet connection.
+
+If all of the tests pass and the build is successful, you are off to a good start.
 
 ### 3. Import the flink-training-exercises project into your IDE
 
-The  project needs to be imported into your IDE.
+The project needs to be imported into your IDE.
 
 - IntelliJ:
-  1. Select *"File"* -> *"New"* -> *"Project from Existing Sources..."*
-  1. Select the `pom.xml` file
-  1. Accept the defaults in the first *Import Project from Maven* dialog
+  1. Import the project, selecting its `pom.xml` file
+  1. At each step, accept the defaults; do not select a profile
   1. Continue, making sure when you get to the SDK dialog that it has a valid path to a JDK and **leaving all other options to their default values**, finish the project import
+  1. Open the project structure dialog, and add a Scala 2.11 SDK in the Global Libraries section
 - Eclipse:
   1. Select *"File"* -> *"Import"* -> *"Maven"* -> *"Existing Maven Project"*
   1. Tick the **Add project(s) to working set** option
-  1. Right click on the project in the Explorer, and under *"Maven" / "Select Maven Profiles..."* select the `add-dependencies-for-IDEA` profile, and **Force Update**
+  1. You can safely ignore the scala-maven-plugin errors
+
+You should now be able to open com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingTest and successfully run this test.
 
 To get started with the training, now read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
 

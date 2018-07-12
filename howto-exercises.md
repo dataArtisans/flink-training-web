@@ -14,7 +14,7 @@ We assume you have setup your development environment according to our [setup gu
 
 The initial set of exercises are all based on data streams of events about taxi rides and taxi fares. These streams are produced by source functions which reads data from input files. Please follow these [instructions]({{ site.baseurl }}/exercises/taxiData.html) to download the input files for the Taxi Data Stream sources and to learn how to use them.
 
-### 2. Edit `ExerciseBase`
+### 2. Modify `ExerciseBase`
 
 After downloading the datasets, open the `com.dataartisans.flinktraining.exercises.datastream_java.utils.ExerciseBase` class in your IDE, and edit these two lines to point to the two taxi ride data files you have downloaded:
 
@@ -38,4 +38,4 @@ Assuming you have an IDE with the flink-training-exercises project imported, you
 
 Many of these exercises include an Exercise class with most of the necessary boilerplate code for getting started, as well as a JUnit Test class with tests that will fail until you implement a proper solution, and a Solution class with a complete solution.
 
-Now you are ready to continue to [the first exercise]({{site.baseurl}}/exercises/rideCleansing.html).
+Now you are ready to begin with [the first exercise]({{site.baseurl}}/exercises/rideCleansing.html).
