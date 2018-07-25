@@ -28,3 +28,8 @@ Specifically, this training teaches:
 - [Setting up your Flink development environment]({{site.baseurl}}/devEnvSetup.html)
 - [How to do the Exercises]({{site.baseurl}}/howto-exercises.html)
 - [The first hands-on exercise]({{site.baseurl}}/exercises/rideCleansing.html)
+
+### Additional Resources
+
+- [Training from data Artisans](https://data-artisans.com/training)
+- [Flink Forward](https://flink-forward.org) - The Apache Flink Conference
