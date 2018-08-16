@@ -68,6 +68,8 @@ Watermarking Problem
     	KeyedBroadcastProcessFunction, unless we do something about it.
       </div>
     </div>
+  </div>
+  <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingFour">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
