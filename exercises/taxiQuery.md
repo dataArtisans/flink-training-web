@@ -4,6 +4,8 @@ title: Broadcast State - Taxi Queries
 permalink: /exercises/taxiQuery.html
 ---
 
+If you haven't already done so, you'll need to first [setup your Flink development environment]({{site.baseurl}}/devEnvSetup.html). See [How to do the Exercises]({{site.baseurl}}/howto-exercises.html) for an overall introduction to these exercises.
+
 With this exercise you will connect two streams using a `KeyedBroadcastProcessFunction`:
 
 1. a stream of `TaxiRide` events, and
