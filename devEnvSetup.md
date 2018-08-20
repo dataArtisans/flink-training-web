@@ -20,14 +20,9 @@ Note that older and newer versions of Java are not supported. Only Java 8 will d
 <div class="alert alert-info">
 <p>
 <strong>Note for Windows users:</strong>
-In previous trainings we've had the best experiences with UNIX-based setups, and most commands provided in the training instructions are for UNIX systems.
-If your main operating system is Windows and you would like everything to work flawlessly, you might find it worth the effort to setup a virtual machine running Linux.
-</p>
-
-<p>
-On the other hand, we've also had success when doing the training directly on Windows.
-Note, however, that some of the installation steps require administrator privileges.
-And we recommend you setup Cygwin so that you can take advantage of the bash scripts that come with Flink.
+Many of the examples of shell commands provided in the training instructions are for UNIX systems.
+To make things easier, you may find it worthwhile to setup cygwin or WSL, but you can use the provided .bat scripts with plain cmd.
+For developing Flink jobs, Windows works reasonably well: you can run a Flink cluster on a single machine, submit jobs, run the webUI, and execute jobs in the IDE.
 </p>
 </div>
 
