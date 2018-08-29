@@ -10,7 +10,7 @@ The following instructions guide you through the installation a simple Flink clu
 
 In order to execute programs on a running Flink instance (rather than from within your IDE), you need to install Flink on your machine. To do so, follow these steps:
 
-- Download the Apache Flink 1.5.0 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work, including the "without bundled hadoop" version.
+- Download the Apache Flink 1.6.0 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work, including the "without bundled hadoop" version.
 - Extract the downloaded archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 
