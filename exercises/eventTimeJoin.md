@@ -1,18 +1,26 @@
 ---
 layout: page
-title: Low-latency Event Time Join
+title: Enrichment Joins
 permalink: /exercises/eventTimeJoin.html
 ---
 
-The objective of this exercise is to join a stream of customer info elements to a stream of financial trades.
+## Introduction
 
-The `Customer` records contain:
+The objective of this exercise is to explore techniques for enriching a stream of financial trades with customer information arriving as a stream of customer updates. There are different ways of thinking about enrichment joins, and the purpose of this exercise is to explore some variations on this theme.
 
-~~~
-timestamp      : long    // timestamp (milliseconds since the epoch)
-customerId     : long    // a unique id for each event
-customerInfo   : String  // payload to join to trades
-~~~
+We've implemented sources for both the `Trade` and `Customer` streams. These sources are simple simulations, and only provide events about one customer, and that customer's trades. These two streams can be joined on a `customerId` field that they have in common.
+
+#### Timing
+
+When organized by event time, these two streams behave as shown below -- we first learn about the `Customer` at time 0, and then again at time 500, etc. -- and the first `Trade` occurs at time 1000, and so on:
+
+<img src="../images/join-event-time.png" alt="Streams organized by event time" class="offset" width="100%" />
+
+However, when looked at in processing time, both streams happen to arrive in-order, but are racing against each other. For example, the second `Customer` record is earlier than the first `Trade`, in event time, but arrives later in processing time:
+
+<img src="../images/join-processing-time.png" alt="Streams organized by processing time" class="offset" width="100%" />
+
+#### Data Types
 
 The `Trade` records contain:
 
@@ -22,285 +30,75 @@ customerId     : long    // a unique id for each event
 tradeInfo      : String  // payload
 ~~~
 
-The result of the join is an `EnrichedTrade`:
+The `Customer` records contain:
+
+~~~
+timestamp      : long    // timestamp (milliseconds since the epoch)
+customerId     : long    // a unique id for each event
+customerInfo   : String  // payload
+~~~
+
+The result of the enrichment join will be an `EnrichedTrade`:
 
 ~~~
 trade          : Trade
-customerInfo   : String
+customer       : Customer
 ~~~
 
-You will find these basic types here:
+You will find these basic types defined here:
 
 - [Customer.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/datatypes/Customer.java)
 - [Trade.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/datatypes/Trade.java)
 - [EnrichedTrade.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/datatypes/EnrichedTrade.java)
 
-Here's what's involved in doing a "low-latency, event time join":
+## Processing Time Join
 
-1. When receiving a trade it should be immediately joined with the customer data, however
-to keep this 100% deterministic, join against the latest customer data that
-has a timestamp LESS THAN the trade timestamp -- not simply the latest available data.
-In other words, join against the customer data that was known at the time of the trade.
+This is the simplest approach for implementing an enrichment join, and it is suitable for use cases, such as fraud detection, where precise, deterministic results are not imperative. Here the general idea is to immediately join each trade with whatever customer information is available. If nothing is yet known about the customer, wait until the current watermark reaches the timestamp of the trade -- to give the customer stream a chance to catch-up -- before taking further action.
 
-2. Also set a trigger to evaluate the trade again once the watermark has passed the trade
-time. Basically, use event time to ensure that you have
-"complete" data, and then join again at that time. This will produce a deterministic
-result even in the face of undordered data, etc.
-This approach has the benefit that you don't introduce any latency into the trade stream,
-because you always join right away.  You then emit a BETTER result if you receive better
-information. Use event time in order to know how long to wait for this potential
-better information.
+At that point, if the customer is still missing, either drop the trade (i.e., implement an inner join) or join the trade with an null customer record (an outer join).
 
-3. It's also important to eventually expire state. Again it's appropriate to use an event
-time timer for this.
+You will find a working implementation of such a join in the `ProcessingTimeJoinExercise` class.
 
-These two figures show how the dataset is organized. First we show when the `Customer` and `Trade` stream elements
-arrive. For example, the first `Customer` record has a event time timestamp of 0, and arrives at
-processing time 0; the first `Trade` arrives after one second of processing time, and has an event time timestmap
-of 1000:
+#### Exercise
 
-<img src="../images/join-processing-time.png" alt="Streams organized by processing time" class="offset" width="100%" />
+Our solution stores the pending `Trade` records for each `Customer` in a
 
-This second figure shows the same information, but is now organized by event time:
+    MapState<Long, Trade>
 
-<img src="../images/join-event-time.png" alt="Streams organized by processing time" class="offset" width="100%" />
+where the keys are the timestamps of the trades for which we've created timers, waiting to see if customer data will arrive.
 
-Take a few minutes now, before reading the code below, and see if you can write down which customer info should be joined
-which each of the trades as they arrive, and in what cases an updated join should be emitted later.
+This has the limitation that the pending trades need to have unique timestamps. Your task here is to improve the implementation to use a
 
-We've provided most of the code for you. Here's the application, which you can find at:
+    MapState<Long, List<Trade>>
 
-- Java: [LowLatencyEventTimeJoin.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/process/LowLatencyEventTimeJoin.java)
-- Scala: [LowLatencyEventTimeJoin.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/process/LowLatencyEventTimeJoin.scala)
+instead.
 
-#### Java
+## Event Time Join
 
-{% highlight java %}
-import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.Customer;
-import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.EnrichedTrade;
-import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.Trade;
-import com.dataartisans.flinktraining.exercises.datastream_java.sources.FinSources;
-import org.apache.flink.streaming.api.TimeCharacteristic;
-import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+Processing time joins are easy to implement, and can be produced with minimal latency, but are unsuitable for some applications. If you need reproducible, deterministic results, the enrichment should instead be done using the latest customer information that was knowable at the time of the trade.
 
-public class LowLatencyEventTimeJoin {
-  public static void main(String[] args) throws Exception {
-    // set up streaming execution environment
-    StreamExecutionEnvironment env =
-      StreamExecutionEnvironment.getExecutionEnvironment();
-    env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
+Here's what's involved in doing an event time join:
 
-    // simulated trade stream
-    DataStream<Trade> tradeStream = FinSources.tradeSource(env);
+1. Store each trade in keyed state until the current watermark reaches the trade's timestamp.
 
-    // simulated customer stream
-    DataStream<Customer> customerStream = FinSources.customerSource(env);
+2. Store all possibly relevant customer records (rather than only the latest one as we did in the processing-time join).
 
-    DataStream<EnrichedTrade> joinedStream = tradeStream
-        .keyBy("customerId")
-        .connect(customerStream.keyBy("customerId"))
-        .process(new EventTimeJoinFunction());
+3. When the time is right, join the appropriate version of the customer info to each trade.
 
-    joinedStream.print();
+4. Eventually clear customer data that will no longer be needed.
 
-    env.execute("Low-latency event-time join");
-  }
-}
-{% endhighlight %}
+You will find a working implementation of such a join in the `EventTimeJoinExercise` class.
 
-#### Scala
+#### Tests
 
-{% highlight scala %}
-import com.dataartisans.flinktraining.exercises.datastream_scala.sources.FinSources
-import org.apache.flink.api.scala._
-import org.apache.flink.streaming.api.TimeCharacteristic
-import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
+You will find tests for this implementation in
 
-object LowLatencyEventTimeJoin {
-  def main(args: Array[String]) {
-    val env = StreamExecutionEnvironment.getExecutionEnvironment
-    env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
+[com.dataartisans.flinktraining.exercises.datastream_java.process.EventTimeJoinTest]({{ site.tests }}/process/EventTimeJoinTest.java)
 
-    // simulated trade stream
-    val tradeStream = FinSources.tradeSource(env)
+#### Exercise
 
-    // simulated customer stream
-    val customerStream = FinSources.customerSource(env)
+1. Extend this implementation to handle late Trades. This will require being less aggressive about expiring Customer records.
 
-    val joinedStream = tradeStream
-      .keyBy(_.customerId)
-      .connect(customerStream.keyBy(_.customerId))
-      .process(new EventTimeJoinFunction)
+2. Implement a low-latency variant that immediately joins with available Customer data, if any, and then emits an updated result if a Customer update arrives.
 
-    joinedStream.print()
-
-    env.execute
-  }
-}
-{% endhighlight %}
-
-You task is to complete the implementation of the `EventTimeJoinFunction`. All you need to do is
-replace each occurrence of ??? with something appropriate.
-
-#### Java
-
-{% highlight java %}
-import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.Customer;
-import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.EnrichedTrade;
-import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.Trade;
-import org.apache.flink.streaming.api.TimerService;
-import org.apache.flink.util.Collector;
-
-public class EventTimeJoinFunction extends EventTimeJoinHelper {
-  @Override
-  public void processElement1(Trade trade,
-                              Context context,
-                              Collector<EnrichedTrade> collector)
-                              throws Exception {
-    System.out.println("Java Received " + trade.toString());
-    TimerService timerService = context.timerService();
-    EnrichedTrade joinedData = join(trade);
-    collector.collect(joinedData);
-
-    if (context.timestamp() ??? timerService.currentWatermark()) {
-      enqueueEnrichedTrade(joinedData);
-      timerService.registerEventTimeTimer(trade.timestamp);
-    } else {
-      // Handle late data -- detect and join against what, latest?  Drop it?
-    }
-  }
-
-  @Override
-  public void processElement2(Customer customer,
-                              Context context,
-                              Collector<EnrichedTrade> collector)
-                              throws Exception {
-    System.out.println("Java Received " + customer.toString());
-    enqueueCustomer(customer);
-  }
-
-  @Override
-  public void onTimer(long l,
-                      OnTimerContext context,
-                      Collector<EnrichedTrade> collector)
-                      throws Exception {
-    // look for trades that can now be completed
-    // do the join, and remove from the tradebuffer
-    Long watermark = context.timerService().currentWatermark();
-    while (timestampOfFirstTrade() ??? watermark) {
-      dequeueAndPerhapsEmit(collector);
-    }
-
-    cleanupEligibleCustomerData(watermark);
-  }
-
-  private EnrichedTrade join(Trade trade) throws Exception {
-    return new EnrichedTrade(trade, getCustomerInfo(trade));
-  }
-
-  private void dequeueAndPerhapsEmit(Collector<EnrichedTrade> collector)
-      throws Exception {
-    EnrichedTrade enrichedTrade = dequeueEnrichedTrade();
-
-    EnrichedTrade joinedData = join(enrichedTrade.trade);
-    // Only emit again if we have better data
-    if (!joinedData.equals(enrichedTrade)) {
-      collector.collect(joinedData);
-    }
-  }
-}
-{% endhighlight %}
-
-#### Scala
-
-{% highlight scala %}
-import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.{Customer, EnrichedTrade, Trade}
-import org.apache.flink.streaming.api.functions.co.CoProcessFunction
-import org.apache.flink.util.Collector
-
-class EventTimeJoinFunction extends EventTimeJoinHelper {
-  override def processElement1(trade: Trade,
-      context: CoProcessFunction[Trade, Customer, EnrichedTrade]#Context,
-      collector: Collector[EnrichedTrade]): Unit = {
-    println(s"Scala Received: $trade")
-
-    val timerService = context.timerService()
-    val joinedData = join(trade)
-    collector.collect(joinedData)
-    if (context.timestamp() ??? timerService.currentWatermark()) {
-      enqueueEnrichedTrade(joinedData)
-      timerService.registerEventTimeTimer(trade.timestamp)
-    } else {
-      // Handle late data -- detect and join against what, latest?  Drop it?
-    }
-  }
-
-  override def processElement2(customer: Customer,
-      context: CoProcessFunction[Trade, Customer, EnrichedTrade]#Context,
-      collector: Collector[EnrichedTrade]): Unit = {
-    println(s"Scala Received $customer")
-    enqueueCustomer(customer)
-  }
-
-  override def onTimer(timestamp: Long,
-      context: CoProcessFunction[Trade, Customer, EnrichedTrade]#OnTimerContext,
-      collector: Collector[EnrichedTrade]): Unit = {
-    // look for trades that can now be completed
-    // do the join, and remove from the tradebuffer
-    val watermark: Long = context.timerService().currentWatermark()
-    while (timestampOfFirstTrade() ??? watermark) {
-      dequeueAndPerhapsEmit(collector)
-    }
-
-    cleanupEligibleCustomerData(watermark)
-  }
-
-  private def join(trade: Trade): EnrichedTrade = {
-    new EnrichedTrade(trade, getCustomerInfo(trade))
-  }
-
-  private def dequeueAndPerhapsEmit(collector: Collector[EnrichedTrade]): Unit = {
-    val enrichedTrade = dequeueEnrichedTrade()
-
-    val joinedData = join(enrichedTrade.trade)
-    // Only emit again if we have better data
-    if (!joinedData.equals(enrichedTrade)) {
-      collector.collect(joinedData)
-    }
-  }
-}
-{% endhighlight %}
-
-You will probably want to also look at the implementation(s) of
-
-[EventTimeJoinHelper.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/process/EventTimeJoinHelper.java)
-[EventTimeJoinHelper.scala](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala/process/EventTimeJoinHelper.scala)
-
-Your results should look like this:
-
-~~~
-Received Customer(0) Customer data @ 0
-Received: Trade(1000) trade-1
-3> EnrichedTrade(1000) Customer data @ 0
-Received Customer(500) Customer data @ 500
-Received Customer(1500) Customer data @ 1500
-3> EnrichedTrade(1000) Customer data @ 500
-Received: Trade(1200) trade-2
-3> EnrichedTrade(1200) Customer data @ 500
-3> EnrichedTrade(1200) Customer data @ 500
-Received: Trade(1500) trade-3
-3> EnrichedTrade(1500) Customer data @ 1500
-3> EnrichedTrade(1500) Customer data @ 1500
-Received: Trade(1700) trade-4
-3> EnrichedTrade(1700) Customer data @ 1500
-Received: Trade(1800) trade-5
-3> EnrichedTrade(1800) Customer data @ 1500
-Received: Trade(2000) trade-6
-3> EnrichedTrade(2000) Customer data @ 1500
-Received Customer(1600) Customer data @ 1600
-Received Customer(2100) Customer data @ 2100
-3> EnrichedTrade(2000) Customer data @ 1600
-3> EnrichedTrade(1800) Customer data @ 1600
-3> EnrichedTrade(1700) Customer data @ 1600
-~~~
+3. Extra credit: Extend the tests to cover this new functionality.
