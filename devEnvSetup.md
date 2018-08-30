@@ -73,4 +73,4 @@ You are now ready to begin the training.
 
 If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/localCluster.html).
 
-To begin the training, read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
+Before starting the exercises, read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
