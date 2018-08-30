@@ -10,9 +10,9 @@ The following steps guide you through the process of using the provided data str
 
 We assume you have setup your development environment according to our [setup guide]( {{site.baseurl }}/devEnvSetup.html), and have a local clone of the [flink-training-exercises](https://github.com/dataArtisans/flink-training-exercises.git) repo from github.
 
-### 1. Get the data
+### 1. Learn about the data
 
-The initial set of exercises are all based on data streams of events about taxi rides and taxi fares. These streams are produced by source functions which reads data from input files. Please follow these [instructions]({{ site.baseurl }}/exercises/taxiData.html) to download the input files for the Taxi Data Stream sources and to learn how to use them.
+The initial set of exercises are all based on data streams of events about taxi rides and taxi fares. These streams are produced by source functions which reads data from input files. Please read these [instructions]({{ site.baseurl }}/exercises/taxiData.html) to learn how to use them.
 
 ### 2. Modify `ExerciseBase`
 

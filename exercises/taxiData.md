@@ -8,14 +8,14 @@ The [New York City Taxi & Limousine Commission](http://www.nyc.gov/html/tlc/html
 
 ### 1. Download the taxi data files
 
-Download the taxi data files by running the following commands
+You can download the taxi data files by running the following commands
 
 ~~~~
 wget http://training.data-artisans.com/trainingData/nycTaxiRides.gz
 wget http://training.data-artisans.com/trainingData/nycTaxiFares.gz
 ~~~~
 
-It's not strictly necessary to use wget, but however you get the data, **do not decompress or rename the `.gz` files**.
+It doesn't matter if you use wget or something else to fetch these files, but however you get the data, **do not decompress or rename the `.gz` files**.
 
 ### 2. Schema of Taxi Ride Events
 
@@ -55,6 +55,8 @@ totalFare      : Float     // total fare collected
 
 ### 3. Generate a Taxi Ride Data Stream in a Flink program
 
+**Note: Many of the exercises already provide code for working with these taxi ride data streams.**
+
 We provide a Flink source function (`TaxiRideSource`) that reads a `.gz` file with taxi ride records and emits a stream of `TaxiRide` events. The source operates in [event-time]({{ site.docs }}/dev/event_time.html). There's an analogous source function (`TaxiFareSource`) for `TaxiFare` events.
 
 In order to generate the stream as realistically as possible, events are emitted proportional to their timestamp. Two events that occurred ten minutes after each other in reality are also served ten minutes after each other. A speed-up factor can be specified to "fast-forward" the stream, i.e., given a speed-up factor of 60, events that happened within one minute are served in one second. Moreover, one can specify a maximum serving delay which causes each event to be randomly delayed within the specified bound. This yields an out-of-order stream as is common in many real-world applications.
@@ -72,8 +74,6 @@ Some of the exercises will expect you to use `CheckpointedTaxiRideSource` and/or
 Note also that there are `TaxiRideTableSource` and `TaxiFareTableSource` table sources available for use with the Table and SQL APIs.
 
 ### How to use these sources
-
-**Note: Many of the exercises already provide code for working with these taxi ride data streams.**
 
 #### Java
 

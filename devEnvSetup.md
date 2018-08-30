@@ -56,6 +56,21 @@ The project needs to be imported into your IDE.
 
 You should now be able to open com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingTest and successfully run this test.
 
-To get started with the training, now read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
+### 4. Download the data sets
+
+You can download the taxi data files used in this training by running the following commands
+
+~~~~
+wget http://training.data-artisans.com/trainingData/nycTaxiRides.gz
+wget http://training.data-artisans.com/trainingData/nycTaxiFares.gz
+~~~~
+
+It doesn't matter if you use wget or something else to fetch these files, but however you get the data, **do not decompress or rename the `.gz` files**.
+
+You are now ready to begin the training.
+
+<hr style="margin: 0 0 10px 0">
 
 If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/localCluster.html).
+
+To begin the training, read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
