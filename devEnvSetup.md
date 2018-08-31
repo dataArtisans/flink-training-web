@@ -69,8 +69,8 @@ It doesn't matter if you use wget or something else to fetch these files, but ho
 
 You are now ready to begin the training.
 
+Note: There's a hardwired path to these data files in the exercises. Before trying to execute them, read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
+
 <hr style="margin: 0 0 10px 0">
 
 If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/localCluster.html).
-
-Before starting the exercises, read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
