@@ -48,7 +48,7 @@
     <script type="text/javascript">
         piAId = '388362';
         piCId = '48345';
- 
+
 	(function() {
             function async_load(){
                 var s = document.createElement('script'); s.type = 'text/javascript';
@@ -58,6 +58,34 @@
             if(window.attachEvent) { window.attachEvent('onload', async_load); }
             else { window.addEventListener('load', async_load, false); }
         })();
+    </script>
+
+    <script type="text/javascript">
+    function getCookie(name) {
+        var match = document.cookie.match(RegExp('(?:^|;\\s*)' + name + '=([^;]*)')); return match ? match[1] : null;
+    }
+    (function($) {
+      var $cookieMsg = '<span>This website collects personal data and uses cookies to improve services. By clicking "Yes I agree", I hereby consent to the use of cookies as described in the <a target="_self" href="https://data-artisans.com/privacy-policy">Privacy Policy</a>.</span>';
+      var $cookieBtns = '<button class="btn cookie-agree-btn red-btn" type="button">Yes I agree</button> <button class="cookie-ignore-btn" type="button">I decline</button>';
+      var $gdprBtns = '<button class="btn gdpr-agree-btn red-btn" type="button">Yes I agree</button> <button class="cookie-ignore-btn" type="button">I decline</button>';
+      $(document).on('ready', function (e) {
+        if (!getCookie('cookie_notice_accepted')) {
+          $('body').prepend('<div id="cookie-notice" class="cookie-notice"><div>'+$cookieMsg+' '+$cookieBtns+'</div></div>');
+        }
+    	});
+
+      $(document).on('click', '.gdpr-ignore-btn, .cookie-ignore-btn', function (e) {
+        $('#cookie-notice').remove();
+    	});
+      $(document).on('click', '.gdpr-agree-btn, .cookie-agree-btn', function (e) {
+    		e.preventDefault();
+        var d = new Date();
+        d.setTime(d.getTime() + (30*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = "cookie_notice_accepted=true;" + expires + ";path=/";
+    		$('#cookie-notice').remove();
+    	});
+    })(jQuery);
     </script>
 
   </body>
