@@ -45,10 +45,14 @@ If all of the tests pass and the build is successful, you are off to a good star
 The project needs to be imported into your IDE.
 
 - IntelliJ:
+  1. Because this project mixes Java and Scala code, you will need to **install the Scala plugin**, if you don't already have it:
+    * Go to IntelliJ plugins settings (IntelliJ IDEA -> Preferences -> Plugins) and click on “Install Jetbrains plugin…”.
+    * Select and install the “Scala” plugin.
+    * Restart IntelliJ
   1. Import the project, selecting its `pom.xml` file
   1. At each step, accept the defaults; do not select a profile
   1. Continue, making sure when you get to the SDK dialog that it has a valid path to a JDK and **leaving all other options to their default values**, finish the project import
-  1. Open the project structure dialog, and add a Scala 2.11 SDK in the Global Libraries section
+  1. Open the project structure dialog, and add a Scala 2.11 SDK in the Global Libraries section (**you'll need this even if you do not intend to use Scala**)
 - Eclipse:
   1. Select *"File"* -> *"Import"* -> *"Maven"* -> *"Existing Maven Project"*
   1. Tick the **Add project(s) to working set** option
@@ -71,6 +75,6 @@ You are now ready to begin the training.
 
 Note: There's a hardwired path to these data files in the exercises. Before trying to execute them, read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
 
-<hr style="margin: 0 0 10px 0">
+<hr style="margin: 0 0 10px 0" />
 
 If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/localCluster.html).
