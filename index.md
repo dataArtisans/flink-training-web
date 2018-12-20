@@ -31,5 +31,5 @@ Specifically, this training teaches:
 
 ### Additional Resources
 
-- [Training from data Artisans](https://data-artisans.com/training)
+- [Training from dA](https://www.da-platform.com/training)
 - [Flink Forward](https://flink-forward.org) - The Apache Flink Conference
