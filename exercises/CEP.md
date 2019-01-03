@@ -8,19 +8,19 @@ The goal of the "Long Ride Alerts" exercise is to indicate whenever a taxi ride 
 
 This can be done fairly straightforwardly with a `ProcessFunction` (see the [Long Ride Alerts exercise]({{ site.baseurl }}/exercises/rideCleansing.html)), but this requires you to explicitly manage state and timers. In this exercise we'll do this more simply using Flink's CEP library.
 
-Using the CEP library requires adding these dependencies to the `pom.xml` of your Maven project:
+Using the CEP library requires adding these dependencies to the `pom.xml` of your Maven project. This is already taken care of in the training exercises project.
 
 ~~~xml
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-cep_2.11</artifactId>
-  <version>1.6.0</version>
+  <version>1.7.1</version>
 </dependency>
 
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-cep-scala_2.11</artifactId>
-  <version>1.6.0</version>
+  <version>1.7.1</version>
 </dependency>
 ~~~
 

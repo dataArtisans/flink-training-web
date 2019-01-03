@@ -6,19 +6,19 @@ permalink: /exercises/popularPlacesSql.html
 
 The task of the "Popular Places" exercise is to identify popular places from a [table of taxi rides records]({{ site.baseurl }}/exercises/taxiRidesTable.html) just like the previous [Popular Places exercise]({{ site.baseurl }}/exercises/popularPlaces.html). This is done by counting every five minutes the number of taxi rides that started and ended in the same area within the last 15 minutes. Arrival and departure locations should be separately counted. Only locations with more arrivals or departures than a provided popularity threshold should be forwarded to the result.
 
-You can implement a solution for the exercise with Flink's Table API or SQL interface. For that you need to add the following dependencies to the `pom.xml` of your Maven project:
+You can implement a solution for the exercise with Flink's Table API or SQL interface. For that you need to add the following dependencies to the `pom.xml` of your Maven project. These dependencies are already present in the training exercises project.
 
 ~~~xml
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-table_2.11</artifactId>
-  <version>1.6.0</version>
+  <version>1.7.1</version>
 </dependency>
 
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-streaming-scala_2.11</artifactId>
-  <version>1.6.0</version>
+  <version>1.7.1</version>
 </dependency>
 ~~~
 

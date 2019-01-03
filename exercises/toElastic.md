@@ -10,13 +10,13 @@ The [Elasticsearch installation instructions]({{ site.baseurl }}/elastic.html) e
 
 ### Adding the Elasticsearch Connector dependency
 
-Flink features connectors to several external systems. In order to keep the dependencies on the core slim, these connectors are organized in separate modules and have to be included as needed. The Elasticsearch connector can be used by adding the following dependency to your `pom.xml` file.
+Flink features connectors to several external systems. In order to keep the dependencies on the core slim, these connectors are organized in separate modules and have to be included as needed. The Elasticsearch connector can be used by adding the following dependency to your `pom.xml` file (it's already been added to the training exercises project):
 
 ~~~xml
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-connector-elasticsearch2_2.11</artifactId>
-  <version>1.6.0</version>
+  <version>1.7.1</version>
 </dependency>
 ~~~
 

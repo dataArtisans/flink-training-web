@@ -13,13 +13,13 @@ The [Kafka installation instructions]({{ site.baseurl }}/kafka.html) explain how
 
 ### Adding the Kafka Connector dependency
 
-Flink features connectors to several external systems. In order to keep the dependencies on the core slim, these connectors are organized in separate modules and have to be included as needed. The connector for Kafka 0.11 can be used by adding the following dependency to your `pom.xml` file.
+Flink features connectors to several external systems. In order to keep the dependencies on the core slim, these connectors are organized in separate modules and have to be included as needed. The connector for Kafka 0.11 can be used by adding the following dependency to your `pom.xml` file (this dependency has already been added to the training exercises project):
 
 ~~~xml
 <dependency>
   <groupId>org.apache.flink</groupId>
   <artifactId>flink-connector-kafka-0.11_2.11</artifactId>
-  <version>1.6.0</version>
+  <version>1.7.1</version>
 </dependency>
 ~~~
 
