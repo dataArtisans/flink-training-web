@@ -41,7 +41,7 @@ You will find the test for this exercise in
 
 [com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingTest]({{ site.tests }}/basics/RideCleansingTest.java)
 
-Like many of the other exercises, at some point this class throws an exception
+Like most of these exercises, at some point the `RideCleansingExercise` class throws an exception
 
         throw new MissingSolutionException();
 
