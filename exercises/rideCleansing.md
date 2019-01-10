@@ -25,7 +25,7 @@ The resulting stream should be printed to standard out.
 <div class="alert alert-info">
 <p>
 Rather than following the links in this section, you'll do better to find these classes in the flink-training-exercises project in your IDE. Both IntelliJ and Eclipse have ways to make it easy to 
-search for and navigate to classes and files. For IntelliJ, see <a href="https://www.jetbrains.com/help/idea/searching-everywhere.html">the help on searching</a>, or simply press the Shift key twice.
+search for and navigate to classes and files. For IntelliJ, see <a href="https://www.jetbrains.com/help/idea/searching-everywhere.html">the help on searching</a>, or simply press the Shift key twice and then continue typing something like <code>RideCleansing</code> and then select from the choices that popup.
 </p>
 </div>
 
