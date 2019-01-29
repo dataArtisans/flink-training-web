@@ -1,7 +1,10 @@
 ---
-title: Development Environment Setup
+title: Setup your Development Environment
 layout: page
 permalink: /devEnvSetup.html
+nav-title: Setup your Dev Env
+nav-parent_id: setup
+nav-pos: 10
 ---
 
 The following instructions guide you through the process of setting up a development environment for the purpose of developing, debugging, and executing solutions to the training exercises and examples on this site.
@@ -71,12 +74,15 @@ wget http://training.data-artisans.com/trainingData/nycTaxiFares.gz
 
 It doesn't matter if you use wget or something else to fetch these files, but however you get the data, **do not decompress or rename the `.gz` files**.
 
-You are now ready to begin the training.
+To learn more about this data, see [Using the Taxi Data Streams]({{site.baseurl}}/setup/taxiData.html).
 
-Note: There's a hardwired path to these data files in the exercises. Before trying to execute them, read the page explaining [How to do the Exercises]({{site.baseurl}}/howto-exercises.html).
+Note: There's a hardwired path to these data files in the exercises. Before trying to execute them, read [How to do the Labs]({{site.baseurl}}/setup/howto-exercises.html).
 
 <hr style="margin: 0 0 10px 0" />
 
 If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/localCluster.html).
 
 If you want to use the SQL client, see [Setting up the SQL Client]({{site.baseurl}}/sqlClient.html).
+
+{% next %}
+

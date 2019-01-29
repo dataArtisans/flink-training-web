@@ -1,7 +1,12 @@
 ---
-title: Testing Fault Tolerance
+gated: true
 layout: page
+title: Fault Tolerance
+nav-id: fault-tolerance
 permalink: /fault-tolerance.html
+nav-parent_id: root
+nav-pos: 82
+section-break: true
 ---
 
 A couple of these hands-on sessions are about implementing and testing fault-tolerant, stateful DataStream programs.
@@ -21,7 +26,7 @@ The `TaxiRideSource` and `TaxiFareSource` classes do not checkpoint their state,
 
 ### 4. Start a local Flink cluster
 
-In order to demonstrate a worker failure, we have to execute the program on a local Flink cluster, not from the IDE.  [Setting up a Local Flink Cluster]({{site.baseurl}}/devEnvSetup.html) explains one way to start a local cluster.
+In order to demonstrate a worker failure, we have to execute the program on a local Flink cluster, not from the IDE.  [Setting up a Local Flink Cluster]({{site.baseurl}}/setup/localCluster.html) explains one way to start a local cluster.
 
 Another approach, after downloading and installing the Flink binaries, is to start a jobmanager and one or more taskmanagers, as follows:
 
@@ -34,7 +39,7 @@ You can check that the local Flink cluster is running via the web dashboard at [
 
 ### 5. Compile and start your application
 
-The [How to do the Exercises page]({{ site.baseurl }}/howto-exercises.html) explains how to build and package a Flink program with Maven.
+The [How to do the Exercises page]({{ site.baseurl }}/setup/howto-exercises.html) explains how to build and package a Flink program with Maven.
 
 Your Flink application writes its results to the standard out of the TaskManager process on which it is running, which is redirected into a file. The file is located in the `./log` directory and follows the naming pattern `flink-<user>-taskmanager-<number>-<host>.out`. Run the following command to continuously display the tail of the file.
 

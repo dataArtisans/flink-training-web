@@ -1,4 +1,5 @@
 ---
+gated: true
 layout: page
 title: Fault Recovery in Action
 permalink: /exercises/fault-recovery.html

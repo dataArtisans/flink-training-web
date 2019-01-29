@@ -40,8 +40,6 @@ Except when data is missing (i.e. when the car was turned off), there should be 
 
 All exercises should be implemented using event-time characteristics. Event-time decouples the program semantics from serving speed and guarantees consistent results even in case of historic data or data which is delivered out-of-order.
 
-**Note:** You have to add the `flink-training-exercises` dependency to your Maven `pom.xml` file as described in the [setup instructions]({{ site.baseurl }}/devEnvSetup.html) because the `ConnectedCarEvent` class and other helpful utility classes are contained in the `flink-training-exercises` dependency.
-
 Here's an example of how you can create a `DataStream<ConnectedCarEvent>` stream:
 
 #### Java
@@ -74,4 +72,3 @@ sleep() to simulate a more realistic data source).
 
 You will need to figure out how to generate appropriate watermarks. You should test each exercise with both
 the in-order and out-of-order data files, and make sure they produce consistent results.
-

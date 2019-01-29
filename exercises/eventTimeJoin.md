@@ -1,7 +1,10 @@
 ---
+gated: true
 layout: page
 title: Enrichment Joins
 permalink: /exercises/eventTimeJoin.html
+nav-parent_id: others
+nav-pos: 40
 ---
 
 ## Introduction
@@ -63,13 +66,17 @@ You will find a working implementation of such a join in the `ProcessingTimeJoin
 
 Our solution stores the pending `Trade` records for each `Customer` in a
 
+{% java %}
     MapState<Long, Trade>
+{% endjava %}
 
 where the keys are the timestamps of the trades for which we've created timers, waiting to see if customer data will arrive.
 
 This has the limitation that the pending trades need to have unique timestamps. Your task here is to improve the implementation to use a
 
+{% java %}
     MapState<Long, List<Trade>>
+{% endjava %}
 
 instead.
 

@@ -3,28 +3,68 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"js>
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism.css" />
 
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/main.css" | prepend: site.css }}">
+    <link rel="stylesheet" href="{{ "/sidenav.css" | prepend: site.css }}">
+    <link rel="stylesheet" href="{{ "/font-awesome/css/font-awesome.min.css" | prepend: site.css }}">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
 
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-java.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-scala.js"></script>
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}">
   </head>
 
   <body>
+
     {% include header.html %}
 
-    <div class="page-content">
+    <div class="container">
       <div class="wrapper">
-        {{ content }}
+        <div id="training-content" class="row" {% if page.gated %}style="display:none"{% endif %} >
+          {{ content }}
+        </div>
+
+	{% if page.gated %}
+	<div id="form-content" style="display:none" class="col-lg-6">
+	  <h1>Training Registration</h1>
+
+	  <p>To access this training material, please register.</p>
+	  <p>By registering you agree that your personal data submitted via this form will be processed in accordance with the <a href="https://da-platform/privacy-policy">dA Privacy Policy</a>.</p>
+<!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+	  <script>
+
+	    hbspt.forms.create({
+		portalId: "4757017",
+		formId: "279da3df-7ebd-4cd5-9d44-a49cf5d918be",
+		inlineMessage: 'Thank you!',
+		onFormSubmit: function($form){
+		    setTimeout( function() {
+			setCookie("da-training", "true", 3650);
+			window.location = "{{page.url}}";
+		    }, 150 );
+		}
+	    });
+
+	  </script>
+	  
+	</div>
+	{% endif %}
+
       </div>
     </div>
 
@@ -32,61 +72,33 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{{ "/nav.js" | prepend: site.js }}"></script>
 
-    <script src="{{ "/js/nav.js" | prepend: site.baseurl }}"></script>
+    <script>
+    {% if page.gated %}
+      var cookie = getCookie("da-training");
+      if (cookie == null || cookie.length == 0) {
+	  $('#form-content').show();
+      } else {
+	  $('#training-content').show();
+      }
+    {% else %}
+      $('#training-content').show();
+    {% endif %}
+    </script>
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
+ 
         ga('create', 'UA-55109292-1', 'auto');
         ga('send', 'pageview');
     </script>
 
-    <script type="text/javascript">
-        piAId = '388362';
-        piCId = '48345';
-
-	(function() {
-            function async_load(){
-                var s = document.createElement('script'); s.type = 'text/javascript';
-                s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-                var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-            }
-            if(window.attachEvent) { window.attachEvent('onload', async_load); }
-            else { window.addEventListener('load', async_load, false); }
-        })();
-    </script>
-
-    <script type="text/javascript">
-    function getCookie(name) {
-        var match = document.cookie.match(RegExp('(?:^|;\\s*)' + name + '=([^;]*)')); return match ? match[1] : null;
-    }
-    (function($) {
-      var $cookieMsg = '<span>This website collects personal data and uses cookies to improve services. By clicking "Yes I agree", I hereby consent to the use of cookies as described in the <a target="_self" href="https://data-artisans.com/privacy-policy">Privacy Policy</a>.</span>';
-      var $cookieBtns = '<button class="btn cookie-agree-btn red-btn" type="button">Yes I agree</button> <button class="cookie-ignore-btn" type="button">I decline</button>';
-      var $gdprBtns = '<button class="btn gdpr-agree-btn red-btn" type="button">Yes I agree</button> <button class="cookie-ignore-btn" type="button">I decline</button>';
-      $(document).on('ready', function (e) {
-        if (!getCookie('cookie_notice_accepted')) {
-          $('body').prepend('<div id="cookie-notice" class="cookie-notice"><div>'+$cookieMsg+' '+$cookieBtns+'</div></div>');
-        }
-    	});
-
-      $(document).on('click', '.gdpr-ignore-btn, .cookie-ignore-btn', function (e) {
-        $('#cookie-notice').remove();
-    	});
-      $(document).on('click', '.gdpr-agree-btn, .cookie-agree-btn', function (e) {
-    		e.preventDefault();
-        var d = new Date();
-        d.setTime(d.getTime() + (30*24*60*60*1000));
-        var expires = "expires="+ d.toUTCString();
-        document.cookie = "cookie_notice_accepted=true;" + expires + ";path=/";
-    		$('#cookie-notice').remove();
-    	});
-    })(jQuery);
-    </script>
-
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4757017.js"></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>

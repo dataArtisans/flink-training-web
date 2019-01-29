@@ -1,10 +1,11 @@
 ---
+gated: true
 layout: page
 title: DataStream API - Writing to and reading from Kafka
 permalink: /exercises/toFromKafka.html
 ---
 
-The task of this exercise is connect the [TaxiRide Cleansing program]({{ site.baseurl }}/exercises/rideCleansing.html) and the [Popular Places program]({{ site.baseurl }}/exercises/popularPlaces.html) through a Apache Kafka topic. For that both programs need to be modified:
+The task of this exercise is connect the [TaxiRide Cleansing program]({{ site.baseurl }}/intro/rideCleansing.html) and the [Popular Places program]({{ site.baseurl }}/exercises/popularPlaces.html) through a Apache Kafka topic. For that both programs need to be modified:
 
 1. The TaxiRide cleansing program shall write its result stream to a Kafka topic and
 2. the Popular Places program shall read its input stream from that that Kafka topic.

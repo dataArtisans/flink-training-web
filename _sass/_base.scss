@@ -43,6 +43,7 @@ ul, ol, dl, figure,
 img {
     max-width: 100%;
     vertical-align: middle;
+    margin: 20px 0;
 }
 
 
@@ -133,7 +134,11 @@ code {
     padding: .1em;
     white-space: normal;
 }
- 
+
+pre code {
+  background-color: #f5f2f0;
+}
+
 code {
     color: black;
 }
@@ -150,6 +155,9 @@ pre {
     }
 }
 
+pre[class*="language-"] {
+    margin-bottom: 1.2em;
+}
 
 
 /**

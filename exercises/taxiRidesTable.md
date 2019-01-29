@@ -46,8 +46,6 @@ In order to update the `Table` as realistically as possible, events are emitted 
 
 All exercises should be implemented using event-time characteristics. Event-time decouples the program semantics from serving speed and guarantees consistent results even in case of historic data or data which is delivered out-of-order.
 
-**Note:** You have to add the `flink-training-exercises` dependency to your Maven `pom.xml` file as described in the [setup instructions]({{ site.baseurl }}/devEnvSetup.html) because the `TaxiRideTableSource` is contained in the `flink-training-exercises` dependency.
-
 #### Java
 
 {% highlight java %}

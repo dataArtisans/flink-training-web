@@ -1,4 +1,5 @@
 ---
+gated: true
 layout: page
 title: DataStream API - Travel Time Prediction
 permalink: /exercises/timePrediction.html

@@ -1,4 +1,5 @@
 ---
+gated: true
 layout: page
 title: Table API / SQL - Popular Places
 permalink: /exercises/popularPlacesSql.html

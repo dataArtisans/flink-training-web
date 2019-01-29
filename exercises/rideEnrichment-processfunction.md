@@ -1,7 +1,11 @@
 ---
+gated: true
 layout: page
-title: DataStream API - Expiring State (Enrichment with a CoProcessFunction)
+nav-title: Lab 4 - Event-time and Timers
+title: Lab 4 - Event-time and Timers (Expiring State)
 permalink: /exercises/rideEnrichment-processfunction.html
+nav-parent_id: root
+nav-pos: 80
 ---
 
 The goal of this exercise is to join together the `TaxiRide` and `TaxiFare` records for each ride in a more robust way than we did in an [earlier exercise]({{ site.baseurl }}/exercises/rideEnrichment-flatmap.html).
@@ -83,3 +87,5 @@ Reference solutions are available at GitHub:
 
 - Java: [ExpiringStateSolution.java]({{site.javasolutions}}/process/ExpiringStateSolution.java)
 - Scala: [ExpiringStateSolution.scala]({{site.scalasolutions}}/process/ExpiringStateSolution.scala)
+
+{% next %}

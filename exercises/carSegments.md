@@ -1,4 +1,5 @@
 ---
+gated: true
 layout: page
 title: Advanced Windowing - Connected Car Segments
 permalink: /exercises/carSegments.html

@@ -1,0 +1,6 @@
+# this file is used by netlify
+
+/exercises/taxiData.html        /setup/taxiData.html
+/localCluster.html              /setup/localCluster.html
+/howto-exercises.html           /setup/howto-exercises.html
+/exercises/rideCleansing.html   /intro/rideCleansing.html

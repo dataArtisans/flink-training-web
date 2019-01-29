@@ -6,6 +6,7 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 9999;
 }
 @media screen and (min-width: 1000px) {
     .da-nav {
@@ -21,7 +22,7 @@
                 height: 21.5px;
                 width: 135.5px;
                 position: relative;
-                bottom: 5px;
+                bottom: 2px;
             }
             a {
                 display: none;
@@ -152,7 +153,6 @@
     .da-nav {
         background-color: rgba(0,0,0,0.5);
         height: 50px;
-        z-index: 9999;
         &__logo {
             line-height: 54px;
             display: inline-block;
@@ -161,7 +161,7 @@
                 height: 21.5px;
                 width: 135.5px;
                 position: relative;
-                bottom: 5px;
+                bottom: 2px;
             }
             a {
                 margin-top: 60px;
@@ -263,21 +263,28 @@
 /* END NAV */
 
 /* CONTENT */
+.container {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  padding-top: 94px;
+  line-height: 25px;
+  .wrapper {
+      max-width: 1170px;
+      padding: 0 20px;
+  }
+}
 
 .page-content {
-    font-family: 'Lato', sans-serif;
-    font-size: 15px;
-    padding-top: 94px;
-    line-height: 25px;
-    .wrapper {
-        max-width: 720px;
-        padding: 0 20px;
-    }
     h1 {
         font-size: 35px;
         font-weight: 900;
         line-height: 46px;
         letter-spacing: 1px;
+    }
+    .btn-primary, .btn-next {
+        background-color: rgb(51, 172, 144);
+        border-color: #fff;
+        color: white;
     }
     a {
         color: rgb(51, 172, 144);
@@ -288,6 +295,9 @@
     }
     iframe {
         max-width: 100%;
+    }
+    img.compact {
+	max-width: 50%;
     }
 }
 
@@ -300,6 +310,7 @@ footer {
     padding: 20px 12.5px;
     p {
         width: 70%;
+        max-width: 640px;
         line-height: 22px;
         margin: auto;
         font-size: 13px;

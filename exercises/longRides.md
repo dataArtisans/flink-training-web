@@ -1,4 +1,5 @@
 ---
+gated: true
 layout: page
 title: Long Ride Alerts
 permalink: /exercises/longRides.html
@@ -8,9 +9,9 @@ The goal of the "Long Ride Alerts" exercise is to indicate whenever a taxi ride 
 
 ### Input Data
 
-The input data of this exercise is a `DataStream` of taxi ride events. You will want to use a `TaxiRideSource`, as described in the page about the [Taxi Data Stream]({{ site.baseurl }}/exercises/taxiData.html).
+The input data of this exercise is a `DataStream` of taxi ride events. You will want to use a `TaxiRideSource`, as described in the page about the [Taxi Data Stream]({{ site.baseurl }}/setup/taxiData.html).
 
-You can filter the events to only include rides within New York City (as is done in the [Taxi Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html)), but it's not essential.
+You can filter the events to only include rides within New York City (as is done in the [Taxi Ride Cleansing exercise]({{ site.baseurl }}/intro/rideCleansing.html)), but it's not essential.
 
 ### Expected Output
 

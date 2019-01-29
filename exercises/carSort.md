@@ -1,4 +1,5 @@
 ---
+gated: true
 layout: page
 title: Advanced DataStream API - Sorting Car Events
 permalink: /exercises/carSort.html

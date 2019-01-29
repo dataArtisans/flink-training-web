@@ -1,4 +1,5 @@
 ---
+gated: true
 layout: page
 title: DataStream API - Write to Elasticsearch
 permalink: /exercises/toElastic.html
@@ -132,13 +133,13 @@ Just follow these instructions step-by-step:
 * The start page will ask you to configure an index pattern. Enter `nyc-places` in the "Index name or pattern" text field and click the "Create" button without changing the "Time-field name".
 
 <center>
-<img src="{{ site.baseurl }}/images/kibana-1.png" width="85%">
+<img src="{{site.images}}/kibana-1.png" width="85%">
 </center>
 
 * Click on the "Discover" button at the top. Kibana will tell you "No results found". This is because it only looks for data of the last 15 minutes while our TaxiRide records have a timestamp from January 2013. Click on the time picker in the upper right corner to select "Last 5 years" from the "Quick" options and click on the "Go" button.
 
 <center>
-<img src="{{ site.baseurl }}/images/kibana-2.png" width="85%">
+<img src="{{site.images}}/kibana-2.png" width="85%">
 </center>
 
 * Click on the "Visualize" button at the top. Select "Tile map" and click on "From a new search". Kibana will show a map of the world. Next we will configure the visualization:
@@ -146,14 +147,14 @@ Just follow these instructions step-by-step:
   * Select buckets type "Geo Coordinates" with "GeoHash" "Aggregation" on the `location` field (this is the coordinate of our count).
 
 <center>
-<img src="{{ site.baseurl }}/images/kibana-3.png" width="45%">
+<img src="{{site.images}}/kibana-3.png" width="45%">
 </center>
 
   * Click the green button with the triangle icon (play) and zoom the map on New York city.
   * You can try out Kibana's different visualizations by clicking on the "Options" button ans selecting a different "Map type".
 
 <center>
-<img src="{{ site.baseurl }}/images/kibana-4.png" width="85%">
+<img src="{{site.images}}/kibana-4.png" width="85%">
 </center>
 
 

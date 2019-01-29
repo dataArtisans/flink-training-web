@@ -1,4 +1,5 @@
 ---
+gated: true
 layout: page
 title: Advanced DataStream API - Connected Car Sessions
 permalink: /exercises/carSessions.html

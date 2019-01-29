@@ -1,4 +1,5 @@
 ---
+gated: true
 layout: page
 title: CEP - Long Ride Alerts
 permalink: /exercises/CEP.html
@@ -6,7 +7,7 @@ permalink: /exercises/CEP.html
 
 The goal of the "Long Ride Alerts" exercise is to indicate whenever a taxi ride started two hours ago, and is still ongoing.
 
-This can be done fairly straightforwardly with a `ProcessFunction` (see the [Long Ride Alerts exercise]({{ site.baseurl }}/exercises/rideCleansing.html)), but this requires you to explicitly manage state and timers. In this exercise we'll do this more simply using Flink's CEP library.
+This can be done fairly straightforwardly with a `ProcessFunction` (see the [Long Ride Alerts exercise]({{ site.baseurl }}/intro/rideCleansing.html)), but this requires you to explicitly manage state and timers. In this exercise we'll do this more simply using Flink's CEP library.
 
 Using the CEP library requires adding these dependencies to the `pom.xml` of your Maven project. This is already taken care of in the training exercises project.
 
@@ -35,7 +36,7 @@ DataStream<TaxiRide> rides = env.addSource(
 
 Even when used with a delay factor of zero, the `TaxiRideSource` that you may've used before will reorder events with the same timestamp, and that adds complexity that we'd rather avoid for now.
 
-Don't bother trying to filter the events (as is done in the [Taxi Ride Cleansing exercise]({{ site.baseurl }}/exercises/rideCleansing.html)).
+Don't bother trying to filter the events (as is done in the [Taxi Ride Cleansing exercise]({{ site.baseurl }}/intro/rideCleansing.html)).
 
 ### Expected Output
 

@@ -1,0 +1,119 @@
+
+{% comment %}
+==============================================================================
+Extract the active nav IDs.
+==============================================================================
+{% endcomment %}
+
+{% assign active_nav_ids = site.array %}
+{% assign parent_id = page.nav-parent_id %}
+
+{% for i in (1..10) %}
+  {% if parent_id %}
+    {% assign active_nav_ids = active_nav_ids | push: parent_id %}
+    {% assign current = (site.pages | where: "nav-id" , parent_id | sort: "nav-pos") %}
+    {% if current.size > 0 %}
+      {% assign parent_id = current[0].nav-parent_id %}
+    {% else %}
+      {% break %}
+    {% endif %}
+  {% else %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% comment %}
+==============================================================================
+Build the nested list from nav-id and nav-parent_id relations.
+==============================================================================
+This builds a nested list from all pages. The fields used to determine the
+structure are:
+
+- 'nav-id' => ID of this page. Other pages can use this ID as their
+  parent ID.
+- 'nav-parent_id' => ID of the parent. This page will be listed under
+  the page with id 'nav-parent_id'.
+
+Level 0 is made up of all pages, which have nav-parent_id set to 'root'.
+
+The 'title' of the page is used as the default link text. You can
+override this via 'nav-title'. The relative position per navigational
+level is determined by 'nav-pos'.
+{% endcomment %}
+
+{% assign elementsPosStack = site.array %}
+{% assign posStack = site.array %}
+
+{% assign elements = site.array %}
+{% assign children = (site.pages | where: "nav-parent_id" , "root" | sort: "nav-pos") %}
+{% if children.size > 0 %}
+  {% assign elements = elements | push: children %}
+{% endif %}
+
+{% assign elementsPos = 0 %}
+{% assign pos = 0 %}
+{% assign ordering = 0 %}
+{% assign nexturl = "" %}
+
+<ul id="sidenav">
+{% for i in (1..10000) %}
+  {% if pos >= elements[elementsPos].size %}
+    {% if elementsPos == 0 %}
+      {% break %}
+    {% else %}
+      {% assign elementsPos = elementsPosStack | last %}
+      {% assign pos = posStack | last %}
+</li></ul></div>
+      {% assign elementsPosStack = elementsPosStack | pop %}
+      {% assign posStack = posStack | pop %}
+    {% endif %}
+  {% else %}
+    {% assign this = elements[elementsPos][pos] %}
+
+    {% if this.url == page.url %}
+      {% assign active = true %}
+      {% assign nextpage = ordering | plus: 1 %}
+    {% elsif this.nav-id and active_nav_ids contains this.nav-id %}
+      {% assign active = true %}
+    {% else %}
+      {% assign active = false %}
+    {% endif %}
+
+    {% capture title %}{% if this.nav-title %}{{ this.nav-title }}{% else %}{{ this.title }}{% endif %}{% endcapture %}
+    {% capture target %}"{{ site.baseurl }}{{ this.url }}"{% if active %} class="active"{% endif %}{% endcapture %}
+    {% capture overview_target %}"{{ site.baseurl }}{{ this.url }}"{% if this.url == page.url %} class="active"{% endif %}{% endcapture %}
+
+    {% if this.section-break %}<hr class="section-break"></hr>{% endif %}
+
+    {% assign pos = pos | plus: 1 %}
+    {% if this.nav-id %}
+      {% assign children = (site.pages | where: "nav-parent_id" , this.nav-id | sort: "nav-pos") %}
+      {% if children.size > 0 %}
+        {% capture collapse_target %}"#collapse-{{ i }}" data-toggle="collapse"{% if active %} class="active"{% endif %}{% endcapture %}
+        {% capture expand %} <i class="fa fa-caret-down pull-right" aria-hidden="true" style="padding-top: 4px"></i>{% endcapture %}
+<li{% if this.gated %} class="gated"{% endif %}><a href={{ collapse_target }}>{{ title }}{{ expand }}</a><div class="collapse{% if active %} in{% endif %}" id="collapse-{{ i }}"><ul>
+        {% assign elements = elements | push: children %}
+        {% assign elementsPosStack = elementsPosStack | push: elementsPos %}
+        {% assign posStack = posStack | push: pos %}
+
+        {% assign elementsPos = elements.size | minus: 1 %}
+        {% assign pos = 0 %}
+      {% else %}
+<li{% if this.gated %} class="gated"{% endif %} data-ordering={{ordering}}><a href={{ target }}>{{ title }}</a></li>
+        {% if ordering == nextpage %}{% assign nexturl = target %}{% endif %}
+        {% assign ordering = ordering | plus: 1 %}
+      {% endif %}
+    {% else %}
+<li{% if this.gated %} class="gated"{% endif %} data-ordering={{ordering}}><a href={{ target }}>{{ title }}</a></li>
+       {% if ordering == nextpage %}{% assign nexturl = target %}{% endif %}
+       {% assign ordering = ordering | plus: 1 %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+</ul>
+
+<script>
+  function nextPage() {
+    window.location.href = {{nexturl}};
+  }
+</script>
