@@ -54,7 +54,7 @@ You can use the Flink CLI to run applications that have been packaged into a jar
 
 Because this jar file contains many applications, we've had to specify which class to run, using the -c flag.
 
-Note that the taskmanager(s) will write their output to files in the `./log/` directory.
+Note that the worker(s) will write their output to files in the `./log/` directory.
 
 ### 5. Stop the local Flink instance
 
