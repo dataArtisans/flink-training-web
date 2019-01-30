@@ -1,7 +1,7 @@
 ---
 title: Setting up the SQL Client
 layout: page
-permalink: /sqlClient.html
+permalink: /setup/sqlClient.html
 ---
 
 These instructions will show you how to use Flink's SQL Client with the taxi data used in these exercises.
