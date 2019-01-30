@@ -80,7 +80,7 @@ Note: There's a hardwired path to these data files in the exercises. Before tryi
 
 <hr style="margin: 0 0 10px 0" />
 
-If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/localCluster.html).
+If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/setup/localCluster.html).
 
 If you want to use the SQL client, see [Setting up the SQL Client]({{site.baseurl}}/sqlClient.html).
 

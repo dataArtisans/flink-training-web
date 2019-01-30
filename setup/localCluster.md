@@ -38,10 +38,16 @@ You can validate that a local Flink instance is running by looking at the log fi
 
 ### 4. Run an application
 
-The [How to do the Exercises page]({{ site.baseurl }}/setup/howto-exercises.html) explains how to build and package a Flink program with Maven. You can use the Flink CLI to run applications that have been packaged into a jar file. Here's an example of running one of the examples, but you'll probably need to make some adjustments to the paths and version number:
+Go to wherever you have put the flink-training-exercises project, and use maven to build it:
 
 ~~~bash
-flink run -c \  
+mvn clean package
+~~~
+
+You can use the Flink CLI to run applications that have been packaged into a jar file. Here's an example of running one of the examples, but you'll probably need to make some adjustments to the paths and version number:
+
+~~~bash
+./bin/flink run -c \  
     com.dataartisans.flinktraining.examples.datastream_java.basics.RideCount \
     ~/flink-training-exercises/target/flink-training-exercises-2.5.2.jar
 ~~~

@@ -8,6 +8,9 @@ nav-pos: 300
 section-break: true
 ---
 
+- [Setting up a Local Flink Cluster]({{site.baseurl}}/setup/localCluster.html)
+- [Using the SQL Client]({{site.baseurl}}/sqlClient.html)
+
 - [Apache Flink project](https://flink.apache.org)
 - [Flink user mailing list](http://mail-archives.apache.org/mod_mbox/flink-user/)
 - [Flink Forward Conference](https://flink-forward.org)

@@ -6,15 +6,13 @@ permalink: /sqlClient.html
 
 These instructions will show you how to use Flink's SQL Client with the taxi data used in these exercises.
 
-### 1. Build the flink-training-exercises JAR
+### Prerequisties:
 
-Follow [these instructions]({{site.baseurl}}/devEnvSetup.html) about using git to clone, and maven with Java 8 to build, the flink-training-exercises project.
+* If you haven't already done so, follow [these instructions]({{site.baseurl}}/devEnvSetup.html) about using git to clone, and maven with Java 8 to build, the flink-training-exercises project.
 
-### 2. Download the taxi datasets
+* [Part 4 of those same instructions linked to above]({{site.baseurl}}/devEnvSetup.html) explains how to download the taxi data files. Do that now, if you didn't already.
 
-[Part 4 of those same instructions linked to above]({{site.baseurl}}/devEnvSetup.html) explains how to download the taxi data files. Do that now, if you didn't already.
-
-### 3. Edit sql-client-config.yaml
+### 1. Edit sql-client-config.yaml
 
 The home directory of the flink-training-exercises repository contains a file named `sql-client-config.yaml`. This file contains hardwired paths to the taxi ride and taxi fare datasets. Edit this file so that it correctly points to your copies of these files:
 
@@ -24,11 +22,11 @@ The home directory of the flink-training-exercises repository contains a file na
       path: "/Users/david/stuff/flink-training/trainingData/nycTaxiFares.gz"
       ...
 
-### 4. Start a local flink cluster
+### 2. Start a local flink cluster
 
-Following [these instructions]({{site.baseurl}}/localCluster.html), download the Flink binaries and start a local flink cluster. Leave it running.
+Following [these instructions]({{site.baseurl}}/setup/localCluster.html), download the Flink binaries and start a local flink cluster. Leave it running.
 
-### 5. Start the SQL client
+### 3. Start the SQL client
 
 ~~~bash
 $ cd /to/your/clone/of/flink-training-exercises
@@ -39,7 +37,7 @@ $ /wherever/you/put/flink/bin/sql-client.sh embedded --jar target/flink-training
 Windows users, please note that you will need some way to run bash scripts, such as the Windows Subsystem for Linux.
 </div>
 
-### 6. Verify that it works
+### 4. Verify that it works
 
 You can list all available tables using the `SHOW TABLES` command. It lists table sources and sinks as well as views.
 
