@@ -40,7 +40,7 @@
 	<div id="form-content" style="display:none" class="col-lg-6">
 	  <h1>Training Registration</h1>
 
-	  <p>To access this training material, please register.</p>
+	  <p>To continue to access this training material, please register.</p>
 	  <p>By registering you agree that your personal data submitted via this form will be processed in accordance with the <a href="https://da-platform/privacy-policy">dA Privacy Policy</a>.</p>
 <!--[if lte IE 8]>
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
@@ -77,7 +77,7 @@
     <script>
     {% if page.gated %}
       var cookie = getCookie("da-training");
-      if (cookie == null || cookie.length == 0) {
+      if ((document.referrer.split('/')[2] == document.URL.split('/')[2]) && (cookie == null || cookie.length == 0)) {
 	  $('#form-content').show();
       } else {
 	  $('#training-content').show();
