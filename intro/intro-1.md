@@ -15,7 +15,7 @@ Streams are data's natural habitat. Whether it's events from web servers, trades
 
 ![bounded and unbounded streams]({{site.images}}/bounded-unbounded.png)
 
-**Batch processing** is the paradigm at work when we process a bounded data stream. In this mode of operation we can choose to ingest the entire dataset before doing any calculations, which means that it's possible, for example, to sort the data, compute global statistics, and produce a final report that summarizes all of the input.
+**Batch processing** is the paradigm at work when we process a bounded data stream. In this mode of operation we can choose to ingest the entire dataset before producing any results, which means that it's possible, for example, to sort the data, compute global statistics, or produce a final report that summarizes all of the input.
 
 **Stream processing**, on the other hand, involves unbounded data streams. Conceptually, at least, the input may never end, and so we are forced to continuously process the data as it arrives.
 
