@@ -43,3 +43,8 @@ function getCookie(name) {
 function eraseCookie(name) {
     setCookie(name, "", 0);
 }
+
+function toggleNav() {
+    window.scrollTo(0, 0);
+    $('#sidenavcol').toggle();
+}

@@ -28,9 +28,17 @@
 		vertical-align: middle;
             }
     }
+
+    &__icon {
+	display: none;
+    }
+
+    #sidenavcol {
+	display: block;
+    };
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1199px) {
     .da-nav {
 	&__logo {
 	    img {
@@ -38,6 +46,19 @@
                 width: 144px;
 	    }
 	}
+
+	&__icon {
+	    display: block;
+	    position: absolute;
+	    right: 20px;
+	    top: 9px;
+	    font-size: 20pt;
+	    color: #31747f;
+	}
+    }
+
+    #sidenavcol {
+	display: none;
     }
 }
 
@@ -213,4 +234,15 @@ footer {
 .hs-form-booleancheckbox-display span, .hs-richtext p {
     font-weight: normal;
     font-size: 15px;
+}
+
+#form-content .hs-submit .hs-button {
+    background-color: #31747f;
+    border-color: #fff;
+    color: white;
+    background-image: none;
+}
+
+#form-content a {
+    color: #31747f
 }
