@@ -14,8 +14,8 @@ The [New York City Taxi & Limousine Commission](http://www.nyc.gov/html/tlc/html
 You can download the taxi data files by running the following commands
 
 ~~~~
-wget http://training.data-artisans.com/trainingData/nycTaxiRides.gz
-wget http://training.data-artisans.com/trainingData/nycTaxiFares.gz
+wget http://training.ververica.com/trainingData/nycTaxiRides.gz
+wget http://training.ververica.com/trainingData/nycTaxiFares.gz
 ~~~~
 
 It doesn't matter if you use wget or something else to fetch these files, but however you get the data, **do not decompress or rename the `.gz` files**.

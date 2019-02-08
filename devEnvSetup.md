@@ -68,8 +68,8 @@ You should now be able to open com.dataartisans.flinktraining.exercises.datastre
 You can download the taxi data files used in this training by running the following commands
 
 ~~~~
-wget http://training.data-artisans.com/trainingData/nycTaxiRides.gz
-wget http://training.data-artisans.com/trainingData/nycTaxiFares.gz
+wget http://training.ververica.com/trainingData/nycTaxiRides.gz
+wget http://training.ververica.com/trainingData/nycTaxiFares.gz
 ~~~~
 
 It doesn't matter if you use wget or something else to fetch these files, but however you get the data, **do not decompress or rename the `.gz` files**.

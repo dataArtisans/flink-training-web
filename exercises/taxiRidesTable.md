@@ -33,7 +33,7 @@ eventTime      : Timestamp // the time at which the event happened
 If you don't already have it, download the taxi data file by running the following command
 
 ~~~~
-wget http://training.data-artisans.com/trainingData/nycTaxiRides.gz
+wget http://training.ververica.com/trainingData/nycTaxiRides.gz
 ~~~~
 
 Please do not decompress or rename the `.gz` file.
