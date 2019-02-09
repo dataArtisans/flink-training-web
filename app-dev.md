@@ -1,7 +1,7 @@
 ---
 gated: true
 layout: page
-title: Application Development
+title: App Development
 permalink: /app-dev.html
 nav-parent_id: root
 nav-pos: 85

@@ -1,8 +1,8 @@
 ---
 gated: true
 layout: page
-nav-title: Lab 4 - Event-time and Timers
-title: Lab 4 - Event-time and Timers (Expiring State)
+nav-title: Lab 4 - Expiring State
+title: Lab 4 - Event-time Timers (Expiring State)
 permalink: /exercises/rideEnrichment-processfunction.html
 nav-parent_id: root
 nav-pos: 80

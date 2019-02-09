@@ -73,6 +73,11 @@ ul#sidenav {
 	font-size: 14px;
 }
 
+#sidenav > li li a {
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
 #sidenav > li li li {
 	font-size: 13px;
 }
