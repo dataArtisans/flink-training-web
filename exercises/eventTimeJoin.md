@@ -17,11 +17,11 @@ We've implemented sources for both the `Trade` and `Customer` streams. These sou
 
 When organized by event time, these two streams behave as shown below -- we first learn about the `Customer` at time 0, and then again at time 500, etc. -- and the first `Trade` occurs at time 1000, and so on:
 
-<img src="../images/join-event-time.png" alt="Streams organized by event time" class="offset" width="100%" />
+<img src="{{site.images}}/join-event-time.png" alt="Streams organized by event time" class="offset" width="100%" />
 
 However, when looked at in processing time, both streams happen to arrive in-order, but are racing against each other. For example, the second `Customer` record is earlier than the first `Trade`, in event time, but arrives later in processing time:
 
-<img src="../images/join-processing-time.png" alt="Streams organized by processing time" class="offset" width="100%" />
+<img src="{{site.images}}/join-processing-time.png" alt="Streams organized by processing time" class="offset" width="100%" />
 
 #### Data Types
 
@@ -56,29 +56,15 @@ You will find these basic types defined here:
 
 ## Processing Time Join
 
-This is the simplest approach for implementing an enrichment join, and it is suitable for use cases, such as fraud detection, where precise, deterministic results are not imperative. Here the general idea is to immediately join each trade with whatever customer information is available. If nothing is yet known about the customer, wait until the current watermark reaches the timestamp of the trade -- to give the customer stream a chance to catch-up -- before taking further action.
-
-At that point, if the customer is still missing, either drop the trade (i.e., implement an inner join) or join the trade with an null customer record (an outer join).
+This is the simplest approach for implementing an enrichment join, and it is suitable for use cases, such as fraud detection, where precise, deterministic results are not imperative, and where keeping latency low is very valuable. Here the general idea is to immediately join each trade with whatever customer information is available.
 
 You will find a working implementation of such a join in the `ProcessingTimeJoinExercise` class.
 
 #### Exercise
 
-Our solution stores the pending `Trade` records for each `Customer` in a
+1. Write some tests for this implementation.
 
-{% java %}
-    MapState<Long, Trade>
-{% endjava %}
-
-where the keys are the timestamps of the trades for which we've created timers, waiting to see if customer data will arrive.
-
-This has the limitation that the pending trades need to have unique timestamps. Your task here is to improve the implementation to use a
-
-{% java %}
-    MapState<Long, List<Trade>>
-{% endjava %}
-
-instead.
+2. Thought question: `ProcessingTimeJoinExercise` implements something like an outer join (there could be a `Trade` with no matching `Customer`, in which case this implementation will produce `(Trade, null)` as its result). Are there cases where it would be worthwhile to wait for some time in case a matching `Customer` arrives? How would you go about implementing that?
 
 ## Event Time Join
 
