@@ -30,7 +30,7 @@ Following [these instructions]({{site.baseurl}}/setup/localCluster.html), downlo
 
 ~~~bash
 $ cd /to/your/clone/of/flink-training-exercises
-$ /wherever/you/put/flink/bin/sql-client.sh embedded --jar target/flink-training-exercises-2.5.2.jar -e sql-client-config.yaml
+$ /wherever/you/put/flink/bin/sql-client.sh embedded --jar target/flink-training-exercises-{{site.exercises-version}}.jar -e sql-client-config.yaml
 ~~~
 
 <div class="alert alert-info">

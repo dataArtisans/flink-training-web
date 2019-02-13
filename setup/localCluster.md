@@ -10,7 +10,7 @@ The following instructions guide you through the installation a simple Flink clu
 
 In order to execute programs on a running Flink instance (rather than from within your IDE), you need to install Flink on your machine. To do so, follow these steps:
 
-- Download the Apache Flink 1.7.1 release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work, including the "without bundled hadoop" version.
+- Download the Apache Flink {{site.flink-version}} release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work, including the "without bundled hadoop" version.
 - Extract the downloaded archive
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 
@@ -49,7 +49,7 @@ You can use the Flink CLI to run applications that have been packaged into a jar
 ~~~bash
 ./bin/flink run -c \  
     com.dataartisans.flinktraining.examples.datastream_java.basics.RideCount \
-    ~/flink-training-exercises/target/flink-training-exercises-2.5.2.jar
+    ~/flink-training-exercises/target/flink-training-exercises-{{site.exercises-version}}.jar
 ~~~
 
 Because this jar file contains many applications, we've had to specify which class to run, using the -c flag.
