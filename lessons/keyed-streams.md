@@ -17,7 +17,7 @@ rides
   .keyBy("startCell")
 {% endjava %}
 
-Every keyBy causes a network shuttle that repartitions the stream. In general this is pretty expensive, since it involves network communication along with serialization and deserialization.
+Every keyBy causes a network shuffle that repartitions the stream. In general this is pretty expensive, since it involves network communication along with serialization and deserialization.
 
 ![keyBy and network shuffle]({{site.images}}/keyBy.png)
 
