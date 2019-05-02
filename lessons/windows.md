@@ -161,10 +161,10 @@ private static class MyWindowFunction extends ProcessWindowFunction<
     String key,
     Context context,
     Iterable<SensorReading> maxReading,
-    Collector<Tuple2<Long, SensorReading>> out) {
+    Collector<Tuple3<String, Long, SensorReading>> out) {
 
     SensorReading max = maxReading.iterator().next();
-    out.collect(new Tuple3<String, Long, SensorReading>(key, context.window().getStart(), max));
+    out.collect(new Tuple3<String, Long, SensorReading>(key, context.window().getEnd(), max));
   }
 }
 {% endjava %}
@@ -183,8 +183,7 @@ OutputTag<Event> lateTag = new OutputTag<Event>("late"){};
 SingleOutputStreamOperator<Event> result = stream.
   .keyBy(...)
   .window(...)
-  .process(...)
-  .getSideOutput(lateTag);
+  .process(...);
   
 DataStream<Event> lateStream = result.getSideOutput(lateTag);
 {% endjava %}
