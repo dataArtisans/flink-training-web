@@ -19,7 +19,7 @@ Flink features connectors to several external systems. In order to keep the depe
 ~~~xml
 <dependency>
   <groupId>org.apache.flink</groupId>
-  <artifactId>flink-connector-kafka-0.11_2.11</artifactId>
+  <artifactId>flink-connector-kafka-0.11_{{site.scala_version}}</artifactId>
   <version>{{site.flink-version}}</version>
 </dependency>
 ~~~

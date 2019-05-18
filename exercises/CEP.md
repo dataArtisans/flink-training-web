@@ -14,13 +14,13 @@ Using the CEP library requires adding these dependencies to the `pom.xml` of you
 ~~~xml
 <dependency>
   <groupId>org.apache.flink</groupId>
-  <artifactId>flink-cep_2.11</artifactId>
+  <artifactId>flink-cep_{{site.scala_version}}</artifactId>
   <version>{{site.flink-version}}</version>
 </dependency>
 
 <dependency>
   <groupId>org.apache.flink</groupId>
-  <artifactId>flink-cep-scala_2.11</artifactId>
+  <artifactId>flink-cep-scala_{{site.scala_version}}</artifactId>
   <version>{{site.flink-version}}</version>
 </dependency>
 ~~~

@@ -10,7 +10,7 @@ css: "/hs-fs/hubfs/Training/css"
 js: "/hs-fs/hubfs/Training/js"
 docs: https://ci.apache.org/projects/flink/flink-docs-stable
 ff: https://www.ververica.com/flink-forward/resources
-exercises-version: 2.7.0
+exercises-version: 2.7.1
 flink-version: 1.8.0
 
 tests: https://github.com/ververica/flink-training-exercises/blob/master/src/test/java/com/dataartisans/flinktraining/exercises/datastream_java
