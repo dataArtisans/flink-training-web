@@ -10,8 +10,8 @@ The following instructions guide you through the installation a simple Flink clu
 
 In order to execute programs on a running Flink instance (rather than from within your IDE), you need to install Flink on your machine. To do so, follow these steps:
 
-- Download the Apache Flink {{site.flink-version}} release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work, including the "without bundled hadoop" version.
-- Extract the downloaded archive
+- Download the Apache Flink {{site.flink-version}} release from the [download page](http://flink.apache.org/downloads.html). Since we won't use HDFS or YARN, any Hadoop version will work, including the "without bundled hadoop" version. The training exercises are setup to use Scala {{site.scala_version}}, so choose a compatible Flink release.
+- Extract the downloaded archive.
 - The resulting folder contains a Flink setup that can be locally executed without any further configuration.
 
 ### 2. Start a local Flink instance

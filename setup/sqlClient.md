@@ -1,7 +1,10 @@
 ---
-title: Setting up the SQL Client
+nav-title: Stream SQL
+title: Using the SQL Client
 layout: page
 permalink: /setup/sqlClient.html
+nav-parent_id: others
+nav-pos: 50
 ---
 
 These instructions will show you how to use Flink's SQL Client with the taxi data used in these exercises.
