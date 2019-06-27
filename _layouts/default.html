@@ -32,39 +32,9 @@
 
     <div class="container">
       <div class="wrapper">
-        <div id="training-content" class="row" {% if page.gated %}style="display:none"{% endif %} >
+        <div id="training-content" class="row">
           {{ content }}
         </div>
-
-	{% if page.gated %}
-	<div id="form-content" style="display:none" class="col-md-8 col-md-offset-2">
-	  <h1>Free Training Registration</h1>
-
-	  <p>To continue to access this training material, please register.</p>
-	  <p>By registering you agree that your personal data submitted via this form will be processed in accordance with our <a href="https://ververica.com/privacy-policy">Privacy Policy</a>.</p>
-<!--[if lte IE 8]>
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-<![endif]-->
-          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-	  <script>
-
-	    hbspt.forms.create({
-		portalId: "4757017",
-		formId: "279da3df-7ebd-4cd5-9d44-a49cf5d918be",
-		inlineMessage: 'Thank you!',
-		onFormSubmit: function($form){
-		    setTimeout( function() {
-			setCookie("da-training", "true", 3650);
-			window.location = "{{page.url}}";
-		    }, 150 );
-		}
-	    });
-
-	  </script>
-	  
-	</div>
-	{% endif %}
-
       </div>
     </div>
 
@@ -73,19 +43,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{{ "/nav.js" | prepend: site.js }}"></script>
-
-    <script>
-    {% if page.gated %}
-      var cookie = getCookie("da-training");
-      if ((document.referrer.split('/')[2] == document.URL.split('/')[2]) && (cookie == null || cookie.length == 0)) {
-	  $('#form-content').show();
-      } else {
-	  $('#training-content').show();
-      }
-    {% else %}
-      $('#training-content').show();
-    {% endif %}
-    </script>
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
