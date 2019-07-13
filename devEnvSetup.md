@@ -55,7 +55,7 @@ The project needs to be imported into your IDE.
   1. Import the project, selecting its `pom.xml` file
   1. At each step, accept the defaults; do not select a profile
   1. Continue, making sure when you get to the SDK dialog that it has a valid path to a JDK and **leaving all other options to their default values**, finish the project import
-  1. Open the project structure dialog, and add a Scala 2.11 SDK in the Global Libraries section (**you'll need this even if you do not intend to use Scala**)
+  1. Open the project structure dialog, and add a Scala 2.12 SDK in the Global Libraries section (**you'll need this even if you do not intend to use Scala**)
 - Eclipse:
   1. Select *"File"* -> *"Import"* -> *"Maven"* -> *"Existing Maven Project"*
   1. Tick the **Add project(s) to working set** option
