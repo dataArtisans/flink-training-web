@@ -183,6 +183,7 @@ OutputTag<Event> lateTag = new OutputTag<Event>("late"){};
 SingleOutputStreamOperator<Event> result = stream.
   .keyBy(...)
   .window(...)
+  .sideOutputLateData(lateTag)
   .process(...);
   
 DataStream<Event> lateStream = result.getSideOutput(lateTag);
