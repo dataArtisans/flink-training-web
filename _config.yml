@@ -13,13 +13,13 @@ ff: https://www.ververica.com/flink-forward/resources
 exercises-version: 2.7.1
 flink-version: 1.8.0
 
-tests: https://github.com/ververica/flink-training-exercises/blob/master/src/test/java/com/dataartisans/flinktraining/exercises/datastream_java
-javasolutions: https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/solutions/datastream_java
-scalasolutions: https://github.com/ververica/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/solutions/datastream_scala
-javaexercises: https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java
-scalaexercises: https://github.com/ververica/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/exercises/datastream_scala
-javaexamples: https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/examples
-scalaexamples: https://github.com/ververica/flink-training-exercises/blob/master/src/main/scala/com/dataartisans/flinktraining/examples
+tests: https://github.com/ververica/flink-training-exercises/blob/master/src/test/java/com/ververica/flinktraining/exercises/datastream_java
+javasolutions: https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/ververica/flinktraining/solutions/datastream_java
+scalasolutions: https://github.com/ververica/flink-training-exercises/blob/master/src/main/scala/com/ververica/flinktraining/solutions/datastream_scala
+javaexercises: https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/ververica/flinktraining/exercises/datastream_java
+scalaexercises: https://github.com/ververica/flink-training-exercises/blob/master/src/main/scala/com/ververica/flinktraining/exercises/datastream_scala
+javaexamples: https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/ververica/flinktraining/examples
+scalaexamples: https://github.com/ververica/flink-training-exercises/blob/master/src/main/scala/com/ververica/flinktraining/examples
 
 scala_version: "2.12"
 

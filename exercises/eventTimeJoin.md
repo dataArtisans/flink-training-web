@@ -50,9 +50,9 @@ customer       : Customer
 
 You will find these basic types defined here:
 
-- [Customer.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/datatypes/Customer.java)
-- [Trade.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/datatypes/Trade.java)
-- [EnrichedTrade.java](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/exercises/datastream_java/datatypes/EnrichedTrade.java)
+- [Customer.java](https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/ververica/flinktraining/exercises/datastream_java/datatypes/Customer.java)
+- [Trade.java](https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/ververica/flinktraining/exercises/datastream_java/datatypes/Trade.java)
+- [EnrichedTrade.java](https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/ververica/flinktraining/exercises/datastream_java/datatypes/EnrichedTrade.java)
 
 ## Processing Time Join
 
@@ -86,7 +86,7 @@ You will find a working implementation of such a join in the `EventTimeJoinExerc
 
 You will find tests for this implementation in
 
-[com.dataartisans.flinktraining.exercises.datastream_java.process.EventTimeJoinTest]({{ site.tests }}/process/EventTimeJoinTest.java)
+[com.ververica.flinktraining.exercises.datastream_java.process.EventTimeJoinTest]({{ site.tests }}/process/EventTimeJoinTest.java)
 
 #### Exercise
 

@@ -27,7 +27,7 @@ Some good locations:
 
 #### Exercise Class
 
-- Java: [com.dataartisans.flinktraining.exercises.datastream_java.broadcast.NearestTaxiExercise]({{ site.javaexercises }}/broadcast/NearestTaxiExercise.java)
+- Java: [com.ververica.flinktraining.exercises.datastream_java.broadcast.NearestTaxiExercise]({{ site.javaexercises }}/broadcast/NearestTaxiExercise.java)
 
 #### Documentation
 

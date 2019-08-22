@@ -9,7 +9,7 @@ nav-pos: 10
 
 ProcessFunction combines event processing with timers and state, making it a powerful building block for stream processing applications. This is the basis for creating event-driven applications with Flink. It is very similar to a RichFlatMap, but with the addition of timers.
 
-There's a complete example of using a ProcessFunction to sort a stream of events from connected cars in [CarEventSort on GitHub](https://github.com/dataArtisans/flink-training-exercises/blob/master/src/main/java/com/dataartisans/flinktraining/examples/datastream_java/process/CarEventSort.java), which is part of the training exercises repo that you have probably already cloned. Let's examine how this application works in some detail.
+There's a complete example of using a ProcessFunction to sort a stream of events from connected cars in [CarEventSort on GitHub](https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/ververica/flinktraining/examples/datastream_java/process/CarEventSort.java), which is part of the training exercises repo that you have probably already cloned. Let's examine how this application works in some detail.
 
 {% java %}
 events.keyBy((ConnectedCarEvent event) -> event.carId)

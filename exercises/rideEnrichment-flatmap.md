@@ -28,12 +28,12 @@ Rather than following these links to GitHub, you might prefer to open these clas
 
 #### Tests
 
-[com.dataartisans.flinktraining.exercises.datastream_java.state.RidesAndFaresTest]({{ site.tests }}/state/RidesAndFaresTest.java)
+[com.ververica.flinktraining.exercises.datastream_java.state.RidesAndFaresTest]({{ site.tests }}/state/RidesAndFaresTest.java)
 
 #### Exercise Classes
 
-- Java: [com.dataartisans.flinktraining.exercises.datastream_java.state.RidesAndFaresExercise]({{ site.javaexercises }}/state/RidesAndFaresExercise.java)
-- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.state.RidesAndFaresExercise]({{ site.scalaexercises }}/state/RidesAndFaresExercise.scala)
+- Java: [com.ververica.flinktraining.exercises.datastream_java.state.RidesAndFaresExercise]({{ site.javaexercises }}/state/RidesAndFaresExercise.java)
+- Scala: [com.ververica.flinktraining.exercises.datastream_scala.state.RidesAndFaresExercise]({{ site.scalaexercises }}/state/RidesAndFaresExercise.scala)
 
 
 ### Implementation Hints

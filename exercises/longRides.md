@@ -35,12 +35,12 @@ Here are the rideIds and start times of the first few rides that go on for more 
 
 #### Tests
 
-[com.dataartisans.flinktraining.exercises.datastream_java.process.LongRidesTest]({{ site.tests }}/process/LongRidesTest.java)
+[com.ververica.flinktraining.exercises.datastream_java.process.LongRidesTest]({{ site.tests }}/process/LongRidesTest.java)
 
 #### Exercise Classes
 
-- Java: [com.dataartisans.flinktraining.exercises.datastream_java.process.LongRidesExercise]({{ site.javaexercises }}/process/LongRidesExercise.java)
-- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.process.LongRidesExercise]({{ site.scalaexercises }}/process/LongRidesExercise.scala)
+- Java: [com.ververica.flinktraining.exercises.datastream_java.process.LongRidesExercise]({{ site.javaexercises }}/process/LongRidesExercise.java)
+- Scala: [com.ververica.flinktraining.exercises.datastream_scala.process.LongRidesExercise]({{ site.scalaexercises }}/process/LongRidesExercise.scala)
 
 ### Implementation Hints
 

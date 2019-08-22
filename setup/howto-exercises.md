@@ -10,7 +10,7 @@ In the hands-on sessions you will implement Flink programs using various Flink A
 
 The following steps guide you through the process of using the provided data streams, implementing your first Flink streaming program, and packaging and executing your program on a running Flink instance.
 
-We assume you have setup your development environment according to our [setup guide]( {{site.baseurl }}/devEnvSetup.html), and have a local clone of the [flink-training-exercises](https://github.com/dataArtisans/flink-training-exercises.git) repo from github.
+We assume you have setup your development environment according to our [setup guide]( {{site.baseurl }}/devEnvSetup.html), and have a local clone of the [flink-training-exercises](https://github.com/ververica/flink-training-exercises.git) repo from github.
 
 ### 1. Learn about the data
 
@@ -33,7 +33,7 @@ Starting a Flink program in your IDE is as easy as running its `main()` method. 
 
 Assuming you have an IDE with the flink-training-exercises project imported, you can run (or debug) a simple streaming job as follows:
 
-- Open the `com.dataartisans.flinktraining.examples.datastream_java.basics.RideCount` class in your IDE
+- Open the `com.ververica.flinktraining.examples.datastream_java.basics.RideCount` class in your IDE
 - Run (or debug) the `main()` method of the `RideCountExample` class using your IDE.
 
 ### 4. Exercises, Tests, and Solutions

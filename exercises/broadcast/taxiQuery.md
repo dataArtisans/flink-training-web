@@ -48,11 +48,11 @@ and on Windows you can install ncat from [https://nmap.org/ncat/](https://nmap.o
 
 #### Tests
 
-[com.dataartisans.flinktraining.exercises.datastream_java.broadcast.TaxiQueryTest]({{ site.tests }}/broadcast/TaxiQueryTest.java)
+[com.ververica.flinktraining.exercises.datastream_java.broadcast.TaxiQueryTest]({{ site.tests }}/broadcast/TaxiQueryTest.java)
 
 #### Exercise Class
 
-- Java: [com.dataartisans.flinktraining.exercises.datastream_java.broadcast.TaxiQueryExercise]({{ site.javaexercises }}/broadcast/TaxiQueryExercise.java)
+- Java: [com.ververica.flinktraining.exercises.datastream_java.broadcast.TaxiQueryExercise]({{ site.javaexercises }}/broadcast/TaxiQueryExercise.java)
 
 ### Implementation Hints
 

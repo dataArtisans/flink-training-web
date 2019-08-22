@@ -21,7 +21,7 @@ and on Windows you can install ncat from [https://nmap.org/ncat/](https://nmap.o
 
 #### Exercise Class
 
-- Java: [com.dataartisans.flinktraining.exercises.datastream_java.broadcast.OngoingRidesExercise]({{ site.javaexercises }}/broadcast/OngoingRidesExercise.java)
+- Java: [com.ververica.flinktraining.exercises.datastream_java.broadcast.OngoingRidesExercise]({{ site.javaexercises }}/broadcast/OngoingRidesExercise.java)
 
 #### Documentation
 

@@ -36,14 +36,14 @@ search for and navigate to classes and files. For IntelliJ, see <a href="https:/
 
 This exercise uses these classes:
 
-- Java: [com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingExercise]({{ site.javaexercises }}/basics/RideCleansingExercise.java)
-- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.basics.RideCleansingExercise]({{ site.scalaexercises }}/basics/RideCleansingExercise.scala)
+- Java: [com.ververica.flinktraining.exercises.datastream_java.basics.RideCleansingExercise]({{ site.javaexercises }}/basics/RideCleansingExercise.java)
+- Scala: [com.ververica.flinktraining.exercises.datastream_scala.basics.RideCleansingExercise]({{ site.scalaexercises }}/basics/RideCleansingExercise.scala)
 
 #### Tests
 
 You will find the test for this exercise in
 
-[com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingTest]({{ site.tests }}/basics/RideCleansingTest.java)
+[com.ververica.flinktraining.exercises.datastream_java.basics.RideCleansingTest]({{ site.tests }}/basics/RideCleansingTest.java)
 
 Like most of these exercises, at some point the `RideCleansingExercise` class throws an exception
 

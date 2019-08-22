@@ -28,12 +28,12 @@ The resulting stream should be printed to standard out.
 
 #### Tests
 
-[com.dataartisans.flinktraining.exercises.datastream_java.windows.HourlyTipsTest]({{ site.tests }}/windows/HourlyTipsTest.java)
+[com.ververica.flinktraining.exercises.datastream_java.windows.HourlyTipsTest]({{ site.tests }}/windows/HourlyTipsTest.java)
 
 #### Exercise Classes
 
-- Java: [com.dataartisans.flinktraining.exercises.datastream_java.windows.HourlyTipsExercise]({{ site.javaexercises }}/windows/HourlyTipsExercise.java)
-- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.windows.HourlyTipsExercise]({{ site.scalaexercises }}/windows/HourlyTipsExercise.scala)
+- Java: [com.ververica.flinktraining.exercises.datastream_java.windows.HourlyTipsExercise]({{ site.javaexercises }}/windows/HourlyTipsExercise.java)
+- Scala: [com.ververica.flinktraining.exercises.datastream_scala.windows.HourlyTipsExercise]({{ site.scalaexercises }}/windows/HourlyTipsExercise.scala)
 
 ### Implementation Hints
 

@@ -48,7 +48,7 @@ You can use the Flink CLI to run applications that have been packaged into a jar
 
 ~~~bash
 flink run -c \  
-    com.dataartisans.flinktraining.solutions.datastream_java.process.CheckpointedLongRidesSolution \
+    com.ververica.flinktraining.solutions.datastream_java.process.CheckpointedLongRidesSolution \
     ~/flink-training-exercises/target/flink-training-exercises-{{site.exercises-version}}.jar
 ~~~
 

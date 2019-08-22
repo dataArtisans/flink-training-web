@@ -27,12 +27,12 @@ The resulting stream should be printed to standard out.
 
 #### Tests
 
-[com.dataartisans.flinktraining.exercises.datastream_java.windows.PopularPlacesTest]({{ site.tests }}/windows/PopularPlacesTest.java)
+[com.ververica.flinktraining.exercises.datastream_java.windows.PopularPlacesTest]({{ site.tests }}/windows/PopularPlacesTest.java)
 
 #### Exercise Classes
 
-- Java: [com.dataartisans.flinktraining.exercises.datastream_java.windows.PopularPlacesExercise]({{ site.javaexercises }}/windows/PopularPlacesExercise.java)
-- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.windows.PopularPlacesExercise]({{ site.scalaexercises }}/windows/PopularPlacesExercise.scala)
+- Java: [com.ververica.flinktraining.exercises.datastream_java.windows.PopularPlacesExercise]({{ site.javaexercises }}/windows/PopularPlacesExercise.java)
+- Scala: [com.ververica.flinktraining.exercises.datastream_scala.windows.PopularPlacesExercise]({{ site.scalaexercises }}/windows/PopularPlacesExercise.scala)
 
 ### Implementation Hints
 

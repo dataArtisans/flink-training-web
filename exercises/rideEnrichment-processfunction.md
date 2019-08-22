@@ -68,12 +68,12 @@ Once the join is basically working, don't bother printing the joined records. In
 
 #### Tests
 
-[com.dataartisans.flinktraining.exercises.datastream_java.process.ExpiringStateTest]({{ site.tests }}/process/ExpiringStateTest.java)
+[com.ververica.flinktraining.exercises.datastream_java.process.ExpiringStateTest]({{ site.tests }}/process/ExpiringStateTest.java)
 
 #### Exercise Classes
 
-- Java: [com.dataartisans.flinktraining.exercises.datastream_java.process.ExpiringStateExercise]({{ site.javaexercises }}/process/ExpiringStateExercise.java)
-- Scala: [com.dataartisans.flinktraining.exercises.datastream_scala.process.ExpiringStateExercise]({{ site.scalaexercises }}/process/ExpiringStateExercise.scala)
+- Java: [com.ververica.flinktraining.exercises.datastream_java.process.ExpiringStateExercise]({{ site.javaexercises }}/process/ExpiringStateExercise.java)
+- Scala: [com.ververica.flinktraining.exercises.datastream_scala.process.ExpiringStateExercise]({{ site.scalaexercises }}/process/ExpiringStateExercise.scala)
 
 
 #### Documentation
