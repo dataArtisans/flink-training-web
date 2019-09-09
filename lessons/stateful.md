@@ -97,7 +97,7 @@ It is also possible to work with managed state in non-keyed contexts. This is so
 
 ## Further Reading
 
-- [Working with State]({{ site.docs }}/dev/stream/state/) (Apache Flink Documentation)
+- [Working with State]({{ site.docs }}/dev/stream/state/state.html) (Apache Flink Documentation)
 - [Using Managed Operator State]({{ site.docs }}/dev/stream/state/state.html#using-managed-operator-state) (Apache Flink Documentation)
 
 {% next %}
