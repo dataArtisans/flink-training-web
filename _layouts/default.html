@@ -8,20 +8,19 @@
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism.css" />
+    <!-- Prism 1.14 CSS -->
+    <link rel="stylesheet" href="{{ "/prism.css" | prepend: site.css }}">
+    <!-- Bootstrap 3.3.5 CSS -->
+    <link rel="stylesheet" href="{{ "/bootstrap.min.css" | prepend: site.css }}">
 
     <link rel="stylesheet" href="{{ "/main.css" | prepend: site.css }}">
     <link rel="stylesheet" href="{{ "/sidenav.css" | prepend: site.css }}">
     <link rel="stylesheet" href="{{ "/font-awesome/css/font-awesome.min.css" | prepend: site.css }}">
+    <link rel="stylesheet" href="{{ "/font.css" | prepend: site.css }}">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-java.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-scala.js"></script>
+    <script src="{{ "/prism.min.js" | prepend: site.js }}"></script>
+    <script src="{{ "/prism-java.js" | prepend: site.js }}"></script>
+    <script src="{{ "/prism-scala.js" | prepend: site.js }}"></script>
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}">
   </head>
@@ -39,9 +38,10 @@
     </div>
 
     {% include footer.html %}
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <!-- JQuery 1.11.3 -->
+    <script src="{{ "/jquery.min.js" | prepend: site.js }}"></script>
+    <script src="{{ "/bootstrap.min.js" | prepend: site.js }}"></script>
     <script src="{{ "/nav.js" | prepend: site.js }}"></script>
 
     <script>
@@ -54,8 +54,5 @@
         ga('send', 'pageview');
     </script>
 
-    <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4757017.js"></script>
-    <!-- End of HubSpot Embed Code -->
   </body>
 </html>

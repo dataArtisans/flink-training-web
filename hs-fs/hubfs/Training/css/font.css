@@ -1,0 +1,90 @@
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		local('Poppins Regular'),
+		local('Poppins-Regular'),
+		/* from https://fonts.gstatic.com/s/poppins/v8/pxiEyp8kv8JHgFVrJJfecg.woff2 */
+		url('Poppins_400.woff2') format('woff2'),
+		/* from https://fonts.gstatic.com/s/poppins/v8/pxiEyp8kv8JHgFVrJJfedA.woff */
+		url('Poppins_400.woff') format('woff'),
+		/* from https://fonts.gstatic.com/s/poppins/v8/pxiEyp8kv8JHgFVrJJfedg.eot */
+		url('Poppins_400.eot?#iefix') format('embedded-opentype'),
+		/* from https://fonts.gstatic.com/l/font?kit=pxiEyp8kv8JHgFVrJJfedQ&skey=87759fb096548f6d&v=v8#Poppins */
+		url('Poppins_400.svg#Poppins') format('svg'),
+		/* from https://fonts.gstatic.com/s/poppins/v8/pxiEyp8kv8JHgFVrJJfedw.ttf */
+		url('Poppins_400.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 500;
+	src:
+		local('Poppins Medium'),
+		local('Poppins-Medium'),
+		/* from https://fonts.gstatic.com/s/poppins/v8/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2 */
+		url('Poppins_500.woff2') format('woff2'),
+		/* from https://fonts.gstatic.com/s/poppins/v8/pxiByp8kv8JHgFVrLGT9Z1xlEw.woff */
+		url('Poppins_500.woff') format('woff'),
+		/* from https://fonts.gstatic.com/s/poppins/v8/pxiByp8kv8JHgFVrLGT9Z1xlEQ.eot */
+		url('Poppins_500.eot?#iefix') format('embedded-opentype'),
+		/* from https://fonts.gstatic.com/l/font?kit=pxiByp8kv8JHgFVrLGT9Z1xlEg&skey=d4526a9b64c21b87&v=v8#Poppins */
+		url('Poppins_500.svg#Poppins') format('svg'),
+		/* from https://fonts.gstatic.com/s/poppins/v8/pxiByp8kv8JHgFVrLGT9Z1xlEA.ttf */
+		url('Poppins_500.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		local('Lato Regular'),
+		local('Lato-Regular'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXg.woff2 */
+		url('Lato_400.woff2') format('woff2'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWA.woff */
+		url('Lato_400.woff') format('woff'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWg.eot */
+		url('Lato_400.eot?#iefix') format('embedded-opentype'),
+		/* from https://fonts.gstatic.com/l/font?kit=S6uyw4BMUTPHjx4wWQ&skey=2d58b92a99e1c086&v=v16#Lato */
+		url('Lato_400.svg#Lato') format('svg'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWw.ttf */
+		url('Lato_400.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 700;
+	src:
+		local('Lato Bold'),
+		local('Lato-Bold'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ.woff2 */
+		url('Lato_700.woff2') format('woff2'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPHw.woff */
+		url('Lato_700.woff') format('woff'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPHQ.eot */
+		url('Lato_700.eot?#iefix') format('embedded-opentype'),
+		/* from https://fonts.gstatic.com/l/font?kit=S6u9w4BMUTPHh6UVSwiPHg&skey=3480a19627739c0d&v=v16#Lato */
+		url('Lato_700.svg#Lato') format('svg'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPHA.ttf */
+		url('Lato_700.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 900;
+	src:
+		local('Lato Black'),
+		local('Lato-Black'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh50XSwiPGQ.woff2 */
+		url('Lato_900.woff2') format('woff2'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh50XSwiPHw.woff */
+		url('Lato_900.woff') format('woff'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh50XSwiPHQ.eot */
+		url('Lato_900.eot?#iefix') format('embedded-opentype'),
+		/* from https://fonts.gstatic.com/l/font?kit=S6u9w4BMUTPHh50XSwiPHg&skey=d01acf708cb3b73b&v=v16#Lato */
+		url('Lato_900.svg#Lato') format('svg'),
+		/* from https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh50XSwiPHA.ttf */
+		url('Lato_900.ttf') format('truetype');
+}
