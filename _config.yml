@@ -5,9 +5,9 @@ description: > # this means to ignore newlines until "baseurl:"
   implementation of programs using the Flink APIs, and packaging,
   execution and monitoring of Flink programs.
 baseurl: ""
-images: "/hs-fs/hubfs/Training/images"
-css: "/hs-fs/hubfs/Training/css"
-js: "/hs-fs/hubfs/Training/js"
+images: "/assets/images"
+css: "/assets/css"
+js: "/assets/js"
 docs: https://ci.apache.org/projects/flink/flink-docs-stable
 ff: https://www.ververica.com/flink-forward/resources
 exercises-version: 2.8.0
