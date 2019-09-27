@@ -80,7 +80,11 @@ DataStream<MyEvent> withTimestampsAndWatermarks =
   stream.assignTimestampsAndWatermarks(new MyExtractor);
 
 public static class MyExtractor
-    extends BoundedOutOfOrdernessTimestampExtractor<MyEvent>(Time.seconds(10)) {
+    extends BoundedOutOfOrdernessTimestampExtractor<MyEvent> {
+
+  public MyExtractor() {
+    super(Time.seconds(10));
+  }
 
   @Override
   public long extractTimestamp(MyEvent event) {
@@ -89,7 +93,7 @@ public static class MyExtractor
 }
 {% endjava %}
 
-Note that the constructor takes a parameter which specifies the maximum expected out-of-orderness (10 seconds, in this example).
+Note that the constructor for `BoundedOutOfOrdernessTimestampExtractor` takes a parameter which specifies the maximum expected out-of-orderness (10 seconds, in this example).
 
 ## Further Reading
 
