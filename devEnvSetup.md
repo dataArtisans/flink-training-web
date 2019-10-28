@@ -43,6 +43,28 @@ If you haven't done this before, at this point you'll end up downloading all of 
 
 If all of the tests pass and the build is successful, you are off to a good start.
 
+<div class="alert alert-info">
+<p>
+<strong>Note for users in China:</strong>
+
+If you are in China, we recommend configuring maven to use a mirror. This is done by adding some configuration to your maven settings file (in <code>~/.m2/settings.xml</code>). If you don't already have any customized maven settings, you can use this:
+</p>
+</div>
+
+~~~xml
+<settings>
+  <mirrors>
+    <mirror>
+       <id>nexus-aliyun</id>
+       <mirrorOf>*</mirrorOf>
+       <name>Nexus aliyun</name>
+       <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </mirror>
+  </mirrors>
+</settings>
+~~~
+
+
 ### 3. Import the flink-training-exercises project into your IDE
 
 The project needs to be imported into your IDE.
