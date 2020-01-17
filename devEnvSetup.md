@@ -16,7 +16,7 @@ Flink supports Linux, OS X, and Windows as development environments for Flink pr
 - Java JDK 8 only (a JRE is not sufficient, and newer versions of Java will not work)
 - Apache Maven 3.x
 - Git
-- an IDE for Java (and/or Scala) development. We recommend IntelliJ, but Eclipse will work so long as you stick to Java. For Scala you will need to use IntelliJ (and its Scala plugin).
+- an IDE for Java (and/or Scala) development. We recommend IntelliJ, but Eclipse and Visual Studio Code can be used so long as you stick to Java. For Scala you will need to use IntelliJ (and its Scala plugin).
 
 Note that older and newer versions of Java are not supported. **Only Java 8 will work**; not Java 7, or 9 (or newer).
 
@@ -33,6 +33,16 @@ For developing Flink jobs, Windows works reasonably well: you can run a Flink cl
 
 The `flink-training-exercises` project contains exercises, tests, and reference solutions for the programming exercises, as well as an extensive collection of examples. Clone the `flink-training-exercises` project from Github and build it.
 
+For Java, use the java branch:
+
+~~~bash
+git clone --branch java https://github.com/dataArtisans/flink-training-exercises.git
+cd flink-training-exercises
+mvn clean package
+~~~
+
+For Scala, use the master branch:
+
 ~~~bash
 git clone https://github.com/dataArtisans/flink-training-exercises.git
 cd flink-training-exercises
@@ -43,58 +53,59 @@ If you haven't done this before, at this point you'll end up downloading all of 
 
 If all of the tests pass and the build is successful, you are off to a good start.
 
-<div class="alert alert-info">
-<p>
-<strong>Note for users in China:</strong>
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+Users in China: click here for instructions about using a local maven mirror.
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
 If you are in China, we recommend configuring maven to use a mirror. This is done by adding some configuration to your maven settings file (in <code>~/.m2/settings.xml</code>). If you don't already have any customized maven settings, you can use this:
-</p>
-</div>
 
-~~~xml
-<settings>
-  <mirrors>
-    <mirror>
-       <id>nexus-aliyun</id>
-       <mirrorOf>*</mirrorOf>
-       <name>Nexus aliyun</name>
-       <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+<pre><code>
+&lt;settings&gt;
+  &lt;mirrors&gt;
+    &lt;mirror&gt;
+       &lt;id&gt;nexus-aliyun&lt;/id&gt;
+       &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+       &lt;name&gt;Nexus aliyun&lt;/name&gt;
+       &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
     </mirror>
   </mirrors>
 </settings>
-~~~
+</code></pre>
 
+      </div>
+    </div>
+  </div>
+</div>
 
 ### 3. Import the flink-training-exercises project into your IDE
 
-The project needs to be imported into your IDE.
+The project needs to be imported as a maven project into your IDE.
 
-- IntelliJ:
-  1. Because this project mixes Java and Scala code, **you will need to install the Scala plugin**, if you don't already have it:
-    * Go to IntelliJ plugins settings (IntelliJ IDEA -> Preferences -> Plugins) and click on “Install Jetbrains plugin…”.
-    * Select and install the “Scala” plugin.
-    * Restart IntelliJ
-  1. Import the project, selecting its `pom.xml` file
-  1. At each step, accept the defaults; do not select a profile
-  1. Continue, making sure when you get to the SDK dialog that it has a valid path to a JDK and **leaving all other options to their default values**, finish the project import
-  1. Open the project structure dialog, and add a Scala 2.12 SDK in the Global Libraries section (**you'll need this even if you do not intend to use Scala**)
-- Eclipse:
-  1. Select *"File"* -> *"Import"* -> *"Maven"* -> *"Existing Maven Project"*
-  1. Tick the **Add project(s) to working set** option
-  1. You can safely ignore the scala-maven-plugin errors
+Once that's done you should be able to open `com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingTest` and successfully run this test.
 
-You should now be able to open com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingTest and successfully run this test.
+<div class="alert alert-info">
+<p>
+<strong>Note for Scala users:</strong>
+For Scala you will need to use IntelliJ with the JetBrains Scala plugin, and you will need to add a Scala 2.12 SDK to the Global Libraries section of the Project Structure.</p>
+</div>
 
 ### 4. Download the data sets
 
-You can download the taxi data files used in this training by running the following commands
+You will also need to download the taxi data files used in this training by running the following commands
 
 ~~~~
 wget http://training.ververica.com/trainingData/nycTaxiRides.gz
 wget http://training.ververica.com/trainingData/nycTaxiFares.gz
 ~~~~
 
-It doesn't matter if you use wget or something else to fetch these files, but however you get the data, **do not decompress or rename the `.gz` files**.
+It doesn't matter if you use wget or something else (like curl, or Chrome) to download these files, but however you get the data, **do not decompress or rename the `.gz` files**. Some browsers will do the wrong thing by default.
 
 To learn more about this data, see [Using the Taxi Data Streams]({{site.baseurl}}/setup/taxiData.html).
 
