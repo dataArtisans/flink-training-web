@@ -10,8 +10,8 @@ css: "/assets/css"
 js: "/assets/js"
 docs: https://ci.apache.org/projects/flink/flink-docs-stable
 ff: https://www.ververica.com/flink-forward/resources
-exercises-version: 3.0.0
-flink-version: 1.9.0
+exercises-version: 3.1.0
+flink-version: 1.10.0
 
 tests: https://github.com/ververica/flink-training-exercises/blob/master/src/test/java/com/ververica/flinktraining/exercises/datastream_java
 javasolutions: https://github.com/ververica/flink-training-exercises/blob/master/src/main/java/com/ververica/flinktraining/solutions/datastream_java
