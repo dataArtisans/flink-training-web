@@ -18,7 +18,7 @@ The initial set of exercises are all based on data streams of events about taxi 
 
 ### 2. Modify `ExerciseBase`
 
-After downloading the datasets, open the `com.dataartisans.flinktraining.exercises.datastream_java.utils.ExerciseBase` class in your IDE, and edit these two lines to point to the two taxi ride data files you have downloaded:
+After downloading the datasets, open the `com.ververica.flinktraining.exercises.datastream_java.utils.ExerciseBase` class in your IDE, and edit these two lines to point to the two taxi ride data files you have downloaded:
 
     public final static String pathToRideData =   
         "/Users/david/stuff/flink-training/trainingData/nycTaxiRides.gz";

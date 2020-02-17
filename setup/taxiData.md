@@ -56,13 +56,13 @@ tolls          : Float     // tolls for this ride
 totalFare      : Float     // total fare collected
 ~~~
 
-### 3. Generate a Taxi Ride Data Stream in a Flink program
+### 3. Generating Taxi Ride Data Streams in a Flink program
 
-**Note: Many of the exercises already provide code for working with these taxi ride data streams.**
+**Note: The exercises already provide code for working with these taxi ride data streams.**
 
 We provide a Flink source function (`TaxiRideSource`) that reads a `.gz` file with taxi ride records and emits a stream of `TaxiRide` events. The source operates in [event-time]({{ site.docs }}/dev/event_time.html). There's an analogous source function (`TaxiFareSource`) for `TaxiFare` events.
 
-In order to generate the stream as realistically as possible, events are emitted proportional to their timestamp. Two events that occurred ten minutes after each other in reality are also served ten minutes after each other. A speed-up factor can be specified to "fast-forward" the stream, i.e., given a speed-up factor of 60, events that happened within one minute are served in one second. Moreover, one can specify a maximum serving delay which causes each event to be randomly delayed within the specified bound. This yields an out-of-order stream as is common in many real-world applications.
+In order to generate these streams as realistically as possible, events are emitted proportional to their timestamp. Two events that occurred ten minutes after each other in reality are also served ten minutes after each other. A speed-up factor can be specified to "fast-forward" the stream, i.e., given a speed-up factor of 60, events that happened within one minute are served in one second. Moreover, one can specify a maximum serving delay which causes each event to be randomly delayed within the specified bound. This yields an out-of-order stream as is common in many real-world applications.
 
 For these exercises, a speed-up factor of 600 or more (i.e., 10 minutes of event time for every second of processing), and a maximum delay of 60 (seconds) will work well.
 
@@ -70,7 +70,7 @@ All exercises should be implemented using event-time characteristics. Event-time
 
 #### Checkpointing
 
-Some of the exercises will expect you to use `CheckpointedTaxiRideSource` and/or `CheckpointedTaxiFareSource` instead. Unlike `TaxiRideSource` and `TaxiFareSource`, these variants are able to checkpoint their state.
+Some of the exercises will use `CheckpointedTaxiRideSource` and/or `CheckpointedTaxiFareSource` instead. Unlike `TaxiRideSource` and `TaxiFareSource`, these variants are able to checkpoint their state.
 
 #### Table Sources
 

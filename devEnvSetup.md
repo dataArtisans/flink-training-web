@@ -7,7 +7,7 @@ nav-parent_id: setup
 nav-pos: 10
 ---
 
-The following instructions guide you through the process of setting up a development environment for the purpose of developing, debugging, and executing solutions to the training exercises and examples on this site.
+The following instructions guide you through the process of setting up a development environment for the purpose of developing, debugging, and executing solutions to the Flink developer training exercises and examples.
 
 ### 1. Software requirements
 
@@ -34,7 +34,7 @@ The `flink-training-exercises` project contains exercises, tests, and reference 
 For Java, use the java branch:
 
 ~~~bash
-git clone --branch java https://github.com/dataArtisans/flink-training-exercises.git
+git clone --branch java https://github.com/ververica/flink-training-exercises.git
 cd flink-training-exercises
 mvn clean package
 ~~~
@@ -42,7 +42,7 @@ mvn clean package
 For Scala, use the master branch:
 
 ~~~bash
-git clone https://github.com/dataArtisans/flink-training-exercises.git
+git clone https://github.com/ververica/flink-training-exercises.git
 cd flink-training-exercises
 mvn clean package
 ~~~
@@ -86,7 +86,7 @@ If you are in China, we recommend configuring maven to use a mirror. This is don
 
 The project needs to be imported as a maven project into your IDE.
 
-Once that's done you should be able to open `com.dataartisans.flinktraining.exercises.datastream_java.basics.RideCleansingTest` and successfully run this test.
+Once that's done you should be able to open `com.ververica.flinktraining.exercises.datastream_java.basics.RideCleansingTest` and successfully run this test.
 
 <div class="alert alert-info">
 <p>
@@ -105,12 +105,6 @@ wget http://training.ververica.com/trainingData/nycTaxiFares.gz
 
 It doesn't matter if you use wget or something else (like curl, or Chrome) to download these files, but however you get the data, **do not decompress or rename the `.gz` files**. Some browsers will do the wrong thing by default.
 
-To learn more about this data, see [Using the Taxi Data Streams]({{site.baseurl}}/setup/taxiData.html).
-
-Note: There's a hardwired path to these data files in the exercises. Before trying to execute them, read [How to do the Labs]({{site.baseurl}}/setup/howto-exercises.html).
-
-<hr style="margin: 0 0 10px 0" />
-
-If you want to also setup a local cluster for executing Flink jobs outside the IDE, see [Setting up a Local Flink Cluster]({{site.baseurl}}/setup/localCluster.html).
+Note: There are hardwired paths to these data files in the exercises, in `com.ververica.flinktraining.exercises.datastream_java.utils.ExerciseBase`. The tests don't use these data files, but before running the exercises, you will need to fix these paths to point to the files you have downloaded.
 
 {% next %}
