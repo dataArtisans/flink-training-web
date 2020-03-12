@@ -22,6 +22,8 @@ Briefly though, when a task manager is instructed by the checkpoint coordinator 
 
 ![checkpoint barriers are inserted into the streams]({{site.images}}/stream_barriers.svg)
 
+Checkpoint _n_ will contain the state of each operator resulting from having consumed **every event before checkpoint barrier _n_, and none of the events after it**.
+
 As each operator in the job graph receives one of these barriers, it records its state. Operators with two input streams (such as a CoProcessFunction) perform _barrier alignment_ so that the snapshot will reflect the state resulting from consuming events from both input streams up to (but not past) both barriers.
 
 ![barriers alignment]({{site.images}}/stream_aligning.svg)
