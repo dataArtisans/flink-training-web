@@ -87,7 +87,7 @@ There's a potential problem with the example above: What will happen if the key 
 
 {% java %}averageState.clear(){% endjava %}
 
-You might want to do this, for example, after a period of inactivity for a given key. We'll see how to use Timers to do this when we learn about `ProcessFunction` in the lesson on [event-driven applications]({{ site.baseurl }}/lessons/event-driven.html).
+You might want to do this, for example, after a period of inactivity for a given key. We'll see how to use Timers to do this when we learn about `ProcessFunction` in the lesson on [event-driven applications]({{ site.baseurl }}/lessons/processfunction.html).
 
 There's also a [State Time-to-Live (TTL)]({{site.docs}}/dev/stream/state/state.html#state-time-to-live-ttl) feature that was added to Flink in version 1.6. So far this has somewhat limited applicability, but can be relied upon, in some situations, to clear unneeded state.
 
