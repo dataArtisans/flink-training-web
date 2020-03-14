@@ -15,7 +15,7 @@ you want to be able to dynamically alter some aspects of the transformation -- b
 
 ![connected streams]({{site.images}}/connected-streams.svg)
 
-Connected streams can also used for implementing streaming joins, a topic that's covered in a later exercise on [enrichment joins]({{site.baseurl}}/exercises/eventTimeJoins.html).
+Connected streams can also used for implementing streaming joins, a topic that's covered in a later exercises.
 
 ## Example
 
@@ -64,7 +64,7 @@ public static class ControlFunction extends RichCoFlatMapFunction<String, String
 
 A `RichCoFlatMapFunction` is a kind of FlatMapFunction that can be applied to a pair of connected streams, and has access to the rich function interface -- which we will take advantage of in this case to make it stateful. 
 
-The `blocked` Boolean is being used to remember the keys (or the words) that have been mentioned on the `control` stream, and those words are being filtered from the `streamOfWords` stream. This is _keyed_ state, and it is shared between the two streams, which is why the two streams have to have the same set of keys.
+The `blocked` Boolean is being used to remember the keys (or the words) that have been mentioned on the `control` stream, and those words are being filtered from the `streamOfWords` stream. This is _keyed_ state, and it is shared between the two streams, which is why the two streams have to share the same keyspace.
 
 `flatMap1` and `flatMap2` are called by the Flink runtime with elements from each of the two connected streams -- in our case, elements from the `control` stream are passed into `flatMap1`, and elements from `streamOfWords` are passed into `flatMap2`. This was determined by the order in which we connected the two streams via `control.connect(datastreamOfWords)`. 
 

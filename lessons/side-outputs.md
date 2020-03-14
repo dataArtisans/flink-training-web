@@ -7,7 +7,7 @@ nav-parent_id: event-driven
 nav-pos: 20
 ---
 
-There are several good reasons to want to have more than one output stream from your Flink pipeline, such as reporting:
+There are several good reasons to want to have more than one output stream from a Flink operator, such as reporting:
 
 * exceptions
 * malformed events

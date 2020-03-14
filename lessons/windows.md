@@ -238,10 +238,6 @@ Windows are only created when events are assigned to them. So if there are no ev
 
 Session windows are based on an abstraction of windows that can _merge_. Each element is initially assigned to a new window, after which windows are merged whenever the gap between them is small enough. In this way, a late event can bridge the gap separating two previously separate sessions, producing a late merge.
 
-#### Evictors are Incompatible with Incremental Aggregation
-
-This is true simply by definition -- you can't evict elements you didn't store. But this means that designs that depend on using Evictors are adopting something of an anti-pattern.
-
 ## Further Reading
 
 - [Introducing Stream Windows in Apache Flink](http://flink.apache.org/news/2015/12/04/Introducing-windows.html) (Apache Flink blog)

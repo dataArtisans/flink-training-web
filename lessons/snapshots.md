@@ -18,11 +18,11 @@ nav-pos: 20
 
 Flink uses a variant of the [Chandy-Lamport algorithm](https://en.wikipedia.org/wiki/Chandy-Lamport_algorithm) known as _asynchronous barrier snapshotting_.  This mechanism is described in detail in the Apache Flink project's documentation ([link]({{site.docs}}/internals/stream_checkpointing.html)). 
 
-Briefly though, when a task manager is instructed by the checkpoint coordinator (in the job manager) to begin a checkpoint, it has all of the sources record their offsets and insert numbered _checkpoint barriers_ into their streams. These barriers flow through the job graph, indicating the part of the stream before and after each checkpoint. 
+Briefly though, when a task manager is instructed by the checkpoint coordinator (part of the job manager) to begin a checkpoint, it has all of the sources record their offsets and insert numbered _checkpoint barriers_ into their streams. These barriers flow through the job graph, indicating the part of the stream before and after each checkpoint. 
 
 ![checkpoint barriers are inserted into the streams]({{site.images}}/stream_barriers.svg)
 
-Checkpoint _n_ will contain the state of each operator resulting from having consumed **every event before checkpoint barrier _n_, and none of the events after it**.
+Checkpoint _n_ will contain the state of each operator that resulted from having consumed **every event before checkpoint barrier _n_, and none of the events after it**.
 
 As each operator in the job graph receives one of these barriers, it records its state. Operators with two input streams (such as a CoProcessFunction) perform _barrier alignment_ so that the snapshot will reflect the state resulting from consuming events from both input streams up to (but not past) both barriers.
 
@@ -65,6 +65,5 @@ From the documentation:
 From Flink Forward:
 
 - [How to build a modern stream processor: The science behind Apache Flink]({{site.ff}}/how-to-build-a-modern-stream-processor-the-science-behind-apache-flink)
-
 
 {% next %}

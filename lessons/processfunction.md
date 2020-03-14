@@ -93,11 +93,11 @@ Things to consider:
 
 * What happens with late events? Events that are behind the watermark (i.e., late) are being dropped. If you want to do something better than this, consider using a side output, which is explained in the [next section]({{ site.baseurl }}/lessons/side-outputs.html).
 
-* We are setting an event-time timer for `event.timestamp`. This is actually a very common pattern. You can think of this as saying "please wake up me when all of the out-of-orderness affecting earlier events has been resolved." 
+* We are setting an event-time timer for `event.timestamp`. This is actually a very common pattern. You can think of this as saying "Please wake me when all of the out-of-orderness affecting earlier events than this one has been resolved." 
 
 #### onTimer()
 
-When the time does come that all of that out-of-orderness potentially affecting earlier events is no longer an issue, we can release all the events in the queue that are ahead of the watermark. They are correctly sorted, ready to go, and anything earlier should have arrived by now, assuming you can trust your watermarks. 
+When the time does come that that out-of-orderness is no longer an issue, we can release all the events in the queue that are ahead of the current watermark. They are correctly sorted, ready to go, and anything earlier should have arrived by now, assuming you can trust your watermarks. 
 
 There might be more than one event to release, because there could be several events with the same timestamp. Flink de-duplicates timers -- it will only create one timer for a given timestamp and key -- so we're not guaranteed a one-to-one relationship between timers and events.
 
@@ -114,6 +114,14 @@ public void onTimer(long timestamp, OnTimerContext context, Collector<ConnectedC
 	}
 }
 {% endjava %}
+
+## Performance Considerations
+
+You should be aware that this is _not_ a good way to implement a sort if you are using the RocksDB state backend. With RocksDB, your working state lives as serialized bytes, on disk. This means that every state access requires deserialization, which in this case means deserializing the entire `PriorityQueue`. Updates are similarly expensive.
+
+Flink provides `MapState` and `ListState` types that are optimized for RocksDB. Where possible, these should be used instead of a `ValueState` object holding some sort of collection. The RocksDB state backend can append to `ListState` without going through ser/de, and for `MapState`, each key/value pair is a separate RocksDB object, so `MapState` can be efficiently accessed and updated.
+
+Thus a better approach to sorting a stream is to buffer the out-of-order stream in a `MapState<Long, List<Event>>`, where the keys are timestamps, and the values are lists of stream elements all having the same timestamp. This is is more-or-less what is done internally by Flink's SQL and CEP libraries when they need to sort.
 
 ## Further Reading
 

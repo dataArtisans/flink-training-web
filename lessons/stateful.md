@@ -79,7 +79,7 @@ public static class Smoother extends RichMapFunction<Tuple2<String, Double>, Tup
 }
 {% endjava %}
 
-The map method in our `Smoother` is responsible for using a `MovingAverage` to smooth each event. Each time map is called with an event, that event is associated with a particular key (i.e., a particular sensor), and the methods on our `ValueState` object -- `averageState` -- are implicitly scoped to operate with the key for that sensor in context. So in other words, calling `averageState.value()` returns the current `MovingAverage` object for the appropriate sensor, so when we call `average.add(item.f1)` we are adding this event to the previous events for the same key (i.e., the same sensor).
+The map method in our `Smoother` is responsible for using a `MovingAverage` to smooth each event. Each time map is called with an event, that event is associated with a particular key (i.e., a particular sensor), and the methods on our `ValueState` object -- `averageState` -- are implicitly scoped to operate with state that is bound to that key. So in other words, calling `averageState.value()` returns the current `MovingAverage` object for the appropriate sensor, so when we call `average.add(item.f1)` we are adding this event to the previous events for the same key (i.e., the same sensor).
 
 ## Clearing State
 
@@ -89,7 +89,7 @@ There's a potential problem with the example above: What will happen if the key 
 
 You might want to do this, for example, after a period of inactivity for a given key. We'll see how to use Timers to do this when we learn about `ProcessFunction` in the lesson on [event-driven applications]({{ site.baseurl }}/lessons/processfunction.html).
 
-There's also a [State Time-to-Live (TTL)]({{site.docs}}/dev/stream/state/state.html#state-time-to-live-ttl) feature that was added to Flink in version 1.6. So far this has somewhat limited applicability, but can be relied upon, in some situations, to clear unneeded state.
+There's also a [State Time-to-Live (TTL)]({{site.docs}}/dev/stream/state/state.html#state-time-to-live-ttl) feature that was added to Flink in version 1.6. You can use to this to specify when you want the state for stale keys to be automatically cleared.
 
 ## Non-keyed State
 

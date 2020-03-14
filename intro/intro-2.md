@@ -11,7 +11,7 @@ Flink's DataStream APIs for Java and Scala will let you stream anything they can
 - basic types, i.e., String, Long, Integer, Boolean, Array
 - composite types: Tuples, POJOs, and Scala case classes
 
-and Flink falls back to Kryo for other types.
+and Flink falls back to Kryo for other types. It's also possible to use other serializers with Flink. Avro, in particular, is well supported.
 
 ### Java
 

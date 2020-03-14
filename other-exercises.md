@@ -1,6 +1,6 @@
 ---
 gated: true
-title: More Labs
+title: Extra Labs
 nav-id: others
 nav-parent_id: root
 nav-pos: 100

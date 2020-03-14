@@ -57,11 +57,11 @@ public class Example {
 
 Every Flink application needs an execution environment, `env` in this example. Streaming applications should use a `StreamExecutionEnvironment`.
 
-The DataStream API calls made in your application build a job graph that is attached to the `StreamExecutionEnvironment`. When `env.execute()` is called this graph is packaged up and sent to the Job Manager, which parallelizes the job and distributes slices of it to the Task Managers for execution. Each parallel slice of your job will be executed in a *task slot*.
+The DataStream API calls made in your application build a job graph that is attached to the `StreamExecutionEnvironment`. When `env.execute()` is called this graph is packaged up and sent to the Flink Master, which parallelizes the job and distributes slices of it to the Task Managers for execution. Each parallel slice of your job will be executed in a *task slot*.
 
 Note that if you don't call execute(), your application won't be run.
 
-![Flink runtime: client, job manager, task managers](https://ci.apache.org/projects/flink/flink-docs-release-1.3/fig/processes.svg)
+![Flink runtime: client, job manager, task managers]({{site.images}}/distributed-runtime.svg)
 
 This distributed runtime depends on your application being serializable. It also requires that all dependencies are available to each node in the cluster.
 
@@ -122,5 +122,12 @@ In production, commonly used sinks include Kafka as well as various databases an
 ### Debugging
 
 In production you will submit an application JAR file to a remote cluster where your application will run. If it fails, it will also fail remotely. The job manager and task manager logs can be very helpful in debugging such failures, but it's much easier to do local debugging inside an IDE, which is something that Flink supports. You can set breakpoints, examine local variables, and step through your code. You can also step into Flink's code, which can be a great way to learn more about its internals if you are curious to see how Flink works.
+
+## Further Reading
+
+- [Data Sources]({{ site.docs }}/dev/datastream_api.html#data-sources) (Apache Flink Documentation)
+- [Data Sinks]({{ site.docs }}/dev/datastream_api.html#data-sinks) (Apache Flink Documentation)
+- [Streaming Connectors]({{ site.docs }}/dev/connectors) (Apache Flink Documentation)
+- [Remote Debugging of Flink Clusters](https://cwiki.apache.org/confluence/display/FLINK/Remote+Debugging+of+Flink+Clusters)
 
 {% next %}

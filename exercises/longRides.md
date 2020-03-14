@@ -3,6 +3,8 @@ gated: true
 layout: page
 title: Long Ride Alerts
 permalink: /exercises/longRides.html
+nav-parent_id: others
+nav-pos: 5
 ---
 
 The goal of the "Long Ride Alerts" exercise is to indicate whenever a taxi ride started two hours ago, and is still ongoing.

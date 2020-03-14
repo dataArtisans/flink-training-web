@@ -21,7 +21,7 @@ Every keyBy causes a network shuffle that repartitions the stream. In general th
 
 ![keyBy and network shuffle]({{site.images}}/keyBy.png)
 
-In the example above, the key has been specified by its name, "startCell". This style of key selection has the drawback that the compiler is unable to infer the type of the field being used for keying, and so Flink will pass around the key values as Tuples, which can be awkward. It is generally preferable to use a properly typed KeySelector, e.g.,
+In the example above, the key has been specified by a field name, "startCell". This style of key selection has the drawback that the compiler is unable to infer the type of the field being used for keying, and so Flink will pass around the key values as Tuples, which can be awkward. It is generally preferable to use a properly typed KeySelector, e.g.,
 
 {% java %}
 rides
@@ -49,17 +49,17 @@ This bit of code creates a new stream of tuples containing the `startCell` and d
 
 {% java %}
 DataStream<Tuple2<Integer, Minutes>> minutesByStartCell = enrichedNYCRides
-    .flatMap(new FlatMapFunction<EnrichedRide, Tuple2<Integer, Minutes>>() {
-      @Override
-      public void flatMap(EnrichedRide ride,
-                Collector<Tuple2<Integer, Minutes>> out) throws Exception {
-        if (!ride.isStart) {
-          Interval rideInterval = new Interval(ride.startTime, ride.endTime);
-          Minutes duration = rideInterval.toDuration().toStandardMinutes();
-          out.collect(new Tuple2<>(ride.startCell, duration));
-        }
+  .flatMap(new FlatMapFunction<EnrichedRide, Tuple2<Integer, Minutes>>() {
+    @Override
+    public void flatMap(EnrichedRide ride,
+              Collector<Tuple2<Integer, Minutes>> out) throws Exception {
+      if (!ride.isStart) {
+        Interval rideInterval = new Interval(ride.startTime, ride.endTime);
+        Minutes duration = rideInterval.toDuration().toStandardMinutes();
+        out.collect(new Tuple2<>(ride.startCell, duration));
       }
-    });
+    }
+  });
 {% endjava %}
 
 We are now in a position to produce a stream that contains only those rides that are the longest rides ever seen (to that point) for each `startCell`.
@@ -68,9 +68,9 @@ There are a variety of ways that the field to use as the key can be expressed. E
 
 {% java %}
 minutesByStartCell
-    .keyBy(0) // startCell
-    .maxBy(1) // duration
-    .print();
+  .keyBy(0) // startCell
+  .maxBy(1) // duration
+  .print();
 {% endjava %}
 
 In the output stream we see a record for each key every time the duration reaches a new maximum -- as we see here with cell 50797:
