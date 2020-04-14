@@ -93,7 +93,7 @@ Note that the constructor for `BoundedOutOfOrdernessTimestampExtractor` takes a 
 
 ## Further Reading
 
-- [How Apache Flink™ Enables New Streaming Applications](https://ververica.com/blog/how-apache-flink-enables-new-streaming-applications-part-1) (dA blog)
+- [How Apache Flink™ Enables New Streaming Applications](https://ververica.com/blog/how-apache-flink-enables-new-streaming-applications-part-1) (Ververica blog)
 - [Event Time]({{ site.docs }}/dev/event_time.html) (Apache Flink Documentation)
 - [Generating Timestamps / Watermarks]({{ site.docs }}/dev/event_timestamps_watermarks.html) (Apache Flink Documentation)
 
