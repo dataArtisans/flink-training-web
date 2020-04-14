@@ -9,10 +9,6 @@ nav-pos: 10
 
 ## Introduction
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zL5JWWgm3xA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## Event Time
-
 Flink explicitly supports three different notions of time:
 
 * _event time:_ the time when an event occurred, as recorded by the device producing the event
